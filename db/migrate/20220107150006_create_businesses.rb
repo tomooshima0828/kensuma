@@ -13,6 +13,7 @@ class CreateBusinesses < ActiveRecord::Migration[6.1]
       t.string :carrier_up_id
       t.json :stamp_images
       t.integer :business_type, :null => false
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
