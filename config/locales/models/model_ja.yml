@@ -1,0 +1,18 @@
+ja:
+  activerecord:
+    models:
+      business: 事業部
+    attributes:
+      business:
+        uuid: 事業所ID
+        name: 事業所名
+        name_kane: 事業所名(カナ)
+        branch_name: 支店名、営業所名
+        representative_name: 代表者名
+        email: 事業所メールアドレス
+        address: 住所
+        post_code: 郵便番号
+        phone_number: 電話番号
+        carrier_up_id: 事業者ID
+        stamp_images: 電子印
+        business_type: 会社形態
