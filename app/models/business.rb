@@ -1,6 +1,4 @@
 class Business < ApplicationRecord
-  before_create -> { self.uuid = SecureRandom.uuid }
-
   belongs_to :user
 
   validates :uuid, presence: true

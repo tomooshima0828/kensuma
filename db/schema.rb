@@ -62,8 +62,10 @@ ActiveRecord::Schema.define(version: 2022_01_07_150006) do
     t.string "carrier_up_id"
     t.json "stamp_images"
     t.integer "business_type", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_businesses_on_user_id"
   end
 
   create_table "managers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -123,4 +125,5 @@ ActiveRecord::Schema.define(version: 2022_01_07_150006) do
   end
 
   add_foreign_key "articles", "users"
+  add_foreign_key "businesses", "users"
 end
