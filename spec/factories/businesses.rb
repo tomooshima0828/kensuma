@@ -10,8 +10,8 @@ FactoryBot.define do
     sequence(:email) { |n| "test#{n}@example.com" }
     address { "TEST" }
     post_code { "0120123" }
-    phone_number { "090-0123-0123" }
-    carrier_up_id { "0001" }
+    phone_number { "09001230123" }
+    carrier_up_id { "1" }
     business_type { 0 }
   end
 end

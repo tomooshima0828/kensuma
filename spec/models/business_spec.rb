@@ -62,6 +62,26 @@ RSpec.describe Business, type: :model do
           subject.valid?
           expect(subject.errors.full_messages).to include('Name kanaを入力してください')
         end
+
+        %i[
+        てすときぎょう
+        TEST企業
+      ].each do |name_kana|
+        context '不正なname_kanaの場合' do
+          before :each do
+            subject.name_kana = name_kana
+          end
+
+          it 'バリデーションに落ちること' do
+            expect(subject).to be_invalid
+          end
+
+          it 'バリデーションのエラーが正しいこと' do
+            subject.valid?
+            expect(subject.errors.full_messages).to include('Name kanaはカタカナで入力して下さい。')
+          end
+        end
+      end
       end
     end
 
@@ -115,22 +135,6 @@ RSpec.describe Business, type: :model do
         end
       end
 
-      context 'uniqueでない場合' do
-        before :each do
-          business = create(:business)
-          subject.email = business.email
-        end
-
-        it 'バリデーションに落ちること' do
-          expect(subject).to be_invalid
-        end
-
-        it 'バリデーションのエラーが正しいこと' do
-          subject.valid?
-          expect(subject.errors.full_messages).to include('Emailはすでに存在します')
-        end
-      end
-
       %i[
         email0.com
         あああ.com
@@ -154,72 +158,116 @@ RSpec.describe Business, type: :model do
       end
     end
 
-    # describe '#address' do
-    #   context '存在しない場合' do
-    #     before :each do
-    #       subject.address = nil
-    #     end
+    describe '#address' do
+      context '存在しない場合' do
+        before :each do
+          subject.address = nil
+        end
 
-    #     it 'バリデーションが通ること' do
-    #       expect(subject).to be_valid
-    #     end
+        it 'バリデーションが通ること' do
+          expect(subject).to be_invalid
+        end
 
-    #     it 'バリデーションのエラーが正しいこと' do
-    #       subject.valid?
-    #       expect(subject.errors.full_messages).to include('住所を入力してください')
-    #     end
-    #   end
-    # end
+        it 'バリデーションのエラーが正しいこと' do
+          subject.valid?
+          expect(subject.errors.full_messages).to include('Addressを入力してください')
+        end
+      end
+    end
 
-    # describe '#post_code' do
-    #   context '存在しない場合' do
-    #     before :each do
-    #       subject.post_code = nil
-    #     end
+    describe '#post_code' do
+      context '存在しない場合' do
+        before :each do
+          subject.post_code = nil
+        end
 
-    #     it 'バリデーションが通ること' do
-    #       expect(subject).to be_valid
-    #     end
+        it 'バリデーションが通ること' do
+          expect(subject).to be_invalid
+        end
 
-    #     it 'バリデーションのエラーが正しいこと' do
-    #       subject.valid?
-    #       expect(subject.errors.full_messages).to include('郵便番号を入力してください')
-    #     end
-    #   end
-    # end
+        it 'バリデーションのエラーが正しいこと' do
+          subject.valid?
+          expect(subject.errors.full_messages).to include('Post codeを入力してください')
+        end
+      end
 
-    # describe '#phone_number' do
-    #   context '存在しない場合' do
-    #     before :each do
-    #       subject.phone_number = nil
-    #     end
+      %i[
+        01234567
+        0123
+        012345
+        012-3456
+      ].each do |post_code|
+        context '不正なpost_codeの場合' do
+          before :each do
+            subject.post_code = post_code
+          end
 
-    #     it 'バリデーションが通ること' do
-    #       expect(subject).to be_valid
-    #     end
+          it 'バリデーションに落ちること' do
+            expect(subject).to be_invalid
+          end
 
-    #     it 'バリデーションのエラーが正しいこと' do
-    #       subject.valid?
-    #       expect(subject.errors.full_messages).to include('電話番号を入力してください')
-    #     end
-    #   end
-    # end
+          it 'バリデーションのエラーが正しいこと' do
+            subject.valid?
+            expect(subject.errors.full_messages).to include('Post codeは不正な値です')
+          end
+        end
+      end
+    end
 
-    # describe '#business_type' do
-    #   context '存在しない場合' do
-    #     before :each do
-    #       subject.business_type = nil
-    #     end
+    describe '#phone_number' do
+      context '存在しない場合' do
+        before :each do
+          subject.phone_number = nil
+        end
 
-    #     it 'バリデーションが通ること' do
-    #       expect(subject).to be_valid
-    #     end
+        it 'バリデーションが通ること' do
+          expect(subject).to be_invalid
+        end
 
-    #     it 'バリデーションのエラーが正しいこと' do
-    #       subject.valid?
-    #       expect(subject.errors.full_messages).to include('会社形態を入力してください')
-    #     end
-    #   end
-    # end
+        it 'バリデーションのエラーが正しいこと' do
+          subject.valid?
+          expect(subject.errors.full_messages).to include('Phone numberを入力してください')
+        end
+      end
+
+      %i[
+        012345678987
+        012345678
+        012-3456-7898
+        012/3456/7898
+      ].each do |phone_number|
+        context '不正なphone_numberの場合' do
+          before :each do
+            subject.phone_number  = phone_number 
+          end
+
+          it 'バリデーションに落ちること' do
+            expect(subject).to be_invalid
+          end
+
+          it 'バリデーションのエラーが正しいこと' do
+            subject.valid?
+            expect(subject.errors.full_messages).to include('Phone numberは不正な値です')
+          end
+        end
+      end
+    end
+
+    describe '#business_type' do
+      context '存在しない場合' do
+        before :each do
+          subject.business_type = nil
+        end
+
+        it 'バリデーションが通ること' do
+          expect(subject).to be_invalid
+        end
+
+        it 'バリデーションのエラーが正しいこと' do
+          subject.valid?
+          expect(subject.errors.full_messages).to include('Business typeを入力してください')
+        end
+      end
+    end
   end
 end
