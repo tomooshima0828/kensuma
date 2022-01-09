@@ -113,7 +113,7 @@ ActiveRecord::Schema.define(version: 2022_01_08_142854) do
     t.string "name"
     t.integer "age"
     t.integer "gender"
-    t.integer "role"
+    t.integer "role", default: 1
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
