@@ -1,0 +1,33 @@
+
+<%= f.label :uuid %>
+<%= f.text_field :uuid, class: "form-control", placeholder: "Enter uuid" %>
+<br>
+<%= f.label :name %>
+<%= f.text_field :name, class: "form-control", placeholder: "Enter name" %>
+<br>
+<%= f.label :name_kana %>
+<%= f.text_field :name_kana, class: "form-control", placeholder: "Enter name kana" %>
+<br>
+<%= f.label :branch_name %>
+<%= f.text_field :branch_name, class: "form-control", placeholder: "Enter branch name" %>
+<br>
+<%= f.label :representative_name %>
+<%= f.text_field :representative_name, class: "form-control", placeholder: "Enter representative name" %>
+<br>
+<%= f.label :email %>
+<%= f.email_field :email, class: "form-control", placeholder: "Enter email" %>
+<br>
+<%= f.label :address %>
+<%= f.text_field :address, class: "form-control", placeholder: "Enter address" %>
+<br>
+<%= f.label :post_code %>
+<%= f.text_field :post_code, class: "form-control", placeholder: "Enter post code" %>
+<br>
+<%= f.label :phone_number %>
+<%= f.text_field :phone_number, class: "form-control", placeholder: "Enter phone number" %>
+<br>
+<%= f.label :carrier_up_id %>
+<%= f.text_field :carrier_up_id, class: "form-control", placeholder: "Enter carrier_up_id" %>
+<br>
+<%= f.label :business_type%>
+<%= f.select :business_type, Business.business_types.keys.to_a, {}, class: "form-control"%>
