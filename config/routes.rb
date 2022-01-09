@@ -14,8 +14,10 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
     registrations: 'users/registrations'
   }
 
-  devise_for :admins, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+  scope :_system_ do
+    devise_for :admins, ActiveAdmin::Devise.config
+    ActiveAdmin.routes(self)
+  end
 
   devise_for :managers, controllers: {
     sessions:      'managers/sessions',
