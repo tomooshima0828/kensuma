@@ -16,4 +16,5 @@ class User < ApplicationRecord
   validates :age,   allow_nil: true, numericality: { greater_than_or_equal_to: 10 }
 
   enum gender: { male: 0, female: 1, other: 2 }
+  enum role: { admin: 0, general: 1 }
 end
