@@ -28,11 +28,12 @@ manager = Manager.new(
 manager.skip_confirmation! # deviseの確認メールをスキップ
 manager.save!
 
-admin = Admin.new(
-  email: 'test_admin@gmail.com',
-  name: 'テストadmin1',
-  password: 'password'
-)
+# admin = Admin.new(
+#   email: 'test_admin@gmail.com',
+#   name: 'テストadmin1',
+#   password: 'password'
+# )
 
-admin.skip_confirmation! # deviseの確認メールをスキップ
-admin.save!
+# admin.skip_confirmation! # deviseの確認メールをスキップ
+# admin.save!
+Admin.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

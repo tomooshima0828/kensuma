@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     when User
       users_dash_boards_path
     when Admin
-      admins_dash_boards_path
+      admin_dashboard_path
     when Manager
       managers_dash_boards_path
     end
