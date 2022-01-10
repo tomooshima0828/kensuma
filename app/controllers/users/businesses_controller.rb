@@ -35,7 +35,7 @@ module Users
     private
 
       def business_params
-        params.require(:business).permit(:uuid, :name, :name_kana, :branch_name, :representative_name, :email, :address, :post_code, :phone_number, :carrier_up_id, :business_type, :user_id)
+        params.require(:business).permit(:uuid, :name, :name_kana, :branch_name, :representative_name, :email, :address, :post_code, :phone_number, :carrier_up_id, :business_type, {stamp_images: []}, :user_id)
       end
   end
 end
