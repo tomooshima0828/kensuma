@@ -40,7 +40,8 @@ gem 'rails-i18n', '~> 6.0'
 
 gem 'dotenv-rails'
 
-gem 'carrierwave'
+gem 'carrierwave', '~> 2.0'
+gem 'rmagick'
 
 group :development, :test do
   # ERD生成

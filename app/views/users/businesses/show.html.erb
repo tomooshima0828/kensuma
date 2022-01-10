@@ -42,6 +42,7 @@
         </tr>
       </tbody>
     </table>
+      <%= image_tag @business.stamp_images.thumb.url %>
   </div>
   <div class="card-footer">
     <%= link_to "編集", edit_users_businesses_path, class: "btn btn-md btn-block btn-success" %>
