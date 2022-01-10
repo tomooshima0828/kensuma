@@ -1,3 +1,4 @@
+<%= render 'shared/error_massages', object: f.object %>
 
 <%= f.label :uuid %>
 <%= f.text_field :uuid, class: "form-control", placeholder: "Enter uuid" %>
@@ -30,4 +31,6 @@
 <%= f.text_field :carrier_up_id, class: "form-control", placeholder: "Enter carrier_up_id" %>
 <br>
 <%= f.label :business_type%>
-<%= f.select :business_type, Business.business_types.keys.to_a, {}, class: "form-control"%>
+<%= f.select :business_type, Business.business_types.keys.to_a, {}, class: "form-control" %>
+
+<%= f.hidden_field :user_id, value: current_user.id %>

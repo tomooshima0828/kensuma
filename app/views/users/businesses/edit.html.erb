@@ -7,7 +7,8 @@
       <%= render partial: "form", locals: { f: f } %>
   </div>
   <div class="card-footer">
-      <%= f.submit yield(:btn_text), class: "btn btn-primary" %>
+      <%= f.submit yield(:btn_text), class: "btn btn-md btn-block btn-success" %>
+      <%= link_to "戻る", users_businesses_path, class: "btn btn-md btn-block btn-default" %>
   </div>
     <% end %>
 </div>
