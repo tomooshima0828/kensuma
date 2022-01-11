@@ -4,7 +4,7 @@
 <div class="card">
   <div class="card-body">
     <%= form_with model: @business, url: users_businesses_path, method: :patch, local: true do |f| %>
-      <%= render partial: "form", locals: { f: f } %>
+      <%= render partial: "form", locals: { f: f, business: @business } %>
   </div>
   <div class="card-footer">
       <%= f.submit yield(:btn_text), class: "btn btn-md btn-block btn-success" %>

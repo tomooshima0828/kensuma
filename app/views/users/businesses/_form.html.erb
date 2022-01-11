@@ -33,7 +33,12 @@
 <%= f.label :business_type%>
 <%= f.select :business_type, Business.business_types.keys.to_a, {}, class: "form-control" %>
 <br>
+<% business.stamp_images.each do |image| %>
+  <%= image_tag(image.url) %>
+<% end %>
+<br>
 <%= f.label :stamp_images %>
 <%= f.file_field :stamp_images, multiple: true, class: "form-control" %>
+<%= f.hidden_field :stamp_images_cache %>
 
 <%= f.hidden_field :user_id, value: current_user.id %>
