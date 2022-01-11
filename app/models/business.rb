@@ -1,6 +1,6 @@
 class Business < ApplicationRecord
   belongs_to :user
-  mount_uploader :stamp_images, StampImagesUploader
+  mount_uploaders :stamp_images, StampImagesUploader
   before_create -> { self.uuid = SecureRandom.uuid }
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

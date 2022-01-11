@@ -40,9 +40,17 @@
           <th><%= Business.human_attribute_name(:business_type) %></th>
           <td><%= @business.business_type %></td>
         </tr>
+        <tr>
+          <th><%= Business.human_attribute_name(:stamp_images) %></th>
+          <td>
+            <% @business.stamp_images.each do |image| %>
+              <%= image_tag(image.url) %>
+            <% end %>
+          </td>
+        </tr>
       </tbody>
     </table>
-      <%= image_tag @business.stamp_images.thumb.url %>
+      
   </div>
   <div class="card-footer">
     <%= link_to "編集", edit_users_businesses_path, class: "btn btn-md btn-block btn-success" %>

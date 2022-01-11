@@ -1,5 +1,11 @@
 class StampImagesUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
+  
+  # 画像の上限を700pxにする
+  process :resize_to_limit => [100, 100]
+
+  # 保存形式をJPGにする
+  process :convert => 'jpg'
 
   storage :file
 
@@ -7,18 +13,9 @@ class StampImagesUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  # リサイズしたり画像形式を変更するのに必要
-  include CarrierWave::RMagick
-
-  # 画像の上限を700pxにする
-  process :resize_to_limit => [700, 700]
-
-  # 保存形式をJPGにする
-  process :convert => 'jpg'
-
   # サムネイルを生成する設定
   version :thumb do
-    process :resize_to_limit => [300, 300]
+    process :resize_to_limit => [100, 100]
   end
 
   # jpg,jpeg,gif,pngしか受け付けない
