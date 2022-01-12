@@ -32,31 +32,22 @@ module Users
     def show
     end
     
-    def stamp_images_create
-      @business.remove_stamp_images!
-      @business.save
-      redirect_to users_business_path
+    def stamp_images_add
+      stamp_images = @business.stamp_images 
+      stamp_images + new_stamp_images
+      @business.stamp_images = images
+      flash[:error] = "Failed uploading images" unless @gallery.save
+      redirect_to :back
     end
 
 
     def stamp_images_delete
-      binding.pry
       remain_stamp_images = @business.stamp_images
-      binding.pry
-        if index == 0 && @business.stamp_images.size == 1
-          binding.pry
-          @business.remove_stamp_images!
-          binding.pry
-        else
-          binding.pry
-          deleted_stamp_image = remain_stamp_images.delete_at(index)
-          binding.pry
-          deleted_stamp_image.try(:remove!)
-          binding.pry
-          @business.stamp_images = remain_stamp_images
-          binding.pry
-        end
-        binding.pry
+
+      deleted_stamp_image = remain_stamp_images.delete_at(params[:index].to_i)
+      deleted_stamp_image.try(:remove!)
+      @business.update!(stamp_images: remain_stamp_images)
+
       flash[:danger] = "削除しました"
       redirect_to edit_users_businesses_path
     end
@@ -68,8 +59,8 @@ module Users
       end
 
       def business_params
-        params.require(:business).permit(:uuid, :name, :name_kana, :branch_name, :representative_name, :email, :address, :post_code, :phone_number, :carrier_up_id, :business_type, { stamp_images: [] }, { stamp_images_cache: [] }, { remove_stamp_images: [] }, :user_id)
+        params.require(:business).permit(:uuid, :name, :name_kana, :branch_name, :representative_name, :email, :address, :post_code, :phone_number, :carrier_up_id, :business_type, { stamp_images: [] }, :user_id)
       end
-      
+
   end
 end
