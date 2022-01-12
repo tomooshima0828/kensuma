@@ -31,11 +31,34 @@ module Users
 
     def show
     end
-
-    def stamp_images_delete
+    
+    def stamp_images_create
       @business.remove_stamp_images!
       @business.save
       redirect_to users_business_path
+    end
+
+
+    def stamp_images_delete
+      binding.pry
+      remain_stamp_images = @business.stamp_images
+      binding.pry
+        if index == 0 && @business.stamp_images.size == 1
+          binding.pry
+          @business.remove_stamp_images!
+          binding.pry
+        else
+          binding.pry
+          deleted_stamp_image = remain_stamp_images.delete_at(index)
+          binding.pry
+          deleted_stamp_image.try(:remove!)
+          binding.pry
+          @business.stamp_images = remain_stamp_images
+          binding.pry
+        end
+        binding.pry
+      flash[:danger] = "削除しました"
+      redirect_to edit_users_businesses_path
     end
 
     private

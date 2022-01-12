@@ -1,2 +1,0 @@
-class StampImagesController < ApplicationController
-end
