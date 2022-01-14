@@ -8,8 +8,8 @@ RSpec.describe User, type: :model do
   end
 
   describe 'バリデーションについて' do
-    subject do
-      user
+    before do
+      sign_in(user)
     end
 
     it 'バリデーションが通ること' do
