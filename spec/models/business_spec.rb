@@ -26,7 +26,7 @@ RSpec.describe Business, type: :model do
 
         it 'バリデーションのエラーが正しいこと' do
           subject.valid?
-          expect(subject.errors.full_messages).to include('Uuidを入力してください')
+          expect(subject.errors.full_messages).to include('事業所IDを入力してください')
         end
       end
     end
@@ -43,7 +43,7 @@ RSpec.describe Business, type: :model do
 
         it 'バリデーションのエラーが正しいこと' do
           subject.valid?
-          expect(subject.errors.full_messages).to include('Nameを入力してください')
+          expect(subject.errors.full_messages).to include('事業所名を入力してください')
         end
       end
     end
@@ -97,7 +97,7 @@ RSpec.describe Business, type: :model do
 
         it 'バリデーションのエラーが正しいこと' do
           subject.valid?
-          expect(subject.errors.full_messages).to include('Branch nameを入力してください')
+          expect(subject.errors.full_messages).to include('支店名、営業所名を入力してください')
         end
       end
     end
@@ -114,7 +114,7 @@ RSpec.describe Business, type: :model do
 
         it 'バリデーションのエラーが正しいこと' do
           subject.valid?
-          expect(subject.errors.full_messages).to include('Representative nameを入力してください')
+          expect(subject.errors.full_messages).to include('代表者名を入力してください')
         end
       end
     end
@@ -131,7 +131,7 @@ RSpec.describe Business, type: :model do
 
         it 'バリデーションのエラーが正しいこと' do
           subject.valid?
-          expect(subject.errors.full_messages).to include('Emailを入力してください')
+          expect(subject.errors.full_messages).to include('事業所メールアドレスを入力してください')
         end
       end
 
@@ -152,7 +152,7 @@ RSpec.describe Business, type: :model do
 
           it 'バリデーションのエラーが正しいこと' do
             subject.valid?
-            expect(subject.errors.full_messages).to include('Emailは不正な値です')
+            expect(subject.errors.full_messages).to include('事業所メールアドレスは不正な値です')
           end
         end
       end
@@ -170,7 +170,7 @@ RSpec.describe Business, type: :model do
 
         it 'バリデーションのエラーが正しいこと' do
           subject.valid?
-          expect(subject.errors.full_messages).to include('Addressを入力してください')
+          expect(subject.errors.full_messages).to include('住所を入力してください')
         end
       end
     end
@@ -187,7 +187,7 @@ RSpec.describe Business, type: :model do
 
         it 'バリデーションのエラーが正しいこと' do
           subject.valid?
-          expect(subject.errors.full_messages).to include('Post codeを入力してください')
+          expect(subject.errors.full_messages).to include('郵便番号を入力してください')
         end
       end
 
@@ -208,7 +208,7 @@ RSpec.describe Business, type: :model do
 
           it 'バリデーションのエラーが正しいこと' do
             subject.valid?
-            expect(subject.errors.full_messages).to include('Post codeは不正な値です')
+            expect(subject.errors.full_messages).to include('郵便番号は不正な値です')
           end
         end
       end
@@ -226,7 +226,7 @@ RSpec.describe Business, type: :model do
 
         it 'バリデーションのエラーが正しいこと' do
           subject.valid?
-          expect(subject.errors.full_messages).to include('Phone numberを入力してください')
+          expect(subject.errors.full_messages).to include('電話番号を入力してください')
         end
       end
 
@@ -247,7 +247,7 @@ RSpec.describe Business, type: :model do
 
           it 'バリデーションのエラーが正しいこと' do
             subject.valid?
-            expect(subject.errors.full_messages).to include('Phone numberは不正な値です')
+            expect(subject.errors.full_messages).to include('電話番号は不正な値です')
           end
         end
       end
@@ -265,7 +265,7 @@ RSpec.describe Business, type: :model do
 
         it 'バリデーションのエラーが正しいこと' do
           subject.valid?
-          expect(subject.errors.full_messages).to include('Business typeを入力してください')
+          expect(subject.errors.full_messages).to include('会社形態を入力してください')
         end
       end
     end
