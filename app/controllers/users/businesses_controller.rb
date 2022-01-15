@@ -2,6 +2,7 @@ module Users
   class BusinessesController < Users::Base
 
     before_action :set_business, except: [:new, :create]
+    before_action :business_no_access, only: [:new]
 
     def new
       @business = Business.new( uuid: "test", name: "test", name_kana: "テスト", branch_name: "test", representative_name: "test", email: "test@email.com", 
@@ -11,7 +12,7 @@ module Users
     def create
       @business = Business.new(business_params)
       if @business.save
-        redirect_to users_businesses_path
+        redirect_to users_dash_boards_path
       else
         render :new
       end
