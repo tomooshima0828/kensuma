@@ -31,7 +31,7 @@
 <%= f.text_field :carrier_up_id, class: "form-control", placeholder: "Enter carrier_up_id" %>
 <br>
 <%= f.label :business_type%>
-<%= f.select :business_type, Business.business_types.keys.to_a, {}, class: "form-control" %>
+<%= f.select :business_type, Business.business_types.keys.map { |k| [I18n.t("enums.business.business_type.#{k}"), k]}, {include_blank: true}, {class: "form-control"} %>
 <br>
 <% if business.stamp_images.present? %>
   <% business.stamp_images.each_with_index do |image, index| %>

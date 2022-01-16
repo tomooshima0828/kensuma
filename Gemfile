@@ -40,8 +40,12 @@ gem 'rails-i18n', '~> 6.0'
 
 gem 'dotenv-rails'
 
+# 画像追加関連
 gem 'carrierwave', '~> 2.0'
 gem 'rmagick'
+
+# enum日本語化
+gem 'enum_help'
 
 group :development, :test do
   # ERD生成
