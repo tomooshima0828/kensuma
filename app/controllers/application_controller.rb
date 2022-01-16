@@ -8,10 +8,10 @@ class ApplicationController < ActionController::Base
     case resource
     when User
       business = Business.find_by(user_id: resource)
-      if business.present?
-        users_dash_boards_path
-      else
+      if business.nil?
         new_users_businesses_path
+      else
+        users_dash_boards_path
       end
     when Admin
       admin_dashboard_path
@@ -29,10 +29,9 @@ class ApplicationController < ActionController::Base
 
   # 事業所が登録してあればダッシュボードに
   def business_no_access
-    if @business.nil?
+    if @business.present?
       flash[:danger] = "事業所はすでに登録済みです"
       redirect_to users_dash_boards_path
     end
   end
-
 end
