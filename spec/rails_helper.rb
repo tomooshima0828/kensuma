@@ -36,6 +36,7 @@ end
 RSpec.configure do |config|
   # FactoryBotの利用をON
   config.include FactoryBot::Syntax::Methods
+  config.include LoginModule
 
   # DatabaseCleanerの設定
   config.before(:suite) do
