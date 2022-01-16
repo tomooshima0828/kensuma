@@ -8,7 +8,11 @@ RSpec.describe 'Businesses', type: :system do
   describe '事業所関連' do
     before {
       user.skip_confirmation!
-      login_as(user)
+      user.save!
+      visit new_user_session_path
+      fill_in 'user[email]', with: user.email
+      fill_in 'user[password]', with: user.password
+      click_button 'ログイン'
     }
     context '画面への推移が正常' do
       it '事業所新規作成' do
