@@ -29,10 +29,7 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
     resources :dash_boards, only: [:index]
     resources :articles, only: %i[index show]
     resource :profile, except: %i[create new]
-    resource :businesses, except: %i[index destroy] do
-      post 'stamp_images_add'
-      delete 'stamp_images_delete'
-    end
+    resource :businesses, except: %i[index]
   end
 
   # =================================================================
