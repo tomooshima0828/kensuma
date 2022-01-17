@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_10_021347) do
+ActiveRecord::Schema.define(version: 2022_01_08_142854) do
 
   create_table "active_admin_comments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "namespace"
@@ -63,6 +63,25 @@ ActiveRecord::Schema.define(version: 2022_01_10_021347) do
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
+  create_table "businesses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "uuid", null: false
+    t.string "name", null: false
+    t.string "name_kana", null: false
+    t.string "branch_name", null: false
+    t.string "representative_name", null: false
+    t.string "email", null: false
+    t.string "address", null: false
+    t.string "post_code", null: false
+    t.string "phone_number", null: false
+    t.string "carrier_up_id"
+    t.json "stamp_images"
+    t.integer "business_type", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_businesses_on_user_id"
+  end
+
   create_table "managers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -113,7 +132,7 @@ ActiveRecord::Schema.define(version: 2022_01_10_021347) do
     t.string "name"
     t.integer "age"
     t.integer "gender"
-    t.integer "role"
+    t.integer "role", default: 1
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -121,4 +140,5 @@ ActiveRecord::Schema.define(version: 2022_01_10_021347) do
   end
 
   add_foreign_key "articles", "users"
+  add_foreign_key "businesses", "users"
 end

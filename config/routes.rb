@@ -3,6 +3,18 @@
 Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
+  # admin関連=========================================================
+  scope :_system_ do 
+    devise_for :admins, ActiveAdmin::Devise.config
+    ActiveAdmin.routes(self)
+  end
+  # devise_for :admins, controllers: {
+  #   sessions: 'admins/sessions'
+  # }
+
+  # =================================================================
+
+  # user関連==========================================================
   devise_scope :user do
     root 'users/sessions#new'
   end
@@ -14,24 +26,26 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
     registrations: 'users/registrations'
   }
 
-  scope :_system_ do
-    devise_for :admins, ActiveAdmin::Devise.config
-    ActiveAdmin.routes(self)
-  end
-
-  devise_for :managers, controllers: {
-    sessions:      'managers/sessions',
-    passwords:     'managers/passwords',
-    confirmations: 'users/confirmations',
-    registrations: 'managers/registrations'
-  }
-
   namespace :users do
     resources :dash_boards, only: [:index]
     resources :articles, only: %i[index show]
     resource :profile, except: %i[create new]
   end
 
+  # =================================================================
+
+  # manager関連=======================================================
+  # devise_for :managers, controllers: {
+  #   sessions:      'managers/sessions',
+  #   passwords:     'managers/passwords',
+  #   confirmations: 'users/confirmations',
+  #   registrations: 'managers/registrations'
+  # }
+
+  # =================================================================
+
+  # 共通==============================================================
   # 利用規約
   get 'use' => 'use#index'
+  # =================================================================
 end
