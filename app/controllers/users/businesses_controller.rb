@@ -23,7 +23,7 @@ module Users
     def update
       if @business.update(business_params)
         flash[:success] = "更新しました"
-        redirect_to users_businesses_path
+        redirect_to users_business_path
       else
         render 'edit'
       end
@@ -41,7 +41,7 @@ module Users
       # 削除した後のstamp_imageをupdateする
       @business.update!(stamp_images: remain_stamp_images)
       flash[:danger] = "削除しました"
-      redirect_to edit_users_businesses_path
+      redirect_to edit_users_business_path
     end
 
     private

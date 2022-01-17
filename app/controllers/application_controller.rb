@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     when User
       business = Business.find_by(user_id: resource)
       if business.nil?
-        new_users_businesses_path
+        new_users_business_path
       else
         users_dash_boards_path
       end
