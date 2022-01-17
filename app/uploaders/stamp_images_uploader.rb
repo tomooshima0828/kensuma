@@ -1,8 +1,8 @@
 class StampImagesUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
-  
+
   # 画像の上限を700pxにする
-  process :resize_to_limit => [100, 100]
+  process resize_to_limit: [100, 100]
 
   storage :file
 
@@ -12,7 +12,6 @@ class StampImagesUploader < CarrierWave::Uploader::Base
 
   # jpg,jpeg,gif,pngしか受け付けない
   def extension_white_list
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png]
   end
-
 end

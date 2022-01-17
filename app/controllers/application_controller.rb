@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
   # 事業所が登録してあればダッシュボードに
   def business_no_access
     if @business.present?
-      flash[:danger] = "事業所はすでに登録済みです"
+      flash[:danger] = '事業所はすでに登録済みです'
       redirect_to users_dash_boards_path
     end
   end

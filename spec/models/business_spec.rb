@@ -64,24 +64,24 @@ RSpec.describe Business, type: :model do
         end
 
         %i[
-        てすときぎょう
-        TEST企業
-      ].each do |name_kana|
-        context '不正なname_kanaの場合' do
-          before :each do
-            subject.name_kana = name_kana
-          end
+          てすときぎょう
+          TEST企業
+        ].each do |name_kana|
+          context '不正なname_kanaの場合' do
+            before :each do
+              subject.name_kana = name_kana
+            end
 
-          it 'バリデーションに落ちること' do
-            expect(subject).to be_invalid
-          end
+            it 'バリデーションに落ちること' do
+              expect(subject).to be_invalid
+            end
 
-          it 'バリデーションのエラーが正しいこと' do
-            subject.valid?
-            expect(subject.errors.full_messages).to include('Name kanaはカタカナで入力して下さい。')
+            it 'バリデーションのエラーが正しいこと' do
+              subject.valid?
+              expect(subject.errors.full_messages).to include('Name kanaはカタカナで入力して下さい。')
+            end
           end
         end
-      end
       end
     end
 
@@ -238,7 +238,7 @@ RSpec.describe Business, type: :model do
       ].each do |phone_number|
         context '不正なphone_numberの場合' do
           before :each do
-            subject.phone_number  = phone_number 
+            subject.phone_number = phone_number
           end
 
           it 'バリデーションに落ちること' do
