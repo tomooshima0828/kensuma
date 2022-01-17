@@ -74,8 +74,8 @@ ActiveRecord::Schema.define(version: 2022_01_08_142854) do
     t.string "post_code", null: false
     t.string "phone_number", null: false
     t.string "carrier_up_id"
-    t.string "stamp_images"
-    t.integer "business_type", null: false
+    t.json "stamp_images"
+    t.integer "business_type", default: 0, null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
