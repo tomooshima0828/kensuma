@@ -136,16 +136,15 @@ RSpec.describe "Admins", type: :system do
         end
       end
 
-      # ↓エラーが出る
-      # context '削除をクリックした場合', js: true do
-      #   it 'アラートを表示' do
-      #     click_link '削除'
-      #     expect{
-      #       expect(page.accept_confirm).to eq '本当に削除しますか？'
-      #       sleep 0.5
-      #     }. to change(User, :count).by(-1)
-      #   end
-      # end
+    # ↓エラーが出る
+    #   context '削除をクリックした場合' do
+    #     it 'アラートを表示、ユーザー削除', js: true do
+    #       page.accept_confirm do
+    #         click_link '削除'
+    #       end
+    #       expect { user.destroy }.to change(User, :count).by(-1)
+    #     end
+    #   end
     end
 
     describe 'Admin詳細ページからの遷移' do
@@ -170,13 +169,12 @@ RSpec.describe "Admins", type: :system do
       end
 
       # ↓エラーが出る
-      # context 'ユーザーを削除するをクリックした場合', js: true do
-      #   it 'アラートを表示' do
-      #     click_link 'ユーザー を削除する'
-      #     expect{
-      #       expect(page.accept_confirm).to eq '本当に削除しますか？'
-      #       sleep 0.5
-      #     }. to change(User, :count).by(-1)
+      # context 'ユーザーを削除するをクリックした場合' do
+      #   it 'アラートを表示', js: true do
+      #     page.accept_confirm do
+      #       click_link 'ユーザー を削除する'
+      #     end
+      #     expect { user.destroy }.to change(User, :count).by(-1)
       #   end
       # end
     end
