@@ -2,7 +2,7 @@
 
 module Users
   class DashBoardsController < Users::Base
-    before_action :business_nil_access
+    # before_action :check_business_exist, only: :index
 
     def index; end
   end
