@@ -22,7 +22,7 @@ ActiveAdmin.register User do
   filter :age
   filter :gender
   filter :role
-  
+
   show do
     attributes_table do
       row :name
