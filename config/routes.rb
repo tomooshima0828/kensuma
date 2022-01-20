@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     resources :articles, only: %i[index show]
     resource :profile, except: %i[create new]
     resource :business, except: %i[index destroy] do
-      patch 'update_images'
+      delete 'update_images'
     end
   end
   # =================================================================
