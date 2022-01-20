@@ -1,23 +1,23 @@
 module Users
   class BusinessesController < Users::Base
     before_action :set_business, except: %i[new create]
-    before_action :business_present_access, expect: %i[new create]
-    before_action :business_nil_access, except: %i[new create]
-    # skip_before_action :business_nil_access, only: %i[new create]
+    before_action :business_present_access, only: %i[new create]
+    skip_before_action :business_nil_access, only: %i[new create]
+
     def new
       @business = Business.new(
-        uuid:                 '1',
-        name:                 'test企業',
-        name_kana:            'テストキギョウ',
-        branch_name:          'test支店',
-        representative_name:  'test代表',
-        email:                'test@email.com',
-        address:              'test',
-        post_code:            '0123456',
-        phone_number:         '01234567898',
-        carrier_up_id:        'test',
-        business_type:         0,
-        user_id:               current_user.id
+        uuid:                '1',
+        name:                'test企業',
+        name_kana:           'テストキギョウ',
+        branch_name:         'test支店',
+        representative_name: 'test代表',
+        email:               'test@email.com',
+        address:             'test',
+        post_code:           '0123456',
+        phone_number:        '01234567898',
+        carrier_up_id:       'test',
+        business_type:       0,
+        user_id:             current_user.id
       )
     end
 

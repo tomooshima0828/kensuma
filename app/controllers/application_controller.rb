@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     case resource
     when User
-      users_dash_boards_url
+      resource.business.nil? ? new_users_business_url : users_dash_boards_url
     when Admin
       admin_dashboard_url
     when Manager
