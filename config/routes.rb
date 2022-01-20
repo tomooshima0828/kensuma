@@ -4,10 +4,9 @@ Rails.application.routes.draw do
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
   # admin関連=========================================================
-  scope :_system_ do
-    devise_for :admins, ActiveAdmin::Devise.config
-    ActiveAdmin.routes(self)
-  end
+  devise_for :admins, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
   # devise_for :admins, controllers: {
   #   sessions: 'admins/sessions'
   # }
@@ -49,3 +48,4 @@ Rails.application.routes.draw do
   get 'use' => 'use#index'
   # =================================================================
 end
+
