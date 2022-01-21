@@ -2,8 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Admins', type: :system do
   # テストユーザーを作成する
-  let!(:admin) { create(:admin) }
-  let!(:user) { create(:user) }
+  let!(:admin) { create(:admin, email: 'foo@example.com', password: '123456', password_confirmation: '123456') }
 
   describe 'active_admin/devise/sessions' do
     context '管理者ログインページへアクセスした場合' do
@@ -110,7 +109,20 @@ RSpec.describe 'Admins', type: :system do
         end
       end
     end
+    
+    describe 'Admin詳細ページからの遷移' do
+      before(:each) { visit _system__admin_path(admin) }
 
+      context 'Adminを編集するをクリックした場合' do
+        it '管理者編集ページを表示' do
+          click_link 'Admin を編集する'
+          expect(page).to have_current_path edit__system__admin_path(admin), ignore_query: true
+          expect(page).to have_content('Admin を編集する')
+        end
+      end
+    end
+
+    let!(:user) { create(:user) }
     describe 'ユーザー一覧ページからの遷移' do
       before(:each) { visit _system__users_path }
 
@@ -147,18 +159,6 @@ RSpec.describe 'Admins', type: :system do
       #     expect { user.destroy }.to change(User, :count).by(-1)
       #   end
       # end
-    end
-
-    describe 'Admin詳細ページからの遷移' do
-      before(:each) { visit _system__admin_path(admin) }
-
-      context 'Adminを編集するをクリックした場合' do
-        it '管理者編集ページを表示' do
-          click_link 'Admin を編集する'
-          expect(page).to have_current_path edit__system__admin_path(admin), ignore_query: true
-          expect(page).to have_content('Admin を編集する')
-        end
-      end
     end
 
     describe 'ユーザー詳細ページからの遷移' do
