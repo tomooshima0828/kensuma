@@ -17,7 +17,7 @@ RSpec.describe 'Admins', type: :system do
       it 'ログインしダッシュボードを表示' do
         login(admin)
         # ログイン後遷移先変更時に修正の必要あり
-        expect(page).to have_current_path admin_dashboard_path, ignore_query: true
+        expect(page).to have_current_path _system__dashboard_path, ignore_query: true
         expect(page).to have_content('ログインしました。')
       end
     end
@@ -61,7 +61,7 @@ RSpec.describe 'Admins', type: :system do
       context 'ダッシュボードをクリックした場合' do
         it 'ダッシュボードを表示' do
           click_link 'ダッシュボード'
-          expect(page).to have_current_path admin_dashboard_path, ignore_query: true
+          expect(page).to have_current_path _system__dashboard_path, ignore_query: true
           expect(page).to have_content('ダッシュボード')
         end
       end
@@ -69,7 +69,7 @@ RSpec.describe 'Admins', type: :system do
       context 'Adminsをクリックした場合' do
         it 'Admins一覧を表示' do
           click_link 'Admins'
-          expect(page).to have_current_path admin_admins_path, ignore_query: true
+          expect(page).to have_current_path _system__admins_path, ignore_query: true
           expect(page).to have_content('Admins')
         end
       end
@@ -77,7 +77,7 @@ RSpec.describe 'Admins', type: :system do
       context 'Commentsをクリックした場合' do
         it 'Comments一覧を表示' do
           click_link 'Comments'
-          expect(page).to have_current_path admin_comments_path, ignore_query: true
+          expect(page).to have_current_path _system__comments_path, ignore_query: true
           expect(page).to have_content('Comments')
         end
       end
@@ -85,19 +85,19 @@ RSpec.describe 'Admins', type: :system do
       context 'ユーザーをクリックした場合' do
         it 'ユーザー一覧を表示' do
           click_link 'ユーザー'
-          expect(page).to have_current_path admin_users_path, ignore_query: true
+          expect(page).to have_current_path _system__users_path, ignore_query: true
           expect(page).to have_content('ユーザー')
         end
       end
     end
 
     describe '管理者一覧ページからの遷移' do
-      before(:each) { visit admin_admins_path }
+      before(:each) { visit _system__admins_path }
 
       context '閲覧をクリックした場合' do
         it '管理者詳細ページを表示' do
           click_link '閲覧'
-          expect(page).to have_current_path admin_admin_path(admin), ignore_query: true
+          expect(page).to have_current_path _system__admin_path(admin), ignore_query: true
           expect(page).to have_content('Admin の詳細')
         end
       end
@@ -105,19 +105,19 @@ RSpec.describe 'Admins', type: :system do
       context '編集をクリックした場合' do
         it '管理者編集ページを表示' do
           click_link '編集'
-          expect(page).to have_current_path edit_admin_admin_path(admin), ignore_query: true
+          expect(page).to have_current_path edit__system__admin_path(admin), ignore_query: true
           expect(page).to have_content('Admin を編集する')
         end
       end
     end
 
     describe 'ユーザー一覧ページからの遷移' do
-      before(:each) { visit admin_users_path }
+      before(:each) { visit _system__users_path }
 
       context 'ユーザーを作成するをクリックした場合' do
         it 'ユーザー登録ページを表示' do
           click_link 'ユーザー を作成する'
-          expect(page).to have_current_path new_admin_user_path, ignore_query: true
+          expect(page).to have_current_path new__system__user_path, ignore_query: true
           expect(page).to have_content('ユーザー を作成する')
         end
       end
@@ -125,7 +125,7 @@ RSpec.describe 'Admins', type: :system do
       context '閲覧をクリックした場合' do
         it 'ユーザー詳細ページを表示' do
           click_link '閲覧'
-          expect(page).to have_current_path admin_user_path(user), ignore_query: true
+          expect(page).to have_current_path _system__user_path(user), ignore_query: true
           expect(page).to have_content('ユーザー の詳細')
         end
       end
@@ -133,7 +133,7 @@ RSpec.describe 'Admins', type: :system do
       context '編集をクリックした場合' do
         it 'ユーザー編集ページを表示' do
           click_link '編集'
-          expect(page).to have_current_path edit_admin_user_path(user), ignore_query: true
+          expect(page).to have_current_path edit__system__user_path(user), ignore_query: true
           expect(page).to have_content('ユーザー を編集する')
         end
       end
@@ -150,24 +150,24 @@ RSpec.describe 'Admins', type: :system do
     end
 
     describe 'Admin詳細ページからの遷移' do
-      before(:each) { visit admin_admin_path(admin) }
+      before(:each) { visit _system__admin_path(admin) }
 
       context 'Adminを編集するをクリックした場合' do
         it '管理者編集ページを表示' do
           click_link 'Admin を編集する'
-          expect(page).to have_current_path edit_admin_admin_path(admin), ignore_query: true
+          expect(page).to have_current_path edit__system__admin_path(admin), ignore_query: true
           expect(page).to have_content('Admin を編集する')
         end
       end
     end
 
     describe 'ユーザー詳細ページからの遷移' do
-      before(:each) { visit admin_user_path(user) }
+      before(:each) { visit _system__user_path(user) }
 
       context 'ユーザーを編集するをクリックした場合' do
         it 'ユーザー編集ページを表示' do
           click_link 'ユーザー を編集する'
-          expect(page).to have_current_path edit_admin_user_path(user), ignore_query: true
+          expect(page).to have_current_path edit__system__user_path(user), ignore_query: true
           expect(page).to have_content('ユーザー を編集する')
         end
       end

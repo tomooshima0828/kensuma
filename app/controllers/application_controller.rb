@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
         users_dash_boards_path
       end
     when Admin
-      admin_dashboard_path
+      _system__dashboard_path
     when Manager
       managers_dash_boards_path
     end
