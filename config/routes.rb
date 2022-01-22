@@ -48,4 +48,3 @@ Rails.application.routes.draw do
   get 'use' => 'use#index'
   # =================================================================
 end
-

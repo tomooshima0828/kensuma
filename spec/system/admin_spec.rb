@@ -56,6 +56,8 @@ RSpec.describe 'Admins', type: :system do
   describe '管理者ログイン後' do
     before(:each) { login(admin) }
 
+    let!(:user) { create(:user) }
+
     describe 'ヘッダーからの画面遷移' do
       context 'ダッシュボードをクリックした場合' do
         it 'ダッシュボードを表示' do
@@ -109,7 +111,7 @@ RSpec.describe 'Admins', type: :system do
         end
       end
     end
-    
+
     describe 'Admin詳細ページからの遷移' do
       before(:each) { visit _system__admin_path(admin) }
 
@@ -122,7 +124,6 @@ RSpec.describe 'Admins', type: :system do
       end
     end
 
-    let!(:user) { create(:user) }
     describe 'ユーザー一覧ページからの遷移' do
       before(:each) { visit _system__users_path }
 
@@ -184,4 +185,3 @@ RSpec.describe 'Admins', type: :system do
     end
   end
 end
-
