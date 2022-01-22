@@ -10,6 +10,9 @@ class User < ApplicationRecord
   has_many :articles, dependent: :destroy
   has_one :business, dependent: :destroy
 
+  has_many :sub_users, class_name: "User", foreign_key: "manager_id"
+  belongs_to :manager, class_name: "User", optional: true
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   validates :name,  presence: true, length: { in: 1..10 }
