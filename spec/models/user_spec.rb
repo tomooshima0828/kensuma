@@ -206,4 +206,20 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe '自己結合について' do
+    subject do
+      user
+    end
+
+    let(:association) do
+      # reflect_on_associationで対象のクラスと引数で指定するクラスの関連を返す
+      described_class.reflect_on_association(target)
+    end
+
+    let(:target) { :sub_users }
+
+    it { expect(association.macro).to eq :has_many }
+    it { expect(association.class_name).to eq 'User' }
+  end
 end
