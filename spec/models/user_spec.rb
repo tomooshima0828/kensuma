@@ -217,8 +217,8 @@ RSpec.describe User, type: :model do
       it { expect(association.class_name).to eq 'User' }
     end
 
-    context 'managerとの関連づけ' do
-      let(:target) { :manager }
+    context 'admin_userとの関連づけ' do
+      let(:target) { :admin_user }
 
       it { expect(association.macro).to eq :belongs_to }
       it { expect(association.class_name).to eq 'User' }
