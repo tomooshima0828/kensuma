@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     when User
       resource.business.nil? ? new_users_business_url : users_dash_boards_url
     when Admin
-      admin_dashboard_url
+      _system__dashboard_path
     when Manager
       managers_dash_boards_url
     end
