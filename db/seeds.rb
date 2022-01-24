@@ -23,8 +23,8 @@ end
 # Business
 user = User.first
 # User.firstに紐づく事業所を1件作成
-user.create_business(
-  uuid:                '1',
+user.create_business!(
+  uuid:                false,
   name:                'テスト建設',
   name_kana:           'テストケンセツ',
   branch_name:         'テスト支店',
@@ -33,7 +33,8 @@ user.create_business(
   address:             '東京都テスト区1-2-3',
   post_code:           '0123456',
   phone_number:        '01234567898',
-  carrier_up_id:       SecureRandom.hex(3),
+  carrier_up_id:       'abc123',
+  stamp_images:        [open("#{Rails.root}/public/sample_stamp.png")],
   business_type:       0
 )
 
