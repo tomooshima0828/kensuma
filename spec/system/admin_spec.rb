@@ -14,7 +14,10 @@ RSpec.describe 'Admins', type: :system do
 
     context 'メールアドレスとパスワードが登録済み情報と合致する場合' do
       it 'ログインしダッシュボードを表示' do
-        login(admin)
+        visit new_admin_session_path
+        fill_in 'admin[email]', with: 'foo@example.com'
+        fill_in 'admin[password]', with: '123456'
+        click_button 'ログイン'
         # ログイン後遷移先変更時に修正の必要あり
         expect(page).to have_current_path _system__dashboard_path, ignore_query: true
         expect(page).to have_content('ログインしました。')
@@ -24,7 +27,7 @@ RSpec.describe 'Admins', type: :system do
     context 'メールアドレスとパスワードが登録済み情報と合致しない場合' do
       it 'ログインできない' do
         visit new_admin_session_path
-        fill_in 'admin[email]', with: 'foo@email.com'
+        fill_in 'admin[email]', with: 'bar@example.com'
         fill_in 'admin[password]', with: '123456'
         click_button 'ログイン'
         expect(page).to have_current_path new_admin_session_path, ignore_query: true
@@ -45,7 +48,8 @@ RSpec.describe 'Admins', type: :system do
 
     context 'ログアウトをクリックした場合' do
       it 'ログアウトしログイン画面を表示' do
-        login(admin)
+        sign_in(admin)
+        visit _system__dashboard_path
         click_link 'ログアウト'
         expect(page).to have_current_path new_admin_session_path, ignore_query: true
         expect(page).to have_content('ログイン')
@@ -54,7 +58,10 @@ RSpec.describe 'Admins', type: :system do
   end
 
   describe '管理者ログイン後' do
-    before(:each) { login(admin) }
+    before(:each) do
+      sign_in(admin)
+      visit _system__dashboard_path
+    end
 
     let!(:user) { create(:user) }
 
