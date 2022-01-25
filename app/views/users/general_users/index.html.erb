@@ -7,21 +7,21 @@
     <table class="table table-hover text-nowrap">
       <thead>
         <tr>
-          <th>ID</th>
-          <th>User</th>
-          <th>Date</th>
-          <th>Status</th>
-          <th>Reason</th>
+          <th><%= User.human_attribute_name(:name) %></th>
+          <th><%= User.human_attribute_name(:email) %></th>
+          <th><%= User.human_attribute_name(:age) %></th>
+          <th><%= User.human_attribute_name(:gender) %></th>
         </tr>
       </thead>
       <tbody>
+        <% @general_users.each do |general_user| %>
         <tr>
-          <td>183</td>
-          <td>John Doe</td>
-          <td>11-7-2014</td>
-          <td><span class="tag tag-success">Approved</span></td>
-          <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+          <td><%= general_user.name %></td>
+          <td><%= general_user.email %></td>
+          <td><%= general_user.age %></td>
+          <td><%= general_user.gender_i18n %></td>
         </tr>
+        <% end %>
       </tbody>
     </table>
   </div>
