@@ -131,9 +131,8 @@ RSpec.describe 'Admins', type: :system do
 
     describe 'ユーザー一覧ページからの遷移' do
       let!(:user) { create(:user) }
-      
-      before(:each) { visit _system__users_path }
 
+      before(:each) { visit _system__users_path }
 
       context 'ユーザーを作成するをクリックした場合' do
         it 'ユーザー登録ページを表示' do
@@ -162,10 +161,10 @@ RSpec.describe 'Admins', type: :system do
       context '削除をクリックした場合', js: true do
         it '削除アラートからユーザーが削除できる' do
           click_link '削除'
-          expect{
+          expect {
             page.accept_confirm
             expect(page).to have_content 'ユーザー を作成する' # この１行なければエラー出る。Ajaxの処理完了までのクッション的役割として一つ以上のfindやexpectが必要。本当は削除後のアラートが望ましいが現在は未実装
-          }.to change{ User.count }.by(-1)
+          }.to change(User, :count).by(-1)
         end
       end
       # 又はexpect以降は下記でもOK。ただ、書き方が古いらしい。
@@ -174,14 +173,12 @@ RSpec.describe 'Admins', type: :system do
       #     page.driver.browser.switch_to.alert.accept
       #     expect(page).to have_content 'ユーザー を作成する'
       #   }.to change{ User.count }.by(-1)
-
     end
 
     describe 'ユーザー詳細ページからの遷移' do
       let!(:user) { create(:user) }
 
       before(:each) { visit _system__user_path(user) }
-
 
       context 'ユーザーを編集するをクリックした場合' do
         it 'ユーザー編集ページを表示' do
@@ -194,10 +191,10 @@ RSpec.describe 'Admins', type: :system do
       context 'ユーザーを削除するをクリックした場合', js: true do
         it '削除アラートからユーザーが削除できる' do
           click_link 'ユーザー を削除する'
-          expect{
+          expect {
             page.accept_confirm
             expect(page).to have_content 'ユーザー を作成する' # この１行なければエラー出る。Ajaxの処理完了までのクッション的役割として一つ以上のfindやexpectが必要。本当は削除後のアラートが望ましいが現在は未実装
-          }.to change{ User.count }.by(-1)
+          }.to change(User, :count).by(-1)
         end
       end
       # 又はexpect以降は下記でもOK。ただ、書き方が古いらしい。
@@ -206,7 +203,6 @@ RSpec.describe 'Admins', type: :system do
       #     page.driver.browser.switch_to.alert.accept
       #     expect(page).to have_content 'ユーザー を作成する'
       #   }.to change{ User.count }.by(-1)
-
     end
   end
 end

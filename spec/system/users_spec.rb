@@ -4,13 +4,14 @@ RSpec.describe 'Users', type: :system do
   let!(:user_a) { create(:user, name: 'ユーザーA', email: 'aaa-user@example.com', password: '123456', password_confirmation: '123456') }
   let!(:user_b) { create(:user, name: 'ユーザーB', email: 'bbb-user@example.com', password: '123456', password_confirmation: '123456') }
   let!(:business_a) { create(:business, user: user_a) }
+
   before(:each) do
     user_a.skip_confirmation!
     user_a.save!
     user_b.skip_confirmation!
     user_b.save!
   end
-  
+
   describe 'ユーザーログイン時の画面表示' do
     context 'ログインページへアクセスした場合' do
       it 'ログイン画面を表示' do
