@@ -3,18 +3,16 @@ module Users
     before_action :set_general_user, except: %i[index new create]
 
     def index
-      @admin = current_user
-      @general_users = User.where(admin_user_id: @admin)
+      @general_users = User.where(admin_user_id: current_user)
     end
 
     def new
-      @admin = current_user
-      @general_user = @admin.general_users.new
+      @general_user = current_user.general_users.new
     end
 
+
     def create
-      @admin = current_user
-      @general_user = @admin.general_users.new(general_user_params)
+      @general_user = current_user.general_users.new(general_user_params)
       if @general_user.save
         redirect_to users_general_users_url
       else
@@ -35,13 +33,16 @@ module Users
 
     def show; end
 
-    def destroy; end
+    def destroy
+      @general_user.destroy
+      flash[:danger] = '#{@general_user.name}を削除しました'
+      redirect_to users_general_users_url
+    end
 
     private
 
     def set_general_user
-      @admin = current_user
-      @general_user = @admin.general_users.find(params[:id])
+      @general_user = current_user.general_users.find(params[:id])
     end
 
     def general_user_params
