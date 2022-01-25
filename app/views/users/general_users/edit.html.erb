@@ -1,10 +1,13 @@
-<% provide(:title, "その他ユーザー登録") %>
-<% provide(:btn_text, "登録") %>
+<% provide(:title, "その他ユーザー編集") %>
+<% provide(:btn_text, "更新") %>
 
 <div class="card">
   <div class="card-body">
     <%= form_with model: @general_user, url: users_general_user_path, method: :patch, local: true do |f| %>
       <%= render partial: "form", locals: { f: f, general_user: @general_user } %>
+
+      <%= f.submit yield(:btn_text), class: "btn btn-md btn-block btn-success" %>
+      <%= link_to "戻る", users_general_user_path, class: "btn btn-md btn-block btn-default" %>
     <% end %>
   </div>
 </div>

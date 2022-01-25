@@ -16,7 +16,7 @@
       <tbody>
         <% @general_users.each do |general_user| %>
         <tr>
-          <td><%= general_user.name %></td>
+          <td><%= link_to general_user.name, users_general_user_path(general_user) %></td>
           <td><%= general_user.email %></td>
           <td><%= general_user.age %></td>
           <td><%= general_user.gender_i18n %></td>
