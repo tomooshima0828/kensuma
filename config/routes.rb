@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   }
 
   namespace :users do
-    resource :general_users
+    resources :general_users
     resources :dash_boards, only: [:index]
     resources :articles, only: %i[index show]
     resource :profile, except: %i[create new]
