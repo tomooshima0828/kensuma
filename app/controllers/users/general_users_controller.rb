@@ -10,7 +10,6 @@ module Users
       @general_user = current_user.general_users.new
     end
 
-
     def create
       @general_user = current_user.general_users.new(general_user_params)
       if @general_user.save
@@ -35,7 +34,7 @@ module Users
 
     def destroy
       @general_user.destroy
-      flash[:danger] = '#{@general_user.name}を削除しました'
+      flash[:danger] = "#{@general_user.name}を削除しました"
       redirect_to users_general_users_url
     end
 
