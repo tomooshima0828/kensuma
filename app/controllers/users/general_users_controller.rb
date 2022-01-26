@@ -3,7 +3,7 @@ module Users
     before_action :set_general_user, except: %i[index new create]
 
     def index
-      @general_users = User.where(admin_user_id: current_user)
+      @general_users = current_user.general_users
     end
 
     def new
