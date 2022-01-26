@@ -13,7 +13,7 @@ module Users
     def create
       @general_user = current_user.general_users.new(general_user_params)
       if @general_user.save
-        redirect_to users_general_users_url
+        redirect_to users_general_user_url(@general_user)
       else
         render :new
       end
@@ -24,7 +24,7 @@ module Users
     def update
       if @general_user.update(general_user_params)
         flash[:success] = '更新しました'
-        redirect_to users_general_user_url
+        redirect_to users_general_user_url(@general_user)
       else
         render 'edit'
       end
