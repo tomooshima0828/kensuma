@@ -7,9 +7,8 @@
       <%= render partial: "form", locals: { f: f, general_user: @general_user } %>
       
       <%= f.submit yield(:btn_text), class: "btn btn-md btn-block btn-primary" %>
-      <%= link_to "戻る", users_general_users_path, class: "btn btn-md btn-block btn-default" %>
+      <%= link_to "一覧画面へ", users_general_users_path, class: "btn btn-md btn-block btn-default" %>
     <% end %>
     <br>
-    
   </div>
 </div>
