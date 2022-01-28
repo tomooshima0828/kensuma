@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_22_045207) do
+ActiveRecord::Schema.define(version: 2022_01_28_032655) do
 
   create_table "active_admin_comments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "namespace"
@@ -141,6 +141,30 @@ ActiveRecord::Schema.define(version: 2022_01_22_045207) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  create_table "workers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "name_kana", null: false
+    t.string "country", null: false
+    t.string "my_address", null: false
+    t.string "my_phone_number", null: false
+    t.string "family_address", null: false
+    t.string "family_phone_number", null: false
+    t.date "birth_day_on", null: false
+    t.integer "abo_blood_type", null: false
+    t.integer "rh_blood_type", null: false
+    t.integer "job_type", null: false
+    t.date "hiring_on", null: false
+    t.integer "experience_term_before_hiring", null: false
+    t.integer "blank_term", null: false
+    t.string "carrier_up_id"
+    t.json "images"
+    t.bigint "businesses_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["businesses_id"], name: "index_workers_on_businesses_id"
+  end
+
   add_foreign_key "articles", "users"
   add_foreign_key "businesses", "users"
+  add_foreign_key "workers", "businesses", column: "businesses_id"
 end
