@@ -3,7 +3,7 @@ class Worker < ApplicationRecord
 
   enum abo_blood_type: { a: 0, b: 1, ab: 2, o: 3 }
   enum rh_blood_type: { plus: 0, minus: 1 }
-  # 内訳未定のためコメントアウト
+  # ↓内訳未定のためコメントアウト
   # enum job_type: {  }
 
   validates :name,  presence: true
@@ -21,4 +21,3 @@ class Worker < ApplicationRecord
   validates :experience_term_before_hiring,  presence: true
   validates :blank_term,  presence: true
 end
-
