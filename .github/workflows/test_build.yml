@@ -1,9 +1,8 @@
 name: Ruby
 
-on:
-  pull_request:
-    branches:
-      - main
+on: [pull_request, push]
+  branches:
+    - main
 
 jobs:
   test:
