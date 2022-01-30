@@ -26,7 +26,9 @@ Rails.application.routes.draw do
   }
 
   namespace :users do
-    resources :cars
+    resources :cars do
+      delete 'update_images'
+    end
     resources :general_users
     resources :dash_boards, only: [:index]
     resources :articles, only: %i[index show]

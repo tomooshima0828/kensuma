@@ -14,6 +14,7 @@ class CreateCars < ActiveRecord::Migration[6.1]
       t.date :voluntary_insurance_start_on
       t.date :voluntary_insurance_end_on
       t.json :images
+      t.references :user, foreign_key: true, null: false
 
       t.timestamps
     end
