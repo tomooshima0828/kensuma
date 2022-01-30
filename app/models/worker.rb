@@ -7,7 +7,7 @@ class Worker < ApplicationRecord
   # enum job_type: {  }
 
   validates :name,  presence: true
-  validates :name_kana,  presence: true
+  validates :name_kana,  presence: true # カタカナであること
   validates :country,  presence: true
   validates :my_address,  presence: true
   validates :my_phone_number,  presence: true
