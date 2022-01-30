@@ -18,7 +18,7 @@ ExceptionNotification.configure do |config|
 
   # Slack notifier sends notifications by slack.
   config.add_notifier :slack, {
-    webhook_url:           'https://hooks.slack.com/services/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',
+    webhook_url:           ENV['SLACK_WEBHOOK_URL'],
     channel:               '#staging-error通知',
     additional_parameters: {
       mrkdwn: true
