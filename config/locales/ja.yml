@@ -120,8 +120,8 @@ ja:
         ab: AB型
         o: O型
       rh_blood_type:
-        plus: Plus
-        minus: Minus
+        plus: +
+        minus: '-'
   errors:
     format: "%{attribute}%{message}"
     messages:
