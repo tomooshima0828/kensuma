@@ -150,21 +150,21 @@ ActiveRecord::Schema.define(version: 2022_01_28_032655) do
     t.string "family_address", null: false
     t.string "family_phone_number", null: false
     t.date "birth_day_on", null: false
-    t.integer "abo_blood_type", null: false
-    t.integer "rh_blood_type", null: false
-    t.integer "job_type", null: false
+    t.integer "abo_blood_type", default: 0, null: false
+    t.integer "rh_blood_type", default: 0, null: false
+    t.integer "job_type", default: 0, null: false
     t.date "hiring_on", null: false
     t.integer "experience_term_before_hiring", null: false
     t.integer "blank_term", null: false
     t.string "carrier_up_id"
     t.json "images"
-    t.bigint "businesses_id", null: false
+    t.bigint "business_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["businesses_id"], name: "index_workers_on_businesses_id"
+    t.index ["business_id"], name: "index_workers_on_business_id"
   end
 
   add_foreign_key "articles", "users"
   add_foreign_key "businesses", "users"
-  add_foreign_key "workers", "businesses", column: "businesses_id"
+  add_foreign_key "workers", "businesses"
 end
