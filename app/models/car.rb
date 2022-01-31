@@ -1,5 +1,5 @@
 class Car < ApplicationRecord
-  belongs_to :user
+  belongs_to :business
   mount_uploaders :images, StampImagesUploader
   
   validates :owner_name, presence: true

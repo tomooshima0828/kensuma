@@ -3,17 +3,30 @@ module Users
     before_action :set_car, except: %i[index new create update_images]
 
     def index
-      @cars = current_user.cars
+      @cars = current_user.business.cars
     end
 
     def show; end
 
     def new
-      @car = Car.new
+      @car = Car.new(
+        owner_name: current_user.name,
+        safety_manager: 'anzen taro',
+        vehicle_model: 'ZVW30',
+        vehicle_number: '12-34',
+        vehicle_inspection_start_on: Date.today,
+        vehicle_inspection_end_on: Date.today.since(3.years),
+        liability_securities_number: SecureRandom.hex(5),
+        liability_insurance_start_on: Date.today,
+        liability_insurance_end_on: Date.today.next_year,
+        voluntary_securities_number: SecureRandom.hex(5),
+        voluntary_insurance_start_on: Date.today,
+        voluntary_insurance_end_on: Date.today.next_year
+      )
     end
 
     def create
-      @car = current_user.cars.build(car_params)
+      @car = current_user.business.cars.build(car_params)
       if @car.save
         redirect_to users_car_url(@car)
       else
@@ -39,22 +52,19 @@ module Users
     end
 
     def update_images
-      @car = current_user.cars.find(params[:id])
-      # 残りimageを定義
-      remain_images = @car.images
-      # imageを削除する
+      car = current_user.business.cars.find(params[:car_id])
+      remain_images = car.images
       deleted_image = remain_images.delete_at(params[:index].to_i)
       deleted_image.try(:remove!)
-      # 削除した後のimageをupdateする
-      @car.update!(images: remain_images)
-      flash[:danger] = '削除しました'
-      redirect_to edit_users_car_url(@car)
+      car.update!(images: remain_images)
+      flash[:danger] = '添付画像を削除しました'
+      redirect_to edit_users_car_url(car)
     end
 
     private
 
     def set_car
-      @car = current_user.cars.find(params[:id])
+      @car = current_user.business.cars.find(params[:id])
     end
 
     def car_params
