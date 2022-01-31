@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :worker do
     association :business
-    name { "TestWorker" }
+    name { 'TestWorker' }
     name_kana { 'テストワーカー' }
     country { '日本' }
     my_address { '東京都' }
