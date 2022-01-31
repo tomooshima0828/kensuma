@@ -65,7 +65,6 @@ RSpec.describe Worker, type: :model do
           expect(subject.errors.full_messages).to include('名前カナを入力してください')
         end
 
-        # 不正な値が入った場合バリデーションに落ちてエラー内容が正しいこと
         %i[
           てすとわーかー
           TestWorker
