@@ -1,17 +1,17 @@
 FactoryBot.define do
   factory :car do
-    owner_name { "MyString" }
-    safety_manager { "MyString" }
-    vehicle_model { "MyString" }
-    vehicle_number { "MyString" }
+    sequence(:owner_name) { |n| "owner#{n}" }
+    sequence(:safety_manager) { |n| "manager#{n}" }
+    sequence(:vehicle_model) { |n| "model#{n}" }
+    sequence(:vehicle_number) { |n| "12-3#{n}" }
     vehicle_inspection_start_on { "2022-01-30" }
     vehicle_inspection_end_on { "2022-01-30" }
-    liability_securities_number { "MyString" }
+    sequence(:liability_securities_number) { |n| "12345#{n}" }
     liability_insurance_start_on { "2022-01-30" }
     liability_insurance_end_on { "2022-01-30" }
-    voluntary_securities_number { "MyString" }
+    sequence(:voluntary_securities_number) { |n| "67890#{n}" }
     voluntary_insurance_start_on { "2022-01-30" }
     voluntary_insurance_end_on { "2022-01-30" }
-    images { "" }
+    business
   end
 end

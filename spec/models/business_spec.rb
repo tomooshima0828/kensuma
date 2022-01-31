@@ -270,4 +270,24 @@ RSpec.describe Business, type: :model do
       end
     end
   end
+
+  describe '車両とのアソシエーションについて' do
+    let :business do
+      create(:business, cars: cars)
+    end
+
+    let :cars do
+      create_list(:car, 2)
+    end
+
+    context '紐つく車両がある場合' do
+      subject do
+        business.cars
+      end
+
+      it '紐つく車両を返すこと' do
+        expect(subject).to eq(cars)
+      end
+    end
+  end
 end
