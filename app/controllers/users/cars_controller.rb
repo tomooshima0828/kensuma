@@ -10,6 +10,7 @@ module Users
 
     def new
       @car = Car.new(
+        # テスト用デフォルト値 ==========================
         owner_name: current_user.name,
         safety_manager: 'anzen taro',
         vehicle_model: 'ZVW30',
@@ -22,6 +23,7 @@ module Users
         voluntary_securities_number: SecureRandom.hex(5),
         voluntary_insurance_start_on: Date.today,
         voluntary_insurance_end_on: Date.today.next_year
+        # ============================================
       )
     end
 

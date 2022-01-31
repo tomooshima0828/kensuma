@@ -42,7 +42,7 @@
             <td><%= car.voluntary_insurance_end_on %></td>
             <td><%= car.images.present? ? '有' : '無' %></td>
             <td><%= link_to "編集", edit_users_car_path(car), class: "btn btn-md btn-success" %></td>
-            <td><%= link_to "削除", users_car_path(car), method: :delete, data: { confirm: "「#{car.vehicle_model}」の車両情報を削除します。本当によろしいですか？" }, class: "btn btn-md btn-danger" %></td>
+            <td><%= link_to "削除", users_car_path(car), method: :delete, data: { confirm: "#{car.vehicle_model}の車両情報を削除します。本当によろしいですか？" }, class: "btn btn-md btn-danger" %></td>
           </tr>
           <% end %>
         </tbody>
