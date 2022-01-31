@@ -57,7 +57,7 @@ RSpec.describe 'Cars', type: :system do
         expect(page).to have_content 'edit name'
       end
     end
-    
+
     context '車両情報削除' do
       it '削除したあと一覧画面に遷移すること', js: true do
         visit users_car_path(car)
