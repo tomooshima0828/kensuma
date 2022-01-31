@@ -26,8 +26,8 @@ ja:
         family_address: 家族住所
         family_phone_number: 家族電話番号
         birth_day_on: 生年月日
-        abo_blood_type: 血液型
-        rh_blood_type: 血液型
+        abo_blood_type: 血液型(ABO)
+        rh_blood_type: 血液型(Rh)
         job_type: 職種
         hiring_on: 雇入年月日
         experience_term_before_hiring: 雇入前経験年数
