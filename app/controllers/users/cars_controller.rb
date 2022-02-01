@@ -3,13 +3,13 @@ module Users
     before_action :set_car, except: %i[index new create update_images]
 
     def index
-      @cars = current_user.business.cars
+      @cars = @current_business.cars
     end
 
     def show; end
 
     def new
-      @car = Car.new(
+      @car = @current_business.cars.new(
         # テスト用デフォルト値 ==========================
         owner_name:                   current_user.name,
         safety_manager:               'anzen taro',
@@ -28,7 +28,7 @@ module Users
     end
 
     def create
-      @car = current_user.business.cars.build(car_params)
+      @car = @current_business.cars.build(car_params)
       if @car.save
         redirect_to users_car_url(@car)
       else
@@ -54,7 +54,7 @@ module Users
     end
 
     def update_images
-      car = current_user.business.cars.find(params[:car_id])
+      car = @current_business.cars.find(params[:car_id])
       remain_images = car.images
       deleted_image = remain_images.delete_at(params[:index].to_i)
       deleted_image.try(:remove!)
@@ -66,7 +66,7 @@ module Users
     private
 
     def set_car
-      @car = current_user.business.cars.find(params[:id])
+      @car = @current_business.cars.find(params[:id])
     end
 
     def car_params
