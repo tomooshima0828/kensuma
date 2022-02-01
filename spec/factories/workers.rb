@@ -10,7 +10,7 @@ FactoryBot.define do
     birth_day_on { '2000-01-01' }
     abo_blood_type { 0 }
     rh_blood_type { 0 }
-    job_type { '1' }
+    job_type { 1 }
     hiring_on { '2010-01-01' }
     experience_term_before_hiring { '3' }
     blank_term { '2' }
