@@ -8,7 +8,8 @@
     </div>
     <div class="card-footer">
       <%= f.submit yield(:btn_text), class: "btn btn-md btn-block btn-success" %>
-      <%= link_to "戻る", users_car_path, class: "btn btn-md btn-block btn-default" %>
+      <%= link_to "詳細画面へ", users_car_path(@car), class: "btn btn-md btn-block btn-default" %>
+      <%= link_to "一覧画面へ", users_cars_path, class: "btn btn-md btn-block btn-default" %>
     </div>
   <% end %>
 </div>
