@@ -1,6 +1,6 @@
 class Car < ApplicationRecord
   belongs_to :business
-  mount_uploaders :images, StampImagesUploader
+  mount_uploaders :images, ImagesUploader
 
   validates :owner_name, presence: true
   validates :vehicle_model, presence: true
