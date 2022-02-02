@@ -26,12 +26,15 @@ Rails.application.routes.draw do
   }
 
   namespace :users do
+    resources :cars do
+      patch 'update_images'
+    end
     resources :general_users
     resources :dash_boards, only: [:index]
     resources :articles, only: %i[index show]
     resource :profile, except: %i[create new]
     resource :business, except: %i[index destroy] do
-      delete 'update_images'
+      patch 'update_images'
     end
   end
   # =================================================================
