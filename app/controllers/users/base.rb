@@ -4,7 +4,6 @@ module Users
   class Base < ApplicationController
     before_action :authenticate_user!
     before_action :business_nil_access
-    before_action :current_business
     layout 'users'
 
     # 事業所が登録してあればダッシュボードへ
