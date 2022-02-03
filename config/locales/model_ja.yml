@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       business: 事業部
+      car_insurance_company: ⾃動⾞保険会社
       car: 車両情報
       worker: 作業員
     attributes:
@@ -18,6 +19,8 @@ ja:
         carrier_up_id: 事業者ID
         stamp_images: 電子印
         business_type: 会社形態
+      car_insurance_company:
+        name: 保険会社名
       car:
         owner_name: 車両所有者氏名
         safety_manager: 安全運転管理者
