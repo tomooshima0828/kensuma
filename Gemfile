@@ -47,6 +47,9 @@ gem 'rmagick'
 # enum日本語化
 gem 'enum_help'
 
+# 初期データ作成管理
+gem 'seed-fu'
+
 # エラー通知用
 gem 'exception_notification'
 
