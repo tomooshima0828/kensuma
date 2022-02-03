@@ -1,0 +1,2 @@
+class CarInsuranceCompany < ApplicationRecord
+end
