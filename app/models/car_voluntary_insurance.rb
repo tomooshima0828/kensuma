@@ -1,0 +1,2 @@
+class CarVoluntaryInsurance < ApplicationRecord
+end
