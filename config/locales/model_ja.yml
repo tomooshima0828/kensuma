@@ -32,6 +32,11 @@ ja:
         voluntary_insurance_start_on: 任意保険初め
         voluntary_insurance_end_on: 任意保険終わり
         images: 添付画像
+      car_insurance_company:
+        name: 保険会社名
+      car_voluntary_insurance:
+        personal_insurance: 対人保険金
+        objective_insurance: 対物保険金
       worker:
         name: 名前
         name_kana: 名前カナ
