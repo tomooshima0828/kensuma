@@ -67,6 +67,9 @@
         <tr>
           <th><%= Worker.human_attribute_name(:images) %></th>
           <td>
+            <% @worker.images.each do |image| %>
+              <%= image_tag(image.url) %>
+            <% end %>
           </td>
         </tr>
       </tbody>

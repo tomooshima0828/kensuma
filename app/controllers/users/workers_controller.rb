@@ -44,9 +44,28 @@ module Users
     end
 
     def update
+      if @worker.update(worker_params)
+        flash[:success] = '更新しました'
+        redirect_to users_worker_url
+      else
+        render :edit
+      end
     end
 
     def destroy
+      @worker.destroy
+      flash[:danger] = "#{@worker.name}を削除しました"
+      redirect_to users_workers_url
+    end
+
+    def update_images
+      worker = current_business.workers.find(params[:worker_id])
+      remain_images = worker.images
+      deleted_image = remain_images.delete_at(params[:index].to_i)
+      deleted_image.try(:remove!)
+      worker.update!(images: remain_images)
+      flash[:danger] = '添付画像を削除しました'
+      redirect_to edit_users_worker_url(worker)
     end
 
 
