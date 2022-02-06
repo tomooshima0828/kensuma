@@ -150,4 +150,30 @@ RSpec.describe Car, type: :model do
       end
     end
   end
+
+  describe '保険会社とのアソシエーションについて' do
+    let :companies do
+      create_list(:car_insurance_company, 2)
+    end
+
+    context '紐つく自賠責保険会社がある場合' do
+      subject do
+        car.company_liabilities << companies
+      end
+
+      it '紐つく自賠保険会社を返すこと' do
+        expect(subject).to eq(companies)
+      end
+    end
+
+    context '紐つく任意保険会社がある場合' do
+      subject do
+        car.company_voluntaries << companies
+      end
+
+      it '紐つく任意保険会社を返すこと' do
+        expect(subject).to eq(companies)
+      end
+    end
+  end
 end
