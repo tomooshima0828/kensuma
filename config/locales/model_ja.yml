@@ -2,6 +2,8 @@ ja:
   activerecord:
     models:
       business: 事業部
+      car_insurance_company: ⾃動⾞保険会社
+      car_voluntary_insurance: 任意保険
       car: 車両情報
       worker: 作業員
     attributes:

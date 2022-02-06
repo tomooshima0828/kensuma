@@ -7,4 +7,6 @@ class CarInsuranceCompany < ApplicationRecord
 
   accepts_nested_attributes_for :car_liability_insurances, allow_destroy: true
   accepts_nested_attributes_for :car_voluntary_insurances, allow_destroy: true
+
+  validates :name, presence: true
 end
