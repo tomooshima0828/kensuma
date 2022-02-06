@@ -18,16 +18,18 @@ RSpec.describe CarLiabilityInsurance, type: :model do
       subject do
         liability.car_liability
       end
+
       it '紐つく車両を返すこと' do
         expect(subject).to eq(car)
       end
     end
 
-    context '紐つく車両がある場合' do
+    context '紐つく保険会社がある場合' do
       subject do
         liability.company_liability
       end
-      it '紐つく車両を返すこと' do
+
+      it '紐つく保険会社を返すこと' do
         expect(subject).to eq(company)
       end
     end
