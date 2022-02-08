@@ -6,11 +6,6 @@ Rails.application.routes.draw do
   # admin関連=========================================================
   devise_for :admins, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-
-  # devise_for :admins, controllers: {
-  #   sessions: 'admins/sessions'
-  # }
-
   # =================================================================
 
   # user関連==========================================================

@@ -12,7 +12,7 @@ RSpec.describe 'Workers', type: :system do
     sign_in(user)
     visit users_dash_boards_path
   end
-  
+
   describe '作業員のCRUDテスト' do
     describe '一覧機能' do
       it '作業員一覧ページに遷移' do
