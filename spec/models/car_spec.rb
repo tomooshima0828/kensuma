@@ -162,7 +162,7 @@ RSpec.describe Car, type: :model do
 
     context '紐つく自賠責保険会社がある場合' do
       subject do
-        car.company_liability = company
+        car.car_insurance_company = company
       end
 
       it '紐つく自賠保険会社を返すこと' do
