@@ -45,7 +45,7 @@ module Users
     def update
       if @worker.update(worker_params)
         flash[:success] = '更新しました'
-        redirect_to users_worker_url
+        redirect_to users_worker_path(@worker)
       else
         render :edit
       end
