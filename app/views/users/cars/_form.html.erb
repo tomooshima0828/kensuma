@@ -30,6 +30,14 @@
 <%= f.label :liability_insurance_end_on %>
 <%= f.date_field :liability_insurance_end_on, class: "form-control", placeholder: Car.human_attribute_name(:liability_insurance_end_on) %>
 <br>
+<!-- 任意保険ここから -->
+<%= f.fields_for :car_voluntary_insurances do |f| %>
+  <%= f.label '任意保険会社' %>
+  <%= f.collection_select :company_voluntary_id, @car_insurance_companies, :id, :name, { prompt: true }, { required: true, class: "form-control" } %>
+  
+<% end %>
+<!-- 任意保険ここまで -->
+<br>
 <%= f.label :voluntary_securities_number %>
 <%= f.text_field :voluntary_securities_number, class: "form-control", placeholder: Car.human_attribute_name(:voluntary_securities_number) %>
 <br>
