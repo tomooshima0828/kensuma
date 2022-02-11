@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_30_012810) do
+ActiveRecord::Schema.define(version: 2022_02_09_120422) do
 
   create_table "active_admin_comments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "namespace"
@@ -82,6 +82,23 @@ ActiveRecord::Schema.define(version: 2022_01_30_012810) do
     t.index ["user_id"], name: "index_businesses_on_user_id"
   end
 
+  create_table "car_insurance_companies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "car_voluntary_insurances", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "personal_insurance"
+    t.integer "objective_insurance"
+    t.bigint "car_voluntary_id", null: false
+    t.bigint "company_voluntary_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["car_voluntary_id"], name: "index_car_voluntary_insurances_on_car_voluntary_id"
+    t.index ["company_voluntary_id"], name: "index_car_voluntary_insurances_on_company_voluntary_id"
+  end
+
   create_table "cars", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "owner_name", null: false
     t.string "safety_manager"
@@ -97,9 +114,11 @@ ActiveRecord::Schema.define(version: 2022_01_30_012810) do
     t.date "voluntary_insurance_end_on"
     t.json "images"
     t.bigint "business_id", null: false
+    t.bigint "car_insurance_company_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["business_id"], name: "index_cars_on_business_id"
+    t.index ["car_insurance_company_id"], name: "index_cars_on_car_insurance_company_id"
   end
 
   create_table "managers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -186,6 +205,9 @@ ActiveRecord::Schema.define(version: 2022_01_30_012810) do
 
   add_foreign_key "articles", "users"
   add_foreign_key "businesses", "users"
+  add_foreign_key "car_voluntary_insurances", "car_insurance_companies", column: "company_voluntary_id"
+  add_foreign_key "car_voluntary_insurances", "cars", column: "car_voluntary_id"
   add_foreign_key "cars", "businesses"
+  add_foreign_key "cars", "car_insurance_companies"
   add_foreign_key "workers", "businesses"
 end
