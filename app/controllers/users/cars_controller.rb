@@ -24,14 +24,14 @@ module Users
         voluntary_securities_number:  SecureRandom.hex(5),
         voluntary_insurance_start_on: Date.today,
         voluntary_insurance_end_on:   Date.today.next_year,
-        # car_insurance_company_id:     rand(1..28)
+        car_insurance_company_id:     1
         # ============================================
       )
+      @car.car_voluntary_insurances.build
     end
 
     def create
-      @car = current_business.cars.build(car_params)
-      if @car.save
+      if @car = current_business.cars.create(car_params)
         redirect_to users_car_url(@car)
       else
         render :new
@@ -80,7 +80,12 @@ module Users
         :vehicle_model, :vehicle_number, :vehicle_inspection_start_on, :vehicle_inspection_end_on,
         :liability_securities_number, :liability_insurance_start_on, :liability_insurance_end_on,
         :voluntary_securities_number, :voluntary_insurance_start_on, :voluntary_insurance_end_on,
-        :car_insurance_company_id, { images: [] })
+        :car_insurance_company_id, { images: [] },
+        car_voluntary_insurances_attributes: [
+          :personal_insurance, :objective_insurance,
+          :company_voluntary_id
+        ]
+      )
     end
   end
 end
