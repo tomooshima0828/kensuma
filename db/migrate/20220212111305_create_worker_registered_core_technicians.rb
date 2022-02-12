@@ -4,7 +4,7 @@ class CreateWorkerRegisteredCoreTechnicians < ActiveRecord::Migration[6.1]
       t.date :got_on, null: false
       t.json :images
       t.references :worker, foreign_key: true, null: false
-      t.references :registered_core_technician, foreign_key: true, null: false
+      t.references :regd_core_tech, foreign_key: { to_table: :registered_core_technicians }, null: false
 
       t.timestamps
     end

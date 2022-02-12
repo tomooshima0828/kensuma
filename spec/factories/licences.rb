@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :licence do
+  factory :license do
     name { "MyString" }
     description { "MyString" }
     type { 1 }
