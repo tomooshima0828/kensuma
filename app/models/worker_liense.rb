@@ -1,0 +1,2 @@
+class WorkerLiense < ApplicationRecord
+end
