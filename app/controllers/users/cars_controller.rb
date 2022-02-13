@@ -1,6 +1,6 @@
 module Users
   class CarsController < Users::Base
-    before_action :set_car_insurance_companies, only: %i[new edit]
+    before_action :set_car_insurance_companies, only: %i[new edit create]
     before_action :set_car, except: %i[index new create update_images]
 
     def index
@@ -27,11 +27,18 @@ module Users
         car_insurance_company_id:     1
         # ============================================
       )
-      @car.car_voluntary_insurances.build
+      @car.car_voluntary_insurances.build(
+        # テスト用デフォルト値 ==========================
+        personal_insurance:   1,
+        objective_insurance:  2,
+        company_voluntary_id: 3
+        # ============================================
+      )
     end
 
     def create
-      if @car = current_business.cars.create(car_params)
+      @car = current_business.cars.build(car_params)
+      if @car.save
         redirect_to users_car_url(@car)
       else
         render :new
@@ -82,8 +89,7 @@ module Users
         :voluntary_securities_number, :voluntary_insurance_start_on, :voluntary_insurance_end_on,
         :car_insurance_company_id, { images: [] },
         car_voluntary_insurances_attributes: [
-          :personal_insurance, :objective_insurance,
-          :company_voluntary_id
+          :id, :personal_insurance, :objective_insurance, :company_voluntary_id
         ]
       )
     end

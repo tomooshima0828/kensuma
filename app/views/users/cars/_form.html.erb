@@ -32,13 +32,13 @@
 <br>
 <!-- 任意保険ここから -->
 <%= f.fields_for :car_voluntary_insurances do |voluntary| %>
-  <%= voluntary.label '任意保険会社' %>
-  <%= voluntary.collection_select :company_voluntary_id, @car_insurance_companies, :id, :name, { prompt: true }, { required: true, class: "form-control" } %>
+  <%= voluntary.label :company_voluntary_id %>
+  <%= voluntary.collection_select :company_voluntary_id, @car_insurance_companies, :id, :name, { prompt: true }, { class: "form-control" } %>
   <br>
-  <%= voluntary.label '対人保険' %>
+  <%= voluntary.label :personal_insurance %>
   <%= voluntary.select :personal_insurance, CarVoluntaryInsurance.personal_insurances.keys.to_a, { prompt: true }, { class: "form-control" } %>
   <br>
-  <%= voluntary.label '対物保険' %>
+  <%= voluntary.label :objective_insurance %>
   <%= voluntary.select :objective_insurance, CarVoluntaryInsurance.objective_insurances.keys.to_a, { prompt: true }, { class: "form-control" } %>
 <% end %>
 <!-- 任意保険ここまで -->

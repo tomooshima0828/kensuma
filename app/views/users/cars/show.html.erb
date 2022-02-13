@@ -45,6 +45,30 @@
           <td><%= @car.liability_insurance_end_on %></td>
         </tr>
         <tr>
+          <th><%= CarVoluntaryInsurance.human_attribute_name(:company_voluntary_id) %></th>
+          <td>
+            <% @car.company_voluntaries.each do |voluntary| %>
+              <%= voluntary.name %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th><%= CarVoluntaryInsurance.human_attribute_name(:personal_insurance) %></th>
+          <td>
+            <% @car.car_voluntary_insurances.each do |voluntary| %>
+              <%= voluntary.personal_insurance %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th><%= CarVoluntaryInsurance.human_attribute_name(:objective_insurance) %></th>
+          <td>
+            <% @car.car_voluntary_insurances.each do |voluntary| %>
+              <%= voluntary.objective_insurance %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
           <th><%= Car.human_attribute_name(:voluntary_securities_number) %></th>
           <td><%= @car.voluntary_securities_number %></td>
         </tr>
