@@ -6,5 +6,5 @@ class License < ApplicationRecord
   # enum license_type: {  }
 
   validates :name, presence: true
-  validates :type, presence: true
+  validates :license_type, presence: true
 end
