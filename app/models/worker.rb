@@ -1,7 +1,8 @@
 class Worker < ApplicationRecord
   belongs_to :business
   mount_uploaders :images, WorkersUploader
-  has_many :worker_li
+  has_many :worker_licenses, dependent: :destroy
+  has_many :licenses, through: :worker_licenses
 
   enum abo_blood_type: { a: 0, b: 1, ab: 2, o: 3 }
   enum rh_blood_type: { plus: 0, minus: 1 }

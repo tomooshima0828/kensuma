@@ -3,7 +3,7 @@ class CreateLicenses < ActiveRecord::Migration[6.1]
     create_table :licenses do |t|
       t.string :name, null: false
       t.string :description
-      t.integer :type, null: false
+      t.integer :license_type, null: false
 
       t.timestamps
     end
