@@ -2,10 +2,6 @@ class CarVoluntaryInsurance < ApplicationRecord
   belongs_to :car_voluntary, class_name: 'Car', foreign_key: 'car_voluntary_id', optional: true
   belongs_to :company_voluntary, class_name: 'CarInsuranceCompany', foreign_key: 'company_voluntary_id'
 
-  validates :personal_insurance, presence: true
-  validates :objective_insurance, presence: true
-  validates :company_voluntary_id, presence: true
-
   enum personal_insurance: {
     無制限: 0,
     "1,000": 1, "2,000": 2, "3,000": 3, "4,000": 4, "5,000": 5,

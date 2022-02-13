@@ -88,8 +88,8 @@ module Users
         :liability_securities_number, :liability_insurance_start_on, :liability_insurance_end_on,
         :voluntary_securities_number, :voluntary_insurance_start_on, :voluntary_insurance_end_on,
         :car_insurance_company_id, { images: [] },
-        car_voluntary_insurances_attributes: [
-          :id, :personal_insurance, :objective_insurance, :company_voluntary_id
+        car_voluntary_insurances_attributes: %i[
+          id personal_insurance objective_insurance company_voluntary_id
         ]
       )
     end
