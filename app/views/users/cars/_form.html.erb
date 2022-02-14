@@ -45,5 +45,5 @@
 <% end %>
 
 <%= f.label :images %>
-<%= f.file_field :images, multiple: true, class: "form-control" %>
+<%= f.file_field :images, accept: 'image/jpg, image/jpeg, image/png', multiple: true, class: "form-control" %>
 <br>
