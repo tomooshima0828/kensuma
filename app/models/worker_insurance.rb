@@ -4,9 +4,10 @@ class WorkerInsurance < ApplicationRecord
   validates :health_insurance_type, presence: true
   validates :pension_insurance_type, presence: true
   validates :employment_insurance_type, presence: true
+  validates :employment_insurance_number, {length: {is: 5} }
   validates :severance_pay_mutual_aid_type, presence: true
 
-  enum health_insurance_type: { 
+  enum health_insurance_type: {
     health_insurance_association: 0,
     japan_health_insurance_association: 1,
     construction_national_health_insurance: 2,
