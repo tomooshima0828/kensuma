@@ -217,6 +217,7 @@ ActiveRecord::Schema.define(version: 2022_02_12_111305) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["license_id"], name: "index_worker_licenses_on_license_id"
+    t.index ["worker_id", "license_id"], name: "index_worker_licenses_on_worker_id_and_license_id", unique: true
     t.index ["worker_id"], name: "index_worker_licenses_on_worker_id"
   end
 
@@ -228,6 +229,7 @@ ActiveRecord::Schema.define(version: 2022_02_12_111305) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["regd_core_tech_id"], name: "index_worker_registered_core_technicians_on_regd_core_tech_id"
+    t.index ["worker_id", "regd_core_tech_id"], name: "worker_registered_core_technicians_index", unique: true
     t.index ["worker_id"], name: "index_worker_registered_core_technicians_on_worker_id"
   end
 
@@ -239,6 +241,7 @@ ActiveRecord::Schema.define(version: 2022_02_12_111305) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["skill_training_id"], name: "index_worker_skill_trainings_on_skill_training_id"
+    t.index ["worker_id", "skill_training_id"], name: "index_worker_skill_trainings_on_worker_id_and_skill_training_id", unique: true
     t.index ["worker_id"], name: "index_worker_skill_trainings_on_worker_id"
   end
 
@@ -250,6 +253,7 @@ ActiveRecord::Schema.define(version: 2022_02_12_111305) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["special_education_id"], name: "index_worker_special_educations_on_special_education_id"
+    t.index ["worker_id", "special_education_id"], name: "worker_special_education_index", unique: true
     t.index ["worker_id"], name: "index_worker_special_educations_on_worker_id"
   end
 

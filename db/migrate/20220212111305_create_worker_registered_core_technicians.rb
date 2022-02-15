@@ -8,5 +8,9 @@ class CreateWorkerRegisteredCoreTechnicians < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+    add_index :worker_registered_core_technicians,
+              [:worker_id, :regd_core_tech_id],
+              unique: true, 
+              name: 'worker_registered_core_technicians_index'
   end
 end

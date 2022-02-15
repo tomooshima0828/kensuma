@@ -6,6 +6,14 @@ ja:
       car_voluntary_insurance: 任意保険
       car: 車両情報
       worker: 作業員
+      license: 免許マスタ
+      worker_license: 中間テーブル(免許マスタ)
+      skill_training: 技能講習マスタ
+      worker_skill_training: 中間テーブル(技能講習マスタ)
+      special_education: 特別教育マスタ
+      worker_special_education: 中間テーブル(特別教育マスタ)
+      registered_core_technician: 登録基幹技能者マスタ
+      worker_registered_core_technician: 中間テーブル(登録基幹技能者マスタ)
     attributes:
       business:
         uuid: 事業所ID
@@ -58,6 +66,39 @@ ja:
         carrier_up_id: 技能者ID
         images: 免許
         business: 事業所
+      license:
+        name: ライセンス名前
+        description: 説明
+        license_type: 種別
+      worker_license:
+        license_id:
+        worker_id:
+        got_on: 取得年月日
+        images: 証明画像
+      skill_training:
+        name: ライセンス名前
+        short_name: 略称
+        details: 引き当て番号
+      worker_skill_training:
+        skill_training_id:
+        worker_id:
+        got_on: 取得年月日
+        images: 証明画像
+      special_education:
+        name: ライセンス名前
+        description: 説明
+      worker_special_education:
+        special_education_id:
+        worker_id:
+        got_on: 取得年月日
+        images: 証明画像
+      registered_core_technician:
+        name: ライセンス名前
+      worker_registered_core_technician:
+        regd_core_tech_id:
+        worker_id:
+        got_on: 取得年月日
+        images: 証明画像
   attributes:
     created_at: 作成日
     updated_at: 更新日

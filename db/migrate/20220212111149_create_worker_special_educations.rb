@@ -8,5 +8,9 @@ class CreateWorkerSpecialEducations < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+    add_index :worker_special_educations,
+              [:worker_id, :special_education_id],
+              unique: true,
+              name: 'worker_special_education_index' 
   end
 end
