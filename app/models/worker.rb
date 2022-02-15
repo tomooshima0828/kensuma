@@ -1,10 +1,6 @@
 class Worker < ApplicationRecord
   belongs_to :business
   mount_uploaders :images, WorkersUploader
-  enum abo_blood_type: { a: 0, b: 1, ab: 2, o: 3 }
-  enum rh_blood_type: { plus: 0, minus: 1 }
-  # ↓内訳未定のためコメントアウト
-  # enum job_type: {  }
 
   has_many :worker_licenses, dependent: :destroy
   has_many :licenses, through: :worker_licenses
@@ -14,6 +10,14 @@ class Worker < ApplicationRecord
 
   has_many :worker_special_educations, dependent: :destroy
   has_many :special_educations, through: :worker_special_educations
+
+  has_many :worker_registered_core_technicians, dependent: :destroy
+  has_many :registered_core_technicians, through: :worker_registered_core_technicians
+
+  enum abo_blood_type: { a: 0, b: 1, ab: 2, o: 3 }
+  enum rh_blood_type: { plus: 0, minus: 1 }
+  # ↓内訳未定のためコメントアウト
+  # enum job_type: {  }
 
   VALID_PHONE_NUMBER_REGEX = /\A\d{10,11}\z/
   validates :name, presence: true
