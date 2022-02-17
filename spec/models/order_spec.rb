@@ -4,10 +4,10 @@ RSpec.describe Order, type: :model do
   let(:order) { create(:order) }
 
   describe 'バリデーションについて' do
-    subject { order } 
+    subject { order }
 
     it 'バリデーションが通ること' do
-      expect(subject).to be_valid 
+      expect(subject).to be_valid
     end
 
     describe '#status' do
