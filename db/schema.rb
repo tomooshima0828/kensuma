@@ -165,7 +165,7 @@ ActiveRecord::Schema.define(version: 2022_02_12_111305) do
   create_table "skill_trainings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "short_name", null: false
-    t.json "details"
+    t.json "allocation_numbers"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

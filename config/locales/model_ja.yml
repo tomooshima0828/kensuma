@@ -78,7 +78,7 @@ ja:
       skill_training:
         name: ライセンス名前
         short_name: 略称
-        details: 引き当て番号
+        allocation_numbers: 引き当て番号
       worker_skill_training:
         skill_training_id:
         worker_id:
