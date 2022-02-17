@@ -1,4 +1,4 @@
-License.seed(
+License.seed(:name,
   # ---------- 種別 登録基幹技能者 ----------
   {
     name: '登録ALC基幹技能者',
