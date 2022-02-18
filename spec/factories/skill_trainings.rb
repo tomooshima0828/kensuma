@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :skill_training do
-    name { "MyString" }
-    short_name { "MyString" }
+    name { "テスト技能講習" }
+    short_name { "テ技" }
     details { "" }
   end
 end
