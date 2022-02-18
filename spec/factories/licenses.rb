@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :license do
-    name { "MyString" }
-    description { "MyString" }
-    type { 1 }
+    name { "テスト技能者" }
+    description { "テスト技能者ライセンスです" }
+    license_type { 0 }
   end
 end
