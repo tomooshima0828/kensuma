@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_12_111149) do
+ActiveRecord::Schema.define(version: 2022_02_14_120441) do
 
   create_table "active_admin_comments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "namespace"
@@ -203,6 +203,20 @@ ActiveRecord::Schema.define(version: 2022_02_12_111149) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  create_table "worker_insurances", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "health_insurance_type", null: false
+    t.string "health_insurance_name"
+    t.integer "pension_insurance_type", null: false
+    t.integer "employment_insurance_type", null: false
+    t.string "employment_insurance_number"
+    t.integer "severance_pay_mutual_aid_type", null: false
+    t.string "severance_pay_mutual_aid_name"
+    t.bigint "worker_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["worker_id"], name: "index_worker_insurances_on_worker_id"
+  end
+
   create_table "worker_licenses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.date "got_on", null: false
     t.json "images"
@@ -268,6 +282,7 @@ ActiveRecord::Schema.define(version: 2022_02_12_111149) do
   add_foreign_key "car_voluntary_insurances", "cars", column: "car_voluntary_id"
   add_foreign_key "cars", "businesses"
   add_foreign_key "cars", "car_insurance_companies"
+  add_foreign_key "worker_insurances", "workers"
   add_foreign_key "worker_licenses", "licenses"
   add_foreign_key "worker_licenses", "workers"
   add_foreign_key "worker_skill_trainings", "skill_trainings"
