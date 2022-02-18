@@ -88,6 +88,7 @@ License.seed(:name,
     name: '登録建築板金基幹技能者',
     license_type: 0
   },
+
   {
     name: '登録左官基幹技能者',
     license_type: 0
@@ -575,22 +576,6 @@ License.seed(:name,
   },
   {
     name: '基礎級電気機器組立て技能検定',
-    license_type: 9
-  },
-  {
-    name: '1級建築板金技能検定',
-    license_type: 9
-  },
-  {
-    name: '2級建築板金技能検定',
-    license_type: 9
-  },
-  {
-    name: '3級建築板金技能検定',
-    license_type: 9
-  },
-  {
-    name: '基礎級建築板金技能検定',
     license_type: 9
   },
   {

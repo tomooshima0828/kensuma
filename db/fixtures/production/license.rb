@@ -578,22 +578,6 @@ License.seed(:name,
     license_type: 9
   },
   {
-    name: '1級建築板金技能検定',
-    license_type: 9
-  },
-  {
-    name: '2級建築板金技能検定',
-    license_type: 9
-  },
-  {
-    name: '3級建築板金技能検定',
-    license_type: 9
-  },
-  {
-    name: '基礎級建築板金技能検定',
-    license_type: 9
-  },
-  {
     name: '1級かわらぶき技能検定',
     license_type: 9
   },
