@@ -19,7 +19,7 @@ RSpec.describe WorkerSkillTraining, type: :model do
     describe '#got_on' do
       context '存在しない場合' do
         before :each do
-          subject.got_on = ""
+          subject.got_on = ''
         end
 
         it 'バリデーションに落ちること' do
@@ -36,7 +36,7 @@ RSpec.describe WorkerSkillTraining, type: :model do
     describe '#worker_id' do
       context '存在しない場合' do
         before :each do
-          subject.worker_id = ""
+          subject.worker_id = ''
         end
 
         it 'バリデーションに落ちること' do
@@ -53,7 +53,7 @@ RSpec.describe WorkerSkillTraining, type: :model do
     describe '#skill_training_id' do
       context '存在しない場合' do
         before :each do
-          subject.skill_training_id = ""
+          subject.skill_training_id = ''
         end
 
         it 'バリデーションに落ちること' do

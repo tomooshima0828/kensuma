@@ -15,7 +15,7 @@ RSpec.describe SpecialEducation, type: :model do
     describe '#name' do
       context '存在しない場合' do
         before :each do
-          subject.name = ""
+          subject.name = ''
         end
 
         it 'バリデーションに落ちること' do

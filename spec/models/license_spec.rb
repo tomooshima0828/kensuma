@@ -15,7 +15,7 @@ RSpec.describe License, type: :model do
     describe '#name' do
       context '存在しない場合' do
         before :each do
-          subject.name = ""
+          subject.name = ''
         end
 
         it 'バリデーションに落ちること' do
@@ -32,7 +32,7 @@ RSpec.describe License, type: :model do
     describe '#license_type' do
       context '存在しない場合' do
         before :each do
-          subject.license_type = ""
+          subject.license_type = ''
         end
 
         it 'バリデーションに落ちること' do

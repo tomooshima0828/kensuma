@@ -5,4 +5,3 @@ class WorkerSpecialEducation < ApplicationRecord
   validates :got_on, presence: true
   validates :worker_id, uniqueness: { scope: :special_education_id }
 end
-

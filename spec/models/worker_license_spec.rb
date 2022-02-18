@@ -19,7 +19,7 @@ RSpec.describe WorkerLicense, type: :model do
     describe '#got_on' do
       context '存在しない場合' do
         before :each do
-          subject.got_on = ""
+          subject.got_on = ''
         end
 
         it 'バリデーションに落ちること' do
@@ -36,7 +36,7 @@ RSpec.describe WorkerLicense, type: :model do
     describe '#worker_id' do
       context '存在しない場合' do
         before :each do
-          subject.worker_id = ""
+          subject.worker_id = ''
         end
 
         it 'バリデーションに落ちること' do
@@ -53,7 +53,7 @@ RSpec.describe WorkerLicense, type: :model do
     describe '#license_id' do
       context '存在しない場合' do
         before :each do
-          subject.license_id = ""
+          subject.license_id = ''
         end
 
         it 'バリデーションに落ちること' do
