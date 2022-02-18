@@ -40,7 +40,7 @@ RSpec.describe WorkerLicense, type: :model do
         end
 
         it 'バリデーションに落ちること' do
-          expect(worker_license).to be_invalid
+          expect(subject).to be_invalid
         end
 
         it 'バリデーションのエラーが正しいこと' do
@@ -57,7 +57,7 @@ RSpec.describe WorkerLicense, type: :model do
         end
 
         it 'バリデーションに落ちること' do
-          expect(worker_license).to be_invalid
+          expect(subject).to be_invalid
         end
 
         it 'バリデーションのエラーが正しいこと' do
