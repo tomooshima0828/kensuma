@@ -1,5 +1,4 @@
 ActiveAdmin.register News do
-  
   permit_params :title, :context, :status, :delivered_at
 
   index do
@@ -41,5 +40,4 @@ ActiveAdmin.register News do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end

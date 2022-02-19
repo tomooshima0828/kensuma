@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe "News", type: :system do
+RSpec.describe 'News', type: :system do
   let!(:admin) { create(:admin, email: 'foo@example.com', password: '123456', password_confirmation: '123456') }
   let!(:news_a) { create(:news, title: 'ニュースA', context: 'これはニュースAの内容です', status: 'draft', delivered_at: DateTime.now) }
-  
+
   before(:each) do
     admin.save!
     news_a.save!
@@ -24,18 +24,21 @@ RSpec.describe "News", type: :system do
         end
       end
     end
+
     describe '編集ページに遷移' do
       before(:each) { visit _system__news_index_path }
+
       context '編集をクリックした場合' do
         it 'News編集ページを表示' do
           click_link '編集'
           expect(page).to have_current_path edit__system__news_path(news_a), ignore_query: true
           expect(page).to have_content('News を編集する')
-          
         end
       end
+
       describe do
         before(:each) { visit edit__system__news_path(news_a) }
+
         context '編集する' do
           it '編集する' do
             fill_in 'news[title]', with: 'ニュースAの編集'
@@ -50,7 +53,8 @@ RSpec.describe "News", type: :system do
             expect(page).to have_content('News の詳細')
           end
         end
-        context '編集する'  do
+
+        context '編集する' do
           it '編集する' do
             fill_in 'news[title]', with: nil
             fill_in 'news[context]', with: 'ニュースAの内容の編集です'
