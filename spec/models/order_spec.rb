@@ -22,18 +22,6 @@ RSpec.describe Order, type: :model do
       end
     end
 
-    describe '#site_uu_id' do
-      context '存在しない場合' do
-        before(:each) { subject.site_uu_id = nil }
-
-        it 'バリデーションに落ちること' do
-          expect(subject).to be_invalid
-          subject.valid?
-          expect(subject.errors.full_messages).to include('現場IDを入力してください')
-        end
-      end
-    end
-
     describe '#site_name' do
       context '存在しない場合' do
         before(:each) { subject.site_name = nil }
