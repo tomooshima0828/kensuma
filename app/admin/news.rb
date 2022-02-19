@@ -7,22 +7,22 @@ ActiveAdmin.register News do
     id_column
     column :title
     column :context
-    column :status
     column :delivered_at
+    column :status
     actions
   end
 
   filter :title
   filter :context
-  filter :status
   filter :delivered_at
+  filter :status
 
   form do |f|
     f.inputs do
       f.input :title
       f.input :context
-      f.input :status
       f.input :delivered_at
+      f.input :status
     end
     f.actions
   end

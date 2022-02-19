@@ -151,8 +151,8 @@ ActiveRecord::Schema.define(version: 2022_02_15_075949) do
   create_table "news", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title", default: "", null: false
     t.text "context"
-    t.integer "status", default: 0, null: false
     t.datetime "delivered_at"
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

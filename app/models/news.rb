@@ -10,9 +10,9 @@ class News < ApplicationRecord
   private
 
   def unable_to_be_published
-    if (title == nil || context == nil || delivered_at == nil)
+    if (!title.present? || !context.present? || !delivered_at.present?)
       if status == "published"
-        errors.add(:published, "全ての項目を入力しないと公開できません")
+        errors.add(:published, "全ての項目を入力しないと下書きを公開できません")
       end
     end
   end
