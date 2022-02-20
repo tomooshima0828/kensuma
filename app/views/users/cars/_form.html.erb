@@ -53,7 +53,6 @@
   <%= voluntary.date_field :voluntary_insurance_end_on, class: "form-control", placeholder: Car.human_attribute_name(:voluntary_insurance_end_on) %>
 <% end %>
 <br>
-
 <!-- 任意保険ここまで -->
 <% if car.images.present? %>
   <% car.images.each_with_index do |image, index| %>
