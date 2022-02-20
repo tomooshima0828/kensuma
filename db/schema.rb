@@ -91,6 +91,9 @@ ActiveRecord::Schema.define(version: 2022_02_14_120441) do
   create_table "car_voluntary_insurances", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "personal_insurance"
     t.integer "objective_insurance"
+    t.string "voluntary_securities_number"
+    t.date "voluntary_insurance_start_on"
+    t.date "voluntary_insurance_end_on"
     t.bigint "car_voluntary_id", null: false
     t.bigint "company_voluntary_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -109,9 +112,6 @@ ActiveRecord::Schema.define(version: 2022_02_14_120441) do
     t.string "liability_securities_number", null: false
     t.date "liability_insurance_start_on", null: false
     t.date "liability_insurance_end_on", null: false
-    t.string "voluntary_securities_number"
-    t.date "voluntary_insurance_start_on"
-    t.date "voluntary_insurance_end_on"
     t.json "images"
     t.bigint "business_id", null: false
     t.datetime "created_at", precision: 6, null: false
