@@ -36,12 +36,12 @@ ja:
       car_insurance_company:
         name: 保険会社名
       car_voluntary_insurance:
-        personal_insurance: 対人保険金(万円)
-        objective_insurance: 対物保険金(万円)
+        company_voluntary_id: 任意保険会社
+        personal_insurance: 任意保険 対人保険金(万円)
+        objective_insurance: 任意保険 対物保険金(万円)
         voluntary_securities_number: 任意保険証券番号
         voluntary_insurance_start_on: 任意保険初め
         voluntary_insurance_end_on: 任意保険終わり
-        company_voluntary_id: 任意保険会社
       worker:
         name: 名前
         name_kana: 名前カナ
