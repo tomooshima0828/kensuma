@@ -14,7 +14,7 @@ RSpec.describe 'News', type: :system do
     visit _system__dashboard_path
   end
 
-  describe 'active_admin/devise/sessions' do
+  describe 'ダッシュボードからニュース一覧ページにアクセスした場合' do
     describe 'ニュース一覧ページにアクセスした場合' do
       context 'ニュース一覧ページにアクセスした場合' do
         it 'ニュース一覧ページを表示' do
@@ -25,11 +25,11 @@ RSpec.describe 'News', type: :system do
       end
     end
 
-    describe '編集ページに遷移' do
+    describe 'ニュース一覧ページにアクセスした場合' do
       before(:each) { visit _system__news_index_path }
 
-      context '編集をクリックした場合' do
-        it 'News編集ページを表示' do
+      context 'ニュース編集をクリックした場合' do
+        it 'ニュース編集ページを表示' do
           click_link '編集'
           expect(page).to have_current_path edit__system__news_path(news_a), ignore_query: true
           expect(page).to have_content('News を編集する')
@@ -39,8 +39,8 @@ RSpec.describe 'News', type: :system do
       describe do
         before(:each) { visit edit__system__news_path(news_a) }
 
-        context '編集する' do
-          it '編集する' do
+        context 'ニュース編集ページを表示した場合' do
+          it 'ニュース編集ページで各項目を入力(正常系)' do
             fill_in 'news[title]', with: 'ニュースAの編集'
             fill_in 'news[context]', with: 'ニュースAの内容の編集です'
             select '2022', from: 'news[delivered_at(1i)]'
@@ -54,8 +54,9 @@ RSpec.describe 'News', type: :system do
           end
         end
 
-        context '編集する' do
-          it '編集する' do
+        context 'ニュース編集ページを表示した場合' do
+          it 'ニュース編集ページで各項目を入力(異常系)' do
+            # 入力項目に空が一つでもあると、'Published'では更新できない
             fill_in 'news[title]', with: nil
             fill_in 'news[context]', with: 'ニュースAの内容の編集です'
             select '2022', from: 'news[delivered_at(1i)]'
