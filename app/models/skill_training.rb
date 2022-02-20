@@ -1,5 +1,5 @@
 class SkillTraining < ApplicationRecord
-  has_many :worker_skill_training, dependent: :destroy
+  has_many :worker_skill_trainings, dependent: :destroy
   has_many :workers, through: :worker_licenses
 
   validates :name, presence: true
