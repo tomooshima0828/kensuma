@@ -1,4 +1,4 @@
-SkillTraining.seed(:name,
+SkillTraining.seed(
   {
     id: 1,
     name: '車両系建設機械（整地・運搬・積込み用及び掘削用）運転技能講習',
