@@ -5,6 +5,7 @@ ja:
       car_insurance_company: ⾃動⾞保険会社
       car_voluntary_insurance: 任意保険
       car: 車両情報
+      order: 発注
       worker: 作業員
       worker_insurance: 保険情報
     attributes:
@@ -42,6 +43,12 @@ ja:
         voluntary_securities_number: 任意保険証券番号
         voluntary_insurance_start_on: 任意保険初め
         voluntary_insurance_end_on: 任意保険終わり
+      order:
+        site_uu_id: 現場ID
+        site_name: 現場名
+        order_name: 発注者名前
+        order_post_code: 発注者郵便番号
+        order_address: 発注者住所
       worker:
         name: 名前
         name_kana: 名前カナ
