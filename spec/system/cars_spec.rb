@@ -27,6 +27,9 @@ RSpec.describe 'Cars', type: :system do
 
     context '車両情報登録' do
       it '新規登録したあと詳細画面へ遷移すること' do
+        CarInsuranceCompany.create!(name: 'test_company1')
+        CarInsuranceCompany.create!(name: 'test_company2')
+
         visit new_users_car_path
 
         # 車両所有者氏名
@@ -43,6 +46,8 @@ RSpec.describe 'Cars', type: :system do
         fill_in 'car[vehicle_inspection_end_on]', with: car.vehicle_inspection_end_on
 
         # ========== 自賠責保険ここから ==========
+        # 自賠責保険会社
+        select 'test_company1', from: 'car_car_insurance_company_id'
         # 自賠責証券番号
         fill_in 'car[liability_securities_number]', with: car.liability_securities_number
         # 自賠責保険初め
@@ -52,6 +57,8 @@ RSpec.describe 'Cars', type: :system do
         # ========== 自賠責保険ここまで ==========
 
         # ========== 任意保険ここから ==========
+        # 任意保険会社
+        select 'test_company2', from: 'car_car_voluntary_insurances_attributes_0_company_voluntary_id'
         # 対人保険金
         select car_voluntary_insurance.personal_insurance, from: 'car_car_voluntary_insurances_attributes_0_personal_insurance'
         # 対物保険金
