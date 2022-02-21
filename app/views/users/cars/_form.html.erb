@@ -13,10 +13,10 @@
 <%= f.text_field :vehicle_number, class: "form-control", placeholder: Car.human_attribute_name(:vehicle_number) %>
 <br>
 <%= f.label :vehicle_inspection_start_on %>
-<%= f.date_field :vehicle_inspection_start_on, class: "form-control", placeholder: Car.human_attribute_name(:vehicle_inspection_start_on) %>
+<%= f.date_field :vehicle_inspection_start_on, class: "form-control" %>
 <br>
 <%= f.label :vehicle_inspection_end_on %>
-<%= f.date_field :vehicle_inspection_end_on, class: "form-control", placeholder: Car.human_attribute_name(:vehicle_inspection_end_on) %>
+<%= f.date_field :vehicle_inspection_end_on, class: "form-control" %>
 <br>
 <!-- 自賠責保険ここから -->
 <%= f.label :car_insurance_company_id %>
@@ -26,10 +26,10 @@
 <%= f.text_field :liability_securities_number, class: "form-control", placeholder: Car.human_attribute_name(:liability_securities_number) %>
 <br>
 <%= f.label :liability_insurance_start_on %>
-<%= f.date_field :liability_insurance_start_on, class: "form-control", placeholder: Car.human_attribute_name(:liability_insurance_start_on) %>
+<%= f.date_field :liability_insurance_start_on, class: "form-control" %>
 <br>
 <%= f.label :liability_insurance_end_on %>
-<%= f.date_field :liability_insurance_end_on, class: "form-control", placeholder: Car.human_attribute_name(:liability_insurance_end_on) %>
+<%= f.date_field :liability_insurance_end_on, class: "form-control" %>
 <!-- 自賠責保険ここまで -->
 <br>
 <!-- 任意保険ここから -->
@@ -47,10 +47,10 @@
   <%= voluntary.text_field :voluntary_securities_number, class: "form-control", placeholder: Car.human_attribute_name(:voluntary_securities_number) %>
   <br>
   <%= voluntary.label :voluntary_insurance_start_on %>
-  <%= voluntary.date_field :voluntary_insurance_start_on, class: "form-control", placeholder: Car.human_attribute_name(:voluntary_insurance_start_on) %>
+  <%= voluntary.date_field :voluntary_insurance_start_on, class: "form-control" %>
   <br>
   <%= voluntary.label :voluntary_insurance_end_on %>
-  <%= voluntary.date_field :voluntary_insurance_end_on, class: "form-control", placeholder: Car.human_attribute_name(:voluntary_insurance_end_on) %>
+  <%= voluntary.date_field :voluntary_insurance_end_on, class: "form-control" %>
 <% end %>
 <br>
 <!-- 任意保険ここまで -->
