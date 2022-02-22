@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_17_014304) do
+ActiveRecord::Schema.define(version: 2022_02_21_215957) do
 
   create_table "active_admin_comments", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "namespace"
@@ -91,6 +91,9 @@ ActiveRecord::Schema.define(version: 2022_02_17_014304) do
   create_table "car_voluntary_insurances", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.integer "personal_insurance"
     t.integer "objective_insurance"
+    t.string "voluntary_securities_number"
+    t.date "voluntary_insurance_start_on"
+    t.date "voluntary_insurance_end_on"
     t.bigint "car_voluntary_id", null: false
     t.bigint "company_voluntary_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -109,9 +112,6 @@ ActiveRecord::Schema.define(version: 2022_02_17_014304) do
     t.string "liability_securities_number", null: false
     t.date "liability_insurance_start_on", null: false
     t.date "liability_insurance_end_on", null: false
-    t.string "voluntary_securities_number"
-    t.date "voluntary_insurance_start_on"
-    t.date "voluntary_insurance_end_on"
     t.json "images"
     t.bigint "business_id", null: false
     t.datetime "created_at", precision: 6, null: false
