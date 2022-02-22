@@ -11,7 +11,7 @@ class News < ApplicationRecord
   private
 
   def unable_to_be_published
-    if !title.present? || !context.present? || !delivered_at.present? && (status == 'published')
+    if !title.present? || !content.present? || !delivered_at.present? && (status == 'published')
       errors.add(:status, '下書き(Draft)から公開(Published)に変更したい場合は、全ての項目を入力してください。')
     end
   end

@@ -5,7 +5,7 @@ RSpec.describe News, type: :model do
     build(:news)
   end
 
-  describe do
+  describe 'Newsのバリデーションについて' do
     subject do
       news
     end
