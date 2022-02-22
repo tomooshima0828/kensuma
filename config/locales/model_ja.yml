@@ -44,6 +44,7 @@ ja:
         objective_insurance: 対物保険金(万円)
         company_voluntary_id: 任意保険会社
       order:
+        status: ステータス
         site_uu_id: 現場ID
         site_name: 現場名
         order_name: 発注者名前
