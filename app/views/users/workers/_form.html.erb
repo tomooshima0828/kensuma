@@ -47,6 +47,16 @@
 <%= f.label :carrier_up_id %>
 <%= f.text_field :carrier_up_id, class: "form-control", placeholder: Worker.human_attribute_name(:carrier_up_id) %>
 
+<!-- Licenseここから -->
+<%= f.label :license_id %>
+<%= f.collection_select :license_id, License.all, :id, :name, { prompt: true }, { required: true, class: "form-control" } %>
+
+<!-- Licenseここまで -->
+
+<!-- WorkerLicenseここから -->
+
+<!-- WorkerLicenseここまで -->
+
 <% if worker.images.present? %>
   <% worker.images.each_with_index do |image, index| %>
     <%= image_tag(image.url) %>
