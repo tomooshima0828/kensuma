@@ -1,0 +1,13 @@
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <h1><%= @news.title %></h1>
+      <ul>
+        <li><%= @news.content %></li>
+        <li>配信日時: <%= l(@news.delivered_at, format: :long) %></li>
+        <li><%= @news.status %></li>
+      </ul>
+    </div>
+    <!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
