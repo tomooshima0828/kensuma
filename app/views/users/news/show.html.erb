@@ -4,8 +4,8 @@
       <h1><%= @news.title %></h1>
       <ul>
         <li><%= @news.content %></li>
-        <li>配信日時: <%= l(@news.delivered_at, format: :long) %></li>
-        <li><%= @news.status %></li>
+        <li>配信日: <%= l(@news.delivered_at, format: :long) %></li>
+        <li>公開状態: <%= @news.status %></li>
       </ul>
     </div>
     <!-- /.row -->

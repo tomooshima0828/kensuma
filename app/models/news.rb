@@ -6,15 +6,15 @@ class News < ApplicationRecord
   validate :news_must_be_delivered_before_now
 
   enum status: {
-    draft:     0,  # 下書きの状態 default
-    published: 1 # 公開の状態
+    下書き:     0,  # default: 0
+    公開: 1
   }
 
   private
 
   def unable_to_be_published
-    if !title.present? || !content.present? || !delivered_at.present? && (status == 'published')
-      errors.add(:status, '下書き(draft)から公開(published)に変更したい場合は、全ての項目を入力してください。')
+    if !title.present? || !content.present? || !delivered_at.present? && (status == '公開')
+      errors.add(:status, '「下書き」から「公開」に変更したい場合は、全ての項目を入力してください。')
     end
   end
 
