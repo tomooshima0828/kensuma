@@ -6,7 +6,7 @@ RSpec.describe 'News', type: :system do
   let!(:business_a) { create(:business, user: user_x) } # userのbusinessが無いとダッシュボードに遷移できないので追加
   let!(:news_a) { create(:news, title: 'お知らせ-A', content: 'これはお知らせ-Aの内容です', status: '下書き', delivered_at: DateTime.now.yesterday) }
   let!(:news_b) { create(:news, title: 'お知らせ-B', content: 'これはお知らせ-Bの内容です', status: '公開', delivered_at: DateTime.now.yesterday) }
-  
+
   before(:each) do
     user_x.skip_confirmation! # ユーザー作成時のメールによる認証をスキップできる
     user_x.save!
@@ -19,6 +19,7 @@ RSpec.describe 'News', type: :system do
       visit _system__news_index_path
       visit edit__system__news_path(news_a)
     end
+
     context 'お知らせ編集ページを表示(正常系)' do
       it 'お知らせ編集ページで各項目を入力(正常系)' do
         fill_in 'news[title]', with: 'お知らせ-Aの編集' # 内容を書き換える
@@ -33,6 +34,7 @@ RSpec.describe 'News', type: :system do
         expect(page).to have_content('お知らせ')
       end
     end
+
     context 'お知らせ編集ページを表示(異常系)' do
       it 'お知らせ編集ページで各項目を入力(異常系)' do
         fill_in 'news[title]', with: nil # 「タイトル」にnilを入力
@@ -57,17 +59,22 @@ RSpec.describe 'News', type: :system do
       visit users_dash_boards_path
       visit users_news_index_path
     end
+
     context 'お知らせ一覧ページに遷移した場合' do
       it 'お知らせ一覧ページを表示' do
-        expect(page).to have_content('お知らせ')
+        expect(page).to have_content('お知らせ一覧')
       end
     end
-    before(:each) do
-      visit users_news_path(news_b)
-    end
-    context 'お知らせ詳細ページに遷移した場合' do
-      it 'お知らせ詳細ページを表示' do
-        expect(page).to have_content(news_b.title)
+
+    describe 'お知らせ詳細ページに遷移した場合' do
+      before(:each) do
+        visit users_news_path(news_b)
+      end
+
+      context 'お知らせ詳細ページを表示' do
+        it 'お知らせ詳細ページにタイトルが含まれること' do
+          expect(page).to have_content(news_b.title)
+        end
       end
     end
   end

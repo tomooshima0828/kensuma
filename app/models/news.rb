@@ -6,8 +6,8 @@ class News < ApplicationRecord
   validate :news_must_be_delivered_before_now
 
   enum status: {
-    下書き:     0,  # default: 0
-    公開: 1
+    下書き: 0,  # default: 0
+    公開:  1
   }
 
   private
@@ -20,7 +20,7 @@ class News < ApplicationRecord
 
   def news_must_be_delivered_before_now
     unless delivered_at <= Time.now
-      errors.add(:delivered_at, '配信日は本日よりも前の日時に設定してください。')
+      errors.add(:delivered_at, '配信日は本日または本日よりも前の日時に設定してください。')
     end
   end
 end
