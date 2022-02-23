@@ -1,13 +1,14 @@
+<% provide(:title,  "お知らせ詳細") %>
 <div class="content">
   <div class="container-fluid">
     <div class="row">
-      <h1><%= @news.title %></h1>
       <ul>
+        <li><%= @news.title %></li>
         <li><%= @news.content %></li>
         <li>配信日: <%= l(@news.delivered_at, format: :long) %></li>
         <li>公開状態: <%= @news.status %></li>
       </ul>
-    </div>
-    <!-- /.row -->
+    </div><!-- /.row -->
   </div><!-- /.container-fluid -->
+  <%= link_to 'お知らせ一覧に戻る', users_news_index_path, class: "btn btn-sm btn-outline-dark" %>
 </div>
