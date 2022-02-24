@@ -39,6 +39,6 @@ user.create_business!(
     title: "お知らせ-#{i+1}", # sample: "お知らせ-1"
     content: Faker::Lorem.sentence(word_count: 20),
     delivered_at: DateTime.now.yesterday,
-    status: 1 # 下書き: 0, 公開: 1
+    status: 'published'
   )
 end

@@ -2,14 +2,14 @@ require 'rails_helper'
 
 RSpec.describe 'News', type: :system do
   let!(:admin) { create(:admin, email: 'foo@example.com', password: '123456', password_confirmation: '123456') }
-  let!(:user_x) { create(:user, email: 'userx@example.com', password: '123456', password_confirmation: '123456') }
-  let!(:business_a) { create(:business, user: user_x) } # userのbusinessが無いとダッシュボードに遷移できないので追加
-  let!(:news_a) { create(:news, title: 'お知らせ-A', content: 'これはお知らせ-Aの内容です', status: '下書き', delivered_at: DateTime.now.yesterday) }
-  let!(:news_b) { create(:news, title: 'お知らせ-B', content: 'これはお知らせ-Bの内容です', status: '公開', delivered_at: DateTime.now.yesterday) }
+  let!(:user) { create(:user, email: 'userx@example.com', password: '123456', password_confirmation: '123456') }
+  let!(:business) { create(:business, user: user) } # userのbusinessが無いとログイン後にダッシュボードに遷移できないので追加
+  let!(:news_a) { create(:news, title: 'お知らせ-A', content: 'これはお知らせ-Aの内容です', status: 'draft', delivered_at: DateTime.now.yesterday) }
+  let!(:news_b) { create(:news, title: 'お知らせ-B', content: 'これはお知らせ-Bの内容です', status: 'published', delivered_at: DateTime.now.yesterday) }
 
   before(:each) do
-    user_x.skip_confirmation! # ユーザー作成時のメールによる認証をスキップできる
-    user_x.save!
+    user.skip_confirmation! # ユーザー作成時のメールによる認証をスキップできる
+    user.save!
   end
 
   describe 'active_admin/newsに遷移した場合' do
@@ -29,7 +29,7 @@ RSpec.describe 'News', type: :system do
         select '1', from: 'news[delivered_at(3i)]'
         select '01', from: 'news[delivered_at(4i)]'
         select '01', from: 'news[delivered_at(5i)]'
-        select '公開', from: 'news[status]' # 全ての項目が入力された状態で「公開」を選択する
+        select 'Published', from: 'news[status]' # 全ての項目が入力された状態で「Published」を選択する
         click_button 'お知らせを更新'
         expect(page).to have_content('お知らせ')
       end
@@ -44,9 +44,9 @@ RSpec.describe 'News', type: :system do
         select '1', from: 'news[delivered_at(3i)]'
         select '01', from: 'news[delivered_at(4i)]'
         select '01', from: 'news[delivered_at(5i)]'
-        select '公開', from: 'news[status]' # 「タイトル」がnilのまま「公開」を選択
+        select 'Published', from: 'news[status]' # 「タイトル」がnilのまま「Published」を選択
         click_button 'お知らせを更新'
-        # 入力項目に空が一つでもあると、「公開」では更新できない
+        # 入力項目に空が一つでもあると、「Published」では更新できない
         expect(page).not_to have_content('お知らせ の詳細')
       end
     end
@@ -55,7 +55,8 @@ RSpec.describe 'News', type: :system do
   describe 'users/newsに遷移した場合' do
     before(:each) do
       visit root_url
-      sign_in(user_x)
+      sign_in(user)
+      # あらかじめbusinessを作成しているため、ダッシュボードに遷移できる
       visit users_dash_boards_path
       visit users_news_index_path
     end
