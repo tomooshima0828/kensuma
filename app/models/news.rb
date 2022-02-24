@@ -6,7 +6,7 @@ class News < ApplicationRecord
   validate :news_must_be_delivered_before_now
 
   enum status: {
-    draft: 0,  # default: 0
+    draft:     0,  # default: 0
     published: 1
   }
 
