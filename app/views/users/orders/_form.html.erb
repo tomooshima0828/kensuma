@@ -1,5 +1,10 @@
 <%= render 'shared/error_massages', object: f.object %>
 
+<% if controller.action_name == 'edit' %>
+  <%= f.label :status %>
+  <%= f.select :status, Order.statuses_i18n.invert, {}, { class: "form-control" } %>
+<% end %>
+<br>
 <%= f.label :site_name %>
 <%= f.text_field :site_name, class: "form-control", placeholder: Order.human_attribute_name(:site_name) %>
 <br>
