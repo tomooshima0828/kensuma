@@ -52,7 +52,7 @@ module Users
     end
 
     def order_params
-      params.require(:order).permit(:status, :site_uu_id, :site_name, :order_name, :order_post_code, :order_address)
+      params.require(:order).permit(:status, :site_name, :order_name, :order_post_code, :order_address)
     end
   end
 end
