@@ -35,6 +35,7 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
     resources :workers do
       patch 'update_images'
     end
+    resources :orders, param: :site_uu_id
   end
   # =================================================================
 
