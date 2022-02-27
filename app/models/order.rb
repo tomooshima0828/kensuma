@@ -1,5 +1,7 @@
 class Order < ApplicationRecord
   belongs_to :business
+  has_many :request_orders, dependent: :destroy
+  has_many :business_requests, through: :request_orders, source: :business_request
 
   enum status: { created: 0, completed: 1 }
 

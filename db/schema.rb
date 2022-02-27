@@ -180,8 +180,12 @@ ActiveRecord::Schema.define(version: 2022_02_26_125440) do
 
   create_table "request_orders", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.integer "status"
+    t.bigint "order_request_id", null: false
+    t.bigint "business_request_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["business_request_id"], name: "index_request_orders_on_business_request_id"
+    t.index ["order_request_id"], name: "index_request_orders_on_order_request_id"
   end
 
   create_table "skill_trainings", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
@@ -311,6 +315,8 @@ ActiveRecord::Schema.define(version: 2022_02_26_125440) do
   add_foreign_key "cars", "businesses"
   add_foreign_key "cars", "car_insurance_companies"
   add_foreign_key "orders", "businesses"
+  add_foreign_key "request_orders", "businesses", column: "business_request_id"
+  add_foreign_key "request_orders", "orders", column: "order_request_id"
   add_foreign_key "worker_insurances", "workers"
   add_foreign_key "worker_licenses", "licenses"
   add_foreign_key "worker_licenses", "workers"
