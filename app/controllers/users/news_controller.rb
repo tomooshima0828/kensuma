@@ -10,12 +10,13 @@ module Users
     end
 
     private
-      def update_read_status!
-        if NewsUser.where(user_id: current_user.id, news_id: @news.id).blank?
-          news_user = @news.news_users.build
-          news_user.user = current_user
-          news_user.save!
-        end
+
+    def update_read_status!
+      if NewsUser.where(user_id: current_user.id, news_id: @news.id).blank?
+        news_user = @news.news_users.build
+        news_user.user = current_user
+        news_user.save!
       end
+    end
   end
 end
