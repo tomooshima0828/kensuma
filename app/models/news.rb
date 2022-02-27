@@ -18,7 +18,7 @@ class News < ApplicationRecord
   end
 
   def news_must_be_delivered_before_now
-    unless delivered_at <= Time.now
+    if delivered_at > Time.now
       errors.add(:delivered_at, '配信日は本日または本日よりも前の日時に設定してください。')
     end
   end
