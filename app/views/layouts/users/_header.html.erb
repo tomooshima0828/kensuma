@@ -15,7 +15,7 @@
         <% news_user_count = current_user.news_users.count %> <%# お知らせの既読数 %>
         <% if news_count != news_user_count %>
           <span class="badge badge-warning navbar-badge">
-            <%= news_count - news_user_count %> <%# お知らせの未読数 %>
+            <%= unread_count = news_count - news_user_count %> <%# お知らせの未読数 %>
           </span>
         <% end %>
       <% end %>
