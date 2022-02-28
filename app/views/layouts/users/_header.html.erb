@@ -10,11 +10,11 @@
     </li>
     <li class="nav-item d-none d-sm-inline-block">
       <%= link_to users_news_index_path, class:"nav-link" do %>
-        <i class="nav-icon far fa-bell fa-lg"></i> <%#= ベルのアイコン %>
+        <i class="nav-icon far fa-bell fa-lg"></i> <%# ベルのアイコン %>
         <% if News.count != current_user.news_users.count %>
           <span class="badge badge-warning navbar-badge">
             <% number = News.count - current_user.news_users.count %>
-            <%= number %> <%#= 未読数 %>
+            <%= number %> <%# 未読数 %>
           </span>
         <% end %>
       <% end %>
