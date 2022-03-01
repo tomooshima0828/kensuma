@@ -63,13 +63,13 @@
   <%= w_license.collection_select :license_id, License.all, :id, :name, { prompt: true }, { required: true, class: "form-control" } %><br>
 
   <%= w_license.label :got_on %>
-  <%= w_license.date_field :got_on, class: "form-control" %><br>
+  <%= w_license.date_field :got_on, class: "form-control" %>
 
   <% @worker.worker_licenses.each do |worker_license| %>
     <% if worker_license.images.present? %>
       <% worker_license.images.each_with_index do |image, index| %>
         <%= image_tag(image.url) %>
-        <%= link_to "削除", users_worker_delete_workerlicense_images_path(worker, index: index), method: :patch, data: { confirm: "本当に削除してもよろしいですか？" } %>
+        <%= link_to "削除", users_worker_update_workerlicense_images_path(worker, index: index), method: :patch, data: { confirm: "本当に削除してもよろしいですか？" } %>
       <% end %>
     <% end %>
   <% end %><br>
@@ -85,7 +85,16 @@
   <%= w_skill_training.collection_select :skill_training_id, SkillTraining.all, :id, :name, { prompt: true }, { required: true, class: "form-control" } %><br>
 
   <%= w_skill_training.label :got_on %>
-  <%= w_skill_training.date_field :got_on, class: "form-control" %><br>
+  <%= w_skill_training.date_field :got_on, class: "form-control" %>
+
+  <% @worker.worker_skill_trainings.each do |worker_skill_training| %>
+    <% if worker_skill_training.images.present? %>
+      <% worker_skill_training.images.each_with_index do |image, index| %>
+        <%= image_tag(image.url) %>
+        <%= link_to "削除", users_worker_update_workerskilltraining_images_path(worker, index: index), method: :patch, data: { confirm: "本当に削除してもよろしいですか？" } %>
+      <% end %>
+    <% end %>
+  <% end %><br>
 
   <%= w_skill_training.label :images %>
   <%= w_skill_training.file_field :images, accept: 'image/jpg, image/jpeg, image/png', multiple: true, class: "form-control" %><br>
@@ -98,7 +107,16 @@
   <%= w_special_education.collection_select :special_education_id, SpecialEducation.all, :id, :name, { prompt: true }, { required: true, class: "form-control" } %><br>
 
   <%= w_special_education.label :got_on %>
-  <%= w_special_education.date_field :got_on, class: "form-control" %><br>
+  <%= w_special_education.date_field :got_on, class: "form-control" %>
+
+  <% @worker.worker_special_educations.each do |worker_special_education| %>
+    <% if worker_special_education.images.present? %>
+      <% worker_special_education.images.each_with_index do |image, index| %>
+        <%= image_tag(image.url) %>
+        <%= link_to "削除", users_worker_update_workerspecialeducation_images_path(worker, index: index), method: :patch, data: { confirm: "本当に削除してもよろしいですか？" } %>
+      <% end %>
+    <% end %>
+  <% end %><br>
 
   <%= w_special_education.label :images %>
   <%= w_special_education.file_field :images, accept: 'image/jpg, image/jpeg, image/png', multiple: true, class: "form-control" %><br>

@@ -100,6 +100,29 @@ module Users
       end
     end
 
+    def update_workerskilltraining_images
+      worker = current_business.workers.find(params[:worker_id])
+      worker.worker_skill_trainings.each do |worker_skill_training|
+        remain_images = worker_skill_training.images
+        deleted_image = remain_images.delete_at(params[:index].to_i)
+        deleted_image.try(:remove!)
+        worker_skill_training.update!(images: remain_images)
+        flash[:danger] = '添付画像を削除しました'
+        redirect_to edit_users_worker_url(worker)
+      end
+    end
+
+    def update_workerspecialeducation_images
+      worker = current_business.workers.find(params[:worker_id])
+      worker.worker_special_educations.each do |worker_special_education|
+        remain_images = worker_special_education.images
+        deleted_image = remain_images.delete_at(params[:index].to_i)
+        deleted_image.try(:remove!)
+        worker_special_education.update!(images: remain_images)
+        flash[:danger] = '添付画像を削除しました'
+        redirect_to edit_users_worker_url(worker)
+      end
+    end
 
     private
 
