@@ -63,7 +63,7 @@
   <%= w_license.collection_select :license_id, License.all, :id, :name, { prompt: true }, { required: true, class: "form-control" } %><br>
 
   <%= w_license.label :got_on %>
-  <%= w_license.date_field :got_on, class: "form-control" %>
+  <%= w_license.date_field :got_on, class: "form-control" %><br>
 
   <% @worker.worker_licenses.each do |worker_license| %>
     <% if worker_license.images.present? %>
@@ -85,7 +85,7 @@
   <%= w_skill_training.collection_select :skill_training_id, SkillTraining.all, :id, :name, { prompt: true }, { required: true, class: "form-control" } %><br>
 
   <%= w_skill_training.label :got_on %>
-  <%= w_skill_training.date_field :got_on, class: "form-control" %>
+  <%= w_skill_training.date_field :got_on, class: "form-control" %><br>
 
   <% @worker.worker_skill_trainings.each do |worker_skill_training| %>
     <% if worker_skill_training.images.present? %>
@@ -107,7 +107,7 @@
   <%= w_special_education.collection_select :special_education_id, SpecialEducation.all, :id, :name, { prompt: true }, { required: true, class: "form-control" } %><br>
 
   <%= w_special_education.label :got_on %>
-  <%= w_special_education.date_field :got_on, class: "form-control" %>
+  <%= w_special_education.date_field :got_on, class: "form-control" %><br>
 
   <% @worker.worker_special_educations.each do |worker_special_education| %>
     <% if worker_special_education.images.present? %>
