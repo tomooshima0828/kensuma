@@ -11,9 +11,7 @@ class News < ApplicationRecord
   validate :unable_to_be_published
   validate :news_must_be_delivered_before_now
 
-  scope :unread, -> (user) do
-    unread_news_count = self.count - user.news_users.count
-  end
+  scope :unread, ->(user) { self.count - user.news_users.count }
 
   private
 
