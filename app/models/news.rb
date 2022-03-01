@@ -11,6 +11,12 @@ class News < ApplicationRecord
   validate :unable_to_be_published
   validate :news_must_be_delivered_before_now
 
+  scope :unread, -> (user) do
+    unread_news_count = self.count - user.news_users.count
+  end
+
+  private
+
   def unable_to_be_published
     if !title.present? || !content.present? || !delivered_at.present? && (status == 'published')
       errors.add(:status, '「下書き(Draft)」から「公開(Published)」に変更したい場合は、全ての項目を入力してください。')
