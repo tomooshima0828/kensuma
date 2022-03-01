@@ -1,5 +1,7 @@
 module Users
   class NewsController < Users::Base
+    after_action :unread_news_count
+
     def index
       @news_all = News.all.order(delivered_at: 'DESC')
     end
@@ -7,6 +9,7 @@ module Users
     def show
       @news = News.find(params[:id])
       update_read_status!
+      unread_news_count
     end
 
     private

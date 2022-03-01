@@ -17,9 +17,11 @@
     <li class="nav-item d-sm-inline-block">
       <%= link_to users_news_index_path, class:"nav-link" do %>
         <i class="nav-icon far fa-bell fa-lg"></i> <%# ベルのアイコン %>
-        <span class="badge badge-warning navbar-badge">
-          <%= @unread_news_count %>
-        </span>
+        <% if @unread_news_count != 0 %>
+          <span class="badge badge-warning navbar-badge">
+            <%= @unread_news_count %>
+          </span>
+        <% end %>
       <% end %>
     </li>
   </ul>

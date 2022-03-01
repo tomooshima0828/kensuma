@@ -18,9 +18,9 @@ module Users
     end
 
     def unread_news_count
-      @unread_news_count = News.unread(current_user)
+      @unread_news_count = News.unread(current_user).count
     end
-
+    
     # 現在のユーザーの事業所を取得
     def current_business
       if current_user.admin_user_id.nil?
