@@ -1,7 +1,6 @@
 module Users
   class WorkersController < Users::Base
-    before_action :set_worker, except: %i[index new create update_images]
-    # before_action :set_licenses, only: %i[new edit create]
+    before_action :set_worker, only: %i[show edit update destroy]
 
     def index
       @workers = current_business.workers
@@ -29,17 +28,23 @@ module Users
       )
       @worker.worker_licenses.build(
         # テスト用デフォルト値 ==========================
-        got_on:                         '2022-01-01'
+        got_on:                         '2022-01-01',
+        license_id:                      1,
+        worker_id:                       @worker.id
         # ============================================
       )
       @worker.worker_skill_trainings.build(
         # テスト用デフォルト値 ==========================
-        got_on:                         '2022-02-01'
+        got_on:                         '2022-02-01',
+        skill_training_id:               2,
+        worker_id:                       @worker.id
         # ============================================
       )
       @worker.worker_special_educations.build(
         # テスト用デフォルト値 ==========================
-        got_on:                         '2022-03-01'
+        got_on:                         '2022-03-01',
+        special_education_id:            3,
+        worker_id:                       @worker.id
         # ============================================
       )
     end
@@ -83,15 +88,24 @@ module Users
       redirect_to edit_users_worker_url(worker)
     end
 
+    def update_workerlicense_images
+      worker = current_business.workers.find(params[:worker_id])
+      worker.worker_licenses.each do |worker_license|
+        remain_images = worker_license.images
+        deleted_image = remain_images.delete_at(params[:index].to_i)
+        deleted_image.try(:remove!)
+        worker_license.update!(images: remain_images)
+        flash[:danger] = '添付画像を削除しました'
+        redirect_to edit_users_worker_url(worker)
+      end
+    end
+
+
     private
 
     def set_worker
       @worker = current_business.workers.find(params[:id])
     end
-
-    # def set_licenses
-    #   @licenses = License.all
-    # end
 
     def worker_params
       params.require(:worker).permit(:name, :name_kana,
@@ -99,9 +113,9 @@ module Users
         :family_phone_number, :birth_day_on, :abo_blood_type,
         :rh_blood_type, :job_type, :hiring_on, :experience_term_before_hiring,
         :blank_term, :carrier_up_id, { images: [] },
-        worker_licenses_attributes:[:id, :got_on, :license_id],
-        worker_skill_trainings_attributes:[:id, :got_on, :skill_training_id],
-        worker_special_educations_attributes:[:id, :got_on, :special_education_id]
+        worker_licenses_attributes: [:id, :got_on, :license_id, { images: []}],
+        worker_skill_trainings_attributes: [:id, :got_on, :skill_training_id, { images: []}],
+        worker_special_educations_attributes: [:id, :got_on, :special_education_id, { images: []}]
       )
     end
   end
