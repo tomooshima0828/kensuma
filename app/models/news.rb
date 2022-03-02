@@ -12,8 +12,7 @@ class News < ApplicationRecord
   validate :unable_to_be_published
   validate :news_must_be_delivered_before_now
 
-  # scope :unread, ->(user) { self.count - user.news_users.count }
-  scope :unread, ->(user) { where.not(id: user.news.ids) }
+  scope :unread, ->(user) { where.not(id: user.news.ids).published }
 
   private
 
