@@ -136,7 +136,9 @@ RSpec.describe 'Users', type: :system do
       fill_in 'user[password]', with: '123456'
       click_button 'ログイン'
       visit users_dash_boards_path
-      click_link 'ログアウト'
+      render_template 'layouts/users/side'
+      find('#side-logout').click
+      # click_link 'ログアウト'
       expect(page).to have_current_path root_url
       expect(page).to have_content 'ログインしましょう！'
     end
