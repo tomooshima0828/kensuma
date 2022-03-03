@@ -129,17 +129,15 @@ RSpec.describe 'Users', type: :system do
     end
   end
 
-  describe 'ユーザーのログアウト' do
-    it 'ユーザーが正常にログインした後にログアウトできる' do
-      visit root_url
-      fill_in 'user[email]', with: 'aaa-user@example.com'
-      fill_in 'user[password]', with: '123456'
-      click_button 'ログイン'
+  describe 'ユーザーがログインした後にログアウトができる' do
+    before(:each) do
+      visit new_user_session_path
+      sign_in(user_a)
       visit users_dash_boards_path
-      render_template 'layouts/users/side'
-      find('#side-logout').click
-      # click_link 'ログアウト'
-      expect(page).to have_current_path root_url
+    end
+
+    it 'ログアウトをクリックしてログアウトしてログインページに戻る' do
+      click_link 'ログアウト'
       expect(page).to have_content 'ログインしましょう！'
     end
   end
