@@ -128,4 +128,18 @@ RSpec.describe 'Users', type: :system do
       end
     end
   end
+
+  describe 'ユーザーのログアウト' do
+    before(:each) do
+      visit new_user_session_path
+      sign_in(user_a)
+    end
+
+    context 'ユーザーでログアウトができる' do
+      it '正常にログアウトができる' do
+        sign_out(user_a)
+        expect(page).to have_content 'ログインしましょう！'
+      end
+    end
+  end
 end
