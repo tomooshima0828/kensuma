@@ -130,7 +130,7 @@ RSpec.describe 'Users', type: :system do
   end
 
   describe 'ユーザーのログアウト' do
-    it '正常にログインした後にログアウトができる' do
+    it 'ユーザーが正常にログインした後にログアウトできる' do
       visit new_user_session_path
       fill_in 'user[email]', with: 'aaa-user@example.com'
       fill_in 'user[password]', with: '123456'
