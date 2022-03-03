@@ -130,16 +130,15 @@ RSpec.describe 'Users', type: :system do
   end
 
   describe 'ユーザーのログアウト' do
-    before(:each) do
+    it '正常にログインした後にログアウトができる' do
       visit new_user_session_path
-      sign_in(user_a)
-    end
-
-    context 'ユーザーでログアウトができる' do
-      it '正常にログアウトができる' do
-        sign_out(user_a)
-        expect(page).to have_content 'ログインしましょう！'
-      end
+      fill_in 'user[email]', with: 'aaa-user@example.com'
+      fill_in 'user[password]', with: '123456'
+      click_button 'ログイン'
+      visit users_dash_boards_path
+      render_template 'layouts/users/side'
+      click_link 'ログアウト'
+      expect(page).to have_content 'ログインしましょう！'
     end
   end
 end
