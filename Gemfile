@@ -58,6 +58,9 @@ gem 'slack-notifier'
 
 gem 'faker'
 
+# ツリー構造の実装
+gem 'closure_tree'
+
 group :development, :test do
   # ERD生成
   gem 'rails-erd'
