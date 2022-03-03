@@ -28,20 +28,20 @@ module Users
       )
       @worker.worker_licenses.build(
         # テスト用デフォルト値 ==========================
-        got_on:                         '2022-01-01',
-        license_id:                      1
+        got_on:     '2022-01-01',
+        license_id: 1
         # ============================================
       )
       @worker.worker_skill_trainings.build(
         # テスト用デフォルト値 ==========================
-        got_on:                         '2022-02-01',
-        skill_training_id:               2
+        got_on:            '2022-02-01',
+        skill_training_id: 2
         # ============================================
       )
       @worker.worker_special_educations.build(
         # テスト用デフォルト値 ==========================
-        got_on:                         '2022-03-01',
-        special_education_id:            3
+        got_on:               '2022-03-01',
+        special_education_id: 3
         # ============================================
       )
     end
@@ -123,9 +123,9 @@ module Users
         :family_phone_number, :birth_day_on, :abo_blood_type,
         :rh_blood_type, :job_type, :hiring_on, :experience_term_before_hiring,
         :blank_term, :carrier_up_id,
-        worker_licenses_attributes: [:id, :got_on, :license_id, { images: []}],
-        worker_skill_trainings_attributes: [:id, :got_on, :skill_training_id, { images: []}],
-        worker_special_educations_attributes: [:id, :got_on, :special_education_id, { images: []}]
+        worker_licenses_attributes:           [:id, :got_on, :license_id, { images: [] }],
+        worker_skill_trainings_attributes:    [:id, :got_on, :skill_training_id, { images: [] }],
+        worker_special_educations_attributes: [:id, :got_on, :special_education_id, { images: [] }]
       )
     end
   end
