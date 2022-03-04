@@ -28,16 +28,6 @@ RSpec.describe 'RequestOrders', type: :system do
         expect(page).to have_content '発注依頼詳細'
         expect(page).to have_content request_order.status_i18n
         expect(page).to have_content request_order.business.name
-
-        # fill_in 'order[site_name]', with: order.site_name
-        # fill_in 'order[order_name]', with: order.order_name
-        # fill_in 'order[order_post_code]', with: order.order_post_code
-        # fill_in 'order[order_address]', with: order.order_address
-        # click_button '登録'
-
-        # visit users_order_path(order)
-        # expect(page).to have_content '発注詳細'
-        # expect(page).to have_content order.site_uu_id
       end
     end
   end
