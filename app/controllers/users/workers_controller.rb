@@ -58,7 +58,11 @@ module Users
 
     def show; end
 
-    def edit; end
+    def edit
+      @worker.worker_licenses.build if @worker.licenses.blank?
+      @worker.worker_skill_trainings.build if @worker.skill_trainings.blank?
+      @worker.worker_special_educations.build if @worker.special_educations.blank?
+    end
 
     def update
       if @worker.update(worker_params)
