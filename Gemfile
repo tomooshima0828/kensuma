@@ -43,6 +43,8 @@ gem 'dotenv-rails'
 # 画像追加関連
 gem 'carrierwave', '~> 2.0'
 gem 'rmagick'
+# 画像保存用(S3)
+gem 'fog'
 
 # enum日本語化
 gem 'enum_help'
