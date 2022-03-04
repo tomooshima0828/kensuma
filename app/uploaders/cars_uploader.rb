@@ -4,7 +4,13 @@ class CarsUploader < CarrierWave::Uploader::Base
   # 画像の上限を100pxにする
   process resize_to_limit: [100, 100]
 
-  storage :file
+  if Rails.env.development?
+    storage :file
+  elsif Rails.env.test?
+    storage :file
+  else
+    storage :fog
+  end
 
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
