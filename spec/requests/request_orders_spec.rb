@@ -1,18 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "RequestOrders", type: :request do
-  describe "GET /index" do
-    it "returns http success" do
-      get "/request_orders/index"
-      expect(response).to have_http_status(:success)
-    end
+RSpec.describe 'RequestOrders', type: :request do
+  describe 'GET /index' do
+    pending "add some examples (or delete) #{__FILE__}"
   end
-
-  describe "GET /show" do
-    it "returns http success" do
-      get "/request_orders/show"
-      expect(response).to have_http_status(:success)
-    end
-  end
-
 end

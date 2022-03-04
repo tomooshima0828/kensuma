@@ -1,7 +1,7 @@
 module Users
   class RequestOrdersController < Users::Base
     def index
-      @request_orders = RequestOrder.where(business: current_business)
+      @request_orders = current_business.request_orders
     end
 
     def show
