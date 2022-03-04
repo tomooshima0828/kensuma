@@ -11,8 +11,8 @@ class Worker < ApplicationRecord
   has_many :skill_trainings, through: :worker_skill_trainings
   accepts_nested_attributes_for :worker_skill_trainings,
     reject_if:     proc { |attributes| attributes['skill_training_id'].blank? }
-  
-    has_many :worker_special_educations, dependent: :destroy
+
+  has_many :worker_special_educations, dependent: :destroy
   has_many :special_educations, through: :worker_special_educations
   accepts_nested_attributes_for :worker_special_educations,
     reject_if:     proc { |attributes| attributes['special_education_id'].blank? }
