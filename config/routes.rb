@@ -59,5 +59,7 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
   get 'use' => 'system#use'
   # 特商法
   get 'law' => 'system#law'
+  # プライバシーポリシー
+  get 'privacy_policy' => 'system#privacy_policy'
   # =================================================================
 end
