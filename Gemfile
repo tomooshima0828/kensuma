@@ -61,6 +61,9 @@ gem 'faker'
 # ツリー構造の実装
 gem 'closure_tree'
 
+# 動的フォーム
+gem 'cocoon'
+
 group :development, :test do
   # ERD生成
   gem 'rails-erd'
