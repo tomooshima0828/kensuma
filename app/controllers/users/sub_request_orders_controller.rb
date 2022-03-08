@@ -10,12 +10,27 @@ module Users
     end
 
     def create
-      @sub_request_order = @request_order.order.request_orders.build(sub_request_order_params)
-      if @sub_request_order.save
-        flash[:success] = '下請けへの発注依頼を作成しました'
+      # params[:business_ids]の最初の空欄部を削除
+      params[:business_ids].delete('')
+      if params[:business_ids].present?
+        save_count = 0
+        no_save_count = 0
+        params[:business_ids].each do |business_id|
+          sub_request_order = @request_order.order.request_orders.build(business_id: business_id.to_i, parent_id: @request_order.id)
+          # もしsub_request_orderが何らかの理由でsaveできていなかった場合の処理。
+          if sub_request_order.save
+            save_count += 1
+          else
+            no_save_count += 1
+          end
+        end
+        flash[:success] = "下請けへの発注依頼を#{save_count}件作成しました"
+        # もしsub_request_orderが何らかの理由でsaveできていなかった場合のフラッシュメッセージ
+        flash[:danger] = "下請けへの発注依頼作成に#{no_save_count}件失敗しました" if no_save_count >= 1
         redirect_to users_request_order_url(@request_order)
       else
-        render :new
+        flash[:danger] = '下請けへの発注依頼に失敗しました。'
+        redirect_to new_users_request_order_sub_request_order_url(@request_order)
       end
     end
 
@@ -25,10 +40,6 @@ module Users
 
     def set_request_order
       @request_order = current_business.request_orders.find_by(uuid: params[:request_order_uuid])
-    end
-
-    def sub_request_order_params
-      params.require(:request_order).permit(:business_id, :parent_id).merge(parent_id: @request_order.id)
     end
   end
 end

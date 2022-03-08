@@ -39,7 +39,7 @@ RSpec.describe 'RequestOrders', type: :system do
         visit new_users_request_order_sub_request_order_path(request_order)
         expect(page).to have_content '下請け発注依頼登録'
 
-        select business.name, from: 'request_order_business_id'
+        select business.name, from: 'business_ids'
 
         click_button '登録'
 
