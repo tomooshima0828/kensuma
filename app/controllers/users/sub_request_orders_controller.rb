@@ -13,16 +13,11 @@ module Users
       # params[:business_ids]の最初の空欄部を削除
       params[:business_ids].delete('')
       if params[:business_ids].present?
-        save_count = 0
-        no_save_count = 0
+        save_count = no_save_count = 0 # save_countとno_save_countに0を代入
         params[:business_ids].each do |business_id|
           sub_request_order = @request_order.order.request_orders.build(business_id: business_id.to_i, parent_id: @request_order.id)
-          # もしsub_request_orderが何らかの理由でsaveできていなかった場合の処理。
-          if sub_request_order.save
-            save_count += 1
-          else
-            no_save_count += 1
-          end
+          # もしsub_request_orderが何らかの理由でsaveできていなかった場合no_save_countに1足される処理。
+          sub_request_order.save ? (save_count += 1) : (no_save_count += 1)
         end
         flash[:success] = "下請けへの発注依頼を#{save_count}件作成しました"
         # もしsub_request_orderが何らかの理由でsaveできていなかった場合のフラッシュメッセージ
