@@ -123,6 +123,9 @@ ActiveRecord::Schema.define(version: 2022_03_08_073419) do
 
   create_table "cover_documents", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.bigint "document_id", null: false
+    t.string "cover_document"
+    t.string "business_name"
+    t.date "submitted_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["document_id"], name: "index_cover_documents_on_document_id"
