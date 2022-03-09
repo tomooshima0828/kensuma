@@ -5,14 +5,13 @@ module Users
     def index; end
 
     def new
-      @sub_request_order = @request_order.order.request_orders.build
       @businesses = Business.where.not(id: current_business)
     end
 
     def create
       ActiveRecord::Base.transaction do
-        params[:business_ids].each do |select_business|
-          @request_order.order.request_orders.create!(business_id: select_business, parent_id: @request_order.id)
+        params[:business_ids].each do |business_id|
+          @request_order.order.request_orders.create!(business_id: business_id, parent_id: @request_order.id)
         end
         flash[:success] = "#{params[:business_ids].count}件の発注依頼を作成しました。"
         redirect_to users_request_order_url(@request_order)
