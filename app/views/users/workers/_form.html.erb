@@ -49,47 +49,44 @@
 
 <!-- WorkerLicenseここから -->
 <div class="list-group">
-  <div class="list-group-item" id="workerlicense-association-insertion-point">
+  <div class="list-group-item">
     <%= f.fields_for :worker_licenses do |w_license| %>
       <%= render "worker_license_fields", f: w_license %>
     <% end %>
+    <div id="insertion-point"></div>
+    <%= link_to_add_association "＋フォーム追加", f, :worker_licenses,
+      data: {
+        association_insertion_node: '#insertion-point',
+        association_insertion_method: 'after'
+        }
+    %>
   </div>
-  <%= link_to_add_association "追加", f, :worker_licenses,
-    class: "btn btn-primary",
-    id: "add-fields-btn",
-    data: {
-      association_insertion_node: "#workerlicense-association-insertion-point",
-      association_insertion_method: 'after'
-    }
-  %>
 <!-- WorkerLicenseここまで -->
 
 <!-- WorkerSkillTrainingここから -->
   <div class="list-group-item">
-    <div class="row">
-      <%= f.fields_for :worker_skill_trainings do |w_skill_training| %>
-        <div class="col-md-3">
-          <%= w_skill_training.label :skill_training_id %>
-          <%= w_skill_training.collection_select :skill_training_id, SkillTraining.all, :id, :name, { prompt: '技能講習を選択してください' }, { class: "form-control" } %>
-        </div>
-        <div class="col-md-2">
-          <%= w_skill_training.label :got_on %>
-          <%= w_skill_training.date_field :got_on, class: "form-control" %>
-        </div>
-        <div class="col-md-3">
-          <%= w_skill_training.label :images %>
-          <%= w_skill_training.file_field :images, accept: 'image/jpg, image/jpeg, image/png', multiple: true, class: "form-control" %>
-        </div>
-        <div class="col-md-4">
-          <% @worker.worker_skill_trainings.each do |worker_skill_training| %>
-            <% worker_skill_training.images.each_with_index do |image, index| %>
-              <%= image_tag(image.url) %>
-              <%= link_to "削除", users_worker_update_workerskilltraining_images_path(worker, index: index), method: :patch, data: { confirm: "本当に削除してもよろしいですか？" } %>
-            <% end %>
+    <%= f.fields_for :worker_skill_trainings do |w_skill_training| %>
+      <div class="col-md-3">
+        <%= w_skill_training.label :skill_training_id %>
+        <%= w_skill_training.collection_select :skill_training_id, SkillTraining.all, :id, :name, { prompt: '技能講習を選択してください' }, { class: "form-control" } %>
+      </div>
+      <div class="col-md-2">
+        <%= w_skill_training.label :got_on %>
+        <%= w_skill_training.date_field :got_on, class: "form-control" %>
+      </div>
+      <div class="col-md-3">
+        <%= w_skill_training.label :images %>
+        <%= w_skill_training.file_field :images, accept: 'image/jpg, image/jpeg, image/png', multiple: true, class: "form-control" %>
+      </div>
+      <div class="col-md-4">
+        <% @worker.worker_skill_trainings.each do |worker_skill_training| %>
+          <% worker_skill_training.images.each_with_index do |image, index| %>
+            <%= image_tag(image.url) %>
+            <%= link_to "削除", users_worker_update_workerskilltraining_images_path(worker, index: index), method: :patch, data: { confirm: "本当に削除してもよろしいですか？" } %>
           <% end %>
-        </div>
-      <% end %>
-    </div><br>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 <!-- WorkerSkillTrainingここまで -->
 

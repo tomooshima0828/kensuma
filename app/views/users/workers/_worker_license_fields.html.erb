@@ -19,7 +19,7 @@
           <%= link_to "削除", users_worker_update_workerlicense_images_path(worker, index: index), method: :patch, data: { confirm: "本当に削除してもよろしいですか？" } %>
         <% end %>
       <% end %>
-      <%= link_to_remove_association "削除", f %>
+      <%= link_to_remove_association "削除", f, class: 'btn btn-danger' %>
     </div>
   </div>
 </div>
