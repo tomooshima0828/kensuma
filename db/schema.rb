@@ -136,7 +136,7 @@ ActiveRecord::Schema.define(version: 2022_03_11_042705) do
     t.date "submitted_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "uuid"
+    t.string "uuid", null: false
   end
 
   create_table "licenses", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|

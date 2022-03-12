@@ -1,2 +1,9 @@
-<h1>Documents#edit</h1>
-<p>Find me in app/views/documents/edit.html.erb</p>
+<div class="container">
+  <h1>書類内容編集</h1>
+  <%= form_with model: @cover_document, url: users_document_cover_document_path(@document), local: true, method: :patch do |f| %>
+    <%= f.label :business_name %>
+    <%= f.text_field :business_name, class: 'form-control' %>
+    <%= f.submit '登録', class: 'form-control btn btn-sm btn-outline-dark' %>
+  <% end %>
+  <%= link_to '戻る', :back %>
+</div>

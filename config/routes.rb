@@ -39,7 +39,9 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
     end
     resources :orders, param: :site_uu_id
     resources :request_orders, only: %i[index show], param: :uuid
-    resources :documents
+    resources :documents, param: :uuid do
+      resource :cover_document, only: :update
+    end
   end
   # =================================================================
 
