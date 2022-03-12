@@ -1,6 +1,7 @@
 module Users
   class CoverDocumentsController < Users::Base
     layout "documents"
+
     def update
       document = Document.find_by(uuid: params[:document_uuid])
       cover_document = document.cover_document
@@ -11,9 +12,12 @@ module Users
       end
       redirect_to users_documents_url
     end
+
     private
+    
     def cover_document_params
-      params.permit(:business_name, :submitted_on)
+      # params.permit(:business_name, :submitted_on)
+      params.require(:cover_document).permit(:business_name, :submitted_on)
     end
   end
 end
