@@ -1,11 +1,11 @@
 module Users
   class DocumentsController < Users::Base
-    layout "documents"
+    before_action :set_documents
+    before_action :create_cover_documents, only: :index
     before_action :set_document, only: %i[show edit]
+    layout "documents"
 
     def index
-      @documents = Document.all
-      create_cover_documents
     end
 
     def show
@@ -15,6 +15,10 @@ module Users
     end
 
     private
+
+    def set_documents
+      @documents = Document.all.order(id: :asc)
+    end
 
     def set_document
       @document = Document.find_by(uuid: params[:uuid])
