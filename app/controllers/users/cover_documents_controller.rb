@@ -16,7 +16,6 @@ module Users
     private
 
     def cover_document_params
-      # params.permit(:business_name, :submitted_on)
       params.require(:cover_document).permit(:business_name, :submitted_on)
     end
   end
