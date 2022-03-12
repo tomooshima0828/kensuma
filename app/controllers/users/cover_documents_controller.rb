@@ -10,7 +10,7 @@ module Users
       else
         flash[:danger] = "書類#{cover_document.document.id}の更新に失敗しました"
       end
-      redirect_to users_documents_url
+      redirect_to users_document_url(document)
     end
 
     private
