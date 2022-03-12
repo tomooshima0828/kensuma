@@ -64,11 +64,13 @@
             <p>ダッシュボードに戻る</p>
           <% end %>
         </li>
-        <li class="nav-item">
-          <% @documents.each do |document| %>
-            <p>書類番号: <%= document.id %></p>
+      </ul>
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <% @documents.each do |document| %>
+          <%= link_to users_document_path(document) do %>
+          <li  class="nav-item">書類番号: <%= document.id %></li>
           <% end %>
-        </li>
+        <% end %>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

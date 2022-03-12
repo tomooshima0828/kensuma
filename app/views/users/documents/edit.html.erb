@@ -2,10 +2,10 @@
   <h1>書類内容編集</h1>
   <%= form_with url: users_document_cover_document_path(@document), local: true, method: :patch do |f| %>
     <%= f.fields_for @document.cover_document do |cover_document| %>
-      <%= cover_document.label :business_name %>
-      <%= cover_document.text_field :business_name, class: 'form-control' %>
+      <p><%= cover_document.label :business_name %></p>
+      <p><%= cover_document.text_field :business_name, class: 'form-control' %></p>
     <% end %>
-    <%= f.submit '登録', class: 'form-control btn btn-sm btn-outline-dark' %>
+    <p><%= f.submit '登録', class: 'btn btn-sm btn-outline-dark' %></p>
   <% end %>
-  <%= link_to '戻る', :back %>
+  <p><%= link_to '書類詳細に戻る', users_document_path(@document) %></p>
 </div>
