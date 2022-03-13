@@ -1,0 +1,20 @@
+{
+  "name": "kensuma",
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    "jawsdb"
+  ],
+  "buildpacks": [],
+  "stack": "container",
+  "environments": {
+    "test": {
+      "scripts": {
+        "test": "./bin/test"
+      }
+    }
+  }
+}
