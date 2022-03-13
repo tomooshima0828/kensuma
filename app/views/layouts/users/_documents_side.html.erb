@@ -67,8 +67,11 @@
       </ul>
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <% @documents.each do |document| %>
-          <%= link_to users_document_path(document) do %>
-          <li  class="nav-item">書類番号: <%= document.id %></li>
+          <%= link_to users_document_path(document), class:"nav-link" do %>
+          <li class="nav-item">
+            <i class="nav-icon fas fa-file"></i>
+            <p>書類番号: <%= document.id %></p>
+          </li>
           <% end %>
         <% end %>
       </ul>

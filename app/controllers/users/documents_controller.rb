@@ -1,15 +1,32 @@
 module Users
   class DocumentsController < Users::Base
-    before_action :set_documents
-    before_action :create_cover_documents, only: :index
-    before_action :set_document, only: %i[show edit]
     layout 'documents'
+    before_action :set_documents # サイドバーに常時表示させるために必要
+    before_action :set_document, except: :index # オブジェクトが1つも無い場合、indexで呼び出さないようにする
+    before_action :set_cover_document, except: :index # 同上
 
-    def index; end
+    def index
+      if @documents.count < 3
+        3.times do
+          document = Document.create!
+          document.build_cover_document.save!
+        end
+      end
+    end
 
     def show; end
 
     def edit; end
+
+    def update
+      if @cover_document.update(cover_document_params)
+        flash[:success] = "更新に成功しました"
+        redirect_to users_document_url(@document)
+      else
+        flash[:danger] = "更新に失敗しました"
+        render :edit
+      end
+    end
 
     private
 
@@ -21,18 +38,12 @@ module Users
       @document = Document.find_by(uuid: params[:uuid])
     end
 
-    def document_params
-      params.require(:document).permit(:type, :created_on, :submitted_on)
+    def set_cover_document
+      @cover_document = @document.cover_document
     end
 
-    # cover_documentが未作成の場合に作成する
-    def create_cover_documents
-      @documents.each do |document|
-        if document.cover_document.blank?
-          cover_document = document.build_cover_document
-          cover_document.save!
-        end
-      end
+    def cover_document_params
+      params.require(:cover_document).permit(:business_name, :submitted_on)
     end
   end
 end

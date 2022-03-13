@@ -1,5 +1,7 @@
 <h1>書類詳細</h1>
-<p>書類番号: <%= @document.id %></p>
-<p>事業所名: <%= @document.cover_document.business_name %></p>
-<p><%= link_to '編集', edit_users_document_path(@document), class: "btn btn-sm btn-outline-dark" %></p>
-<p><%= link_to '書類一覧に戻る', users_documents_path %></p>
+<table class="table">
+  <tr><td>書類番号: <%= @document.id %></td></tr>
+  <tr><td>事業所名: <%= @document.cover_document.business_name %></td></tr>
+  <tr><td><%= link_to '編集', edit_users_document_path(@document), class: "btn btn-block btn-outline-dark" %></td></tr>
+  <tr><td><%= link_to '書類一覧に戻る', users_documents_path, class: "btn btn-block btn-outline-secondary" %></td></tr>
+</table>

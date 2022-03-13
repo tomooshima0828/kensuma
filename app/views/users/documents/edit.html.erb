@@ -1,11 +1,13 @@
 <div class="container">
   <h1>書類内容編集</h1>
-  <%= form_with url: users_document_cover_document_path(@document), local: true, method: :patch do |f| %>
-    <%= f.fields_for @document.cover_document do |cover_document| %>
-      <p><%= cover_document.label :business_name %></p>
-      <p><%= cover_document.text_field :business_name, class: 'form-control' %></p>
-    <% end %>
-    <p><%= f.submit '登録', class: 'btn btn-sm btn-outline-dark' %></p>
+  <%= form_with model: @cover_document, url: users_document_path, method: :patch, local: true do |f| %>
+  <table class="table">
+    <tbody>
+      <tr><td><%= f.label :business_name %></td></tr>
+      <tr><td><%= f.text_field :business_name, class: 'form-control' %></td></tr>
+      <tr><td><%= f.submit '登録', class: 'btn btn-block btn-outline-dark' %></td></tr>
+      <tr><td><%= link_to '書類詳細に戻る', users_document_path(@document), class: 'btn btn-block btn-outline-secondary' %></td></tr>
+    </tbody>
+  </table>
   <% end %>
-  <p><%= link_to '書類詳細に戻る', users_document_path(@document) %></p>
 </div>
