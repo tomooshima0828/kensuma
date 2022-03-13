@@ -20,10 +20,10 @@ module Users
 
     def update
       if @cover_document.update(cover_document_params)
-        flash[:success] = "更新に成功しました"
+        flash[:success] = '更新に成功しました'
         redirect_to users_document_url(@document)
       else
-        flash[:danger] = "更新に失敗しました"
+        flash[:danger] = '更新に失敗しました'
         render :edit
       end
     end
