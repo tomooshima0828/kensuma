@@ -34,7 +34,7 @@ docker-compose run --rm app bundle install
 docker-compose run --rm app yarn install
 
 # db:setup
-docker-compose run --rm app rails db:setup db:seed_fu
+docker-compose run --rm app rails db:setup
 
 # railsサーバー起動(ローカルPC用)
 bin/dev
