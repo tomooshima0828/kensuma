@@ -11,10 +11,10 @@ module Users
     def new
       @order = current_business.orders.new(
         # テスト用デフォルト値 ==========================
-        site_name:       current_business.name,
-        order_name:      current_user.name,
-        order_post_code: current_business.post_code,
-        order_address:   current_business.address
+        site_name:  current_business.name,
+        order_name: current_user.name
+        # order_post_code: current_business.post_code,
+        # order_address:   current_business.address
         # =============================================
       )
     end
