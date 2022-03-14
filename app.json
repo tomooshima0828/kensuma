@@ -1,67 +1,13 @@
 {
-  "addons": [
-    "jawsdb"
-  ],
-  "buildpacks": [
-
-  ],
-  "env": {
-    "DB_NAME": {
-      "required": true
-    },
-    "HOSTNAME": {
-      "required": true
-    },
-    "JAWSDB_URL": {
-      "required": true
-    },
-    "PASSWORD": {
-      "required": true
-    },
-    "RACK_ENV": {
-      "required": true
-    },
-    "RAILS_APP_HOST": {
-      "required": true
-    },
-    "RAILS_ENV": {
-      "required": true
-    },
-    "RAILS_LOG_TO_STDOUT": {
-      "required": true
-    },
-    "RAILS_MASTER_KEY": {
-      "required": true
-    },
-    "RAILS_SERVE_STATIC_FILES": {
-      "required": true
-    },
-    "S3_ACCESS_KEY_ID": {
-      "required": true
-    },
-    "S3_ASSET_HOST": {
-      "required": true
-    },
-    "S3_BUCKET_NAME": {
-      "required": true
-    },
-    "S3_SECRET_ACCESS_KEY": {
-      "required": true
-    },
-    "SLACK_WEBHOOK_URL": {
-      "required": true
-    },
-    "USERNAME": {
-      "required": true
-    }
-  },
+  "name": "kensuma",
   "formation": {
     "web": {
       "quantity": 1
     }
   },
-  "name": "kensuma",
-  "scripts": {
-  },
+  "addons": [
+    "jawsdb"
+  ],
+  "buildpacks": [],
   "stack": "container"
 }
