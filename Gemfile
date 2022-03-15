@@ -62,6 +62,9 @@ gem 'faker'
 # ツリー構造の実装
 gem 'closure_tree'
 
+# 住所自動入力
+gem 'jp_prefecture'
+
 group :development, :test do
   # ERD生成
   gem 'rails-erd'
