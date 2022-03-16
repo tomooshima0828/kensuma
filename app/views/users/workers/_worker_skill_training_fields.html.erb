@@ -1,8 +1,8 @@
 <div class="nested-fields">
   <div class="row">
     <div class="col-md-3">
-      <%= f.label :license_id %>
-      <%= f.collection_select :license_id, License.all, :id, :name, { prompt: '免許を選択してください' }, { class: "form-control" } %><br>
+      <%= f.label :skill_training_id %>
+      <%= f.collection_select :skill_training_id, SkillTraining.all, :id, :name, { prompt: '技能講習を選択してください' }, { class: "form-control" } %><br>
     </div>
     <div class="col-md-2">
       <%= f.label :got_on %>
@@ -18,7 +18,7 @@
     <div class="col-md-3" style="margin-bottom: 10px;">
       <% f.object.images.each_with_index do |image, index| %>
         <%= image_tag(image.url) %>
-        <%= link_to "削除", users_worker_update_workerlicense_images_path(@worker, index: index, worker_license_id: f.object.id), method: :patch, data: { confirm: "本当に削除してもよろしいですか？" } %>
+        <%= link_to "削除", users_worker_update_workerskilltraining_images_path(@worker, index: index, worker_skill_training_id: f.object.id), method: :patch, data: { confirm: "本当に削除してもよろしいですか？" } %>
       <% end %>
     </div>
   </div>
