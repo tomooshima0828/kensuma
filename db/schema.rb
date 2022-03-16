@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_13_060444) do
+ActiveRecord::Schema.define(version: 2022_03_16_123818) do
 
   create_table "active_admin_comments", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "namespace"
@@ -197,11 +197,17 @@ ActiveRecord::Schema.define(version: 2022_03_13_060444) do
     t.string "site_uu_id", null: false
     t.string "site_name", null: false
     t.string "order_name", null: false
-    t.string "order_post_code", null: false
-    t.string "order_address", null: false
     t.bigint "business_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "postcode"
+    t.integer "prefecture_code"
+    t.string "address"
+    t.string "prefecture"
+    t.string "department"
+    t.string "address_city"
+    t.string "address_street"
+    t.string "address_building"
     t.index ["business_id"], name: "index_orders_on_business_id"
   end
 
@@ -298,6 +304,17 @@ ActiveRecord::Schema.define(version: 2022_03_13_060444) do
     t.index ["worker_id"], name: "index_worker_licenses_on_worker_id"
   end
 
+  create_table "worker_medicals", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.bigint "worker_id", null: false
+    t.date "medical_examination_on", null: false
+    t.integer "max_blood_pressure", null: false
+    t.integer "min_blood_pressure", null: false
+    t.date "special_medical_examination_on"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["worker_id"], name: "index_worker_medicals_on_worker_id"
+  end
+
   create_table "worker_skill_trainings", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.date "got_on", null: false
     t.json "images"
@@ -360,6 +377,7 @@ ActiveRecord::Schema.define(version: 2022_03_13_060444) do
   add_foreign_key "worker_insurances", "workers"
   add_foreign_key "worker_licenses", "licenses"
   add_foreign_key "worker_licenses", "workers"
+  add_foreign_key "worker_medicals", "workers"
   add_foreign_key "worker_skill_trainings", "skill_trainings"
   add_foreign_key "worker_skill_trainings", "workers"
   add_foreign_key "worker_special_educations", "special_educations"
