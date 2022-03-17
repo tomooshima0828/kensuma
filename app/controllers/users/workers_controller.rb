@@ -129,7 +129,9 @@ module Users
         :blank_term, :carrier_up_id,
         worker_licenses_attributes:           [:id, :got_on, :license_id, { images: [] }],
         worker_skill_trainings_attributes:    [:id, :got_on, :skill_training_id, { images: [] }],
-        worker_special_educations_attributes: [:id, :got_on, :special_education_id, { images: [] }]
+        worker_special_educations_attributes: [:id, :got_on, :special_education_id, { images: [] }],
+        worker_medical_attributes:            [:id, :medical_examination_on, :max_blood_pressure, :min_blood_pressure, :special_medical_examination_on],
+        worker_examinations_attributes:       [:id, :got_on, { images: [] }]
       )
     end
   end
