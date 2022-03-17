@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_16_123818) do
+ActiveRecord::Schema.define(version: 2022_03_17_065625) do
 
   create_table "active_admin_comments", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "namespace"
@@ -197,17 +197,11 @@ ActiveRecord::Schema.define(version: 2022_03_16_123818) do
     t.string "site_uu_id", null: false
     t.string "site_name", null: false
     t.string "order_name", null: false
+    t.string "order_post_code", null: false
+    t.string "order_address", null: false
     t.bigint "business_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "postcode"
-    t.integer "prefecture_code"
-    t.string "address"
-    t.string "prefecture"
-    t.string "department"
-    t.string "address_city"
-    t.string "address_street"
-    t.string "address_building"
     t.index ["business_id"], name: "index_orders_on_business_id"
   end
 
@@ -246,6 +240,12 @@ ActiveRecord::Schema.define(version: 2022_03_16_123818) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "special_medical_examinations", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -276,6 +276,17 @@ ActiveRecord::Schema.define(version: 2022_03_16_123818) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
+  end
+
+  create_table "worker_examinations", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.bigint "worker_medical_id", null: false
+    t.bigint "special_medical_examination_id", null: false
+    t.date "got_on", null: false
+    t.json "images"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["special_medical_examination_id"], name: "index_worker_examinations_on_special_medical_examination_id"
+    t.index ["worker_medical_id"], name: "index_worker_examinations_on_worker_medical_id"
   end
 
   create_table "worker_insurances", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
@@ -374,6 +385,8 @@ ActiveRecord::Schema.define(version: 2022_03_16_123818) do
   add_foreign_key "orders", "businesses"
   add_foreign_key "request_orders", "businesses"
   add_foreign_key "request_orders", "orders"
+  add_foreign_key "worker_examinations", "special_medical_examinations"
+  add_foreign_key "worker_examinations", "worker_medicals"
   add_foreign_key "worker_insurances", "workers"
   add_foreign_key "worker_licenses", "licenses"
   add_foreign_key "worker_licenses", "workers"
