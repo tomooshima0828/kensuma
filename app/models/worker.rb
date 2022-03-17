@@ -3,7 +3,10 @@ class Worker < ApplicationRecord
   has_one :worker_insurance, dependent: :destroy
 
   has_one :worker_medical, dependent: :destroy
-  has_many :worker_examination, through: :worker_medical
+  has_many :worker_examinations, through: :worker_medical
+  has_many :special_medical_examinations, through: :worker_examinations
+  accepts_nested_attributes_for :special_medical_examinations,
+    reject_if:     proc { |attributes| attributes['special_medical_examination_id'].blank? }
 
   has_many :worker_licenses, dependent: :destroy
   has_many :licenses, through: :worker_licenses
