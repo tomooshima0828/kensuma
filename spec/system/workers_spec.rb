@@ -32,7 +32,13 @@ RSpec.describe 'Workers', type: :system do
 
       context '入力内容が正しい場合' do
         it '登録ができ、詳細画面が表示される' do
+          License.create!(name: 'サンプルライセンス', license_type: 0)
+          SkillTraining.create!(name: 'サンプル技能講習', short_name: 'サン技')
+          SpecialEducation.create!(name: 'サンプル特別教育')
+
+          expect{
           visit new_users_worker_path
+          # Worker
           fill_in 'worker[name]', with: 'TestWorker'
           fill_in 'worker[name_kana]', with: 'テストワーカー'
           fill_in 'worker[country]', with: '日本'
@@ -47,7 +53,17 @@ RSpec.describe 'Workers', type: :system do
           fill_in 'worker[hiring_on]', with: '2022-01-28'
           fill_in 'worker[experience_term_before_hiring]', with: 1
           fill_in 'worker[blank_term]', with: 1
+          # WorkerLicense
+          select 'サンプルライセンス', from: 'worker[worker_licenses_attributes][0][license_id]'
+          fill_in 'worker[worker_licenses_attributes][0][got_on]', with: '2022-01-28'
+          # WorkerSkillTraining
+          select 'サンプル技能講習', from: 'worker[worker_skill_trainings_attributes][0][skill_training_id]'
+          fill_in 'worker[worker_skill_trainings_attributes][0][got_on]', with: '2022-01-28'
+          # WorkerSpecialEducation
+          select 'サンプル特別教育', from: 'worker[worker_special_educations_attributes][0][special_education_id]'
+          fill_in 'worker[worker_special_educations_attributes][0][got_on]', with: '2022-01-28'
           click_button '登録'
+          }.to change(Worker, :count).by(1).and change(WorkerLicense, :count).by(1).and change(WorkerSkillTraining, :count).by(1).and change(WorkerSpecialEducation, :count).by(1)
           expect(page).to have_content '作業員を作成しました'
           expect(page).to have_content '作業員詳細'
           expect(page).to have_content 'TestWorker'
@@ -110,7 +126,7 @@ RSpec.describe 'Workers', type: :system do
         expect {
           expect(page.accept_confirm).to eq "#{worker.name}を削除します。本当によろしいですか？"
           expect(page).to have_content "#{worker.name}を削除しました"
-        }.to change(Worker, :count).by(-1)
+        }.to change(Worker, :count).by(-1).and change(WorkerLicense, :count).by(-1).and change(WorkerSkillTraining, :count).by(-1).and change(WorkerSpecialEducation, :count).by(-1)
         expect(page).to have_current_path users_workers_path, ignore_query: true
         expect(page).to have_content '作業員一覧'
       end
