@@ -10,6 +10,8 @@ require("channels")
 require('admin-lte');
 require("jquery");
 require ("./users/auth");
+require("packs/jquery.jpostal");
+require("./orders/postcode");
 
 import 'bootstrap';
 import '../stylesheets/users';

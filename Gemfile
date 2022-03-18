@@ -42,6 +42,7 @@ gem 'dotenv-rails'
 
 # 画像追加関連
 gem 'carrierwave', '~> 2.0'
+gem 'fog-aws'
 gem 'rmagick'
 
 # enum日本語化
@@ -63,6 +64,8 @@ gem 'closure_tree'
 
 # 動的フォーム
 gem 'cocoon'
+# 住所自動入力
+gem 'jp_prefecture'
 
 group :development, :test do
   # ERD生成
