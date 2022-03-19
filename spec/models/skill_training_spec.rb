@@ -24,7 +24,7 @@ RSpec.describe SkillTraining, type: :model do
 
         it 'バリデーションのエラーが正しいこと' do
           subject.valid?
-          expect(subject.errors.full_messages).to include('ライセンス名を入力してください')
+          expect(subject.errors.full_messages).to include('名称を入力してください')
         end
       end
     end

@@ -81,38 +81,35 @@ module Users
 
     def update_workerlicense_images
       worker = current_business.workers.find(params[:worker_id])
-      worker.worker_licenses.each do |worker_license|
-        remain_images = worker_license.images
-        deleted_image = remain_images.delete_at(params[:index].to_i)
-        deleted_image.try(:remove!)
-        worker_license.update!(images: remain_images)
-        flash[:danger] = '添付画像を削除しました'
-        redirect_to edit_users_worker_url(worker)
-      end
+      worker_license = worker.worker_licenses.find(params[:worker_license_id])
+      remain_images = worker_license.images
+      deleted_image = remain_images.delete_at(params[:index].to_i)
+      deleted_image.try(:remove!)
+      worker_license.update!(images: remain_images)
+      flash[:danger] = '証明画像を削除しました'
+      redirect_to edit_users_worker_url(worker) and return
     end
 
     def update_workerskilltraining_images
       worker = current_business.workers.find(params[:worker_id])
-      worker.worker_skill_trainings.each do |worker_skill_training|
-        remain_images = worker_skill_training.images
-        deleted_image = remain_images.delete_at(params[:index].to_i)
-        deleted_image.try(:remove!)
-        worker_skill_training.update!(images: remain_images)
-        flash[:danger] = '添付画像を削除しました'
-        redirect_to edit_users_worker_url(worker)
-      end
+      worker_skill_training = worker.worker_skill_trainings.find(params[:worker_skill_training_id])
+      remain_images = worker_skill_training.images
+      deleted_image = remain_images.delete_at(params[:index].to_i)
+      deleted_image.try(:remove!)
+      worker_skill_training.update!(images: remain_images)
+      flash[:danger] = '証明画像を削除しました'
+      redirect_to edit_users_worker_url(worker)
     end
 
     def update_workerspecialeducation_images
       worker = current_business.workers.find(params[:worker_id])
-      worker.worker_special_educations.each do |worker_special_education|
-        remain_images = worker_special_education.images
-        deleted_image = remain_images.delete_at(params[:index].to_i)
-        deleted_image.try(:remove!)
-        worker_special_education.update!(images: remain_images)
-        flash[:danger] = '添付画像を削除しました'
-        redirect_to edit_users_worker_url(worker)
-      end
+      worker_special_education = worker.worker_special_educations.find(params[:worker_special_education_id])
+      remain_images = worker_special_education.images
+      deleted_image = remain_images.delete_at(params[:index].to_i)
+      deleted_image.try(:remove!)
+      worker_special_education.update!(images: remain_images)
+      flash[:danger] = '証明画像を削除しました'
+      redirect_to edit_users_worker_url(worker)
     end
 
     private
@@ -127,9 +124,9 @@ module Users
         :family_phone_number, :birth_day_on, :abo_blood_type,
         :rh_blood_type, :job_type, :hiring_on, :experience_term_before_hiring,
         :blank_term, :carrier_up_id,
-        worker_licenses_attributes:           [:id, :got_on, :license_id, { images: [] }],
-        worker_skill_trainings_attributes:    [:id, :got_on, :skill_training_id, { images: [] }],
-        worker_special_educations_attributes: [:id, :got_on, :special_education_id, { images: [] }]
+        worker_licenses_attributes:           [:id, :got_on, :license_id, { images: [] }, :_destroy],
+        worker_skill_trainings_attributes:    [:id, :got_on, :skill_training_id, { images: [] }, :_destroy],
+        worker_special_educations_attributes: [:id, :got_on, :special_education_id, { images: [] }, :_destroy]
       )
     end
   end

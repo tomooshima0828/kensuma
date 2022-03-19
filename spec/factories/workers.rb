@@ -17,5 +17,11 @@ FactoryBot.define do
     blank_term { 1 }
     carrier_up_id { '1' }
     images { '' }
+
+    after(:create) do |worker|
+      create_list(:worker_license, 1, worker: worker, license: License.create!(name: 'テストライセンス', license_type: 0))
+      create_list(:worker_skill_training, 1, worker: worker, skill_training: SkillTraining.create!(name: 'テスト技能講習', short_name: 'テス技'))
+      create_list(:worker_special_education, 1, worker: worker, special_education: SpecialEducation.create!(name: 'テスト特別教育'))
+    end
   end
 end
