@@ -130,6 +130,7 @@ ja:
         business_name: 事業所名
         submitted_on: 書類提出日
       worker_examination:
+        special_medical_examination_id: 特別健康診断の種類
         got_on: 取得年月日
         images: 証明画像
   attributes:

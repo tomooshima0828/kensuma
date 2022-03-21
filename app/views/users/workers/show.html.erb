@@ -136,6 +136,30 @@
             <td>
           </tr>
         <% end %>
+
+<% 
+=begin
+%>
+        <% @worker.worker_medical.worker_examinations.each do |worker_examination| %>
+          <tr>
+            <th><%= WorkerExamination.human_attribute_name(:got_on) %></th>
+            <td>
+              <%= worker_examination.got_on %>
+            <td>
+          </tr>
+          <tr>
+            <th><%= WorkerExamination.human_attribute_name(:images) %></th>
+            <td>
+            <% worker_examination.images.each do |image| %>
+              <%= image_tag(image.url) %>
+            <% end %>
+            <td>
+          </tr>
+        <% end %>
+<%
+=end
+%>
+        
       </tbody>
     </table>
   </div>
