@@ -91,24 +91,24 @@
         }
     %>
   </div>
-</div>
 <!-- WorkerSpecialEducationここまで -->
 
-<!-- WorkerMedicalここから -->
+  <!-- WorkerMedicalここから -->
   <div class="list-group-item">
     <div class="row">
-      
-      <%= f.fields_for :worker_examinations do |worker_examination| %>
-        <div class="col-md-3">
-          <%= worker_examination.label :special_medical_examination_id %>
-          <%= worker_examination.collection_select :special_medical_examination_id, SpecialMedicalExamination.all, :id, :name, { prompt: '特別健康診断の種類を選択してください' }, { class: "form-control" } %><br>
-        </div>
-        <div class="col-md-2">
-          <%= worker_examination.label :got_on %>
-          <%= worker_examination.date_field :got_on, class: "form-control" %><br>
-        </div>
+      <%= f.fields_for :worker_medical do |worker_medical| %>
+        <%= worker_medical.fields_for :worker_examinations do |worker_examination| %>
+          <div class="col-md-3">
+            <%= worker_examination.label :special_medical_examination_id %>
+            <%= worker_examination.collection_select :special_medical_examination_id, SpecialMedicalExamination.all, :id, :name, { prompt: '特別健康診断の種類を選択してください' }, { class: "form-control" } %><br>
+          </div>
+          <div class="col-md-2">
+            <%= worker_examination.label :got_on %>
+            <%= worker_examination.date_field :got_on, class: "form-control" %><br>
+          </div>
+        <% end %>
       <% end %>
     </div><br>
   </div>
+  <!-- WorkerMedicalここまで -->
 </div>
-<!-- WorkerMedicalここまで -->

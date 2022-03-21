@@ -18,9 +18,11 @@ class Worker < ApplicationRecord
     reject_if:     proc { |attributes| attributes['special_education_id'].blank? }
 
   has_one :worker_medical, dependent: :destroy
-  has_many :worker_examinations, through: :worker_medical
+  has_many :worker_examinations, through: :worker_medical, dependent: :destroy
   has_many :special_medical_examinations, through: :worker_examinations
-  accepts_nested_attributes_for :special_medical_examinations,
+  accepts_nested_attributes_for :worker_medical, allow_destroy: true,
+    reject_if:     proc { |attributes| attributes['worker_examination_id'].blank? }
+  accepts_nested_attributes_for :worker_examinations, allow_destroy: true,
     reject_if:     proc { |attributes| attributes['special_medical_examination_id'].blank? }
 
   enum abo_blood_type: { a: 0, b: 1, ab: 2, o: 3 }
