@@ -1,0 +1,117 @@
+// cover
+
+.t {
+  transform-origin: bottom left;
+  z-index: 2;
+  position: absolute;
+  white-space: pre;
+  overflow: visible;
+  line-height: 1.5;
+}
+
+.text-container {
+  white-space: pre;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .text-container {
+    white-space: normal;
+  }
+}
+
+#p1 {
+  overflow: hidden;
+  position: relative;
+  background-color: white;
+  width: 909px;
+  height: 1286px;
+}
+
+#t1_1 {
+  left: 164px;
+  bottom: 432px;
+  letter-spacing: 0.65px;
+  padding: 8px;
+}
+
+#t2_1 {
+  left: 198px;
+  bottom: 989px;
+  letter-spacing: -0.07px;
+}
+
+#t3_1 {
+  left: 164px;
+  bottom: 592px;
+  letter-spacing: 0.84px;
+}
+
+#t4_1 {
+  left: 455px;
+  bottom: 584px;
+  letter-spacing: -0.12px;
+}
+
+#t5_1 {
+  left: 590px;
+  bottom: 584px;
+  letter-spacing: -0.07px;
+}
+
+#t6_1 {
+  left: 372px;
+  bottom: 518px;
+  letter-spacing: -0.12px;
+}
+
+#t7_1 {
+  left: 530px;
+  bottom: 519px;
+  letter-spacing: -0.12px;
+}
+
+#t8_1 {
+  left: 681px;
+  bottom: 519px;
+  letter-spacing: -0.07px;
+}
+
+.a1 {
+  border: 1px solid #333333;
+  width: 550px;
+}
+
+.a2 {
+  border-bottom: 1px solid #333333;
+  width: 340px;
+}
+
+.a3 {
+  border-right: 1px solid #333333;
+  width: 200px;
+}
+
+.s1 {
+  font-size: 21px;
+  color: #000;
+}
+
+.s2 {
+  font-size: 34px;
+  color: #000;
+}
+
+.s3 {
+  font-size: 21px;
+  color: #000;
+}
+
+.s4 {
+  font-size: 17px;
+  color: #15C;
+}
+
+.s5 {
+  font-size: 17px;
+  color: #000;
+}
