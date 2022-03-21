@@ -62,8 +62,15 @@ gem 'faker'
 # ツリー構造の実装
 gem 'closure_tree'
 
+# 動的フォーム
+gem 'cocoon'
+
 # 住所自動入力
 gem 'jp_prefecture'
+
+# pdf変換
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 group :development, :test do
   # ERD生成
