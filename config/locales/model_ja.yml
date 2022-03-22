@@ -13,6 +13,7 @@ ja:
       skill_training: 技能講習マスタ
       worker_skill_training: 中間テーブル(技能講習マスタ)
       special_education: 特別教育マスタ
+      table_of_contents_document: 目次･チェック欄
       worker_special_education: 中間テーブル(特別教育マスタ)
       worker_insurance: 保険情報
       news: お知らせ
@@ -102,6 +103,8 @@ ja:
       special_education:
         name: 名称
         description: 説明
+      table_of_contents_document:
+        details: 提出年月日と確認欄
       worker_special_education:
         special_education_id: 特別教育
         worker_id: 作業員
