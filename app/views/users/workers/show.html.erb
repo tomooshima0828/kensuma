@@ -166,30 +166,20 @@
           </tr>
         <% end %>
 
-<% 
-=begin
-%>
-        <% @worker.worker_medical.worker_examinations.each do |worker_examination| %>
+        <!-- worker_medicalここから -->
           <tr>
-            <th><%= WorkerExamination.human_attribute_name(:got_on) %></th>
+            <th><%= WorkerMedical.human_attribute_name(:med_exam_on) %></th>
             <td>
-              <%= worker_examination.got_on %>
+              <%= @worker.worker_medical %>
             <td>
           </tr>
           <tr>
-            <th><%= WorkerExamination.human_attribute_name(:images) %></th>
+            <th><%= WorkerMedical.human_attribute_name(:max_blood_pressure) %></th>
             <td>
-            <% worker_examination.images.each do |image| %>
-              <%= image_tag(image.url) %>
-            <% end %>
+              <%= @worker.worker_medical %>
             <td>
           </tr>
-        <% end %>
-<%
-=end
-%>
-        
-        <!-- worker_special_educationここまで -->
+        <!-- worker_medicalここまで -->
       </tbody>
     </table>
   </div>

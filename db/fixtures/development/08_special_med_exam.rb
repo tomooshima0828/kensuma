@@ -1,4 +1,4 @@
-SpecialMedicalExamination.seed(
+SpecialMedExam.seed(
   { id: 1, name: 'じん肺' },
   { id: 2, name: '有機溶剤' },
   { id: 3, name: '鉛' },

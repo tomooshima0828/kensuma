@@ -240,7 +240,7 @@ ActiveRecord::Schema.define(version: 2022_03_17_065625) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "special_medical_examinations", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  create_table "special_med_exams", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -278,15 +278,16 @@ ActiveRecord::Schema.define(version: 2022_03_17_065625) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
-  create_table "worker_examinations", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  create_table "worker_exams", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.bigint "worker_medical_id", null: false
-    t.bigint "special_medical_examination_id", null: false
+    t.bigint "special_med_exam_id", null: false
     t.date "got_on", null: false
     t.json "images"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["special_medical_examination_id"], name: "index_worker_examinations_on_special_medical_examination_id"
-    t.index ["worker_medical_id"], name: "index_worker_examinations_on_worker_medical_id"
+    t.index ["special_med_exam_id"], name: "index_worker_exams_on_special_med_exam_id"
+    t.index ["worker_medical_id", "special_med_exam_id"], name: "index_worker_exams_on_worker_medical_id_and_special_med_exam_id", unique: true
+    t.index ["worker_medical_id"], name: "index_worker_exams_on_worker_medical_id"
   end
 
   create_table "worker_insurances", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
@@ -317,10 +318,10 @@ ActiveRecord::Schema.define(version: 2022_03_17_065625) do
 
   create_table "worker_medicals", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.bigint "worker_id", null: false
-    t.date "medical_examination_on", null: false
+    t.date "med_exam_on", null: false
     t.integer "max_blood_pressure", null: false
     t.integer "min_blood_pressure", null: false
-    t.date "special_medical_examination_on"
+    t.date "special_med_exam_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["worker_id"], name: "index_worker_medicals_on_worker_id"
@@ -385,8 +386,8 @@ ActiveRecord::Schema.define(version: 2022_03_17_065625) do
   add_foreign_key "orders", "businesses"
   add_foreign_key "request_orders", "businesses"
   add_foreign_key "request_orders", "orders"
-  add_foreign_key "worker_examinations", "special_medical_examinations"
-  add_foreign_key "worker_examinations", "worker_medicals"
+  add_foreign_key "worker_exams", "special_med_exams"
+  add_foreign_key "worker_exams", "worker_medicals"
   add_foreign_key "worker_insurances", "workers"
   add_foreign_key "worker_licenses", "licenses"
   add_foreign_key "worker_licenses", "workers"
