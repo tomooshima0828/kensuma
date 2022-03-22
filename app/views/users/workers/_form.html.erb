@@ -97,6 +97,13 @@
   <div class="list-group-item">
     <div class="row">
       <%= f.fields_for :worker_medical do |worker_medical| %>
+        <%= worker_medical.label :medical_examination_on %>
+        <%= worker_medical.date_field :medical_examination_on, class: "form-control"  %>
+        <%= worker_medical.label :max_blood_pressure %>
+        <%= worker_medical.number_field :max_blood_pressure %>
+        <%= worker_medical.label :min_blood_pressure %>
+        <%= worker_medical.number_field :min_blood_pressure %>
+
         <%= worker_medical.fields_for :worker_examinations do |worker_examination| %>
           <div class="col-md-3">
             <%= worker_examination.label :special_medical_examination_id %>

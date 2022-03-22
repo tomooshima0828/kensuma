@@ -18,6 +18,7 @@ ja:
       news: お知らせ
       document: 書類
       cover_document: 表紙
+      worker_medical: 作業員の健康情報
       worker_examination: 中間テーブル(特別健康診断種類マスタ)
     attributes:
       business:
@@ -129,6 +130,11 @@ ja:
       cover_document:
         business_name: 事業所名
         submitted_on: 書類提出日
+      worker_medical:
+        medical_examination_on: 健康診断日
+        max_blood_pressure: 最高血圧
+        min_blood_pressure: 最低血圧
+        special_medical_examination_on: 特別健康診断日
       worker_examination:
         special_medical_examination_id: 特別健康診断の種類
         got_on: 取得年月日
