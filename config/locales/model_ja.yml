@@ -10,6 +10,7 @@ ja:
       worker: 作業員
       license: 免許マスタ
       worker_license: 中間テーブル(免許マスタ)
+      second_document: 施工体制台帳作成建設工事の通知
       skill_training: 技能講習マスタ
       worker_skill_training: 中間テーブル(技能講習マスタ)
       special_education: 特別教育マスタ
@@ -91,6 +92,8 @@ ja:
         worker_id: 作業員
         got_on: 取得年月日
         images: 証明画像
+      second_document:
+        details: 詳細
       skill_training:
         name: 名称
         short_name: 略称

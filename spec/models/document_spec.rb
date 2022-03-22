@@ -13,13 +13,14 @@ RSpec.describe Document, type: :model do
   describe 'アソシエーションについて' do
     let :document do
       create(:document,
-        cover_document: cover_document,
-        table_of_contents_document: table_of_contents_document
+        cover_document:             cover_document,
+        table_of_contents_document: table_of_contents_document,
+        second_document:            second_document
       )
     end
-
     let(:cover_document) { build(:cover_document) }
     let(:table_of_contents_document) { build(:table_of_contents_document) }
+    let(:second_document) { build(:second_document) }
 
     context '紐つく表紙がある場合' do
       subject { document.cover_document }
@@ -34,6 +35,14 @@ RSpec.describe Document, type: :model do
 
       it '紐つく目次・チェック欄を返すこと' do
         expect(subject).to eq(table_of_contents_document)
+      end
+    end
+
+    context '紐つく施工体制台帳作成建設工事の通知がある場合' do
+      subject { document.second_document }
+
+      it '紐つく施工体制台帳作成建設工事の通知を返すこと' do
+        expect(subject).to eq(second_document)
       end
     end
   end

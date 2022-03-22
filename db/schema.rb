@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_22_055652) do
+ActiveRecord::Schema.define(version: 2022_03_22_065548) do
 
   create_table "active_admin_comments", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "namespace"
@@ -225,6 +225,14 @@ ActiveRecord::Schema.define(version: 2022_03_22_055652) do
     t.index ["order_id"], name: "index_request_orders_on_order_id"
   end
 
+  create_table "second_documents", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.bigint "document_id", null: false
+    t.json "details"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["document_id"], name: "index_second_documents_on_document_id"
+  end
+
   create_table "skill_trainings", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "short_name", null: false
@@ -365,6 +373,7 @@ ActiveRecord::Schema.define(version: 2022_03_22_055652) do
   add_foreign_key "orders", "businesses"
   add_foreign_key "request_orders", "businesses"
   add_foreign_key "request_orders", "orders"
+  add_foreign_key "second_documents", "documents"
   add_foreign_key "table_of_contents_documents", "documents"
   add_foreign_key "worker_insurances", "workers"
   add_foreign_key "worker_licenses", "licenses"
