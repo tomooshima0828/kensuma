@@ -45,6 +45,7 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
       member do
         get 'cover.pdf', to: 'documents#cover', as: 'cover'
       end
+      get 'table_of_contents_documents', to: 'table_of_contents_documents#show'
     end
   end
   # =================================================================

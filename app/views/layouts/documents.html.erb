@@ -15,7 +15,11 @@
   <body class="hold-transition sidebar-mini" id="<%= page_body_id(params) %>">
     <div class="wrapper">
       <%= render "layouts/users/header" %>
-      <%= render "layouts/documents/side" %>
+      <% if controller.action_name == "index" %>
+        <%= render "layouts/documents/side_index" %>
+      <% else %>
+        <%= render "layouts/documents/side_item" %>
+      <% end %>
       <div class="content-wrapper">
         <%= render "layouts/flash" %>
         <!-- Content Header (Page header) -->

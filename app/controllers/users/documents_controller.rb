@@ -1,5 +1,7 @@
 module Users
   class DocumentsController < Users::Base
+    include DocumentsConcern
+
     layout 'documents'
     before_action :set_documents # サイドバーに常時表示させるために必要
     before_action :set_document, except: :index # オブジェクトが1つも無い場合、indexで呼び出さないようにする
@@ -41,10 +43,6 @@ module Users
     end
 
     private
-
-    def set_documents
-      @documents = Document.all.order(id: :asc)
-    end
 
     def set_document
       @document = Document.find_by(uuid: params[:uuid])
