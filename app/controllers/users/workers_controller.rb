@@ -46,6 +46,7 @@ module Users
       )
       @worker.build_worker_medical(
         # テスト用デフォルト値 ==========================
+        worker_id: @worker.id,
         med_exam_on: '2022-03-01',
         max_blood_pressure: 120,
         min_blood_pressure: 70,

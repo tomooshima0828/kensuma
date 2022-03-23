@@ -18,10 +18,11 @@ class Worker < ApplicationRecord
     reject_if:     proc { |attributes| attributes['special_education_id'].blank? }
 
   has_one :worker_medical, dependent: :destroy
-  #has_many :worker_exams, through: :worker_medical, dependent: :destroy
-  #has_many :special_med_exams, through: :worker_exams
   accepts_nested_attributes_for :worker_medical, allow_destroy: true,
     reject_if:     proc { |attributes| attributes['worker_exam_id'].blank? }
+  scope :with_inner_worker_medical, -> { joins(:worker_medical) }
+  #has_many :worker_exams, through: :worker_medical, dependent: :destroy
+  #has_many :special_med_exams, through: :worker_exams
   #accepts_nested_attributes_for :worker_exams, allow_destroy: true,
   #  reject_if:     proc { |attributes| attributes['special_med_exam_id'].blank? }
 
