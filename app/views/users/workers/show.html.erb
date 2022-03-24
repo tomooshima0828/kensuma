@@ -187,14 +187,14 @@
         <!-- worker_medicalここまで -->
         <!-- worker_examここから -->
         <tr bgcolor="#dee2e6">
-          <th><%= WorkerExam.human_attribute_name(:special_med_exam_id) %></th>
+          <th></th>
           <th><%= SpecialMedExam.human_attribute_name(:name) %></th>
           <th><%= WorkerExam.human_attribute_name(:got_on) %></th>
           <th><%= WorkerExam.human_attribute_name(:images) %></th>
         </tr>
         <tr>
           <% @worker.worker_medical.worker_exams.each do |worker_exam| %>
-            <td></td>
+            <th><%= WorkerExam.human_attribute_name(:special_med_exam_id) %></th>
             <td><%= worker_exam.special_med_exam.name %></td>
             <td><%= worker_exam.got_on %></td>
             <td>
