@@ -46,16 +46,16 @@ module Users
       )
       worker_medical = @worker.build_worker_medical(
         # テスト用デフォルト値 ==========================
-        med_exam_on: '2022-03-01',
+        med_exam_on:        '2022-03-01',
         max_blood_pressure: 120,
-        min_blood_pressure: 70,
+        min_blood_pressure: 70
         # ============================================
       )
       worker_medical.worker_exams.build(
         # テスト用デフォルト値 ==========================
-        worker_medical_id: worker_medical.id,
+        worker_medical_id:   worker_medical.id,
         special_med_exam_id: 4,
-        got_on:               '2022-03-01'
+        got_on:              '2022-03-01'
         # ============================================
       )
     end
@@ -141,9 +141,9 @@ module Users
         worker_licenses_attributes:           [:id, :got_on, :license_id, { images: [] }, :_destroy],
         worker_skill_trainings_attributes:    [:id, :got_on, :skill_training_id, { images: [] }, :_destroy],
         worker_special_educations_attributes: [:id, :got_on, :special_education_id, { images: [] }, :_destroy],
-        worker_medical_attributes: [
+        worker_medical_attributes:            [
           :id, :med_exam_on, :max_blood_pressure, :min_blood_pressure, :special_med_exam_on,
-          { worker_exams_attributes: [:id, :got_on, :worker_medical_id, :special_med_exam_id, { images: [] } ] }
+          { worker_exams_attributes: [:id, :got_on, :worker_medical_id, :special_med_exam_id, { images: [] }] }
         ]
       )
     end
