@@ -104,16 +104,16 @@
         <%= worker_medical.label :min_blood_pressure %>
         <%= worker_medical.number_field :min_blood_pressure, class: "form-control" %>
 
-        <%#= worker_medical.fields_for :worker_exams do |worker_exam| %>
+        <%= worker_medical.fields_for :worker_exams do |worker_exam| %>
           <div class="col-md-3">
-            <%#= worker_exam.label :special_med_exam_id %>
-            <%#= worker_exam.collection_select :special_med_exam_id, SpecialMedExam.all, :id, :name, { prompt: '特別健康診断の種類を選択してください' }, { class: "form-control" } %><br>
+            <%= worker_exam.label :special_med_exam_id %>
+            <%= worker_exam.collection_select :special_med_exam_id, SpecialMedExam.all, :id, :name, { prompt: '特別健康診断の種類を選択してください' }, { class: "form-control" } %><br>
           </div>
           <div class="col-md-2">
-            <%#= worker_exam.label :got_on %>
-            <%#= worker_exam.date_field :got_on, class: "form-control" %><br>
+            <%= worker_exam.label :got_on %>
+            <%= worker_exam.date_field :got_on, class: "form-control" %><br>
           </div>
-        <%# end %>
+        <% end %>
       <% end %>
     </div><br>
   </div>

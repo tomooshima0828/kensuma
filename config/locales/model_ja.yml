@@ -133,10 +133,11 @@ ja:
       worker_medical:
         id: 健康診断
         med_exam_on: 健康診断日
-        max_blood_pressure: 最高血圧
-        min_blood_pressure: 最低血圧
+        max_blood_pressure: 最高血圧 (mmHg)
+        min_blood_pressure: 最低血圧 (mmHg)
         special_med_exam_on: 特別健康診断日
       worker_exam:
+        id: 特別健康診断
         special_med_exam_id: 特別健康診断の種類
         got_on: 取得年月日
         images: 証明画像

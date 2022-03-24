@@ -187,6 +187,15 @@
           <td></td>
         </tr>
         <!-- worker_medicalここまで -->
+        <tr bgcolor="#dee2e6">
+          <th><%= WorkerExam.human_attribute_name(:id) %></th>
+          <th></th><th></th><th></th>
+        </tr>
+        <tr>
+          <th><%= WorkerExam.human_attribute_name(:special_med_exam_id) %></th>
+          <td><%#= @worker.worker_medical.worker_exams.special_med_exam_id %><td>
+          <td></td>
+        </tr>
       </tbody>
     </table>
   </div>
