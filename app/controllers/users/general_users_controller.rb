@@ -8,6 +8,7 @@ module Users
 
     def new
       @general_user = current_user.general_users.new
+      authorize! :create, @general_user
     end
 
     def create

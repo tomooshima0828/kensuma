@@ -64,8 +64,12 @@ gem 'closure_tree'
 
 # 動的フォーム
 gem 'cocoon'
+
 # 住所自動入力
 gem 'jp_prefecture'
+
+# 権限分け
+gem 'cancancan'
 
 group :development, :test do
   # ERD生成
