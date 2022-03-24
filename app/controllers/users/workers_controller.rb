@@ -53,7 +53,6 @@ module Users
       )
       worker_medical.worker_exams.build(
         # テスト用デフォルト値 ==========================
-        worker_medical_id:   worker_medical.id,
         special_med_exam_id: 4,
         got_on:              '2022-03-01'
         # ============================================
