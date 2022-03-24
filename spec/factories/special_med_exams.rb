@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :special_med_exam do
-    name { 'MyString' }
+    name { 'テスト用特別健康診断の種類' }
   end
 end
