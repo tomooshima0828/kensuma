@@ -20,6 +20,7 @@ ja:
       cover_document: 表紙
       worker_medical: 作業員の健康情報
       worker_exam: 中間テーブル(特別健康診断種類マスタ)
+      special_med_exam: 特別健康診断種類マスタ
     attributes:
       business:
         uuid: 事業所ID
@@ -137,10 +138,11 @@ ja:
         min_blood_pressure: 最低血圧 (mmHg)
         special_med_exam_on: 特別健康診断日
       worker_exam:
-        id: 特別健康診断
-        special_med_exam_id: 特別健康診断の種類
+        special_med_exam_id: 特別健康診断
         got_on: 取得年月日
         images: 証明画像
+      special_med_exam:
+        name: 名称
   attributes:
     created_at: 作成日
     updated_at: 更新日

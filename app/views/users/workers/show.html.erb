@@ -168,8 +168,7 @@
 
         <!-- worker_medicalここから -->
         <tr bgcolor="#dee2e6">
-          <th><%= WorkerMedical.human_attribute_name(:id) %></th>
-          <th></th><th></th><th></th>
+          <th colspan="4"><%= WorkerMedical.human_attribute_name(:id) %></th>
         </tr>
         <tr>
           <th><%= WorkerMedical.human_attribute_name(:med_exam_on) %></th>
@@ -178,24 +177,31 @@
         </tr>
         <tr>
           <th><%= WorkerMedical.human_attribute_name(:max_blood_pressure) %></th>
-          <td><%= @worker.worker_medical.max_blood_pressure %> mmHg<td>
+          <td><%= @worker.worker_medical.max_blood_pressure %><td>
           <td></td>
         </tr>
         <tr>
           <th><%= WorkerMedical.human_attribute_name(:min_blood_pressure) %></th>
-          <td><%= @worker.worker_medical.min_blood_pressure %> mmHg<td>
+          <td><%= @worker.worker_medical.min_blood_pressure %><td>
           <td></td>
         </tr>
         <!-- worker_medicalここまで -->
+        <!-- worker_examここから -->
         <tr bgcolor="#dee2e6">
-          <th><%= WorkerExam.human_attribute_name(:id) %></th>
-          <th></th><th></th><th></th>
-        </tr>
-        <tr>
           <th><%= WorkerExam.human_attribute_name(:special_med_exam_id) %></th>
-          <td><%#= @worker.worker_medical.worker_exams.special_med_exam_id %><td>
-          <td></td>
+          <th><%= SpecialMedExam.human_attribute_name(:name) %></th>
+          <th><%= WorkerExam.human_attribute_name(:got_on) %></th>
+          <th><%= WorkerExam.human_attribute_name(:images) %></th>
         </tr>
+        <% @worker.worker_medical.worker_exams do |worker_exam| %>
+          <tr>
+            <td></td>
+            <td><%= worker_exam.special_med_exam_id %></td>
+            <td></td>
+            <td></td>
+          </tr>
+        <% end %>
+        <!-- worker_examここまで -->
       </tbody>
     </table>
   </div>
