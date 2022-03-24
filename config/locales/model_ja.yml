@@ -131,6 +131,7 @@ ja:
         business_name: 事業所名
         submitted_on: 書類提出日
       worker_medical:
+        id: 健康診断
         med_exam_on: 健康診断日
         max_blood_pressure: 最高血圧
         min_blood_pressure: 最低血圧

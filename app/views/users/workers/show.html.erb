@@ -167,20 +167,25 @@
         <% end %>
 
         <!-- worker_medicalここから -->
-        
-          <tr>
-            <th><%= WorkerMedical.human_attribute_name(:med_exam_on) %></th>
-            <td>
-              <%= @worker.worker_medical %>
-            <td>
-          </tr>
-          <tr>
-            <th><%= WorkerMedical.human_attribute_name(:max_blood_pressure) %></th>
-            <td>
-              <%= @worker.worker_medical %>
-            <td>
-          </tr>
-        
+        <tr bgcolor="#dee2e6">
+          <th><%= WorkerMedical.human_attribute_name(:id) %></th>
+          <th></th><th></th><th></th>
+        </tr>
+        <tr>
+          <th><%= WorkerMedical.human_attribute_name(:med_exam_on) %></th>
+          <td><%= @worker.worker_medical.med_exam_on %><td>
+          <td></td>
+        </tr>
+        <tr>
+          <th><%= WorkerMedical.human_attribute_name(:max_blood_pressure) %></th>
+          <td><%= @worker.worker_medical.max_blood_pressure %> mmHg<td>
+          <td></td>
+        </tr>
+        <tr>
+          <th><%= WorkerMedical.human_attribute_name(:min_blood_pressure) %></th>
+          <td><%= @worker.worker_medical.min_blood_pressure %> mmHg<td>
+          <td></td>
+        </tr>
         <!-- worker_medicalここまで -->
       </tbody>
     </table>

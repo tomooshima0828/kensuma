@@ -140,7 +140,7 @@ module Users
         worker_licenses_attributes:           [:id, :got_on, :license_id, { images: [] }, :_destroy],
         worker_skill_trainings_attributes:    [:id, :got_on, :skill_training_id, { images: [] }, :_destroy],
         worker_special_educations_attributes: [:id, :got_on, :special_education_id, { images: [] }, :_destroy],
-        worker_medical_attributes: [:id, :medical_exam_on, :max_blood_pressure, :min_blood_pressure, :special_med_exam_on]
+        worker_medical_attributes: [:id, :med_exam_on, :max_blood_pressure, :min_blood_pressure, :special_med_exam_on]
         # worker_exams_attributes: [:id, :got_on, :worker_medical_id, :special_med_exam_id, { images: [] }]
       )
     end
