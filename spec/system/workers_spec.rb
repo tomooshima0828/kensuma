@@ -35,6 +35,7 @@ RSpec.describe 'Workers', type: :system do
           License.create!(name: 'サンプルライセンス', license_type: 0)
           SkillTraining.create!(name: 'サンプル技能講習', short_name: 'サン技')
           SpecialEducation.create!(name: 'サンプル特別教育')
+          SpecialMedExam.create!(name: 'サンプル特別健康診断')
 
           expect {
             visit new_users_worker_path
@@ -62,6 +63,13 @@ RSpec.describe 'Workers', type: :system do
             # WorkerSpecialEducation
             select 'サンプル特別教育', from: 'worker[worker_special_educations_attributes][0][special_education_id]'
             fill_in 'worker[worker_special_educations_attributes][0][got_on]', with: '2022-01-28'
+            # WoekerMedical
+            fill_in 'worker[worker_medical_attributes][med_exam_on]', with: '2022-03-01'
+            fill_in 'worker[worker_medical_attributes][max_blood_pressure]', with: '120'
+            fill_in 'worker[worker_medical_attributes][min_blood_pressure]', with: '70'
+            # WorkerExam
+            select 'サンプル特別健康診断', from: 'worker[worker_medical_attributes][worker_exams_attributes][0][special_med_exam_id]'
+            fill_in 'worker[worker_medical_attributes][worker_exams_attributes][0][got_on]', with: '2022-03-01'
             click_button '登録'
           }.to change(Worker,
             :count).by(1).and change(WorkerLicense,
