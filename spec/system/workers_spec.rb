@@ -4,6 +4,7 @@ RSpec.describe 'Workers', type: :system do
   let(:user) { create(:user) }
   let(:business) { create(:business, user: user) }
   let(:worker) { create(:worker, business: business) }
+  let(:worker_medical) { create(:worker_medical, worker: worker) }
 
   before(:each) do
     user.skip_confirmation!
@@ -67,6 +68,7 @@ RSpec.describe 'Workers', type: :system do
             fill_in 'worker[worker_medical_attributes][med_exam_on]', with: '2022-03-01'
             fill_in 'worker[worker_medical_attributes][max_blood_pressure]', with: '120'
             fill_in 'worker[worker_medical_attributes][min_blood_pressure]', with: '70'
+            fill_in 'worker[worker_medical_attributes][special_med_exam_on]', with: '2022-03-01'
             # WorkerExam
             select 'サンプル特別健康診断', from: 'worker[worker_medical_attributes][worker_exams_attributes][0][special_med_exam_id]'
             fill_in 'worker[worker_medical_attributes][worker_exams_attributes][0][got_on]', with: '2022-03-01'
@@ -108,10 +110,10 @@ RSpec.describe 'Workers', type: :system do
     describe '編集機能' do
       context '入力内容が正しい場合' do
         it '編集でき、詳細画面が表示される' do
-          visit edit_users_worker_path(worker)
+          visit edit_users_worker_path(worker, worker_medical)
           fill_in 'worker[name]', with: '編集後ワーカー'
           click_button '更新'
-          expect(page).to have_current_path users_worker_path(worker), ignore_query: true
+          expect(page).to have_current_path users_worker_path(worker, worker_medical), ignore_query: true
           expect(page).to have_content '作業員詳細'
           expect(page).to have_content '編集後ワーカー'
         end

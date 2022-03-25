@@ -48,7 +48,8 @@ module Users
         # テスト用デフォルト値 ==========================
         med_exam_on:        '2022-03-01',
         max_blood_pressure: 120,
-        min_blood_pressure: 70
+        min_blood_pressure: 70,
+        special_med_exam_on:        '2022-03-01'
         # ============================================
       )
       worker_medical.worker_exams.build(

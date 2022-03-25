@@ -184,6 +184,11 @@
           <td><%= @worker.worker_medical.min_blood_pressure %><td>
           <td></td>
         </tr>
+        <tr>
+          <th><%= WorkerMedical.human_attribute_name(:special_med_exam_on) %></th>
+          <td><%= @worker.worker_medical.special_med_exam_on %><td>
+          <td></td>
+        </tr>
         <!-- worker_medicalここまで -->
         <!-- worker_examここから -->
         <tr bgcolor="#dee2e6">
