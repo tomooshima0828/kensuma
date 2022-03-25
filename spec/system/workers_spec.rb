@@ -15,6 +15,11 @@ RSpec.describe 'Workers', type: :system do
   end
 
   describe '作業員のCRUDテスト' do
+    before(:each) do
+      worker.save!
+      worker_medical.save!
+    end
+
     describe '一覧機能' do
       it '作業員一覧ページに遷移' do
         click_on '作業員'
@@ -107,11 +112,6 @@ RSpec.describe 'Workers', type: :system do
       end
     end
 
-    before(:each) do
-      worker.save!
-      worker_medical.save!
-    end
-    
     describe '編集機能' do
       context '入力内容が正しい場合' do
         it '編集でき、詳細画面が表示される' do
