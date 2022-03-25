@@ -107,13 +107,18 @@ RSpec.describe 'Workers', type: :system do
       end
     end
 
+    before(:each) do
+      worker.save!
+      worker_medical.save!
+    end
+    
     describe '編集機能' do
       context '入力内容が正しい場合' do
         it '編集でき、詳細画面が表示される' do
-          visit edit_users_worker_path(worker, worker_medical)
+          visit edit_users_worker_path(worker)
           fill_in 'worker[name]', with: '編集後ワーカー'
           click_button '更新'
-          expect(page).to have_current_path users_worker_path(worker, worker_medical), ignore_query: true
+          expect(page).to have_current_path users_worker_path(worker), ignore_query: true
           expect(page).to have_content '作業員詳細'
           expect(page).to have_content '編集後ワーカー'
         end
