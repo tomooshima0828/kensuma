@@ -17,5 +17,19 @@ module Users
         end
       end
     end
+
+    # def edit
+    #   @second_document = @document.second_document
+    # end
+
+    # def update
+    #   redirect_to users_document_table_of_contents_documents_path
+    # end
+
+    private
+
+    def table_of_contents_document_params
+      params.require(:table_of_contents_document).permit(:details)
+    end
   end
 end
