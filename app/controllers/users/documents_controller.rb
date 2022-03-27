@@ -10,6 +10,7 @@ module Users
         3.times do
           document = Document.create!
           document.build_cover_document.save!
+          document.build_second_document.save!
         end
       end
     end
