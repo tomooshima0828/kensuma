@@ -47,6 +47,8 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
       end
       get 'table_of_contents_documents', to: 'table_of_contents_documents#show'
       get 'second_documents', to: 'second_documents#show'
+      get 'second_document', to: 'second_documents#edit'
+      patch 'second_document', to: 'second_documents#update'
     end
   end
   # =================================================================

@@ -1,7 +1,5 @@
 module Users
   class TableOfContentsDocumentsController < Users::Base
-    include DocumentsConcern
-
     layout 'documents'
     before_action :set_documents
 
@@ -18,15 +16,11 @@ module Users
       end
     end
 
-    # def edit
-    #   @second_document = @document.second_document
-    # end
-
-    # def update
-    #   redirect_to users_document_table_of_contents_documents_path
-    # end
-
     private
+
+    def set_documents
+      @documents = Document.all.order(id: :asc)
+    end
 
     def table_of_contents_document_params
       params.require(:table_of_contents_document).permit(:details)
