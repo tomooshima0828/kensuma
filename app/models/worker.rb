@@ -17,6 +17,9 @@ class Worker < ApplicationRecord
   accepts_nested_attributes_for :worker_special_educations, allow_destroy: true,
     reject_if:     proc { |attributes| attributes['special_education_id'].blank? }
 
+  has_one :worker_medical, dependent: :destroy
+  accepts_nested_attributes_for :worker_medical, allow_destroy: true
+
   enum abo_blood_type: { a: 0, b: 1, ab: 2, o: 3 }
   enum rh_blood_type: { plus: 0, minus: 1 }
   # ↓内訳未定のためコメントアウト
