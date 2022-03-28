@@ -1,4 +1,6 @@
 class Document < ApplicationRecord
+  belongs_to :business
+  belongs_to :request_order
   has_one :cover_document, dependent: :destroy
   has_one :table_of_contents_document, dependent: :destroy
   has_one :second_document, dependent: :destroy

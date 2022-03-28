@@ -6,13 +6,13 @@ module Users
     before_action :set_cover_document, except: :index # 同上
 
     def index
-      if @documents.count < 3
-        3.times do
-          document = Document.create!
-          document.build_cover_document.save!
-          document.build_second_document.save!
-        end
-      end
+      # if @documents.count < 3
+      #   3.times do
+      #     document = Document.create!
+      #     document.build_cover_document.save!
+      #     document.build_second_document.save!
+      #   end
+      # end
     end
 
     def show; end

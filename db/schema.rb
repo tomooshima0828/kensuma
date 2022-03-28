@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_28_051757) do
+ActiveRecord::Schema.define(version: 2022_03_28_070543) do
 
   create_table "active_admin_comments", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "namespace"
@@ -138,6 +138,10 @@ ActiveRecord::Schema.define(version: 2022_03_28_051757) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "uuid", null: false
     t.json "content"
+    t.bigint "business_id", null: false
+    t.bigint "request_order_id", null: false
+    t.index ["business_id"], name: "index_documents_on_business_id"
+    t.index ["request_order_id"], name: "index_documents_on_request_order_id"
   end
 
   create_table "licenses", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
@@ -398,6 +402,8 @@ ActiveRecord::Schema.define(version: 2022_03_28_051757) do
   add_foreign_key "cars", "businesses"
   add_foreign_key "cars", "car_insurance_companies"
   add_foreign_key "cover_documents", "documents"
+  add_foreign_key "documents", "businesses"
+  add_foreign_key "documents", "request_orders"
   add_foreign_key "news_users", "news"
   add_foreign_key "news_users", "users"
   add_foreign_key "orders", "businesses"
