@@ -21,7 +21,7 @@ module Users
 
     def create
       @order = current_business.orders.build(order_params)
-      @order.request_orders.build(business: current_business)
+      @order.request_orders.build(business: current_business).documents.build(business: current_business)
       if @order.save
         redirect_to users_order_url(@order)
       else
