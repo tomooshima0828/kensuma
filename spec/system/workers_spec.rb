@@ -77,7 +77,7 @@ RSpec.describe 'Workers', type: :system do
             # WorkerExam
             select 'サンプル特別健康診断', from: 'worker[worker_medical_attributes][worker_exams_attributes][0][special_med_exam_id]'
             fill_in 'worker[worker_medical_attributes][worker_exams_attributes][0][got_on]', with: '2022-03-01'
-            attach_file "worker[worker_medical_attributes][worker_exams_attributes][0][images][]", "app/assets/images/photo1.png"
+            attach_file 'worker[worker_medical_attributes][worker_exams_attributes][0][images][]', 'app/assets/images/photo1.png'
             click_button '登録'
           }.to change(Worker,
             :count).by(1).and change(WorkerLicense,
