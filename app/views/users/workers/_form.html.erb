@@ -115,6 +115,10 @@
             <%= worker_exam.label :got_on %>
             <%= worker_exam.date_field :got_on, class: "form-control" %><br>
           </div>
+          <div class="col-md-3">
+            <%= worker_exam.label :images %>
+            <%= worker_exam.file_field :images, accept: 'image/jpg, image/jpeg, image/png', multiple: true, class: "form-control" %>
+          </div>
         <% end %>
       <% end %>
     </div><br>
