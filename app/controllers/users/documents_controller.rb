@@ -3,7 +3,7 @@ module Users
     layout 'documents'
     before_action :set_documents # サイドバーに常時表示させるために必要
     before_action :set_document, except: :index # オブジェクトが1つも無い場合、indexで呼び出さないようにする
-    before_action :set_cover_document, except: :index # 同上
+    before_action :set_cover_document, except: :index # 同上 
 
     def index
       # if @documents.count < 3
@@ -20,7 +20,7 @@ module Users
     def edit; end
 
     def update
-      if @cover_document.update(cover_document_params)
+      if @cover_document.update(document_params)
         flash[:success] = '更新に成功しました'
         redirect_to users_document_url(@document)
       else
@@ -44,19 +44,24 @@ module Users
     private
 
     def set_documents
-      @documents = Document.all.order(id: :asc)
+      # @documents = Document.all.order(id: :asc)
+      @documents = current_business.documents.order(id: :asc)
     end
 
     def set_document
-      @document = Document.find_by(uuid: params[:uuid])
+      @document = current_business.documents.find_by(uuid: params[:uuid])
     end
 
     def set_cover_document
-      @cover_document = @document.cover_document
+      @cover_document = current_business.documents.where(document_type: 0).find_by(uuid: params[:uuid])
     end
 
-    def cover_document_params
-      params.require(:cover_document).permit(:business_name, :submitted_on)
+    def document_params
+      params.require(:document).permit(:created_on, :submited_on, content: [])
     end
+
+    # def cover_document_params # 不要削除
+    #   params.require(:cover_document).permit(:business_name, :submitted_on)
+    # end
   end
 end
