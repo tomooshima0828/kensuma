@@ -40,3 +40,9 @@
     </div>
   </div>
 </div>
+
+<!-- 消す -->
+<% @current_business.documents.where(request_order_id: 1, document_type: 2).each  do |a|%>
+<%= a.uuid %>
+<% end %>
+<%= @document.request_order.id %>

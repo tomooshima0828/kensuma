@@ -1,9 +1,17 @@
 module Users
   class DocumentsController < Users::Base
+    include DocumentsConcern
+
     layout 'documents'
     before_action :set_documents # サイドバーに常時表示させるために必要
     before_action :set_document, except: :index # オブジェクトが1つも無い場合、indexで呼び出さないようにする
+    before_action :set_cover_documents, only: :index # サイドバー表示 表紙一覧
     before_action :set_cover_document, except: :index # 同上 
+
+    # サイドバーリンク用
+    before_action :set_cover_document_uuid
+    before_action :set_table_of_contents_document_uuid, except: :index
+    before_action :set_second_document_uuid, except: :index
 
     def index
       # if @documents.count < 3
@@ -43,18 +51,27 @@ module Users
 
     private
 
-    def set_documents
-      # @documents = Document.all.order(id: :asc)
-      @documents = current_business.documents.order(id: :asc)
-    end
+    # def set_documents
+    #   @documents = current_business.documents.order(id: :asc)
+    # end
 
     def set_document
       @document = current_business.documents.find_by(uuid: params[:uuid])
     end
 
+    def set_cover_documents
+      @cover_documents = current_business.documents.where(document_type: 0)
+    end
+
     def set_cover_document
       @cover_document = current_business.documents.where(document_type: 0).find_by(uuid: params[:uuid])
     end
+
+    # # サイドバーdoc_2ndリンク用
+    # def set_second_document_link
+    #   @second_document = current_business.documents.where(document_type: 2, request_order: @document.request_order.id).map(&:uuid)
+    # end
+
 
     def document_params
       params.require(:document).permit(:created_on, :submited_on, content: [])
