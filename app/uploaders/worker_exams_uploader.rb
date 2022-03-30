@@ -1,0 +1,2 @@
+class WorkerExamsUploader < Base
+end

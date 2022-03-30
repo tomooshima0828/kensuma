@@ -203,9 +203,9 @@
             <td><%= worker_exam.special_med_exam.name %></td>
             <td><%= worker_exam.got_on %></td>
             <td>
-              <%# worker_exam.images.each do |image| %>
-                <%#= image_tag(image.url) %>
-              <%# end %>
+              <% worker_exam.images.each do |image| %>
+                <%= image_tag(image.url) %>
+              <% end %>
             </td>
           <% end %>
         </tr>

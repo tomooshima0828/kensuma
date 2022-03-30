@@ -126,6 +126,17 @@ module Users
       redirect_to edit_users_worker_url(worker)
     end
 
+    def update_workerexam_images
+      worker = current_business.workers.find(params[:worker_id])
+      worker_exam = worker.worker_medical.worker_exams.find(params[:worker_exam_id])
+      remaining_images = worker_exam.images
+      deleting_images = remaining_images.delete_at(params[:index].to_i)
+      deleting_images.try(:remove!)
+      worker_exam.update!(images: remaining_images)
+      flash[:danger] = '証明画像を削除しました'
+      redirect_to edit_users_worker_url(worker)
+    end
+
     private
 
     def set_worker
