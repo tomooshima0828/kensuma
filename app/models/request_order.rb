@@ -1,6 +1,7 @@
 class RequestOrder < ApplicationRecord
   belongs_to :order
   belongs_to :business
+  has_many :documents, dependent: :destroy
 
   enum status: { editing: 0, completed: 1, request: 2 }
 

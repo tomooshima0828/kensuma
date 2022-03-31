@@ -21,7 +21,32 @@ module Users
 
     def create
       @order = current_business.orders.build(order_params)
-      @order.request_orders.build(business: current_business)
+      request_order = @order.request_orders.build(business: current_business)
+      # テスト用documentデフォルト値 ==================
+      request_order.documents.build(
+        document_type: 0,
+        created_on:    Date.current,
+        submitted_on:  Date.current,
+        content:       ['テスト事業所名', Date.current],
+        business:      current_business
+      )
+
+      request_order.documents.build(
+        document_type: 1,
+        created_on:    Date.current,
+        submitted_on:  Date.current,
+        content:       [],
+        business:      current_business
+      )
+
+      request_order.documents.build(
+        document_type: 2,
+        created_on:    Date.current,
+        submitted_on:  Date.current,
+        content:       [],
+        business:      current_business
+      )
+      # =============================================
       if @order.save
         redirect_to users_order_url(@order)
       else
