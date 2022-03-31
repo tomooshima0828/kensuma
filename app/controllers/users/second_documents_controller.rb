@@ -3,7 +3,6 @@ module Users
     include DocumentsConcern
 
     layout 'documents'
-    # before_action :set_documents
     before_action :set_document
     before_action :set_second_document, only: %i[show edit update]
 
@@ -13,7 +12,6 @@ module Users
     before_action :set_second_document_uuid
 
     def show
-      # @second_document = @document.second_document
       respond_to do |format|
         format.html
         format.pdf do
@@ -25,13 +23,9 @@ module Users
       end
     end
 
-    def edit
-      # @details = @document.second_document
-      # @second_document = @document.second_document
-    end
+    def edit; end
 
     def update
-      # @second_document = @document.second_document
       if @second_document.update(second_document_params)
         flash[:success] = '更新に成功しました'
         redirect_to users_document_second_documents_path
@@ -43,13 +37,7 @@ module Users
 
     private
 
-    # def set_documents
-    #   # @documents = Document.all.order(id: :asc)
-    #   @documents = current_business.documents.order(id: :asc)
-    # end
-
     def set_document
-      # @document = Document.find_by(uuid: params[:document_uuid])
       @document = current_business.documents.find_by(uuid: params[:document_uuid])
     end
 
@@ -60,9 +48,5 @@ module Users
     def second_document_params
       params.require(:document).permit(content: [])
     end
-
-    # def second_document_params
-    #   params.require(:second_document).permit(details: [])
-    # end
   end
 end

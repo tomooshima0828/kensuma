@@ -3,7 +3,6 @@ module Users
     include DocumentsConcern
 
     layout 'documents'
-    # before_action :set_documents
     before_action :set_document
 
     # サイドバーリンク用
@@ -25,10 +24,6 @@ module Users
     end
 
     private
-
-    # def set_documents
-    #   @documents = Document.all.order(id: :asc)
-    # end
 
     def set_document
       @document = current_business.documents.find_by(uuid: params[:document_uuid])
