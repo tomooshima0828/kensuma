@@ -72,6 +72,9 @@ gem 'jp_prefecture'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
+# aws_for_rails
+gem 'aws-sdk-rails'
+
 group :development, :test do
   # ERD生成
   gem 'rails-erd'
