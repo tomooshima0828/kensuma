@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_13_060444) do
+ActiveRecord::Schema.define(version: 2022_03_22_065548) do
 
   create_table "active_admin_comments", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "namespace"
@@ -225,6 +225,14 @@ ActiveRecord::Schema.define(version: 2022_03_13_060444) do
     t.index ["order_id"], name: "index_request_orders_on_order_id"
   end
 
+  create_table "second_documents", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.bigint "document_id", null: false
+    t.json "details"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["document_id"], name: "index_second_documents_on_document_id"
+  end
+
   create_table "skill_trainings", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "short_name", null: false
@@ -238,6 +246,20 @@ ActiveRecord::Schema.define(version: 2022_03_13_060444) do
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "special_med_exams", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "table_of_contents_documents", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.bigint "document_id", null: false
+    t.json "details"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["document_id"], name: "index_table_of_contents_documents_on_document_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
@@ -272,6 +294,18 @@ ActiveRecord::Schema.define(version: 2022_03_13_060444) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  create_table "worker_exams", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.bigint "worker_medical_id", null: false
+    t.bigint "special_med_exam_id", null: false
+    t.date "got_on", null: false
+    t.json "images"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["special_med_exam_id"], name: "index_worker_exams_on_special_med_exam_id"
+    t.index ["worker_medical_id", "special_med_exam_id"], name: "index_worker_exams_on_worker_medical_id_and_special_med_exam_id", unique: true
+    t.index ["worker_medical_id"], name: "index_worker_exams_on_worker_medical_id"
+  end
+
   create_table "worker_insurances", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.integer "health_insurance_type", null: false
     t.string "health_insurance_name"
@@ -296,6 +330,17 @@ ActiveRecord::Schema.define(version: 2022_03_13_060444) do
     t.index ["license_id"], name: "index_worker_licenses_on_license_id"
     t.index ["worker_id", "license_id"], name: "index_worker_licenses_on_worker_id_and_license_id", unique: true
     t.index ["worker_id"], name: "index_worker_licenses_on_worker_id"
+  end
+
+  create_table "worker_medicals", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.bigint "worker_id", null: false
+    t.date "med_exam_on", null: false
+    t.integer "max_blood_pressure", null: false
+    t.integer "min_blood_pressure", null: false
+    t.date "special_med_exam_on"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["worker_id"], name: "index_worker_medicals_on_worker_id"
   end
 
   create_table "worker_skill_trainings", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
@@ -357,9 +402,14 @@ ActiveRecord::Schema.define(version: 2022_03_13_060444) do
   add_foreign_key "orders", "businesses"
   add_foreign_key "request_orders", "businesses"
   add_foreign_key "request_orders", "orders"
+  add_foreign_key "second_documents", "documents"
+  add_foreign_key "table_of_contents_documents", "documents"
+  add_foreign_key "worker_exams", "special_med_exams"
+  add_foreign_key "worker_exams", "worker_medicals"
   add_foreign_key "worker_insurances", "workers"
   add_foreign_key "worker_licenses", "licenses"
   add_foreign_key "worker_licenses", "workers"
+  add_foreign_key "worker_medicals", "workers"
   add_foreign_key "worker_skill_trainings", "skill_trainings"
   add_foreign_key "worker_skill_trainings", "workers"
   add_foreign_key "worker_special_educations", "special_educations"

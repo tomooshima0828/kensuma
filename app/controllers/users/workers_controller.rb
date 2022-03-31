@@ -44,6 +44,20 @@ module Users
         special_education_id: 3
         # ============================================
       )
+      worker_medical = @worker.build_worker_medical(
+        # テスト用デフォルト値 ==========================
+        med_exam_on:         '2022-03-01',
+        max_blood_pressure:  120,
+        min_blood_pressure:  70,
+        special_med_exam_on: '2022-03-01'
+        # ============================================
+      )
+      worker_medical.worker_exams.build(
+        # テスト用デフォルト値 ==========================
+        special_med_exam_id: 4,
+        got_on:              '2022-03-01'
+        # ============================================
+      )
     end
 
     def create
@@ -112,6 +126,17 @@ module Users
       redirect_to edit_users_worker_url(worker)
     end
 
+    def update_workerexam_images
+      worker = current_business.workers.find(params[:worker_id])
+      worker_exam = worker.worker_medical.worker_exams.find(params[:worker_exam_id])
+      remaining_images = worker_exam.images
+      deleting_images = remaining_images.delete_at(params[:index].to_i)
+      deleting_images.try(:remove!)
+      worker_exam.update!(images: remaining_images)
+      flash[:danger] = '証明画像を削除しました'
+      redirect_to edit_users_worker_url(worker)
+    end
+
     private
 
     def set_worker
@@ -126,7 +151,11 @@ module Users
         :blank_term, :carrier_up_id,
         worker_licenses_attributes:           [:id, :got_on, :license_id, { images: [] }, :_destroy],
         worker_skill_trainings_attributes:    [:id, :got_on, :skill_training_id, { images: [] }, :_destroy],
-        worker_special_educations_attributes: [:id, :got_on, :special_education_id, { images: [] }, :_destroy]
+        worker_special_educations_attributes: [:id, :got_on, :special_education_id, { images: [] }, :_destroy],
+        worker_medical_attributes:            [
+          :id, :med_exam_on, :max_blood_pressure, :min_blood_pressure, :special_med_exam_on,
+          { worker_exams_attributes: [:id, :got_on, :worker_medical_id, :special_med_exam_id, { images: [] }] }
+        ]
       )
     end
   end

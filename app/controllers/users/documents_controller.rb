@@ -10,6 +10,7 @@ module Users
         3.times do
           document = Document.create!
           document.build_cover_document.save!
+          document.build_second_document.save!
         end
       end
     end
@@ -25,6 +26,18 @@ module Users
       else
         flash[:danger] = '更新に失敗しました'
         render :edit
+      end
+    end
+
+    def cover
+      respond_to do |format|
+        format.html
+        format.pdf do
+          render pdf: '表紙',
+            layout: 'pdf',
+            encording: 'UTF-8',
+            page_size: 'A4'
+        end
       end
     end
 

@@ -4,6 +4,7 @@ RSpec.describe 'Workers', type: :system do
   let(:user) { create(:user) }
   let(:business) { create(:business, user: user) }
   let(:worker) { create(:worker, business: business) }
+  let(:worker_medical) { create(:worker_medical, worker: worker) }
 
   before(:each) do
     user.skip_confirmation!
@@ -14,6 +15,11 @@ RSpec.describe 'Workers', type: :system do
   end
 
   describe '作業員のCRUDテスト' do
+    before(:each) do
+      worker.save!
+      worker_medical.save!
+    end
+
     describe '一覧機能' do
       it '作業員一覧ページに遷移' do
         click_on '作業員'
@@ -35,6 +41,7 @@ RSpec.describe 'Workers', type: :system do
           License.create!(name: 'サンプルライセンス', license_type: 0)
           SkillTraining.create!(name: 'サンプル技能講習', short_name: 'サン技')
           SpecialEducation.create!(name: 'サンプル特別教育')
+          SpecialMedExam.create!(name: 'サンプル特別健康診断')
 
           expect {
             visit new_users_worker_path
@@ -62,6 +69,15 @@ RSpec.describe 'Workers', type: :system do
             # WorkerSpecialEducation
             select 'サンプル特別教育', from: 'worker[worker_special_educations_attributes][0][special_education_id]'
             fill_in 'worker[worker_special_educations_attributes][0][got_on]', with: '2022-01-28'
+            # WoekerMedical
+            fill_in 'worker[worker_medical_attributes][med_exam_on]', with: '2022-03-01'
+            fill_in 'worker[worker_medical_attributes][max_blood_pressure]', with: '120'
+            fill_in 'worker[worker_medical_attributes][min_blood_pressure]', with: '70'
+            fill_in 'worker[worker_medical_attributes][special_med_exam_on]', with: '2022-03-01'
+            # WorkerExam
+            select 'サンプル特別健康診断', from: 'worker[worker_medical_attributes][worker_exams_attributes][0][special_med_exam_id]'
+            fill_in 'worker[worker_medical_attributes][worker_exams_attributes][0][got_on]', with: '2022-03-01'
+            attach_file 'worker[worker_medical_attributes][worker_exams_attributes][0][images][]', 'app/assets/images/photo1.png'
             click_button '登録'
           }.to change(Worker,
             :count).by(1).and change(WorkerLicense,

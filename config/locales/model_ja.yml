@@ -10,14 +10,19 @@ ja:
       worker: 作業員
       license: 免許マスタ
       worker_license: 中間テーブル(免許マスタ)
+      second_document: 施工体制台帳作成建設工事の通知
       skill_training: 技能講習マスタ
       worker_skill_training: 中間テーブル(技能講習マスタ)
       special_education: 特別教育マスタ
+      table_of_contents_document: 目次･チェック欄
       worker_special_education: 中間テーブル(特別教育マスタ)
       worker_insurance: 保険情報
       news: お知らせ
       document: 書類
       cover_document: 表紙
+      worker_medical: 作業員の健康情報
+      worker_exam: 中間テーブル(特別健康診断種類マスタ)
+      special_med_exam: 特別健康診断種類マスタ
     attributes:
       business:
         uuid: 事業所ID
@@ -90,6 +95,8 @@ ja:
         worker_id: 作業員
         got_on: 取得年月日
         images: 証明画像
+      second_document:
+        details: 詳細
       skill_training:
         name: 名称
         short_name: 略称
@@ -102,6 +109,8 @@ ja:
       special_education:
         name: 名称
         description: 説明
+      table_of_contents_document:
+        details: 提出年月日と確認欄
       worker_special_education:
         special_education_id: 特別教育
         worker_id: 作業員
@@ -128,6 +137,18 @@ ja:
       cover_document:
         business_name: 事業所名
         submitted_on: 書類提出日
+      worker_medical:
+        id: 健康診断
+        med_exam_on: 健康診断日
+        max_blood_pressure: 最高血圧 (mmHg)
+        min_blood_pressure: 最低血圧 (mmHg)
+        special_med_exam_on: 特別健康診断日
+      worker_exam:
+        special_med_exam_id: 特別健康診断
+        got_on: 取得年月日
+        images: 証明画像
+      special_med_exam:
+        name: 名称
   attributes:
     created_at: 作成日
     updated_at: 更新日
