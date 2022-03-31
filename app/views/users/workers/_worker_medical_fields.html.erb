@@ -1,0 +1,31 @@
+<div class="nested-fields">
+  <%= worker_medical.label :med_exam_on %>
+  <%= worker_medical.date_field :med_exam_on, class: "form-control" %>
+  <%= worker_medical.label :max_blood_pressure %>
+  <%= worker_medical.number_field :max_blood_pressure, class: "form-control" %>
+  <%= worker_medical.label :min_blood_pressure %>
+  <%= worker_medical.number_field :min_blood_pressure, class: "form-control" %>
+  <%= worker_medical.label :special_med_exam_on %>
+  <%= worker_medical.date_field :special_med_exam_on, class: "form-control" %>
+
+  <%= worker_medical.fields_for :worker_exams do |worker_exam| %>
+  <div class="col-md-3">
+    <%= worker_exam.label :special_med_exam_id %>
+    <%= worker_exam.collection_select :special_med_exam_id, SpecialMedExam.all, :id, :name, { prompt: '特別健康診断の種類を選択してください' }, { class: "form-control" } %><br>
+  </div>
+  <div class="col-md-2">
+    <%= worker_exam.label :got_on %>
+    <%= worker_exam.date_field :got_on, class: "form-control" %><br>
+  </div>
+  <div class="col-md-3">
+    <%= worker_exam.label :images %>
+    <%= worker_exam.file_field :images, accept: 'image/jpg, image/jpeg, image/png', multiple: true, class: "form-control" %>
+  </div>
+  <div class="col-md-3" style="margin-bottom: 10px;">
+    <% worker_exam.object.images.each_with_index do |image, index| %>
+      <%= image_tag(image.url) %>
+      <%= link_to "削除", users_worker_update_workerexam_images_path(@worker.worker_medical, index: index, worker_exam_id: worker_exam.object.id), method: :patch, data: { confirm: "本当に削除してもよろしいですか？" } %>
+    <% end %>
+  </div>
+  <% end %>
+</div>
