@@ -25,26 +25,26 @@ module Users
       # テスト用documentデフォルト値 ==================
       request_order.documents.build(
         document_type: 0,
-        created_on: Date.current,
-        submitted_on: Date.current,
-        content: ["テスト事業所名", Date.current],
-        business: current_business
+        created_on:    Date.current,
+        submitted_on:  Date.current,
+        content:       ['テスト事業所名', Date.current],
+        business:      current_business
       )
 
       request_order.documents.build(
         document_type: 1,
-        created_on: Date.current,
-        submitted_on: Date.current,
-        content: [],
-        business: current_business
+        created_on:    Date.current,
+        submitted_on:  Date.current,
+        content:       [],
+        business:      current_business
       )
 
       request_order.documents.build(
         document_type: 2,
-        created_on: Date.current,
-        submitted_on: Date.current,
-        content: [],
-        business: current_business
+        created_on:    Date.current,
+        submitted_on:  Date.current,
+        content:       [],
+        business:      current_business
       )
       # =============================================
       if @order.save
