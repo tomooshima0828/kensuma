@@ -5,7 +5,7 @@ User.seed(:id,
     name: 'テストuser1',
     password: 'password',
     password_confirmation: 'password',
-    role: 1,
+    role: 'admin',
     confirmed_at: Time.now
   },
   {

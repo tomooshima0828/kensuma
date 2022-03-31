@@ -1,5 +1,7 @@
 <%= render 'shared/error_massages', object: f.object %>
 
+<%= f.hidden_field(:role, value: 'general') %>
+
 <%= f.label :name %>
 <%= f.text_field :name, class: "form-control", placeholder: "名前" %>
 <br>

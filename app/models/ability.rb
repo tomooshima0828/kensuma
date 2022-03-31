@@ -7,9 +7,12 @@ class Ability
     user ||= User.new
     if user.admin?
       can :manage, :all
+    elsif user.general?
+      can [:read, :update], User, id: user.id
+      cannot [:create, :destroy], User
+      cannot :manage, :general_user
     else
-      # can :read, :all
-      can [:update, :destroy], :all, user: user
+      cannot :read, :all
     end
   end
 end

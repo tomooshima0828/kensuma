@@ -11,7 +11,6 @@
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
-        <%= f.hidden_field(:role, value: 'admin') %>
         <div class="input-group mb-3">
           <%# 開発用に初期値を入れています(value: "test_user1@gmail.com") %>
           <%= f.email_field :email, value: "test_user1@gmail.com", autofocus: true, autocomplete: "email", required: true, class:"form-control", placeholder:"メールアドレス" %>
