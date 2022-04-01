@@ -14,6 +14,7 @@ User.seed(:id,
     name: 'テストuser2',
     password: 'password',
     password_confirmation: 'password',
+    role: 'general',
     confirmed_at: Time.now
   }
 )
