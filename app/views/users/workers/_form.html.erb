@@ -96,17 +96,25 @@
 <!-- WorkerMedicalここから -->
   <div class="list-group-item">
     <%= f.fields_for :worker_medical do |worker_medical| %>
-      <%= render "worker_medical_fields", worker_medical: worker_medical %>
+      <%= worker_medical.label :med_exam_on %>
+      <%= worker_medical.date_field :med_exam_on, class: "form-control" %>
+      <%= worker_medical.label :max_blood_pressure %>
+      <%= worker_medical.number_field :max_blood_pressure, class: "form-control" %>
+      <%= worker_medical.label :min_blood_pressure %>
+      <%= worker_medical.number_field :min_blood_pressure, class: "form-control" %>
+      <%= worker_medical.label :special_med_exam_on %>
+      <%= worker_medical.date_field :special_med_exam_on, class: "form-control" %>
+      <%= worker_medical.fields_for :worker_exams do |worker_exam| %>
+        <%= render "worker_exam_fields", f: worker_exam %>
+      <% end %>
+      <div id='worker-exam-insertion-point'></div>
+        <%= link_to_add_association "＋フォーム追加", worker_medical, :worker_exams,
+          data: {
+            association_insertion_node: '#worker-exam-insertion-point',
+            association_insertion_method: 'append'
+          } 
+        %>
     <% end %>
-
-    <div id='worker-medical-insertion-point'></div>
-      <%#= link_to_add_association "＋フォーム追加", worker_medical, :worker_exams,
-        data: {
-          association_insertion_node: '#worker-medical-insertion-point',
-          association_insertion_method: 'append'
-        } 
-      %>
-
   </div>
 <!-- WorkerMedicalここまで -->
 </div>
