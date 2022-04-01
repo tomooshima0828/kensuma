@@ -93,13 +93,22 @@
   </div>
 <!-- WorkerSpecialEducationここまで -->
 
-  <!-- WorkerMedicalここから -->
+<!-- WorkerMedicalここから -->
   <div class="list-group-item">
-    <div class="row">
-      <%= f.fields_for :worker_medical do |worker_medical| %>
-        <%= render "worker_medical_fields", worker_medical: worker_medical %>
-      <% end %>
-    </div><br>
+    <%= f.fields_for :worker_medical do |worker_medical| %>
+      <%= render "worker_medical_fields", worker_medical: worker_medical %>
+    <% end %>
+
+    <div id='worker-medical-insertion-point'></div>
+      <%#= link_to_add_association "＋フォーム追加", worker_medical, :worker_exams,
+        data: {
+          association_insertion_node: '#worker-medical-insertion-point',
+          association_insertion_method: 'append'
+        } 
+      %>
+
   </div>
-  <!-- WorkerMedicalここまで -->
+<!-- WorkerMedicalここまで -->
 </div>
+
+
