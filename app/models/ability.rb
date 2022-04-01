@@ -8,8 +8,8 @@ class Ability
     if user.admin?
       can :manage, :all
     elsif user.general?
-      can [:read, :update], User, id: user.id
-      cannot [:create, :destroy], User
+      can %i[read update], User, id: user.id
+      cannot %i[create destroy], User
       cannot :manage, :general_user
     else
       cannot :read, :all

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :system do
-  let!(:user_a) { create(:user, name: 'ユーザーA', email: 'aaa-user@example.com', password: '123456', password_confirmation: '123456') }
+  let!(:user_a) { create(:user, name: 'ユーザーA', email: 'aaa-user@example.com', password: '123456', password_confirmation: '123456', role: 'admin') }
   let!(:user_b) { create(:user, name: 'ユーザーB', email: 'bbb-user@example.com', password: '123456', password_confirmation: '123456') }
   let!(:business_a) { create(:business, user: user_a) }
   let(:general_user) { build(:user, admin_user_id: user_a.id) }
