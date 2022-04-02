@@ -96,14 +96,22 @@
 <!-- WorkerMedicalここから -->
   <div class="list-group-item">
     <%= f.fields_for :worker_medical do |worker_medical| %>
-      <%= worker_medical.label :med_exam_on %>
-      <%= worker_medical.date_field :med_exam_on, class: "form-control" %>
-      <%= worker_medical.label :max_blood_pressure %>
-      <%= worker_medical.number_field :max_blood_pressure, class: "form-control" %>
-      <%= worker_medical.label :min_blood_pressure %>
-      <%= worker_medical.number_field :min_blood_pressure, class: "form-control" %>
-      <%= worker_medical.label :special_med_exam_on %>
-      <%= worker_medical.date_field :special_med_exam_on, class: "form-control" %>
+      <div class="row mb-3">
+        <%= worker_medical.label :med_exam_on %>
+        <%= worker_medical.date_field :med_exam_on, class: "form-control" %>
+      </div>
+      <div class="row mb-3">
+        <%= worker_medical.label :max_blood_pressure %>
+        <%= worker_medical.number_field :max_blood_pressure, class: "form-control" %>
+      </div>
+      <div class="row mb-3">
+        <%= worker_medical.label :min_blood_pressure %>
+        <%= worker_medical.number_field :min_blood_pressure, class: "form-control" %>
+      </div>
+      <div class="row mb-3">
+        <%= worker_medical.label :special_med_exam_on %>
+        <%= worker_medical.date_field :special_med_exam_on, class: "form-control" %>
+      </div>
       <%= worker_medical.fields_for :worker_exams do |worker_exam| %>
         <%= render "worker_exam_fields", f: worker_exam %>
       <% end %>
