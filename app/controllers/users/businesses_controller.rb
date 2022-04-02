@@ -57,7 +57,7 @@ module Users
     private
 
     def set_business
-      @business = current_user.business
+      @business = current_user.business || current_user.admin_user.business
     end
 
     def business_params
