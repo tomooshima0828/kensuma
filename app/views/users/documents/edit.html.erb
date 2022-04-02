@@ -4,11 +4,11 @@
     <table class="table">
       <tr>
         <th><%= f.label '事業所名' %></th>
-        <td><%= f.text_field :content, multiple: true, value: @cover_document.content&.[](0), class: 'form-control' %></td>
+        <td><%= f.text_field :content, multiple: true, value: @cover_business_name, class: 'form-control' %></td>
       </tr>
       <tr>
         <th><%= f.label '書類提出日' %></th>
-        <td><%= f.date_field :content, multiple: true, value: @cover_document.content&.[](1), class: 'form-control' %></td>
+        <td><%= f.date_field :content, multiple: true, value: @cover_submitted_on, class: 'form-control' %></td>
       </tr>
     </table>
   </div>

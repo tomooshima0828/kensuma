@@ -20,38 +20,58 @@ module Users
     end
 
     def create
-      @order = current_business.orders.build(order_params)
-      request_order = @order.request_orders.build(business: current_business)
-      # テスト用documentデフォルト値 ==================
-      request_order.documents.build(
-        document_type: 0,
-        created_on:    Date.current,
-        submitted_on:  Date.current,
-        content:       ['テスト事業所名', Date.current],
-        business:      current_business
-      )
+      ActiveRecord::Base.transaction do
+        @order = current_business.orders.build(order_params)
+        request_order = @order.request_orders.build(business: current_business)
+        # 表紙
+        request_order.documents.build(
+          document_type: 0,
+          created_on:    Date.current,
+          submitted_on:  Date.current,
+          content:       [
+            { 'id': 1, 'business_name': '' }, # 1-1
+            { 'id': 2, 'submitted_on': '' } # 1-2
+          ],
+          business:      current_business
+        )
 
-      request_order.documents.build(
-        document_type: 1,
-        created_on:    Date.current,
-        submitted_on:  Date.current,
-        content:       [],
-        business:      current_business
-      )
+        # 目次
+        request_order.documents.build(
+          document_type: 1,
+          created_on:    Date.current,
+          submitted_on:  Date.current,
+          content:       [],
+          business:      current_business
+        )
 
-      request_order.documents.build(
-        document_type: 2,
-        created_on:    Date.current,
-        submitted_on:  Date.current,
-        content:       [],
-        business:      current_business
-      )
-      # =============================================
-      if @order.save
-        redirect_to users_order_url(@order)
-      else
-        render :new
+        # 施工体制台帳作成建設工事の通知
+        request_order.documents.build(
+          document_type: 2,
+          created_on:    Date.current,
+          submitted_on:  Date.current,
+          content:       [
+            { 'id': 1, 'submitted_on': '' }, # 3-1
+            { 'id': 2, 'prime_contractor_name': '' }, # 3-2
+            { 'id': 3, 'site_name': '' }, # 3-3
+            { 'id': 4, 'business_name': '' }, # 3-4
+            { 'id': 5, 'orderer_name': '' }, # 3-5
+            { 'id': 6, 'construction_name': '' }, # 3-6
+            { 'id': 7, 'supervisor_name': '' }, # 3-7
+            { 'id': 8, 'apply': '' }, # 3-8
+            { 'id': 9, 'submission_destination': '' } # 3-9
+          ],
+          business:      current_business
+        )
+
+        if @order.save!
+          redirect_to users_order_url(@order)
+        else
+          render :new
+        end
       end
+    rescue ActiveRecord::RecordInvalid
+      flash[:danger] = '登録に失敗しました。再度作成してください。'
+      redirect_to new_users_order_path
     end
 
     def edit; end
