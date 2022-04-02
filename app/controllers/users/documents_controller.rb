@@ -49,11 +49,11 @@ module Users
     end
 
     def set_cover_documents
-      @cover_documents = current_business.documents.where(document_type: 0)
+      @cover_documents = current_business.documents.document_type_cover
     end
 
     def set_cover_document
-      @cover_document = current_business.documents.where(document_type: 0).find_by(uuid: params[:uuid])
+      @cover_document = current_business.documents.document_type_cover.find_by(uuid: params[:uuid])
     end
 
     def set_covoer_document_contents

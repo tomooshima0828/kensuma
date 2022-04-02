@@ -1,9 +1,11 @@
 class Document < ApplicationRecord
   belongs_to :business
   belongs_to :request_order
-  has_one :cover_document, dependent: :destroy
 
   before_create -> { self.uuid = SecureRandom.uuid }
+
+  scope :document_type_cover, -> { where(document_type: 0) }
+  scope :document_type_second, -> { where(document_type: 2) }
 
   enum document_type: {
     cover_document:             0,

@@ -43,7 +43,7 @@ module Users
     end
 
     def set_second_document
-      @second_document = current_business.documents.where(document_type: 2).find_by(uuid: params[:document_uuid])
+      @second_document = current_business.documents.document_type_second.find_by(uuid: params[:document_uuid])
     end
 
     def set_second_document_contents

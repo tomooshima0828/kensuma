@@ -65,8 +65,6 @@ module Users
 
         if @order.save!
           redirect_to users_order_url(@order)
-        else
-          render :new
         end
       end
     rescue ActiveRecord::RecordInvalid
