@@ -7,6 +7,7 @@
       <p class="login-box-msg">アカウント登録を行いましょう！</p>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.hidden_field(:role, value: 'admin') %>
         <div class="input-group mb-3">
           <%= f.text_field :name, class:"form-control", placeholder:"名前（フルネーム）", required: true %>
           <div class="input-group-append">

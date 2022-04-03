@@ -6,6 +6,9 @@ class ApplicationController < ActionController::Base
 
   rescue_from StandardError, with: :handle_server_error if Rails.env.production?
   rescue_from ActiveRecord::RecordNotFound, with: :handle_not_found if Rails.env.production?
+  rescue_from CanCan::AccessDenied do |_exception|
+    redirect_to users_dash_boards_path, alert: '画面を閲覧する権限がありません。'
+  end
 
   def handle_not_found
     render 'errors/404error', layout: false
@@ -28,7 +31,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     case resource
     when User
-      resource.business.nil? ? new_users_business_url : users_dash_boards_url
+      resource.business.nil? && resource.admin? ? new_users_business_url : users_dash_boards_url
     when Admin
       _system__dashboard_path
     when Manager
@@ -37,7 +40,7 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    added_attrs = %i[email name password password_confirmation]
+    added_attrs = %i[email name password password_confirmation role]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
     devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
