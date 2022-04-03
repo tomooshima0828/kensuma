@@ -68,6 +68,9 @@ gem 'cocoon'
 # 住所自動入力
 gem 'jp_prefecture'
 
+# 権限分け
+gem 'cancancan'
+
 # pdf変換
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'

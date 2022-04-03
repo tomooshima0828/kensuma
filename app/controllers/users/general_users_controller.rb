@@ -1,6 +1,7 @@
 module Users
   class GeneralUsersController < Users::Base
     before_action :set_general_user, except: %i[index new create]
+    authorize_resource class: false
 
     def index
       @general_users = current_user.general_users
@@ -46,7 +47,7 @@ module Users
     end
 
     def general_user_params
-      params.require(:user).permit(:name, :email, :age, :gender, :password)
+      params.require(:user).permit(:name, :email, :age, :gender, :role, :password)
     end
   end
 end
