@@ -1,11 +1,17 @@
 module Users
   class SecondDocumentsController < Users::Base
+    include DocumentsConcern
+
     layout 'documents'
-    before_action :set_documents
     before_action :set_document
+    before_action :set_second_document, only: %i[show edit update]
+
+    # サイドバーリンク用
+    before_action :set_cover_document_uuid
+    before_action :set_table_of_contents_document_uuid
+    before_action :set_second_document_uuid
 
     def show
-      @second_document = @document.second_document
       respond_to do |format|
         format.html
         format.pdf do
@@ -17,14 +23,9 @@ module Users
       end
     end
 
-    def edit
-      @details = @document.second_document
-      @second_document = @document.second_document
-      @aaa = @document.second_document
-    end
+    def edit; end
 
     def update
-      @second_document = @document.second_document
       if @second_document.update(second_document_params)
         flash[:success] = '更新に成功しました'
         redirect_to users_document_second_documents_path
@@ -36,16 +37,28 @@ module Users
 
     private
 
-    def set_documents
-      @documents = Document.all.order(id: :asc)
+    def set_document
+      @document = current_business.documents.find_by(uuid: params[:document_uuid])
     end
 
-    def set_document
-      @document = Document.find_by(uuid: params[:document_uuid])
+    def set_second_document
+      @second_document = current_business.documents.document_type_second.find_by(uuid: params[:document_uuid])
     end
 
     def second_document_params
-      params.require(:second_document).permit(details: [])
+      params.require(:document).permit.merge(
+        content: {
+          submitted_on:           params[:document][:content][0],
+          prime_contractor_name:  params[:document][:content][1],
+          site_name:              params[:document][:content][2],
+          business_name:          params[:document][:content][3],
+          orderer_name:           params[:document][:content][4],
+          construction_name:      params[:document][:content][5],
+          supervisor_name:        params[:document][:content][6],
+          apply:                  params[:document][:content][7],
+          submission_destination: params[:document][:content][8]
+        }
+      )
     end
   end
 end

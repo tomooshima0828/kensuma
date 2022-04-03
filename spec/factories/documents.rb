@@ -4,5 +4,7 @@ FactoryBot.define do
     document_type { 1 }
     created_on { '2022-03-08' }
     submitted_on { '2022-03-08' }
+    business
+    request_order
   end
 end
