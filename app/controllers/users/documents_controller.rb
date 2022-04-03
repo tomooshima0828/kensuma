@@ -1,26 +1,27 @@
 module Users
   class DocumentsController < Users::Base
+    include DocumentsConcern
+
     layout 'documents'
     before_action :set_documents # サイドバーに常時表示させるために必要
     before_action :set_document, except: :index # オブジェクトが1つも無い場合、indexで呼び出さないようにする
+    before_action :set_cover_documents, only: :index # サイドバー表示 表紙一覧
     before_action :set_cover_document, except: :index # 同上
+    before_action :set_covoer_document_contents, only: %i[show edit cover]
 
-    def index
-      if @documents.count < 3
-        3.times do
-          document = Document.create!
-          document.build_cover_document.save!
-          document.build_second_document.save!
-        end
-      end
-    end
+    # サイドバーリンク用
+    before_action :set_cover_document_uuid, except: :index
+    before_action :set_table_of_contents_document_uuid, except: :index
+    before_action :set_second_document_uuid, except: :index
+
+    def index; end
 
     def show; end
 
     def edit; end
 
     def update
-      if @cover_document.update(cover_document_params)
+      if @cover_document.update(document_params)
         flash[:success] = '更新に成功しました'
         redirect_to users_document_url(@document)
       else
@@ -43,20 +44,29 @@ module Users
 
     private
 
-    def set_documents
-      @documents = Document.all.order(id: :asc)
+    def set_document
+      @document = current_business.documents.find_by(uuid: params[:uuid])
     end
 
-    def set_document
-      @document = Document.find_by(uuid: params[:uuid])
+    def set_cover_documents
+      @cover_documents = current_business.documents.document_type_cover
     end
 
     def set_cover_document
-      @cover_document = @document.cover_document
+      @cover_document = current_business.documents.document_type_cover.find_by(uuid: params[:uuid])
     end
 
-    def cover_document_params
-      params.require(:cover_document).permit(:business_name, :submitted_on)
+    def set_covoer_document_contents
+      @cover_business_name = JSON.parse(@cover_document.content.to_json)[0]['business_name']
+      @cover_submitted_on = JSON.parse(@cover_document.content.to_json)[1]['submitted_on']
+    end
+
+    def document_params
+      params.require(:document).permit.merge(
+        content: [
+          { id: 1, business_name: params[:document][:content][0] },
+          { id: 2, submitted_on: params[:document][:content][1] }
+        ])
     end
   end
 end

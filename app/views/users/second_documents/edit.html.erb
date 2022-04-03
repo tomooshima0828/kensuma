@@ -26,21 +26,21 @@
           <span id="sd_t16_1" class="sd_t sd_s2">当工事は、建設業法（昭和24年法律第100号）第24条の7に基づく施工体制台帳の作成を要する建設工事 </span>
           <span id="sd_t17_1" class="sd_t sd_s2">です。 </span>
           <span id="sd_t18_1" class="sd_t sd_s1">(全建統一様式第２号) </span>
-          <span id="sd_t19_1" class="sd_t sd_s2"><%= f.text_field :details, multiple: true,
-                                      value: @second_document.details&.[](0),
+          <span id="sd_t19_1" class="sd_t sd_s2"><%= f.date_field :content, multiple: true,
+                                      value: @second_submitted_on,
                                       placeholder: '提出日（西暦）3-1',
                                       class: 'form-control form-control-sm' %></span>
           <span id="sd_t1a_1" class="sd_t sd_s6">下請負業者の皆さんへ </span>
           <span id="sd_t1b_1" class="sd_t sd_s2">【元請負業者】 </span>
           <span id="sd_t1c_1" class="sd_t sd_s2">
-            <%= f.text_field :details, multiple: true,
-                                      value: @second_document.details&.[](1),
+            <%= f.text_field :content, multiple: true,
+                                      value: @second_prime_contractor_name,
                                       placeholder: '「元請会社名」3-2',
                                       class: 'form-control form-control-sm' %></span>
           <span id="sd_t1f_1_1" class="sd_t sd_s2"></span>
           <span id="sd_t13_1" class="sd_t sd_s2">
-            <%= f.text_field :details, multiple: true,
-                                      value: @second_document.details&.[](2),
+            <%= f.text_field :content, multiple: true,
+                                      value: @second_site_name,
                                       placeholder: '「現場名」3-3',
                                       class: 'form-control form-control-sm' %></span>
           <span id="sd_t13_1_1" class="sd_t sd_s2"></span>
@@ -55,17 +55,17 @@
                 <tr>
                   <td class="sd_td_1">元 請 名</td>
                   <td class="sd_td_1" colspan="3">
-                    <%= f.text_field :details, multiple: true,
-                                              value: @second_document.details&.[](3),
-                                              placeholder: '会社名」3-4',
+                    <%= f.text_field :content, multiple: true,
+                                              value: @second_business_name,
+                                              placeholder: '「会社名」3-4',
                                               class: 'form-control form-control-sm' %>
                   </td>
                 </tr>
                 <tr>
                   <td class="sd_td_1">発 注 者 名</td>
                   <td class="sd_td_1" colspan="3">
-                    <%= f.text_field :details, multiple: true,
-                                              value: @second_document.details&.[](4),
+                    <%= f.text_field :content, multiple: true,
+                                              value: @second_orderer_name,
                                               placeholder: '「発注者名」3-5',
                                               class: 'form-control form-control-sm' %>
                   </td>
@@ -73,23 +73,23 @@
                 <tr>
                   <td class="sd_td_1">工 事 名</td>
                   <td class="sd_td_1" colspan="3">
-                    <%= f.text_field :details, multiple: true,
-                                              value: @second_document.details&.[](5),
+                    <%= f.text_field :content, multiple: true,
+                                              value: @second_construction_name,
                                               placeholder: '元請会社の「各会社の工事名」3-6',
                                               class: 'form-control form-control-sm' %>
                 </td>
                 <tr>
                   <td class="sd_td_1" style="width: 15%">監 督 員 名</td>
                   <td class="sd_td_1" style="width: 20%">
-                    <%= f.text_field :details, multiple: true,
-                                              value: @second_document.details&.[](6),
+                    <%= f.text_field :content, multiple: true,
+                                              value: @second_supervisor_name,
                                               placeholder: '元請会社の「各会社の監督員名」3-7',
                                               class: 'form-control form-control-sm' %>
                   </td>
                   <td class="sd_td_1" style="width: 15%">権限及び意見<br>申出方法</td>
                   <td class="sd_td_1" style="vertical-align: middle !important">
-                    <%= f.text_field :details, multiple: true,
-                                              value: @second_document.details&.[](7),
+                    <%= f.text_field :content, multiple: true,
+                                              value: @second_apply,
                                               placeholder: '「各会社の監督員名・権限及び意見の申出方法」3-8',
                                               class: 'form-control form-control-sm' %>
                   </td>
@@ -104,8 +104,8 @@
                 <tr>
                   <td class="sd_td_1" style="width: 15%">提出先及び<br>担 当 者</td>
                   <td class="sd_td_1" style="vertical-align: middle !important">
-                    <%= f.text_field :details, multiple: true,
-                                        value: @second_document.details&.[](8),
+                    <%= f.text_field :content, multiple: true,
+                                        value: @second_submission_destination,
                                         placeholder: '「提出先及び担当者（元請会社のみ）」3-9',
                                         class: 'form-control form-control-sm' %>
                   </td>
