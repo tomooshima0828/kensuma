@@ -7,7 +7,6 @@ module Users
     before_action :set_document, except: :index # オブジェクトが1つも無い場合、indexで呼び出さないようにする
     before_action :set_cover_documents, only: :index # サイドバー表示 表紙一覧
     before_action :set_cover_document, except: :index # 同上
-    before_action :set_covoer_document_contents, only: %i[show edit cover]
 
     # サイドバーリンク用
     before_action :set_cover_document_uuid, except: :index
@@ -56,17 +55,12 @@ module Users
       @cover_document = current_business.documents.document_type_cover.find_by(uuid: params[:uuid])
     end
 
-    def set_covoer_document_contents
-      @cover_business_name = JSON.parse(@cover_document.content.to_json)[0]['business_name']
-      @cover_submitted_on = JSON.parse(@cover_document.content.to_json)[1]['submitted_on']
-    end
-
     def document_params
       params.require(:document).permit.merge(
-        content: [
-          { id: 1, business_name: params[:document][:content][0] },
-          { id: 2, submitted_on: params[:document][:content][1] }
-        ])
+        content: {
+          business_name: params[:document][:content][0],
+          submitted_on: params[:document][:content][1]
+        })
     end
   end
 end

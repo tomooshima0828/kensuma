@@ -28,10 +28,10 @@ module Users
           document_type: 0,
           created_on:    Date.current,
           submitted_on:  Date.current,
-          content:       [
-            { 'id': 1, 'business_name': '' }, # 1-1
-            { 'id': 2, 'submitted_on': '' } # 1-2
-          ],
+          content:       {
+            'business_name': 'aaa',      # 1-1
+            'submitted_on': Date.current # 1-2
+          },
           business:      current_business
         )
 
@@ -40,7 +40,7 @@ module Users
           document_type: 1,
           created_on:    Date.current,
           submitted_on:  Date.current,
-          content:       [],
+          content:       {},
           business:      current_business
         )
 
@@ -49,17 +49,17 @@ module Users
           document_type: 2,
           created_on:    Date.current,
           submitted_on:  Date.current,
-          content:       [
-            { 'id': 1, 'submitted_on': '' }, # 3-1
-            { 'id': 2, 'prime_contractor_name': '' }, # 3-2
-            { 'id': 3, 'site_name': '' }, # 3-3
-            { 'id': 4, 'business_name': '' }, # 3-4
-            { 'id': 5, 'orderer_name': '' }, # 3-5
-            { 'id': 6, 'construction_name': '' }, # 3-6
-            { 'id': 7, 'supervisor_name': '' }, # 3-7
-            { 'id': 8, 'apply': '' }, # 3-8
-            { 'id': 9, 'submission_destination': '' } # 3-9
-          ],
+          content:       {
+            'submitted_on':           '', # 3-1
+            'prime_contractor_name':  '', # 3-2
+            'site_name':              '', # 3-3
+            'business_name':          '', # 3-4
+            'orderer_name':           '', # 3-5
+            'construction_name':      '', # 3-6
+            'supervisor_name':        '', # 3-7
+            'apply':                  '', # 3-8
+            'submission_destination': '' # 3-9
+          },
           business:      current_business
         )
 
