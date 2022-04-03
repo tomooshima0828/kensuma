@@ -48,14 +48,14 @@ module Users
     def second_document_params
       params.require(:document).permit.merge(
         content: {
-          submitted_on: params[:document][:content][0],
-          prime_contractor_name: params[:document][:content][1],
-          site_name: params[:document][:content][2],
-          business_name: params[:document][:content][3],
-          orderer_name: params[:document][:content][4],
-          construction_name: params[:document][:content][5],
-          supervisor_name: params[:document][:content][6],
-          apply: params[:document][:content][7],
+          submitted_on:           params[:document][:content][0],
+          prime_contractor_name:  params[:document][:content][1],
+          site_name:              params[:document][:content][2],
+          business_name:          params[:document][:content][3],
+          orderer_name:           params[:document][:content][4],
+          construction_name:      params[:document][:content][5],
+          supervisor_name:        params[:document][:content][6],
+          apply:                  params[:document][:content][7],
           submission_destination: params[:document][:content][8]
         }
       )

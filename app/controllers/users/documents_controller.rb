@@ -59,7 +59,7 @@ module Users
       params.require(:document).permit.merge(
         content: {
           business_name: params[:document][:content][0],
-          submitted_on: params[:document][:content][1]
+          submitted_on:  params[:document][:content][1]
         })
     end
   end
