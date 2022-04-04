@@ -29,11 +29,22 @@
         </li>
       </ul>
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <% @cover_documents.each do |cover_document| %>
-          <%= link_to users_document_path(cover_document), class:"nav-link" do %>
+        <!--
+        <%# @cover_documents.each do |cover_document| %>
+          <%#= link_to users_document_path(cover_document), class:"nav-link" do %>
           <li class="nav-item">
             <i class="nav-icon fas fa-file"></i>
-            <p><%= Document.human_attribute_name(:id) %> <%= cover_document.id %></p>
+            <p><%#= Document.human_attribute_name(:id) %> <%#= cover_document.id %></p>
+          </li>
+          <%# end %>
+        <%# end %>
+        -->
+        <% @documents.each do |request_document| %>
+          <%= link_to users_request_order_document_path(params[:request_order_uuid], request_document.uuid), class:"nav-link" do %>
+          <li class="nav-item">
+            <i class="nav-icon fas fa-file"></i>
+            <p><%= request_document.document_type_i18n %></p>
+            <p><%= request_document.uuid %></p>
           </li>
           <% end %>
         <% end %>
