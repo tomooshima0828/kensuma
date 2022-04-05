@@ -3,6 +3,7 @@ module Users
     include DocumentsConcern
 
     layout 'documents'
+    before_action :set_documents
     before_action :set_document
 
     # サイドバーリンク用
