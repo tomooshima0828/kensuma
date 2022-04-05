@@ -215,45 +215,51 @@
         <% end %>
         <!-- worker_examここまで -->
         <!-- worker_insuranceここから -->
+        <tr bgcolor="#dee2e6">
+          <th></th>
+          <th><%= WorkerInsurance.human_attribute_name(:id) %></th>
+          <th></th>
+          <th></th>
+        </tr>
         <tr>
           <th><%= WorkerInsurance.human_attribute_name(:health_insurance_type) %></th>
-          <td></td>
+          <td><%= @worker.worker_insurance.health_insurance_type_i18n %></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <th><%= WorkerInsurance.human_attribute_name(:health_insurance_name) %></th>
-          <td></td>
+          <td><%= @worker.worker_insurance.health_insurance_name %></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <th><%= WorkerInsurance.human_attribute_name(:pension_insurance_type) %></th>
-          <td></td>
+          <td><%= @worker.worker_insurance.pension_insurance_type_i18n %></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <th><%= WorkerInsurance.human_attribute_name(:employment_insurance_type) %></th>
-          <td></td>
+          <td><%= @worker.worker_insurance.employment_insurance_type_i18n %></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <th><%= WorkerInsurance.human_attribute_name(:employment_insurance_number) %></th>
-          <td></td>
+          <td><%= @worker.worker_insurance.employment_insurance_number %></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <th><%= WorkerInsurance.human_attribute_name(:severance_pay_mutual_aid_type) %></th>
-          <td></td>
+          <td><%= @worker.worker_insurance.severance_pay_mutual_aid_type_i18n %></td>
           <td></td>
           <td></td>
         </tr>
         <tr>
           <th><%= WorkerInsurance.human_attribute_name(:severance_pay_mutual_aid_name) %></th>
-          <td></td>
+          <td><%= @worker.worker_insurance.severance_pay_mutual_aid_name %></td>
           <td></td>
           <td></td>
         </tr>

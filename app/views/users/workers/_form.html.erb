@@ -130,25 +130,25 @@
   <div class="list-group-item">
     <%= f.fields_for :worker_insurance do |worker_insurance| %>
       <%= worker_insurance.label :health_insurance_type %>
-      <%= worker_insurance.select :health_insurance_type, WorkerInsurance.health_insurance_types_i18n.keys.map { |k| [WorkerInsurance.health_insurance_types_i18n[k], k] }, { prompt: "選択してください" }, { class: "form-control" } %>
+      <%= worker_insurance.select :health_insurance_type, WorkerInsurance.health_insurance_types_i18n.keys.map { |k| [WorkerInsurance.health_insurance_types_i18n[k], k] }, { prompt: "選択してください" }, { class: "form-control" } %><br>
 
       <%= worker_insurance.label :health_insurance_name %>
-      <%= worker_insurance.text_field :health_insurance_name, class: "form-control" %>
+      <%= worker_insurance.text_field :health_insurance_name, class: "form-control" %><br>
 
       <%= worker_insurance.label :pension_insurance_type %>
-      <%= worker_insurance.select :pension_insurance_type, WorkerInsurance.pension_insurance_types_i18n.keys.map { |k| [WorkerInsurance.pension_insurance_types_i18n[k], k] }, { prompt: "選択してください" }, { class: "form-control" } %>
+      <%= worker_insurance.select :pension_insurance_type, WorkerInsurance.pension_insurance_types_i18n.keys.map { |k| [WorkerInsurance.pension_insurance_types_i18n[k], k] }, { prompt: "選択してください" }, { class: "form-control" } %><br>
 
       <%= worker_insurance.label :employment_insurance_type %>
-      <%= worker_insurance.select :employment_insurance_type, WorkerInsurance.employment_insurance_types_i18n.keys.map { |k| [WorkerInsurance.employment_insurance_types_i18n[k], k] }, { prompt: "選択してください" }, { class: "form-control" } %>
+      <%= worker_insurance.select :employment_insurance_type, WorkerInsurance.employment_insurance_types_i18n.keys.map { |k| [WorkerInsurance.employment_insurance_types_i18n[k], k] }, { prompt: "選択してください" }, { class: "form-control" } %><br>
 
       <%= worker_insurance.label :employment_insurance_number %>
-      <%= worker_insurance.text_field :employment_insurance_number, class: "form-control" %>
+      <%= worker_insurance.text_field :employment_insurance_number, class: "form-control" %><br>
 
       <%= worker_insurance.label :severance_pay_mutual_aid_type %>
-      <%= worker_insurance.select :severance_pay_mutual_aid_type, WorkerInsurance.severance_pay_mutual_aid_types_i18n.keys.map { |k| [WorkerInsurance.severance_pay_mutual_aid_types_i18n[k], k] }, { prompt: "選択してください" }, { class: "form-control" } %>
+      <%= worker_insurance.select :severance_pay_mutual_aid_type, WorkerInsurance.severance_pay_mutual_aid_types_i18n.keys.map { |k| [WorkerInsurance.severance_pay_mutual_aid_types_i18n[k], k] }, { prompt: "選択してください" }, { class: "form-control" } %><br>
 
       <%= worker_insurance.label :severance_pay_mutual_aid_name %>
-      <%= worker_insurance.text_field :severance_pay_mutual_aid_name, class: "form-control" %>
+      <%= worker_insurance.text_field :severance_pay_mutual_aid_name, class: "form-control" %><br>
     <% end %>
   </div>
 <!-- WorkerInsuranceここまで -->
