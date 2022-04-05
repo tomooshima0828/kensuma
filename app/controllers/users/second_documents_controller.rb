@@ -28,7 +28,7 @@ module Users
     def update
       if @second_document.update(second_document_params)
         flash[:success] = '更新に成功しました'
-        redirect_to users_document_second_documents_path
+        redirect_to users_request_order_document_second_path
       else
         flash[:danger] = '更新に失敗しました'
         render :edit
