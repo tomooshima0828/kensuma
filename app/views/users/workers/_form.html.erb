@@ -134,7 +134,7 @@
         <%= worker_insurance.select :health_insurance_type, WorkerInsurance.health_insurance_types_i18n.keys.map { |k| [WorkerInsurance.health_insurance_types_i18n[k], k] }, { prompt: "選択してください" }, { class: "form-control" } %>
       </div>
 
-      <div class="row mb-3">
+      <div class="row mb-3"><!-- health_insurance_typeが健康保険組合(0)または建設国保(2)で入力可能 -->
         <%= worker_insurance.label :health_insurance_name %>
         <%= worker_insurance.text_field :health_insurance_name, class: "form-control" %>
       </div>
@@ -149,7 +149,7 @@
         <%= worker_insurance.select :employment_insurance_type, WorkerInsurance.employment_insurance_types_i18n.keys.map { |k| [WorkerInsurance.employment_insurance_types_i18n[k], k] }, { prompt: "選択してください" }, { class: "form-control" } %>
       </div>
 
-      <div class="row mb-3">
+      <div class="row mb-3"><!-- employment_insurance_numberが被保険者(0)で入力可能 -->
         <%= worker_insurance.label :employment_insurance_number %>
         <%= worker_insurance.text_field :employment_insurance_number, class: "form-control" %>
       </div>
@@ -159,7 +159,7 @@
         <%= worker_insurance.select :severance_pay_mutual_aid_type, WorkerInsurance.severance_pay_mutual_aid_types_i18n.keys.map { |k| [WorkerInsurance.severance_pay_mutual_aid_types_i18n[k], k] }, { prompt: "選択してください" }, { class: "form-control" } %>
       </div>
 
-      <div class="row mb-3">
+      <div class="row mb-3"><!-- severance_pay_mutual_aid_typeがその他(2)のときに入力可能 -->
         <%= worker_insurance.label :severance_pay_mutual_aid_name %>
         <%= worker_insurance.text_field :severance_pay_mutual_aid_name, class: "form-control" %>
       </div>
@@ -167,3 +167,6 @@
   </div>
 <!-- WorkerInsuranceここまで -->
 </div>
+
+<script>
+</script>
