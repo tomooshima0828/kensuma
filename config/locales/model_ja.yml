@@ -111,7 +111,7 @@ ja:
         got_on: 取得年月日
         images: 証明画像
       worker_insurance:
-        id: 名称
+        id: 保険情報
         health_insurance_type: 健康保険のタイプ
         health_insurance_name: 健康保険の名前
         pension_insurance_type: 年金保険のタイプ
