@@ -1,22 +1,7 @@
 <% provide(:title, '書類詳細') %>
 
 <div class="card">
-  <div class="card-body">
-    <table class="table">
-      <tr>
-        <th></th>
-        <td><%= @document.document_type_i18n %></td>
-      </tr>
-      <tr>
-        <th>提出会社名</th>
-        <td><%= @document.content["business_name"] %></td>
-      </tr>
-      <tr>
-        <th>提出日</th>
-        <td><%= @document.content["submitted_on"] %></td>
-      </tr>
-    </table>
-  </div>
+  <div class="card-body"></div>
   <div class="card-footer">
     <%= link_to '編集', edit_users_request_order_document_path(params[:request_order_uuid], @document), class: "btn btn-block btn-outline-dark" %>
     <%= link_to '書類一覧に戻る', users_request_order_documents_path, class: "btn btn-block btn-outline-secondary" %>

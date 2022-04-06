@@ -1,0 +1,26 @@
+<% provide(:title,  "書類一覧") %>
+
+<% if @documents.present? %>
+  <div class="card">
+    <div class="card-body table-responsive p-0">
+      <table class="table table-hover text-nowrap">
+        <thead>
+          <tr align="center">
+            <th><%= Document.human_attribute_name(:document_type) %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="center"><%#= link_to @documents.find_by(document_type: 0).document_type_i18n, users_request_order_document_path(params[:request_order_uuid], @documents.find_by(document_type: 0)) %></td>
+          </tr>
+          <tr>
+            <td align="center"><%#= link_to @documents.find_by(document_type: 1).document_type_i18n, users_request_order_document_table_of_content_path(params[:request_order_uuid], @documents.find_by(document_type: 1)) %></td>
+          </tr>
+          <tr>
+            <td align="center"><%#= link_to @documents.find_by(document_type: 2).document_type_i18n, users_request_order_document_second_path(params[:request_order_uuid], @documents.find_by(document_type: 2)) %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% end %>
