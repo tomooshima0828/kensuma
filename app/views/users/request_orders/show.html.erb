@@ -21,5 +21,3 @@
     <%= link_to "書類一覧画面へ", users_request_order_documents_path(@request_order), class: "btn btn-md btn-block btn-default" unless @request_order.parent_id.present? %>
   </div>
 </div>
-<%= @request_order.parent_id %>
-<%= @request_order.id %>
