@@ -6,12 +6,6 @@ module Users
     before_action :set_documents # サイドバーに常時表示させるために必要
     before_action :set_document, except: :index # オブジェクトが1つも無い場合、indexで呼び出さないようにする
     before_action :set_cover_documents, only: :index # サイドバー表示 表紙一覧
-    # before_action :set_cover_document, except: :index
-
-    # サイドバーリンク用
-    # before_action :set_cover_document_uuid, except: :index
-    # before_action :set_table_of_contents_document_uuid, except: :index
-    # before_action :set_second_document_uuid, except: :index
 
     def index; end
 

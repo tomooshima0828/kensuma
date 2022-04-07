@@ -6,11 +6,6 @@ module Users
     before_action :set_documents
     before_action :set_document
 
-    # サイドバーリンク用
-    before_action :set_cover_document_uuid
-    before_action :set_table_of_contents_document_uuid
-    before_action :set_second_document_uuid
-
     def show
       @document = Document.find_by(uuid: params[:document_uuid])
       respond_to do |format|

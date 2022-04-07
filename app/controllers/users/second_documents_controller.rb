@@ -7,11 +7,6 @@ module Users
     before_action :set_document
     before_action :set_second_document, only: %i[show edit update]
 
-    # サイドバーリンク用
-    before_action :set_cover_document_uuid
-    before_action :set_table_of_contents_document_uuid
-    before_action :set_second_document_uuid
-
     def show
       respond_to do |format|
         format.html

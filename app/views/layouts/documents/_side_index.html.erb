@@ -21,14 +21,6 @@
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <li class="nav-item">
-          <%= link_to users_dash_boards_path, class:"nav-link" do %>
-            <i class="nav-icon fas fa-angle-left"></i>
-            <p>ダッシュボードに戻る</p>
-          <% end %>
-        </li>
-      </ul>
-      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- 表紙 -->
         <%= link_to users_request_order_document_path(params[:request_order_uuid], @documents.find_by(document_type: 0)), class:"nav-link" do %>
           <li class="nav-item">
