@@ -3,13 +3,9 @@ module Users
     include DocumentsConcern
 
     layout 'documents'
+    before_action :set_documents
     before_action :set_document
     before_action :set_second_document, only: %i[show edit update]
-
-    # サイドバーリンク用
-    before_action :set_cover_document_uuid
-    before_action :set_table_of_contents_document_uuid
-    before_action :set_second_document_uuid
 
     def show
       respond_to do |format|
@@ -28,7 +24,7 @@ module Users
     def update
       if @second_document.update(second_document_params)
         flash[:success] = '更新に成功しました'
-        redirect_to users_document_second_documents_path
+        redirect_to users_request_order_document_second_path
       else
         flash[:danger] = '更新に失敗しました'
         render :edit

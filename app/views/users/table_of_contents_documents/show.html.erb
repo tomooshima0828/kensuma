@@ -1,11 +1,10 @@
-<% provide(:title, '目次・チェック欄') %>
+<% provide(:title, '目次') %>
 
 <div class="card">
-  <div class="card-body">
-  </div>
+  <div class="card-body"></div>
   <div class="card-footer">
-    <%= link_to '書類一覧に戻る', users_documents_path, class: "btn btn-block btn-outline-secondary" %>
-    <%= link_to "PDF出力", users_document_table_of_contents_documents_path(format: :pdf), target: :_blank, rel: "noopener noreferrer", class: "btn btn-md btn-block btn-default" %>
+    <%= link_to '書類一覧に戻る', users_request_order_documents_path, class: "btn btn-block btn-outline-secondary" %>
+    <%= link_to "PDF出力", users_request_order_document_table_of_content_path(format: :pdf), target: :_blank, rel: "noopener noreferrer", class: "btn btn-md btn-block btn-default" %>
   </div>
 </div>
 

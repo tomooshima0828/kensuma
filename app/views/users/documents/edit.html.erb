@@ -1,5 +1,5 @@
 <% provide(:title, '書類編集') %>
-<%= form_with model: @cover_document, url: users_document_path, method: :patch, local: true do |f| %>
+<%= form_with model: @document, url: users_request_order_document_path, method: :patch, local: true do |f| %>
   <div class="card-body">
     <table class="table">
       <tr>
@@ -14,6 +14,6 @@
   </div>
   <div class="card-footer">
     <%= f.submit '登録', class: 'btn btn-block btn-outline-dark' %>
-    <%= link_to '書類詳細に戻る', users_document_path(@document), class: 'btn btn-block btn-outline-secondary' %>
+    <%= link_to '書類詳細に戻る', users_request_order_document_path, class: 'btn btn-block btn-outline-secondary' %>
   </div>
 <% end %>
