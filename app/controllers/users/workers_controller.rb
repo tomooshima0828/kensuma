@@ -60,8 +60,8 @@ module Users
       )
       @worker.build_worker_insurance(
         # テスト用デフォルト値 ==========================
-        health_insurance_type: :health_insurance_association, 
-        health_insurance_name: 'サンプル健康保険', 
+        health_insurance_type: :health_insurance_association,
+        health_insurance_name: 'サンプル健康保険',
         pension_insurance_type: :welfare, 
         employment_insurance_type: :insured, 
         employment_insurance_number: '0000', 

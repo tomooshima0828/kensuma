@@ -1,3 +1,9 @@
+<style>
+  .hidden{
+    display: none;
+  }
+</style>
+
 <%= render 'shared/error_massages', object: f.object %>
 
 <%= f.label :name %>
@@ -48,7 +54,7 @@
 <%= f.text_field :carrier_up_id, class: "form-control", placeholder: Worker.human_attribute_name(:carrier_up_id) %><br>
 
 <div class="list-group">
-<!-- WorkerLicenseここから -->
+  <!-- WorkerLicenseここから -->
   <div class="list-group-item">
     <%= f.fields_for :worker_licenses do |w_license| %>
       <%= render "worker_license_fields", f: w_license %>
@@ -61,9 +67,9 @@
       }
     %>
   </div>
-<!-- WorkerLicenseここまで -->
+  <!-- WorkerLicenseここまで -->
 
-<!-- WorkerSkillTrainingここから -->
+  <!-- WorkerSkillTrainingここから -->
   <div class="list-group-item">
     <%= f.fields_for :worker_skill_trainings do |w_skill_training| %>
       <%= render "worker_skill_training_fields", f: w_skill_training %>
@@ -76,9 +82,9 @@
         }
     %>
   </div>
-<!-- WorkerSkillTrainingここまで -->
+  <!-- WorkerSkillTrainingここまで -->
 
-<!-- WorkerSpecialEducationここから -->
+  <!-- WorkerSpecialEducationここから -->
   <div class="list-group-item">
     <%= f.fields_for :worker_special_educations do |w_special_education| %>
       <%= render "worker_special_education_fields", f: w_special_education %>
@@ -91,9 +97,9 @@
         }
     %>
   </div>
-<!-- WorkerSpecialEducationここまで -->
+  <!-- WorkerSpecialEducationここまで -->
 
-<!-- WorkerMedicalここから -->
+  <!-- WorkerMedicalここから -->
   <div class="list-group-item">
     <%= f.fields_for :worker_medical do |worker_medical| %>
       <div class="row mb-3">
@@ -124,49 +130,74 @@
         %>
     <% end %>
   </div>
-<!-- WorkerMedicalここまで -->
+  <!-- WorkerMedicalここまで -->
 
-<!-- WorkerInsuranceここから -->
+  <!-- WorkerInsuranceここから -->
   <div class="list-group-item">
     <%= f.fields_for :worker_insurance do |worker_insurance| %>
-      <div class="row mb-3 mt-3">
-        <%= worker_insurance.label :health_insurance_type %>
-        <%= worker_insurance.select :health_insurance_type, WorkerInsurance.health_insurance_types_i18n.keys.map { |k| [WorkerInsurance.health_insurance_types_i18n[k], k] }, { prompt: "選択してください" }, { class: "form-control" } %>
+      <div class="mt-3 mb-3">
+        <div><%= worker_insurance.label :health_insurance_type %></div>
+        <div><%= worker_insurance.select :health_insurance_type,
+                 WorkerInsurance.health_insurance_types_i18n.keys.map { |k| [WorkerInsurance.health_insurance_types_i18n[k], k] },
+                 { include_blank: true }, { class: "form-control",  id: "health_insurance_type", onchange: "getSelectedValue(this)" } %>
+        </div>
       </div>
 
-      <div class="row mb-3"><!-- health_insurance_typeが健康保険組合(0)または建設国保(2)で入力可能 -->
-        <%= worker_insurance.label :health_insurance_name %>
-        <%= worker_insurance.text_field :health_insurance_name, class: "form-control" %>
+      <!-- health_insurance_typeがhealth_insurance_associationまたはconstruction_national_health_insuranceで入力可能 -->
+      <div class="mb-3 hidden" id="health_insurance_name">
+        <div><%= worker_insurance.label :health_insurance_name %></div>
+        <div><%= worker_insurance.text_field :health_insurance_name, class: "form-control" %></div>
       </div>
 
-      <div class="row mb-3">
-        <%= worker_insurance.label :pension_insurance_type %>
-        <%= worker_insurance.select :pension_insurance_type, WorkerInsurance.pension_insurance_types_i18n.keys.map { |k| [WorkerInsurance.pension_insurance_types_i18n[k], k] }, { prompt: "選択してください" }, { class: "form-control" } %>
+      <div class="mb-3">
+        <div><%= worker_insurance.label :pension_insurance_type %></div>
+        <div><%= worker_insurance.select :pension_insurance_type,
+                 WorkerInsurance.pension_insurance_types_i18n.keys.map { |k| [WorkerInsurance.pension_insurance_types_i18n[k], k] },
+                 { include_blank: true, prompt: "選択してください" }, { class: "form-control" } %>
+        </div>
       </div>
 
-      <div class="row mb-3">
-        <%= worker_insurance.label :employment_insurance_type %>
-        <%= worker_insurance.select :employment_insurance_type, WorkerInsurance.employment_insurance_types_i18n.keys.map { |k| [WorkerInsurance.employment_insurance_types_i18n[k], k] }, { prompt: "選択してください" }, { class: "form-control" } %>
+      <div class="mb-3">
+        <div><%= worker_insurance.label :employment_insurance_type %></div>
+        <div><%= worker_insurance.select :employment_insurance_type,
+                 WorkerInsurance.employment_insurance_types_i18n.keys.map { |k| [WorkerInsurance.employment_insurance_types_i18n[k], k] },
+                 { include_blank: true, prompt: "選択してください" }, { class: "form-control" } %>
+        </div>
       </div>
 
-      <div class="row mb-3"><!-- employment_insurance_numberが被保険者(0)で入力可能 -->
-        <%= worker_insurance.label :employment_insurance_number %>
-        <%= worker_insurance.text_field :employment_insurance_number, class: "form-control" %>
+      <!-- employment_insurance_numberが被保険者(0)で入力可能 -->
+      <div class="mt-3">
+        <div><%= worker_insurance.label :employment_insurance_number %></div>
+        <div><%= worker_insurance.text_field :employment_insurance_number, class: "form-control" %></div>
       </div>
 
-      <div class="row mb-3">
-        <%= worker_insurance.label :severance_pay_mutual_aid_type %>
-        <%= worker_insurance.select :severance_pay_mutual_aid_type, WorkerInsurance.severance_pay_mutual_aid_types_i18n.keys.map { |k| [WorkerInsurance.severance_pay_mutual_aid_types_i18n[k], k] }, { prompt: "選択してください" }, { class: "form-control" } %>
+      <div class="mb-3">
+        <div><%= worker_insurance.label :severance_pay_mutual_aid_type %></div>
+        <div><%= worker_insurance.select :severance_pay_mutual_aid_type, WorkerInsurance.severance_pay_mutual_aid_types_i18n.keys.map { |k| [WorkerInsurance.severance_pay_mutual_aid_types_i18n[k], k] },
+             { include_blank: true, prompt: "選択してください" }, { class: "form-control" } %>
+        </div>
       </div>
 
-      <div class="row mb-3"><!-- severance_pay_mutual_aid_typeがその他(2)のときに入力可能 -->
-        <%= worker_insurance.label :severance_pay_mutual_aid_name %>
-        <%= worker_insurance.text_field :severance_pay_mutual_aid_name, class: "form-control" %>
+      <!-- severance_pay_mutual_aid_typeがその他(2)のときに入力可能 -->
+      <div class="mb-3">
+        <div><%= worker_insurance.label :severance_pay_mutual_aid_name %></div>
+        <div><%= worker_insurance.text_field :severance_pay_mutual_aid_name, class: "form-control" %></div>
       </div>
     <% end %>
   </div>
-<!-- WorkerInsuranceここまで -->
+  <!-- WorkerInsuranceここまで -->
 </div>
 
-<script>
+<script> 
+  const health_insurance_type = document.getElementById('health_insurance_type');
+  const health_insurance_name = document.getElementById('health_insurance_name');
+  function getSelectedValue(object){
+    let index = object.selectedIndex;
+    let value = object.options[index].value;
+    if (value === 'health_insurance_association' || value === 'construction_national_health_insurance'){
+      health_insurance_name.classList.remove('hidden');
+    } else {
+      health_insurance_name.classList.add('hidden');
+    };
+  };
 </script>
