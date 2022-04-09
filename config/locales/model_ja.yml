@@ -125,7 +125,7 @@ ja:
         status: 公開状態
       document:
         id: 書類番号
-        document_type: 種類
+        document_type: 書類項目
         created_on: 書類作成日
         submitted_on: 書類提出日
       cover_document:
