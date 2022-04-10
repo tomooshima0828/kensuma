@@ -1,6 +1,6 @@
 <% provide(:title, '施工体制台帳作成建設工事の通知編集') %>
 
-<%= form_with model: @second_document, url: users_request_order_document_second_path, method: :patch, local: true do |f| %>
+<%= form_with model: @document, url: users_request_order_document_path, method: :patch, local: true do |f| %>
   <div class="card-body">
     <div class="document-outer">
       <div id="sd_p1" class="document-inner">
@@ -27,20 +27,20 @@
           <span id="sd_t17_1" class="sd_t sd_s2">です。 </span>
           <span id="sd_t18_1" class="sd_t sd_s1">(全建統一様式第２号) </span>
           <span id="sd_t19_1" class="sd_t sd_s2"><%= f.date_field :content, multiple: true,
-                                      value: @second_document.content["submitted_on"],
+                                      value: @document.content["submitted_on"],
                                       placeholder: '提出日（西暦）3-1',
                                       class: 'form-control form-control-sm' %></span>
           <span id="sd_t1a_1" class="sd_t sd_s6">下請負業者の皆さんへ </span>
           <span id="sd_t1b_1" class="sd_t sd_s2">【元請負業者】 </span>
           <span id="sd_t1c_1" class="sd_t sd_s2">
             <%= f.text_field :content, multiple: true,
-                                      value: @second_document.content["prime_contractor_name"],
+                                      value: @document.content["prime_contractor_name"],
                                       placeholder: '「元請会社名」3-2',
                                       class: 'form-control form-control-sm' %></span>
           <span id="sd_t1f_1_1" class="sd_t sd_s2"></span>
           <span id="sd_t13_1" class="sd_t sd_s2">
             <%= f.text_field :content, multiple: true,
-                                      value: @second_document.content["site_name"],
+                                      value: @document.content["site_name"],
                                       placeholder: '「現場名」3-3',
                                       class: 'form-control form-control-sm' %></span>
           <span id="sd_t13_1_1" class="sd_t sd_s2"></span>
@@ -56,7 +56,7 @@
                   <td class="sd_td_1">元 請 名</td>
                   <td class="sd_td_1" colspan="3">
                     <%= f.text_field :content, multiple: true,
-                                              value: @second_document.content["business_name"],
+                                              value: @document.content["business_name"],
                                               placeholder: '「会社名」3-4',
                                               class: 'form-control form-control-sm' %>
                   </td>
@@ -65,7 +65,7 @@
                   <td class="sd_td_1">発 注 者 名</td>
                   <td class="sd_td_1" colspan="3">
                     <%= f.text_field :content, multiple: true,
-                                              value: @second_document.content["orderer_name"],
+                                              value: @document.content["orderer_name"],
                                               placeholder: '「発注者名」3-5',
                                               class: 'form-control form-control-sm' %>
                   </td>
@@ -74,7 +74,7 @@
                   <td class="sd_td_1">工 事 名</td>
                   <td class="sd_td_1" colspan="3">
                     <%= f.text_field :content, multiple: true,
-                                              value: @second_document.content["construction_name"],
+                                              value: @document.content["construction_name"],
                                               placeholder: '元請会社の「各会社の工事名」3-6',
                                               class: 'form-control form-control-sm' %>
                 </td>
@@ -82,14 +82,14 @@
                   <td class="sd_td_1" style="width: 15%">監 督 員 名</td>
                   <td class="sd_td_1" style="width: 20%">
                     <%= f.text_field :content, multiple: true,
-                                              value: @second_document.content["supervisor_name"],
+                                              value: @document.content["supervisor_name"],
                                               placeholder: '元請会社の「各会社の監督員名」3-7',
                                               class: 'form-control form-control-sm' %>
                   </td>
                   <td class="sd_td_1" style="width: 15%">権限及び意見<br>申出方法</td>
                   <td class="sd_td_1" style="vertical-align: middle !important">
                     <%= f.text_field :content, multiple: true,
-                                              value: @second_document.content["apply"],
+                                              value: @document.content["apply"],
                                               placeholder: '「各会社の監督員名・権限及び意見の申出方法」3-8',
                                               class: 'form-control form-control-sm' %>
                   </td>
@@ -105,7 +105,7 @@
                   <td class="sd_td_1" style="width: 15%">提出先及び<br>担 当 者</td>
                   <td class="sd_td_1" style="vertical-align: middle !important">
                     <%= f.text_field :content, multiple: true,
-                                        value: @second_document.content["submission_destination"],
+                                        value: @document.content["submission_destination"],
                                         placeholder: '「提出先及び担当者（元請会社のみ）」3-9',
                                         class: 'form-control form-control-sm' %>
                   </td>

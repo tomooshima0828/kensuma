@@ -11,13 +11,28 @@
         </thead>
         <tbody>
           <tr>
-            <td align="center"><%= link_to @documents.find_by(document_type: 0).document_type_i18n, users_request_order_document_path(params[:request_order_uuid], @documents.find_by(document_type: 0)) %></td>
+            <td align="center"> <!-- 表紙 -->
+              <%= link_to @documents.find_by(document_type: 0).document_type_i18n,
+                          users_request_order_document_path(params[:request_order_uuid],
+                          @documents.find_by(document_type: 0))
+              %>
+            </td>
           </tr>
           <tr>
-            <td align="center"><%= link_to @documents.find_by(document_type: 1).document_type_i18n, users_request_order_document_table_of_content_path(params[:request_order_uuid], @documents.find_by(document_type: 1)) %></td>
+            <td align="center"> <!-- 目次 -->
+              <%= link_to @documents.find_by(document_type: 1).document_type_i18n,
+                          users_request_order_document_path(params[:request_order_uuid],
+                          @documents.find_by(document_type: 1))
+              %>
+            </td>
           </tr>
           <tr>
-            <td align="center"><%= link_to @documents.find_by(document_type: 2).document_type_i18n, users_request_order_document_second_path(params[:request_order_uuid], @documents.find_by(document_type: 2)) %></td>
+            <td align="center"> <!-- 施工体制台帳作成建設工事の通知 -->
+              <%= link_to @documents.find_by(document_type: 2).document_type_i18n,
+                          users_request_order_document_path(params[:request_order_uuid],
+                          @documents.find_by(document_type: 2))
+              %>
+            </td>
           </tr>
         </tbody>
       </table>
