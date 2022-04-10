@@ -78,6 +78,14 @@ RSpec.describe 'Workers', type: :system do
             select 'サンプル特別健康診断', from: 'worker[worker_medical_attributes][worker_exams_attributes][0][special_med_exam_id]'
             fill_in 'worker[worker_medical_attributes][worker_exams_attributes][0][got_on]', with: '2022-03-01'
             attach_file 'worker[worker_medical_attributes][worker_exams_attributes][0][images][]', 'app/assets/images/photo1.png'
+            # WorkerInsurance
+            select '健康保険組合', from: 'worker[worker_insurance_attributes][health_insurance_type]'
+            fill_in 'worker[worker_insurance_attributes][health_insurance_name]', with: 'サンプル健康保険'
+            select '厚生年金', from: 'worker[worker_insurance_attributes][pension_insurance_type]'
+            select '被保険者', from: 'worker[worker_insurance_attributes][employment_insurance_type]'
+            fill_in 'worker[worker_insurance_attributes][employment_insurance_number]', with: '0000'
+            select '建退共手帳', from: 'worker[worker_insurance_attributes][severance_pay_mutual_aid_type]'
+            fill_in 'worker[worker_insurance_attributes][severance_pay_mutual_aid_name]', with: 'テスト共済制度'
             click_button '登録'
           }.to change(Worker,
             :count).by(1).and change(WorkerLicense,

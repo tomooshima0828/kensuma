@@ -214,6 +214,57 @@
           </tr>
         <% end %>
         <!-- worker_examここまで -->
+        <!-- worker_insuranceここから -->
+        <tr bgcolor="#dee2e6">
+          <th colspan="4"><%= WorkerInsurance.human_attribute_name(:id) %></th>
+        </tr>
+        <tr>
+          <th><%= WorkerInsurance.human_attribute_name(:health_insurance_type) %></th>
+          <td><%= @worker.worker_insurance.health_insurance_type_i18n %></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <% if @worker.worker_insurance && (@worker.worker_insurance.health_insurance_type == ('health_insurance_association' || 'construction_national_health_insurance')) %>
+          <tr>
+            <th><%= WorkerInsurance.human_attribute_name(:health_insurance_name) %></th>
+            <td><%= @worker.worker_insurance.health_insurance_name %></td>
+            <td></td>
+            <td></td>
+          </tr>
+        <% end %>
+        <tr>
+          <th><%= WorkerInsurance.human_attribute_name(:pension_insurance_type) %></th>
+          <td><%= @worker.worker_insurance.pension_insurance_type_i18n %></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th><%= WorkerInsurance.human_attribute_name(:employment_insurance_type) %></th>
+          <td><%= @worker.worker_insurance.employment_insurance_type_i18n %></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <% if @worker.worker_insurance && (@worker.worker_insurance.employment_insurance_type == 'insured') %>
+          <tr>
+            <th><%= WorkerInsurance.human_attribute_name(:employment_insurance_number) %></th>
+            <td><%= @worker.worker_insurance.employment_insurance_number %></td>
+            <td></td>
+            <td></td>
+          </tr>
+        <% end %>
+        <tr>
+          <th><%= WorkerInsurance.human_attribute_name(:severance_pay_mutual_aid_type) %></th>
+          <td><%= @worker.worker_insurance.severance_pay_mutual_aid_type_i18n %></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th><%= WorkerInsurance.human_attribute_name(:severance_pay_mutual_aid_name) %></th>
+          <td><%= @worker.worker_insurance.severance_pay_mutual_aid_name %></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <!-- worker_insuranceここまで -->
       </tbody>
     </table>
   </div>
