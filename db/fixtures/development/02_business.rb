@@ -1,4 +1,4 @@
-User.all.each do |user|
+User.where(role: 'admin').all.each do |user|
   Business.seed(:id,
     {
       id:                  user.id,
