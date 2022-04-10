@@ -155,7 +155,8 @@
         <div><%= worker_insurance.label :employment_insurance_type %></div>
         <div><%= worker_insurance.select :employment_insurance_type,
                  WorkerInsurance.employment_insurance_types_i18n.keys.map { |k| [WorkerInsurance.employment_insurance_types_i18n[k], k] },
-                 { include_blank: true, prompt: "選択してください" }, { class: "form-control", id: "employment_insurance_type", onchange: "getEmploymentInsuranceType(this)" } %>
+                 { include_blank: true, prompt: "選択してください" },
+                 { class: "form-control", id: "employment_insurance_type", onchange: "getSelectedEmploymentInsuranceType(this)" } %>
         </div>
       </div>
 
@@ -167,8 +168,9 @@
 
       <div class="mb-3">
         <div><%= worker_insurance.label :severance_pay_mutual_aid_type %></div>
-        <div><%= worker_insurance.select :severance_pay_mutual_aid_type, WorkerInsurance.severance_pay_mutual_aid_types_i18n.keys.map { |k| [WorkerInsurance.severance_pay_mutual_aid_types_i18n[k], k] },
-             { include_blank: true, prompt: "選択してください" }, { class: "form-control" } %>
+        <div><%= worker_insurance.select :severance_pay_mutual_aid_type,
+                 WorkerInsurance.severance_pay_mutual_aid_types_i18n.keys.map { |k| [WorkerInsurance.severance_pay_mutual_aid_types_i18n[k], k] },
+                 { include_blank: true, prompt: "選択してください" }, { class: "form-control" } %>
         </div>
       </div>
 
@@ -186,28 +188,28 @@
   // 健康保険の名前の表示・非表示
   const health_insurance_type = document.getElementById('health_insurance_type');
   const health_insurance_name = document.getElementById('health_insurance_name');
-  function getSelectedHealthInsuranceType(obj){
-    let idx = obj.selectedIndex;
-    let val = obj.options[idx].value;
-    if (val === 'health_insurance_association' || val === 'construction_national_health_insurance'){
+  function getSelectedHealthInsuranceType(object){
+    const index = object.selectedIndex;
+    const value = object.options[index].value;
+    if (value === 'health_insurance_association' || value === 'construction_national_health_insurance'){
       health_insurance_name.classList.remove('hidden');
     } else {
       health_insurance_name.classList.add('hidden');
     };
   };
-  getSelectedHealthInsuranceType(health_insurance_type);
+  getSelectedHealthInsuranceType(health_insurance_type); //ページの読み込み時に判定
 
   // 被保険者番号の下4桁の表示・非表示
   const employment_insurance_type = document.getElementById('employment_insurance_type');
   const employment_insurance_number = document.getElementById('employment_insurance_number');
-  function getEmploymentInsuranceType(obj){
-    let idx = obj.selectedIndex;
-    let val = obj.options[idx].value;
-    if (val === 'insured'){
+  function getSelectedEmploymentInsuranceType(object){
+    const index = object.selectedIndex;
+    const value = object.options[index].value;
+    if (value === 'insured'){
       employment_insurance_number.classList.remove('hidden');
     } else {
       employment_insurance_number.classList.add('hidden');
     };
   };
-  getEmploymentInsuranceType(employment_insurance_type);
+  getSelectedEmploymentInsuranceType(employment_insurance_type); //ページの読み込み時に判定
 </script>
