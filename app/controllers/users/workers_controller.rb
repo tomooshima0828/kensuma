@@ -60,12 +60,12 @@ module Users
       )
       @worker.build_worker_insurance(
         # テスト用デフォルト値 ==========================
-        health_insurance_type: :health_insurance_association,
-        health_insurance_name: 'サンプル健康保険',
-        pension_insurance_type: :welfare, 
-        employment_insurance_type: :insured, 
-        employment_insurance_number: '0000', 
-        severance_pay_mutual_aid_type: :kentaikyo, 
+        health_insurance_type:         :health_insurance_association,
+        health_insurance_name:         'サンプル健康保険',
+        pension_insurance_type:        :welfare,
+        employment_insurance_type:     :insured,
+        employment_insurance_number:   '0000',
+        severance_pay_mutual_aid_type: :kentaikyo,
         severance_pay_mutual_aid_name: 'テスト共済制度'
         # ============================================
       )
@@ -167,9 +167,9 @@ module Users
           :id, :med_exam_on, :max_blood_pressure, :min_blood_pressure, :special_med_exam_on,
           { worker_exams_attributes: [:id, :got_on, :worker_medical_id, :special_med_exam_id, { images: [] }, :_destroy] }
         ],
-        worker_insurance_attributes:          [
-          :id, :health_insurance_type, :health_insurance_name, :pension_insurance_type, :employment_insurance_type,
-          :employment_insurance_number, :severance_pay_mutual_aid_type, :severance_pay_mutual_aid_name
+        worker_insurance_attributes:          %i[
+          id health_insurance_type health_insurance_name pension_insurance_type employment_insurance_type
+          employment_insurance_number severance_pay_mutual_aid_type severance_pay_mutual_aid_name
         ]
       )
     end
