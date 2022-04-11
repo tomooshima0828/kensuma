@@ -1,27 +1,6 @@
-<% if @document.document_type == 'cover_document' %>
-
-  <% provide(:title, '書類編集') %>
-  <%= form_with model: @document, url: users_request_order_document_path, method: :patch, local: true do |f| %>
-    <div class="card-body">
-      <table class="table">
-        <tr>
-          <th><%= f.label '事業所名' %></th>
-          <td><%= f.text_field :content, multiple: true, value: @document.content["business_name"], class: 'form-control' %></td>
-        </tr>
-        <tr>
-          <th><%= f.label '書類提出日' %></th>
-          <td><%= f.date_field :content, multiple: true, value: @document.content["submitted_on"], class: 'form-control' %></td>
-        </tr>
-      </table>
-    </div>
-    <div class="card-footer">
-      <%= f.submit '登録', class: 'btn btn-block btn-outline-dark' %>
-      <%= link_to '書類詳細に戻る', users_request_order_document_path, class: 'btn btn-block btn-outline-secondary' %>
-    </div>
-  <% end %>
-
-<% elsif @document.document_type == 'table_of_contents_document' %>
-  <%= "目次編集" %>
-<% elsif @document.document_type == 'doc_2nd' %>
-  <%= render 'users/documents/second_documents/edit' %>
+<% case @document.document_type %>
+<% when 'cover_document' %>
+  <%= render 'users/documents/cover_documents/edit' %> <!-- 表紙 -->
+<% when 'doc_2nd' %>
+  <%= render 'users/documents/second_documents/edit' %> <!-- 施工体制台帳作成建設工事の通知 -->
 <% end %>
