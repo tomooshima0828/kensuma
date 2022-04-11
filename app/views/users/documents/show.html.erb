@@ -28,7 +28,7 @@
   </div>
 
 <% elsif @document.document_type == 'table_of_contents_document' %>
-  <%= render 'users/table_of_contents_documents/show' %>
+  <%= render 'users/documents/table_of_contents_documents/show' %>
 <% elsif @document.document_type == 'doc_2nd' %>
-  <%= render 'users/second_documents/show' %>
+  <%= render 'users/documents/second_documents/show' %>
 <% end %>
