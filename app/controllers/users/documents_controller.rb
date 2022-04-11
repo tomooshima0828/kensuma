@@ -24,7 +24,7 @@ module Users
     def edit; end
 
     def update
-      if select_params
+      if documents_params(@document)
         flash[:success] = '更新に成功しました'
         redirect_to users_request_order_document_url
       else
@@ -32,26 +32,6 @@ module Users
         render :edit
       end
     end
-
-    def select_params
-      if @document.document_type == 'cover_document'
-        @document.update(document_params)
-      elsif @document.document_type == "doc_2nd"
-        @document.update(second_document_params)
-      end
-    end
-
-    # def cover
-    #   respond_to do |format|
-    #     format.html
-    #     format.pdf do
-    #       render pdf: '表紙',
-    #         layout: 'pdf',
-    #         encording: 'UTF-8',
-    #         page_size: 'A4'
-    #     end
-    #   end
-    # end
 
     private
 
@@ -63,11 +43,17 @@ module Users
       @cover_documents = current_business.documents.document_type_cover
     end
 
-    # def set_cover_document
-    #   @cover_document = current_business.documents.document_type_cover.find_by(uuid: params[:uuid])
-    # end
+    def documents_params(document)
+      case document.document_type
+      when "cover_document"
+        document.update(cover_params)
+      when "doc_2nd"
+        document.update(second_document_params)
+      end
+    end
 
-    def document_params
+    # 表紙
+    def cover_params
       params.require(:document).permit.merge(
         content: {
           business_name: params[:document][:content][0],
@@ -75,6 +61,7 @@ module Users
         })
     end
 
+    # 施工体制台帳作成建設工事の通知
     def second_document_params
       params.require(:document).permit.merge(
         content: {
