@@ -30,13 +30,11 @@ RSpec.describe 'Documnents', type: :system do
 
     context '表紙' do
       it '表紙の詳細画面へ遷移できること' do
-        document = create(:document, document_type: 'cover_document', content: {"business_name": nil, "submitted_on": nil})
-        pp document.document_type
-        pp request_order.uuid
-        pp document.uuid
+        document = Document.find_by(document_type: 0)
+        document.content = ({"business_name": "test", "submitted_on": "2022-01-01"})
+        document.save
         visit users_request_order_document_path(request_order, document)
-        # visit "/users/request_orders/#{request_order.uuid}/documents/#{document.uuid}"
-        # expect(page).to have_content document.document_type_i18n
+        expect(page).to have_content document.document_type_i18n
       end
     end
   end
