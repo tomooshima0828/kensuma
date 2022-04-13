@@ -121,15 +121,6 @@ ActiveRecord::Schema.define(version: 2022_03_28_070543) do
     t.index ["car_insurance_company_id"], name: "index_cars_on_car_insurance_company_id"
   end
 
-  create_table "cover_documents", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
-    t.bigint "document_id", null: false
-    t.string "business_name"
-    t.date "submitted_on"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["document_id"], name: "index_cover_documents_on_document_id"
-  end
-
   create_table "documents", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.integer "document_type"
     t.date "created_on"
@@ -230,14 +221,6 @@ ActiveRecord::Schema.define(version: 2022_03_28_070543) do
     t.index ["order_id"], name: "index_request_orders_on_order_id"
   end
 
-  create_table "second_documents", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
-    t.bigint "document_id", null: false
-    t.json "details"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["document_id"], name: "index_second_documents_on_document_id"
-  end
-
   create_table "skill_trainings", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "short_name", null: false
@@ -257,14 +240,6 @@ ActiveRecord::Schema.define(version: 2022_03_28_070543) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "table_of_contents_documents", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
-    t.bigint "document_id", null: false
-    t.json "details"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["document_id"], name: "index_table_of_contents_documents_on_document_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
@@ -401,7 +376,6 @@ ActiveRecord::Schema.define(version: 2022_03_28_070543) do
   add_foreign_key "car_voluntary_insurances", "cars", column: "car_voluntary_id"
   add_foreign_key "cars", "businesses"
   add_foreign_key "cars", "car_insurance_companies"
-  add_foreign_key "cover_documents", "documents"
   add_foreign_key "documents", "businesses"
   add_foreign_key "documents", "request_orders"
   add_foreign_key "news_users", "news"
@@ -409,8 +383,6 @@ ActiveRecord::Schema.define(version: 2022_03_28_070543) do
   add_foreign_key "orders", "businesses"
   add_foreign_key "request_orders", "businesses"
   add_foreign_key "request_orders", "orders"
-  add_foreign_key "second_documents", "documents"
-  add_foreign_key "table_of_contents_documents", "documents"
   add_foreign_key "worker_exams", "special_med_exams"
   add_foreign_key "worker_exams", "worker_medicals"
   add_foreign_key "worker_insurances", "workers"
