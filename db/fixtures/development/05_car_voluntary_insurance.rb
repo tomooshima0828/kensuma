@@ -1,6 +1,7 @@
 Car.all.each do |car|
   CarVoluntaryInsurance.seed(:id,
     {
+      id: car.id,
       car_voluntary_id:         car.id,
       company_voluntary_id:     1,
       personal_insurance:       2,

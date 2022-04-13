@@ -2,6 +2,7 @@ Business.all.each do |business|
   3.times do |n|
     Worker.seed(:id,
       {
+        id: n+1,
         business_id:         business.id,
         name:                "テスト作業員#{n+1}",
         name_kana:           "テストサギョウイン#{n+1}",
