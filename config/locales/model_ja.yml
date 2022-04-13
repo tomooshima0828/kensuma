@@ -60,7 +60,7 @@ ja:
         status: ステータス
         site_uu_id: 現場ID
         site_name: 現場名
-        order_name: 発注者名前
+        order_name: 発注者名
         order_post_code: 発注者郵便番号
         order_address: 発注者住所
       request_order:

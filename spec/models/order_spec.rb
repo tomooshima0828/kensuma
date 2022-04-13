@@ -51,7 +51,7 @@ RSpec.describe Order, type: :model do
         it 'バリデーションに落ちること' do
           expect(subject).to be_invalid
           subject.valid?
-          expect(subject.errors.full_messages).to include('発注者名前を入力してください')
+          expect(subject.errors.full_messages).to include('発注者名を入力してください')
         end
       end
     end
