@@ -1,5 +1,4 @@
 <%= render 'shared/error_massages', object: f.object %>
-
 <% if controller.action_name == 'edit' %>
   <%= f.label :status %>
   <%= f.select :status, Order.statuses_i18n.invert, {}, { class: "form-control" } %>
@@ -17,3 +16,54 @@
 <%= f.label :order_address %>
 <%= f.text_field :order_address, class: "form-control", placeholder: Order.human_attribute_name(:order_address) %>
 <br>
+
+<script>
+  $(function(){
+    let methods = {
+      postcode: function(value, element){
+        return this.optional(element) || /^\d{7}$/i.test(value); 
+      }
+    }
+    $.each(methods, function (key) {
+      $.validator.addMethod(key, this);
+    });
+    $(".order-form").validate({
+      rules: {
+        "order[status]": {
+          required: true
+        },
+        "order[site_name]": {
+          required: true
+        },
+        "order[order_name]": {
+          required: true
+        },
+        "order[order_post_code]": {
+          required: true,
+          postcode: true
+        },
+        "order[order_address]": {
+          required: true
+        },
+      },
+      messages: {
+        "order[status]": {
+          required: "選択してください。"
+        },
+        "order[site_name]": {
+          required: "現場名を入力してください。"
+        },
+        "order[order_name]": {
+          required: "発注者名を入力してください。"
+        },
+        "order[order_post_code]": {
+          required: "半角数字7桁を入力してください。【例: 1000011】",
+          postcode: "半角数字7桁を入力してください。【例: 1000022】"
+        },
+        "order[order_address]": {
+          required: "発注者住所を入力してください。"
+        },
+      },
+    });
+  });
+</script>

@@ -1,6 +1,7 @@
 class Worker < ApplicationRecord
   belongs_to :business
   has_one :worker_insurance, dependent: :destroy
+  accepts_nested_attributes_for :worker_insurance, allow_destroy: true
 
   has_many :worker_licenses, dependent: :destroy
   has_many :licenses, through: :worker_licenses

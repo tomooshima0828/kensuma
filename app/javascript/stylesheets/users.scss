@@ -2,3 +2,11 @@
 @import "admin-lte";
 @import '@fortawesome/fontawesome-free';
 @import './users/**';
+
+.hidden{
+  display: none;
+}
+
+form.cmxform label.error, label.error {
+  color: red;
+}

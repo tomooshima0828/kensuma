@@ -3,7 +3,7 @@
 
 <div class="card">
   <div class="card-body">
-    <%= form_with model: @order, url: users_orders_path, method: :post, local: true do |f| %>
+    <%= form_with model: @order, url: users_orders_path, method: :post, local: true, class: "order-form" do |f| %>
       <%= render partial: "form", locals: { f: f, order: @order } %>
       
       <%= f.submit yield(:btn_text), class: "btn btn-md btn-block btn-primary" %>

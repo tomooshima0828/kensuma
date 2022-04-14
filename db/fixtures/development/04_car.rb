@@ -2,6 +2,7 @@ Business.all.each do |business|
   3.times do |n|
     Car.seed(:id,
       {
+        id: n+1,
         business_id:         business.id,
         car_insurance_company_id: 1,
         owner_name:                "車両所有者#{n+1}",
