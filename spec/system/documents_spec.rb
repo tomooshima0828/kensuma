@@ -35,21 +35,21 @@ RSpec.describe 'Documnents', type: :system do
       subject { cover }
 
       it '表紙の詳細画面へ遷移できること' do
-        visit users_request_order_document_path(request_order, cover)
+        visit users_request_order_document_path(request_order, subject)
         expect(page).to have_content '表紙'
         expect(page).to have_content 'test1'
         expect(page).to have_content '2022-01-01'
       end
 
       it '表紙の編集後、詳細画面へリダイレクトできること' do
-        visit edit_users_request_order_document_path(request_order, cover)
+        visit edit_users_request_order_document_path(request_order, subject)
         expect(page).to have_content '表紙編集'
 
         (all('#document_content')[0]).set('edit1')
         (all('#document_content')[1]).set('2022-12-31')
         click_button '登録'
 
-        visit users_request_order_document_path(request_order, cover)
+        visit users_request_order_document_path(request_order, subject)
         expect(page).to have_content '表紙'
         expect(page).to have_content 'edit1'
         expect(page).to have_content '2022-12-31'
@@ -60,7 +60,7 @@ RSpec.describe 'Documnents', type: :system do
       subject { table }
 
       it '目次の詳細画面へ遷移できること' do
-        visit users_request_order_document_path(request_order, table)
+        visit users_request_order_document_path(request_order, subject)
         expect(page).to have_content '目次'
       end
     end
@@ -69,7 +69,7 @@ RSpec.describe 'Documnents', type: :system do
       subject { doc_2nd }
 
       it '施工体制台帳作成建設工事の通知の詳細画面へ遷移できること' do
-        visit users_request_order_document_path(request_order, doc_2nd)
+        visit users_request_order_document_path(request_order, subject)
         expect(page).to have_content '全建統⼀様式第２号(施⼯体制台帳作成建設⼯事の通知)'
         expect(page).to have_content '2022-01-01'
         expect(page).to have_content 'test1'
@@ -83,7 +83,7 @@ RSpec.describe 'Documnents', type: :system do
       end
 
       it '施工体制台帳作成建設工事の通知の編集後、詳細画面へリダイレクトできること' do
-        visit edit_users_request_order_document_path(request_order, doc_2nd)
+        visit edit_users_request_order_document_path(request_order, subject)
         expect(page).to have_content '全建統⼀様式第２号(施⼯体制台帳作成建設⼯事の通知)編集'
         (all('#document_content')[0]).set('2020-12-31')
         (all('#document_content')[1]).set('edit1')

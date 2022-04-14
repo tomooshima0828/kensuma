@@ -1,9 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Document, type: :model do
-  let(:business) { create(:business) }
-  let(:request_order) { create(:request_order) }
-  let(:document) { build(:document) }
+  let(:user) { create(:user) }
+  let(:business) { create(:business, user: user) }
+  let(:order) { create(:order, business: business) }
+  let(:request_order) { create(:request_order, business: business, order: order) }
+  let(:document) { create(:document, business: business, request_order: request_order) }
 
   describe 'バリデーションについて' do
     subject { document }
