@@ -21,7 +21,7 @@ module Users
     def edit; end
 
     def update
-      if documents_params(@document)
+      if update_document(@document)
         flash[:success] = '更新に成功しました'
         redirect_to users_request_order_document_url
       else
@@ -41,7 +41,7 @@ module Users
     end
 
     # 更新書類の判定
-    def documents_params(document)
+    def update_document(document)
       case document.document_type
       when 'cover_document'
         document.update(cover_params)
