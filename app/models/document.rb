@@ -4,9 +4,6 @@ class Document < ApplicationRecord
 
   before_create -> { self.uuid = SecureRandom.uuid }
 
-  scope :document_type_cover, -> { where(document_type: 0) }
-  scope :document_type_second, -> { where(document_type: 2) }
-
   enum document_type: {
     cover_document:             0,
     table_of_contents_document: 1,
