@@ -30,7 +30,7 @@
         <% end %>
 
         <!-- 目次 -->
-        <%= link_to users_request_order_document_table_of_content_path(params[:request_order_uuid],  @documents.find_by(document_type: 1)), class:"nav-link" do %>
+        <%= link_to users_request_order_document_path(params[:request_order_uuid], @documents.find_by(document_type: 1)), class:"nav-link" do %>
           <li class="nav-item">
             <i class="nav-icon fas fa-file"></i>
             <p><%= @documents.find_by(document_type: 1).document_type_i18n %></p>
@@ -38,7 +38,7 @@
         <% end %>
 
         <!-- 全建統⼀様式第２号(施⼯体制台帳作成建設⼯事の通知) -->
-        <%= link_to users_request_order_document_second_path(params[:request_order_uuid],  @documents.find_by(document_type: 2)), class:"nav-link" do %>
+        <%= link_to users_request_order_document_path(params[:request_order_uuid],  @documents.find_by(document_type: 2)), class:"nav-link" do %>
           <li class="nav-item">
             <i class="nav-icon fas fa-file"></i>
             <p><%= @documents.find_by(document_type: 2).document_type_i18n %></p>

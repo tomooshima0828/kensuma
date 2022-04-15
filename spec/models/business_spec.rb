@@ -1,14 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Business, type: :model do
-  let :business do
-    build(:business)
-  end
+  let(:business) { build(:business) }
 
   describe 'バリデーションについて' do
-    subject do
-      business
-    end
+    subject { business }
 
     it 'バリデーションが通ること' do
       expect(subject).to be_valid
@@ -16,9 +12,7 @@ RSpec.describe Business, type: :model do
 
     describe '#uuid' do
       context '存在しない場合' do
-        before :each do
-          subject.uuid = nil
-        end
+        before(:each) { subject.uuid = nil }
 
         it 'バリデーションに落ちること' do
           expect(subject).to be_invalid
@@ -33,9 +27,7 @@ RSpec.describe Business, type: :model do
 
     describe '#name' do
       context '存在しない場合' do
-        before :each do
-          subject.name = nil
-        end
+        before(:each) { subject.name = nil }
 
         it 'バリデーションに落ちること' do
           expect(subject).to be_invalid
@@ -50,9 +42,7 @@ RSpec.describe Business, type: :model do
 
     describe '#name_kana' do
       context '存在しない場合' do
-        before :each do
-          subject.name_kana = nil
-        end
+        before(:each) { subject.name_kana = nil }
 
         it 'バリデーションが通ること' do
           expect(subject).to be_invalid
@@ -68,9 +58,7 @@ RSpec.describe Business, type: :model do
           TEST企業
         ].each do |name_kana|
           context '不正なname_kanaの場合' do
-            before :each do
-              subject.name_kana = name_kana
-            end
+            before(:each) { subject.name_kana = name_kana }
 
             it 'バリデーションに落ちること' do
               expect(subject).to be_invalid
@@ -87,9 +75,7 @@ RSpec.describe Business, type: :model do
 
     describe '#branch_name' do
       context '存在しない場合' do
-        before :each do
-          subject.branch_name = nil
-        end
+        before(:each) { subject.branch_name = nil }
 
         it 'バリデーションが通ること' do
           expect(subject).to be_invalid
@@ -104,9 +90,7 @@ RSpec.describe Business, type: :model do
 
     describe '#representative_name' do
       context '存在しない場合' do
-        before :each do
-          subject.representative_name = nil
-        end
+        before(:each) { subject.representative_name = nil }
 
         it 'バリデーションが通ること' do
           expect(subject).to be_invalid
@@ -121,9 +105,7 @@ RSpec.describe Business, type: :model do
 
     describe '#email' do
       context '存在しない場合' do
-        before :each do
-          subject.email = nil
-        end
+        before(:each) { subject.email = nil }
 
         it 'バリデーションが通ること' do
           expect(subject).to be_invalid
@@ -142,9 +124,7 @@ RSpec.describe Business, type: :model do
         @@.com
       ].each do |email|
         context '不正なemailの場合' do
-          before :each do
-            subject.email = email
-          end
+          before(:each) { subject.email = email }
 
           it 'バリデーションに落ちること' do
             expect(subject).to be_invalid
@@ -160,9 +140,7 @@ RSpec.describe Business, type: :model do
 
     describe '#address' do
       context '存在しない場合' do
-        before :each do
-          subject.address = nil
-        end
+        before(:each) { subject.address = nil }
 
         it 'バリデーションが通ること' do
           expect(subject).to be_invalid
@@ -177,9 +155,7 @@ RSpec.describe Business, type: :model do
 
     describe '#post_code' do
       context '存在しない場合' do
-        before :each do
-          subject.post_code = nil
-        end
+        before(:each) { subject.post_code = nil }
 
         it 'バリデーションが通ること' do
           expect(subject).to be_invalid
@@ -198,9 +174,7 @@ RSpec.describe Business, type: :model do
         012-3456
       ].each do |post_code|
         context '不正なpost_codeの場合' do
-          before :each do
-            subject.post_code = post_code
-          end
+          before(:each) { subject.post_code = post_code }
 
           it 'バリデーションに落ちること' do
             expect(subject).to be_invalid
@@ -216,9 +190,7 @@ RSpec.describe Business, type: :model do
 
     describe '#phone_number' do
       context '存在しない場合' do
-        before :each do
-          subject.phone_number = nil
-        end
+        before(:each) { subject.phone_number = nil }
 
         it 'バリデーションが通ること' do
           expect(subject).to be_invalid
@@ -237,9 +209,7 @@ RSpec.describe Business, type: :model do
         012/3456/7898
       ].each do |phone_number|
         context '不正なphone_numberの場合' do
-          before :each do
-            subject.phone_number = phone_number
-          end
+          before(:each) { subject.phone_number = phone_number }
 
           it 'バリデーションに落ちること' do
             expect(subject).to be_invalid
@@ -255,9 +225,7 @@ RSpec.describe Business, type: :model do
 
     describe '#business_type' do
       context '存在しない場合' do
-        before :each do
-          subject.business_type = nil
-        end
+        before(:each) { subject.business_type = nil }
 
         it 'バリデーションが通ること' do
           expect(subject).to be_invalid
@@ -272,18 +240,11 @@ RSpec.describe Business, type: :model do
   end
 
   describe '車両とのアソシエーションについて' do
-    let :business do
-      create(:business, cars: cars)
-    end
-
-    let :cars do
-      create_list(:car, 2)
-    end
+    let(:business) { create(:business, cars: cars) }
+    let(:cars) { create_list(:car, 2) }
 
     context '紐つく車両がある場合' do
-      subject do
-        business.cars
-      end
+      subject { business.cars }
 
       it '紐つく車両を返すこと' do
         expect(subject).to eq(cars)
@@ -292,18 +253,11 @@ RSpec.describe Business, type: :model do
   end
 
   describe '発注とのアソシエーションについて' do
-    let :business do
-      create(:business, orders: orders)
-    end
-
-    let :orders do
-      create_list(:order, 2)
-    end
+    let(:business) { create(:business, orders: orders) }
+    let(:orders) { create_list(:order, 2) }
 
     context '紐つく発注がある場合' do
-      subject do
-        business.orders
-      end
+      subject { business.orders }
 
       it '紐つく発注を返すこと' do
         expect(subject).to eq(orders)
@@ -312,17 +266,25 @@ RSpec.describe Business, type: :model do
   end
 
   describe '発注依頼とのアソシエーションについて' do
-    context '紐つく発注依頼がある場合' do
-      subject do
-        business.request_orders
-      end
+    let(:request_orders) { create_list(:request_order, 2, business: business) }
 
-      let :request_orders do
-        create_list(:request_order, 2, business: business)
-      end
+    context '紐つく発注依頼がある場合' do
+      subject { business.request_orders }
 
       it '紐つく発注依頼を返すこと' do
         expect(subject).to eq(request_orders)
+      end
+    end
+  end
+
+  describe '書類とのアソシエーションについて' do
+    let(:documents) { create_list(:document, 3, business: business) }
+
+    context '紐つく書類がある場合' do
+      subject { business.documents }
+
+      it '紐つく書類を返すこと' do
+        expect(subject).to eq(documents)
       end
     end
   end
