@@ -6,6 +6,7 @@ module Users
 
     def show
       @request_order = current_business.request_orders.find_by(uuid: params[:uuid])
+      @sub_request_orders = @request_order.children
     end
   end
 end
