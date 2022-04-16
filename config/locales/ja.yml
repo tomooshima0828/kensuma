@@ -138,6 +138,7 @@ ja:
         editing: 編集中
         completed: 完了
         request: 差し戻し
+        submitted: 提出済
     worker:
       abo_blood_type:
         a: A型
