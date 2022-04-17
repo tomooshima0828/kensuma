@@ -24,10 +24,10 @@
         return this.optional(element) || /^\d{7}$/i.test(value); 
       }
     }
-    $.each(methods, function (key) {
+    $.each(methods, function(key){
       $.validator.addMethod(key, this);
     });
-    $(".order-form").validate({
+    $(".order-form-validation").validate({
       rules: {
         "order[status]": {
           required: true
@@ -48,7 +48,7 @@
       },
       messages: {
         "order[status]": {
-          required: "選択してください。"
+          required: "どれか一つを選択してください。"
         },
         "order[site_name]": {
           required: "現場名を入力してください。"
