@@ -3,7 +3,7 @@
 
 <div class="card">
   <div class="card-body">
-    <%= form_with model: @worker, url: users_workers_path, method: :post, local: true do |f| %>
+    <%= form_with model: @worker, url: users_workers_path, method: :post, local: true, class: "worker-form-validation" do |f| %>
       <%= render partial: "form", locals: { f: f, worker: @worker } %>
       
       <%= f.submit yield(:btn_text), class: "btn btn-md btn-block btn-primary" %>
