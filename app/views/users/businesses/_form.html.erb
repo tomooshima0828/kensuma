@@ -48,12 +48,7 @@
 
 <script>
   $(function(){
-    let methods = {
-      postcode: function(value, element){
-        return this.optional(element) || /^\d{7}$/i.test(value);
-      }
-    }
-    $.each(methods, function(key){
+    $.each(function(key){
       $.validator.addMethod(key, this);
     });
     $(".business-form-validation").validate({

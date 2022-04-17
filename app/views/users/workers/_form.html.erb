@@ -227,7 +227,7 @@
 
 <script>
   $(function(){
-    $.each(methods, function(key){
+    $.each(function(key){
       $.validator.addMethod(key, this);
     });
     $(".worker-form-validation").validate({
