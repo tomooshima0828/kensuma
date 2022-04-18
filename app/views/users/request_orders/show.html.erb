@@ -1,5 +1,11 @@
 <% provide(:title, "発注依頼詳細") %>
 
+<% if @request_order.submitted? %>
+  <button class="btn btn-outline-primary"disabled>申請済</button> 
+<% else %>
+  <%= link_to "申請する", users_request_order_submit_path(@request_order), method: :post, class: "btn btn-outline-primary" %>
+<% end %>
+
 <div class="card">
   <div class="card-body table-responsive p-0">
     <table class="table table-hover text-nowrap">
