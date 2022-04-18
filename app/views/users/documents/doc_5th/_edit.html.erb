@@ -5,16 +5,24 @@
     <table class="table">
       <tr>
         <th><%= f.label '事業所名' %></th>
-        <td><%= f.text_field :content, multiple: true, value: @document.content["business_name"], class: 'form-control' %></td>
+        <td><%#= f.text_field :content, multiple: true, value: @document.content["business_name"], class: 'form-control' %></td>
       </tr>
       <tr>
         <th><%= f.label '現場ID' %></th>
-        <td><%= f.date_field :content, multiple: true, value: @document.content["site_id"], class: 'form-control' %></td>
+        <td><%#= f.date_field :content, multiple: true, value: @document.content["site_id"], class: 'form-control' %></td>
       </tr>
     </table>
   </div>
   <div class="card-footer">
-    <%= f.submit '登録', class: 'btn btn-block btn-outline-dark' %>
+    <%#= f.submit '登録', class: 'btn btn-block btn-outline-dark' %>
     <%= link_to "#{@document.document_type_i18n}詳細に戻る", users_request_order_document_path, class: 'btn btn-block btn-outline-secondary' %>
   </div>
+<% end %>
+
+<%= form_with model: @document, url: users_request_order_document_path, method: :patch, local: true do |f| %>
+<%= f.text_field :content, multiple: true, name: "content[worker_01][doc5_8_012_furigana]", value: @document.content["worker_01"]["doc5_8_012_furigana"] %>
+<%= f.text_field :content, multiple: true, name: "content[worker_02][doc5_8_012_furigana]", value: @document.content["worker_02"]["doc5_8_012_furigana"] %>
+<%= f.text_field :content, multiple: true, name: "content[worker_03][doc5_8_012_furigana]", value: @document.content["worker_03"].try('[]', "doc5_8_012_furigana") %>
+<%= f.text_field :content, multiple: true, name: "content[worker_04][doc5_8_012_furigana]", value: @document.content["worker_04"].try('[]', "doc5_8_012_furigana") %>
+<%= f.submit '登録', class: 'btn btn-block btn-outline-dark' %>
 <% end %>
