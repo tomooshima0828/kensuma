@@ -11,7 +11,7 @@ module Users
 
     def submit
       @request_order = current_business.request_orders.find_by(uuid: params[:uuid])
-      @request_order.update(status: 'submitted')
+      @request_order.submitted!
       flash[:success] = '発注依頼を提出済にしました'
       redirect_to users_request_order_path(@request_order)
     end
