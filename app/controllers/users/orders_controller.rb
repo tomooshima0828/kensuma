@@ -69,46 +69,46 @@ module Users
           created_on:    Date.current,
           submitted_on:  Date.current,
           content:       { 
-            'business_name':                   '', # 8-001
-            'site_id':                         '', # 8-002
-            'site_agent':                      '', # 8-003
-            'created_date':                    '', # 8-004
-            'primary_business_name':           '', # 8-005
-            'primary_business_id':             '', # 8-006
-            'hierarchy':                       '', # 8-007
-            'my_business_name':                '', # 8-009
-            'my_business_id':                  '', # 8-010
-            'submitted_on':                    '', # 8-011
-            'furigana':                        '', # 8-012
-            'worker_name':                     '', # 8-013
-            'skilled_person_id':               '', # 8-014
-            'occupation':                      '', # 8-015
-            'symbol':                          '', # 8-016
-            'employment_date':                 '', # 8-017
-            'years_of_experience':             '', # 8-018
-            'birthday':                        '', # 8-019
-            'age':                             '', # 8-020
-            'address':                         '', # 8-021
-            'family_contact_address':          '', # 8-022
-            'telephone_number':                '', # 8-023
-            'family_telephone_number':         '', # 8-024
-            'health_check_date':               '', # 8-025
-            'maximum_blood_pressure':          '', # 8-026
-            'minimum_blood_pressure':          '', # 8-027
-            'blood_type':                      '', # 8-028
-            'special_health_examination_date': '', # 8-029
-            'special_health_check_type':       '', # 8-030
-            'health_insurance':                '', # 8-031
-            'pension_insurance':               '', # 8-032
-            'employment_insurance_number':     '', # 8-033
-            'severance_pay':                   '', # 8-034
-            'severance_pay_businesses':        '', # 8-035
-            'special_education':               '', # 8-036
-            'skill_training':                  '', # 8-037
-            'licence':                         '', # 8-038
-            'beginning':                       '', # 8-039
-            'new_education':                   '', # 8-040
-            'notebook':                        ''  # 8-041
+            # 'business_name':                   '', # 8-001
+            # 'site_id':                         '', # 8-002
+            # 'site_agent':                      '', # 8-003
+            # 'created_date':                    '', # 8-004
+            # 'primary_business_name':           '', # 8-005
+            # 'primary_business_id':             '', # 8-006
+            # 'hierarchy':                       '', # 8-007
+            # 'my_business_name':                '', # 8-009
+            # 'my_business_id':                  '', # 8-010
+            # 'submitted_on':                    '', # 8-011
+            # 'furigana':                        '', # 8-012
+            # 'worker_name':                     '', # 8-013
+            # 'skilled_person_id':               '', # 8-014
+            # 'occupation':                      '', # 8-015
+            # 'symbol':                          '', # 8-016
+            # 'employment_date':                 '', # 8-017
+            # 'years_of_experience':             '', # 8-018
+            # 'birthday':                        '', # 8-019
+            # 'age':                             '', # 8-020
+            # 'address':                         '', # 8-021
+            # 'family_contact_address':          '', # 8-022
+            # 'telephone_number':                '', # 8-023
+            # 'family_telephone_number':         '', # 8-024
+            # 'health_check_date':               '', # 8-025
+            # 'maximum_blood_pressure':          '', # 8-026
+            # 'minimum_blood_pressure':          '', # 8-027
+            # 'blood_type':                      '', # 8-028
+            # 'special_health_examination_date': '', # 8-029
+            # 'special_health_check_type':       '', # 8-030
+            # 'health_insurance':                '', # 8-031
+            # 'pension_insurance':               '', # 8-032
+            # 'employment_insurance_number':     '', # 8-033
+            # 'severance_pay':                   '', # 8-034
+            # 'severance_pay_businesses':        '', # 8-035
+            # 'special_education':               '', # 8-036
+            # 'skill_training':                  '', # 8-037
+            # 'licence':                         '', # 8-038
+            # 'beginning':                       '', # 8-039
+            # 'new_education':                   '', # 8-040
+            # 'notebook':                        ''  # 8-041
           },
           business:      current_business
         )
