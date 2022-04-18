@@ -43,6 +43,7 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
       resources :sub_request_orders, except: %i[edit destroy show]
       resources :documents, only: %i[index show edit update], param: :uuid
     end
+    post 'request_orders/:uuid/submit', to: 'request_orders#submit', as: :request_order_submit
   end
   # =================================================================
 
