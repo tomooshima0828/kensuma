@@ -65,3 +65,78 @@
 <%= f.label :images %>
 <%= f.file_field :images, accept: 'image/jpg, image/jpeg, image/png', multiple: true, class: "form-control" %>
 <br>
+
+<script>
+  $(function(){
+    $.each(function(key){
+      $.validator.addMethod(key, this);
+    });
+    $(".car-form-validation").validate({
+      rules:{
+        "car[owner_name]": {
+          required: true
+        },
+        "car[vehicle_model]": {
+          required: true
+        },
+        "car[vehicle_number]": {
+          required: true
+        },
+        "car[vehicle_inspection_start_on]": {
+          required: true
+        },
+        "car[vehicle_inspection_end_on]": {
+          required: true
+        },
+        "car[car_insurance_company_id]": {
+          required: true
+        },
+        "car[liability_securities_number]": {
+          required: true
+        },
+        "car[liability_insurance_start_on]": {
+          required: true
+        },
+        "car[liability_insurance_end_on]": {
+          required: true
+        },
+        "car[car_voluntary_insurances_attributes][0][company_voluntary_id]": {
+          required: true
+        },
+        
+      },
+      messages:{
+        "car[owner_name]": {
+          required: "車両所有者氏名を入力してください。"
+        },
+        "car[vehicle_model]": {
+          required: "車両型式を入力してください。"
+        },
+        "car[vehicle_number]": {
+          required: "車両番号を入力してください。"
+        },
+        "car[vehicle_inspection_start_on]": {
+          required: "年月日を入力または選択してください。"
+        },
+        "car[vehicle_inspection_end_on]": {
+          required: "年月日を入力または選択してください。"
+        },
+        "car[car_insurance_company_id]": {
+          required: "自賠責保険会社を選択してください。"
+        },
+        "car[liability_securities_number]": {
+          required: "自賠責証券番号を入力してください。"
+        },
+        "car[liability_insurance_start_on]": {
+          required: "年月日を入力または選択してください。"
+        },
+        "car[liability_insurance_end_on]": {
+          required: "年月日を入力または選択してください。"
+        },
+        "car[car_voluntary_insurances_attributes][0][company_voluntary_id]": {
+          required: "任意保険会社を選択してください。"
+        },
+      },
+    });
+  });
+</script>

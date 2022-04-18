@@ -45,3 +45,83 @@
 <%= f.file_field :stamp_images, accept: 'image/jpg, image/jpeg, image/png', multiple: true, class: "form-control" %>
 
 <%= f.hidden_field :user_id, value: current_user.id %>
+
+<script>
+  $(function(){
+    $.each(function(key){
+      $.validator.addMethod(key, this);
+    });
+    $(".business-form-validation").validate({
+      rules: {
+        "business[uuid]": {
+          required: true
+        },
+        "business[name]": {
+          required: true
+        },
+        "business[name_kana]": {
+          required: true
+        },
+        "business[branch_name]": {
+          required: true
+        },
+        "business[representative_name]": {
+          required: true
+        },
+        "business[email]": {
+          required: true
+        },
+        "business[address]": {
+          required: true
+        },
+        "business[post_code]": {
+          required: true
+        },
+        "business[phone_number]": {
+          required: true
+        },
+        "business[carrier_up_id]": {
+          required: true
+        },
+        "business[business_type]": {
+          required: true
+        }
+      },
+      messages: {
+        "business[uuid]": {
+          required: "事業所IDを入力してください。"
+        },
+        "business[name]": {
+          required: "事業所名を入力してください。"
+        },
+        "business[name_kana]": {
+          required: "事業所名(カナ)を入力してください。"
+        },
+        "business[branch_name]": {
+          required: "支店名、営業所名を入力してください。"
+        },
+        "business[representative_name]": {
+          required: "代表者名を入力してください。"
+        },
+        "business[email]": {
+          required: "事業所メールアドレスを入力してください。"
+        },
+        "business[address]": {
+          required: "住所を入力してください。"
+        },
+        "business[post_code]": {
+          required: "郵便番号を入力してください。"
+        },
+        "business[phone_number]": {
+          required: "電話番号を入力してください。"
+        },
+        "business[carrier_up_id]": {
+          required: "事業者IDを入力してください。"
+        },
+        "business[business_type]": {
+          required: "どれか一つを選択してください。"
+        }
+      }
+    });
+  });
+</script>
