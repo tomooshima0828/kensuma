@@ -13,10 +13,20 @@ module Users
           render pdf: '表紙',
             layout: 'pdf',
             encording: 'UTF-8',
-            page_size: 'A4'
+            page_size: 'A4',
+            # orientation: 'Landscape'
         end
       end
     end
+
+    # def page_size(document)
+    #   case document.document_type
+    #   when 'doc_5th'
+    #     'A4'
+    #   else
+    #     'A4'
+    #   end
+    # end
 
     def edit; end
 
