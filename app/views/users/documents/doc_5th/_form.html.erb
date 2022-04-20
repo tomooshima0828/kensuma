@@ -1,74 +1,102 @@
 <%= render 'shared/error_massages', object: f.object %>
 
-<%= f.label '8-011 提出日(西暦)' %> <!-- 日付入力フォーム要修正 -->
-<%= f.text_field :content, multiple: true,
-                          name: "content[doc5_8_011_submitted_on]",
-                          value: @document.content["doc5_8_011_submitted_on"],
-                          class: "form-control", placeholder: '提出日（西暦）'
-%><br>
+<div class="list-group">
+  <div class="list-group-item">
+    <div class="row">
+      <div class="col-md-4">
+        <!-- 日付入力フォーム -->
+        <%= f.label '8-004 書類作成日(西暦)' %>
+        <%= f.date_field :content, multiple: true,
+                                  name: "content[doc5_8_004_created_date]",
+                                  value: @document.content["doc5_8_004_created_date"],
+                                  class: "form-control", placeholder: '書類作成日（西暦）'
+        %><br>
+      </div>
+      <div class="col-md-4">
+        <!-- 日付入力フォーム -->
+        <%= f.label '8-011 提出日(西暦)' %>
+        <%= f.date_field :content, multiple: true,
+                                  name: "content[doc5_8_011_submitted_on]",
+                                  value: @document.content["doc5_8_011_submitted_on"],
+                                  class: "form-control", placeholder: '提出日（西暦）'
+        %><br>
+      </div>
+    </div>
 
-<%= f.label '8-001 事業所の名称' %>
-<%= f.text_field :content, multiple: true,
-                          name: "content[doc5_8_001_business_name]",
-                          value: @document.content["doc5_8_001_business_name"],
-                          class: "form-control", placeholder: '事業所の名称'
-%><br>
+    <div class="row">
+      <div class="col-md-4">
+        <%= f.label '8-001 事業所の名称' %>
+        <%= f.text_field :content, multiple: true,
+                                  name: "content[doc5_8_001_business_name]",
+                                  value: @document.content["doc5_8_001_business_name"],
+                                  class: "form-control", placeholder: '事業所の名称'
+        %><br>
+      </div>
+      <div class="col-md-4">
+        <%= f.label '8-002 現場ID(キャリアアップ)' %>
+        <%= f.text_field :content, multiple: true,
+                                  name: "content[doc5_8_002_site_id]",
+                                  value: @document.content["doc5_8_002_site_id"],
+                                  class: "form-control", placeholder: '現場ID(キャリアアップ)'
+        %><br>
+      </div>
+      <div class="col-md-4">
+        <%= f.label '8-003 元請会社の各会社の現場代理人' %>
+        <%= f.text_field :content, multiple: true,
+                                  name: "content[doc5_8_003_site_agent]",
+                                  value: @document.content["doc5_8_003_site_agent"],
+                                  class: "form-control", placeholder: '元請会社の各会社の現場代理人'
+        %><br>
+      </div>
+    </div>
 
-<%= f.label '8-002 現場ID(キャリアアップ)' %>
-<%= f.text_field :content, multiple: true,
-                          name: "content[doc5_8_002_site_id]",
-                          value: @document.content["doc5_8_002_site_id"],
-                          class: "form-control", placeholder: '現場ID(キャリアアップ)'
-%><br>
+    <div class="row">
+      <div class="col-md-4">
+        <%= f.label '8-005 一次会社名' %>
+        <%= f.text_field :content, multiple: true,
+                                  name: "content[doc5_8_005_primary_business_name]",
+                                  value: @document.content["doc5_8_005_primary_business_name"],
+                                  class: "form-control", placeholder: '一次会社名'
+        %><br>
+      </div>
+      <div class="col-md-4">
+        <%= f.label '8-006 一次会社の事業者ID' %>
+        <%= f.text_field :content, multiple: true,
+                                  name: "content[doc5_8_006_primary_business_id]",
+                                  value: @document.content["doc5_8_006_primary_business_id"],
+                                  class: "form-control", placeholder: '一次会社の事業者ID'
+        %><br>
+      </div>
+    </div>
 
-<%= f.label '8-003 元請会社の各会社の現場代理人' %>
-<%= f.text_field :content, multiple: true,
-                          name: "content[doc5_8_003_site_agent]",
-                          value: @document.content["doc5_8_003_site_agent"],
-                          class: "form-control", placeholder: '元請会社の各会社の現場代理人'
-%><br>
-
-<%= f.label '8-004 書類作成日(西暦)' %> <!-- 日付入力フォーム要修正 -->
-<%= f.text_field :content, multiple: true,
-                          name: "content[doc5_8_004_created_date]",
-                          value: @document.content["doc5_8_004_created_date"],
-                          class: "form-control", placeholder: '書類作成日（西暦）'
-%><br>
-
-<%= f.label '8-005 一次会社名' %>
-<%= f.text_field :content, multiple: true,
-                          name: "content[doc5_8_005_primary_business_name]",
-                          value: @document.content["doc5_8_005_primary_business_name"],
-                          class: "form-control", placeholder: '一次会社名'
-%><br>
-
-<%= f.label '8-006 一次会社の事業者ID(キャリアアップ)' %>
-<%= f.text_field :content, multiple: true,
-                          name: "content[doc5_8_006_primary_business_id]",
-                          value: @document.content["doc5_8_006_primary_business_id"],
-                          class: "form-control", placeholder: '一次会社の事業者ID（キャリアアップ）'
-%><br>
-
-<%= f.label '8-007 次' %>
-<%= f.text_field :content, multiple: true,
-                          name: "content[doc5_8_007_hierarchy]",
-                          value: @document.content["doc5_8_007_hierarchy"],
-                          class: "form-control", placeholder: '次 8-007'
-%><br>
-
-<%= f.label '8-009 自社の会社名' %>
-<%= f.text_field :content, multiple: true,
-                          name: "content[doc5_8_009_my_business_name]",
-                          value: @document.content["doc5_8_009_my_business_name"],
-                          class: "form-control", placeholder: '自社の会社名'
-%><br>
-
-<%= f.label '8-010 自社の事業者ID(キャリアアップ)' %>
-<%= f.text_field :content, multiple: true,
-                          name: "content[doc5_8_010_my_business_id]",
-                          value: @document.content["doc5_8_010_my_business_id "],
-                          class: "form-control", placeholder: '自社の事業者ID（キャリアアップ）'
-%><br>
+    <div class="row">
+      <div class="col-md-4">
+        <%= f.label '8-007 次' %>
+        <%= f.text_field :content, multiple: true,
+                                  name: "content[doc5_8_007_hierarchy]",
+                                  value: @document.content["doc5_8_007_hierarchy"],
+                                  class: "form-control", placeholder: '次 8-007'
+        %><br>
+      </div>
+      <div class="col-md-4">
+        <%= f.label '8-009 自社の会社名' %>
+        <%= f.text_field :content, multiple: true,
+                                  name: "content[doc5_8_009_my_business_name]",
+                                  value: @document.content["doc5_8_009_my_business_name"],
+                                  class: "form-control", placeholder: '自社の会社名'
+        %><br>
+      </div>
+      <div class="col-md-4">
+        <%= f.label '8-010 自社の事業者ID' %>
+        <%= f.text_field :content, multiple: true,
+                                  name: "content[doc5_8_010_my_business_id]",
+                                  value: @document.content["doc5_8_010_my_business_id "],
+                                  class: "form-control", placeholder: '自社の事業者ID'
+        %><br>
+      </div>
+    </div>
+  </div>
+</div><br>
 
 <!-- 作業員情報 番号1 -->
 <div class="card card-primary">
@@ -129,7 +157,7 @@
         <div class="row">
           <div class="col-md-3">
             <%= f.label '8-017 雇入年月日' %> <!-- 日付入力フォーム要修正 -->
-            <%= f.text_field :content, multiple: true,
+            <%= f.date_field :content, multiple: true,
                                       name: "content[worker_01][doc5_8_017_employment_date]",
                                       value: @document.content["worker_01"].try('[]', "doc5_8_017_employment_date"),
                                       class: "form-control", placeholder: '雇入年月日'
@@ -144,8 +172,9 @@
             %><br>
           </div>
           <div class="col-md-3">
-            <%= f.label '8-019 生年月日' %> <!-- 日付入力フォーム要修正 -->
-            <%= f.text_field :content, multiple: true,
+            <!-- 日付入力フォーム -->
+            <%= f.label '8-019 生年月日' %>
+            <%= f.date_field :content, multiple: true,
                                       name: "content[worker_01][doc5_8_019_birthday]",
                                       value: @document.content["worker_01"].try('[]', "doc5_8_019_birthday"),
                                       class: "form-control", placeholder: '生年月日'
@@ -198,8 +227,9 @@
     
         <div class="row">
           <div class="col-md-2">
-            <%= f.label '8-025 最近の健康診断日' %> <!-- 日付入力フォーム要修正 -->
-            <%= f.text_field :content, multiple: true,
+            <!-- 日付入力フォーム -->
+            <%= f.label '8-025 最近の健康診断日' %>
+            <%= f.date_field :content, multiple: true,
                                       name: "content[worker_01][doc5_8_025_health_check_date]",
                                       value: @document.content["worker_01"].try('[]', "doc5_8_025_health_check_date"),
                                       class: "form-control", placeholder: '最近の健康診断日'
@@ -230,8 +260,9 @@
             %><br>
           </div>
           <div class="col-md-2">
-            <%= f.label '8-029 特殊健康診断日' %> <!-- 日付フォーム要修正 -->
-            <%= f.text_field :content, multiple: true,
+            <!-- 日付入力フォーム -->
+            <%= f.label '8-029 特殊健康診断日' %>
+            <%= f.date_field :content, multiple: true,
                                       name: "content[worker_01][doc5_8_029_special_health_examination_date]",
                                       value: @document.content["worker_01"].try('[]', "doc5_8_029_special_health_examination_date"),
                                       class: "form-control", placeholder: '特殊健康診断日'
@@ -319,16 +350,18 @@
     
         <div class="row">
           <div class="col-md-4">
-            <%= f.label '8-039 入場年月日' %> <!-- 日付フォーム要修正 -->
-            <%= f.text_field :content, multiple: true,
+            <!-- 日付入力フォーム -->
+            <%= f.label '8-039 入場年月日' %>
+            <%= f.date_field :content, multiple: true,
                                       name: "content[worker_01][doc5_8_039_beginning]",
                                       value: @document.content["worker_01"].try('[]', "doc5_8_039_beginning"),
                                       class: "form-control", placeholder: '入場年月日'
             %><br>
           </div>
           <div class="col-md-4">
-            <%= f.label '8-040 受入教育 実施年月日' %> <!-- 日付フォーム要修正 -->
-            <%= f.text_field :content, multiple: true,
+            <!-- 日付入力フォーム -->
+            <%= f.label '8-040 受入教育 実施年月日' %>
+            <%= f.date_field :content, multiple: true,
                                       name: "content[worker_01][doc5_8_040_new_education]",
                                       value: @document.content["worker_01"].try('[]', "doc5_8_040_new_education"),
                                       class: "form-control", placeholder: '受入教育 実施年月日'
@@ -407,7 +440,7 @@
         <div class="row">
           <div class="col-md-3">
             <%= f.label '8-017 雇入年月日' %> <!-- 日付入力フォーム要修正 -->
-            <%= f.text_field :content, multiple: true,
+            <%= f.date_field :content, multiple: true,
                                       name: "content[worker_02][doc5_8_017_employment_date]",
                                       value: @document.content["worker_02"].try('[]', "doc5_8_017_employment_date"),
                                       class: "form-control", placeholder: '雇入年月日'
@@ -422,8 +455,9 @@
             %><br>
           </div>
           <div class="col-md-3">
-            <%= f.label '8-019 生年月日' %> <!-- 日付入力フォーム要修正 -->
-            <%= f.text_field :content, multiple: true,
+            <!-- 日付入力フォーム -->
+            <%= f.label '8-019 生年月日' %>
+            <%= f.date_field :content, multiple: true,
                                       name: "content[worker_02][doc5_8_019_birthday]",
                                       value: @document.content["worker_02"].try('[]', "doc5_8_019_birthday"),
                                       class: "form-control", placeholder: '生年月日'
@@ -476,8 +510,9 @@
     
         <div class="row">
           <div class="col-md-2">
-            <%= f.label '8-025 最近の健康診断日' %> <!-- 日付入力フォーム要修正 -->
-            <%= f.text_field :content, multiple: true,
+            <!-- 日付入力フォーム -->
+            <%= f.label '8-025 最近の健康診断日' %>
+            <%= f.date_field :content, multiple: true,
                                       name: "content[worker_02][doc5_8_025_health_check_date]",
                                       value: @document.content["worker_02"].try('[]', "doc5_8_025_health_check_date"),
                                       class: "form-control", placeholder: '最近の健康診断日'
@@ -508,8 +543,9 @@
             %><br>
           </div>
           <div class="col-md-2">
-            <%= f.label '8-029 特殊健康診断日' %> <!-- 日付フォーム要修正 -->
-            <%= f.text_field :content, multiple: true,
+            <!-- 日付入力フォーム -->
+            <%= f.label '8-029 特殊健康診断日' %>
+            <%= f.date_field :content, multiple: true,
                                       name: "content[worker_02][doc5_8_029_special_health_examination_date]",
                                       value: @document.content["worker_02"].try('[]', "doc5_8_029_special_health_examination_date"),
                                       class: "form-control", placeholder: '特殊健康診断日'
@@ -597,16 +633,18 @@
     
         <div class="row">
           <div class="col-md-4">
-            <%= f.label '8-039 入場年月日' %> <!-- 日付フォーム要修正 -->
-            <%= f.text_field :content, multiple: true,
+            <!-- 日付入力フォーム -->
+            <%= f.label '8-039 入場年月日' %>
+            <%= f.date_field :content, multiple: true,
                                       name: "content[worker_02][doc5_8_039_beginning]",
                                       value: @document.content["worker_02"].try('[]', "doc5_8_039_beginning"),
                                       class: "form-control", placeholder: '入場年月日'
             %><br>
           </div>
           <div class="col-md-4">
-            <%= f.label '8-040 受入教育 実施年月日' %> <!-- 日付フォーム要修正 -->
-            <%= f.text_field :content, multiple: true,
+            <!-- 日付入力フォーム -->
+            <%= f.label '8-040 受入教育 実施年月日' %>
+            <%= f.date_field :content, multiple: true,
                                       name: "content[worker_02][doc5_8_040_new_education]",
                                       value: @document.content["worker_02"].try('[]', "doc5_8_040_new_education"),
                                       class: "form-control", placeholder: '受入教育 実施年月日'

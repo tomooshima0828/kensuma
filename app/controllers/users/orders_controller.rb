@@ -68,7 +68,25 @@ module Users
           document_type: 5,
           created_on:    Date.current,
           submitted_on:  Date.current,
-          content:       { 
+          content:       {
+            doc5_8_011_submitted_on: '',
+            doc5_8_004_created_date: '',
+            worker_01: {
+              doc5_8_017_employment_date:                 '',
+              doc5_8_019_birthday:                        '',
+              doc5_8_025_health_check_date:               '',
+              doc5_8_029_special_health_examination_date: '',
+              doc5_8_039_beginning:                       '',
+              doc5_8_040_new_education:                   ''
+            },
+            worker_02: {
+              doc5_8_017_employment_date:                 '',
+              doc5_8_019_birthday:                        '',
+              doc5_8_025_health_check_date:               '',
+              doc5_8_029_special_health_examination_date: '',
+              doc5_8_039_beginning:                       '',
+              doc5_8_040_new_education:                   ''
+            }
             # 'business_name':                   '', # 8-001
             # 'site_id':                         '', # 8-002
             # 'site_agent':                      '', # 8-003
