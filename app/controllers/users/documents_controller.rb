@@ -13,7 +13,7 @@ module Users
           render pdf: '表紙',
             layout: 'pdf',
             encording: 'UTF-8',
-            page_size: 'A4',
+            page_size: 'A4'
             # orientation: 'Landscape'
         end
       end
