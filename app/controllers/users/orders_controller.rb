@@ -62,6 +62,13 @@ module Users
           },
           business:      current_business
         )
+        request_order.documents.build(
+          document_type: 8,
+          created_on: Date.current,
+          submitted_on: Date.current,
+          content: {},
+          business: current_business
+        )
 
         if @order.save!
           redirect_to users_order_url(@order)
