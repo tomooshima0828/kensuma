@@ -107,7 +107,12 @@
 </div><br>
 
 <!-- 作業員情報 番号1 -->
-<% @document.content["worker"].each.with_index do |worker, index| %>
+<% @kazu = @document.content["worker"]["doc5_8_012_furigana"].size %>
+<% @kazu.times do |index|index %>
+(<%= index %><%= @document.content["worker"]["doc5_8_012_furigana"][index] %>)
+<% end %>
+
+<% @document.content["worker"]["doc5_8_012_furigana"].size.times do |index|index %>
   <div class="card card-primary">
     <div class="card-header">
       <h3 class="card-title">作業員情報 番号1</h3>
@@ -125,7 +130,7 @@
               <%= f.label '8-012 フリガナ' %>
               <%= f.text_field :content, multiple: true,
                                         name: "document[content][worker][doc5_8_012_furigana][]",
-                                        value: @document.content["worker"][0]["doc5_8_012_furigana"][index],
+                                        value: @document.content["worker"]["doc5_8_012_furigana"][index],
                                         class: "form-control", placeholder: 'フリガナ'
               %><br>
             </div>
@@ -133,7 +138,7 @@
               <%= f.label '8-013 氏名' %>
               <%= f.text_field :content, multiple: true,
                                         name: "document[content][worker][doc5_8_013_worker_name][]",
-                                        value: @document.content["worker"][0]["doc5_8_013_worker_name"][index],
+                                        value: @document.content["worker"]["doc5_8_013_worker_name"][index],
                                         class: "form-control", placeholder: '氏名'
               %><br>
             </div>
