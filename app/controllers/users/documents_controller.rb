@@ -103,7 +103,7 @@ module Users
           doc5_8_010_my_business_id:        params[:document][:content][:doc5_8_010_my_business_id],
           doc5_8_011_submitted_on:          params[:document][:content][:doc5_8_011_submitted_on],
           doc5_8_042_confirmation:          params[:document][:content][:doc5_8_042_confirmation],
-          worker: [
+          worker: {
             doc5_8_012_furigana:                        params[:document][:content][:worker][:doc5_8_012_furigana],
             doc5_8_013_worker_name:                     params[:document][:content][:worker][:doc5_8_013_worker_name],
             doc5_8_014_skilled_person_id:               params[:document][:content][:worker][:doc5_8_014_skilled_person_id],
@@ -134,7 +134,7 @@ module Users
             doc5_8_039_beginning:                       params[:document][:content][:worker][:doc5_8_039_beginning],
             doc5_8_040_new_education:                   params[:document][:content][:worker][:doc5_8_040_new_education],
             doc5_8_041_notebook:                        params[:document][:content][:worker][:doc5_8_041_notebook]
-          ]
+          }
         }
       )
       # params.require(:document).permit.merge(
