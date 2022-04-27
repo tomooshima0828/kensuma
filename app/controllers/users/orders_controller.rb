@@ -81,7 +81,7 @@ module Users
             doc5_8_011_submitted_on:          '',
             doc5_8_042_confirmation:          '',
             worker: {
-              doc5_8_012_furigana:                        ['aaaa', 'bbbb'],
+              doc5_8_012_furigana:                        [''],
               doc5_8_013_worker_name:                     [''],
               doc5_8_014_skilled_person_id:               [''],
               doc5_8_015_occupation:                      [''],

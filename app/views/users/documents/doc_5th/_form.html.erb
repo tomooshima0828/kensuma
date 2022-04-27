@@ -106,7 +106,7 @@
   </div>
 </div><br>
 
-<!-- 作業員情報 番号1 -->
+<!-- 作業員情報 -->
 <% @document.content["worker"]["doc5_8_012_furigana"].size.times do |index|index %>
   <div class="card card-primary">
     <div class="card-header">
@@ -391,3 +391,404 @@
     </div>
   </div>
 <% end %>
+
+<!-- 作業員情報 追加 -->
+<div id="add_worker" class="card card-success">
+  <div class="card-header">
+    <h3 class="card-title">作業員情報 追加</h3>
+    <div class="card-tools">
+      <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+        <i class="fas fa-minus"></i>
+      </button>
+    </div>
+  </div>
+  <div class="card-body" style="display: block;">
+    <div class="list-group">
+      <div class="list-group-item">
+        <div class="row">
+          <div class="col-md-3">
+            <%= f.label '8-012 フリガナ' %>
+            <%= f.text_field :content, multiple: true,
+                                      name: "document[content][worker][doc5_8_012_furigana][]",
+                                      value: '',
+                                      class: "form-control", placeholder: 'フリガナ'
+            %><br>
+          </div>
+          <div class="col-md-3">
+            <%= f.label '8-013 氏名' %>
+            <%= f.text_field :content, multiple: true,
+                                      name: "document[content][worker][doc5_8_013_worker_name][]",
+                                      value: '',
+                                      class: "form-control", placeholder: '氏名'
+            %><br>
+          </div>
+          <div class="col-md-2">
+            <%= f.label '8-014 技能者ID' %>
+            <%= f.text_field :content, multiple: true,
+                                      name: "document[content][worker][doc5_8_014_skilled_person_id][]",
+                                      value: '',
+                                      class: "form-control", placeholder: '技能者ID'
+            %><br>
+          </div>
+          <div class="col-md-2">
+            <%= f.label '8-015 職種' %>
+            <%= f.text_field :content, multiple: true,
+                                      name: "document[content][worker][doc5_8_015_occupation][]",
+                                      value: '',
+                                      class: "form-control", placeholder: '職種'
+            %><br>
+          </div>
+          <div class="col-md-2">
+            <%= f.label '8-016 記号' %>
+            <%= f.text_field :content, multiple: true,
+                                      name: "document[content][worker][doc5_8_016_symbol][]",
+                                      value: '',
+                                      class: "form-control", placeholder: '記号'
+            %><br>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col-md-3">
+            <!-- 日付入力フォーム -->
+            <%= f.label '8-017 雇入年月日' %>
+            <%= f.date_field :content, multiple: true,
+                                      name: "document[content][worker][doc5_8_017_employment_date][]",
+                                      value: '',
+                                      class: "form-control", placeholder: '雇入年月日'
+            %><br>
+          </div>
+          <div class="col-md-3">
+            <%= f.label '8-018 経験年数(年)' %>
+            <%= f.number_field :content, multiple: true,
+                                      name: "document[content]worker][doc5_8_018_years_of_experience][]",
+                                      class: "form-control", placeholder: '経験年数(年)'
+            %><br>
+          </div>
+          <div class="col-md-3">
+            <!-- 日付入力フォーム -->
+            <%= f.label '8-019 生年月日' %>
+            <%= f.date_field :content, multiple: true,
+                                      name: "document[content]worker][doc5_8_019_birthday][]",
+                                      value: '',
+                                      class: "form-control", placeholder: '生年月日'
+            %><br>
+          </div>
+          <div class="col-md-3">
+            <%= f.label '8-020 年齢' %>
+            <%= f.number_field :content, multiple: true,
+                                      name: "document[content]worker][doc5_8_020_age][]",
+                                      value: '',
+                                      class: "form-control", placeholder: '年齢'
+            %><br>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col-md-3">
+            <%= f.label '8-021 現住所' %>
+            <%= f.text_field :content, multiple: true,
+                                      name: "document[content]worker][doc5_8_021_address][]",
+                                      value: '',
+                                      class: "form-control", placeholder: '現住所'
+            %><br>
+          </div>
+          <div class="col-md-3">
+            <%= f.label '8-022 家族連絡先住所' %>
+            <%= f.text_field :content, multiple: true,
+                                      name: "document[content][worker][doc5_8_022_family_contact_address][]",
+                                      value: '',
+                                      class: "form-control", placeholder: '家族連絡先住所'
+            %><br>
+          </div>
+          <div class="col-md-3">
+            <%= f.label '8-023 作業員電話番号' %>
+            <%= f.text_field :content, multiple: true,
+                                      name: "document[content]worker][doc5_8_023_telephone_number][]",
+                                      value: '',
+                                      class: "form-control", placeholder: '作業員電話番号'
+            %><br>
+          </div>
+          <div class="col-md-3">
+            <%= f.label '8-024 家族連絡先電話番号' %>
+            <%= f.text_field :content, multiple: true,
+                                      name: "document[content][worker][doc5_8_024_family_telephone_number][]",
+                                      value: '',
+                                      class: "form-control", placeholder: '家族連絡先電話番号'
+            %><br>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col-md-2">
+            <!-- 日付入力フォーム -->
+            <%= f.label '8-025 最近の健康診断日' %>
+            <%= f.date_field :content, multiple: true,
+                                      name: "document[content][worker][doc5_8_025_health_check_date][]",
+                                      value: '',
+                                      class: "form-control", placeholder: '最近の健康診断日'
+            %><br>
+          </div>
+          <div class="col-md-2">
+            <%= f.label '8-026 最高血圧' %>
+            <%= f.number_field :content, multiple: true,
+                                      name: "document[content][worker][doc5_8_026_maximum_blood_pressure][]",
+                                      value: '',
+                                      class: "form-control", placeholder: '最高血圧'
+            %><br>
+          </div>
+          <div class="col-md-2">
+            <%= f.label '8-027 最低血圧' %>
+            <%= f.number_field :content, multiple: true,
+                                      name: "document[content][worker][doc5_8_027_minimum_blood_pressure][]",
+                                      value: '',
+                                      class: "form-control", placeholder: '最低血圧'
+            %><br>
+          </div>
+          <div class="col-md-2">
+            <%= f.label '8-028 血液型' %> <!-- セレクトフォーム要修正 -->
+            <%= f.text_field :content, multiple: true,
+                                      name: "document[content][worker][doc5_8_028_blood_type][]",
+                                      value: '',
+                                      class: "form-control", placeholder: '血圧型'
+            %><br>
+          </div>
+          <div class="col-md-2">
+            <!-- 日付入力フォーム -->
+            <%= f.label '8-029 特殊健康診断日' %>
+            <%= f.date_field :content, multiple: true,
+                                      name: "document[content][worker][doc5_8_029_special_health_examination_date][]",
+                                      value: '',
+                                      class: "form-control", placeholder: '特殊健康診断日'
+            %><br>
+          </div>
+          <div class="col-md-2">
+            <%= f.label '8-030 特別健康診断種類' %>
+            <%= f.text_field :content, multiple: true,
+                                      name: "document[content][worker][doc5_8_030_special_health_check_type][]",
+                                      value: '',
+                                      class: "form-control", placeholder: '特別健康診断種類'
+            %><br>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col-md-2">
+            <%= f.label '8-031 健康保険' %>
+            <%= f.text_field :content, multiple: true,
+                                      name: "document[content][worker][doc5_8_031_health_insurance][]",
+                                      value: '',
+                                      class: "form-control", placeholder: '特別健康診断種類'
+            %><br>
+          </div>
+          <div class="col-md-2">
+            <%= f.label '8-032 年金保険' %>
+            <%= f.text_field :content, multiple: true,
+                                      name: "document[content][worker][doc5_8_032_pension_insurance][]",
+                                      value: '',
+                                      class: "form-control", placeholder: '年金保険'
+            %><br>
+          </div>
+          <div class="col-md-2">
+            <%= f.label '8-033 雇用保険番号' %>
+            <%= f.text_field :content, multiple: true,
+                                      name: "document[content][worker][doc5_8_033_employment_insurance_number][]",
+                                      value: '',
+                                      class: "form-control", placeholder: '雇用保険番号'
+            %><br>
+          </div>
+          <div class="col-md-3">
+            <%= f.label '8-034 建設業退職金共済制度' %>
+            <%= f.text_field :content, multiple: true,
+                                      name: "document[content][worker][doc5_8_034_severance_pay][]",
+                                      value: '',
+                                      class: "form-control", placeholder: '建設業退職金共済制度'
+            %><br>
+          </div>
+          <div class="col-md-3">
+            <%= f.label '8-035 中小企業退職金共済制度' %>
+            <%= f.text_field :content, multiple: true,
+                                      name: "document[content][worker][doc5_8_035_severance_pay_businesses][]",
+                                      value: '',
+                                      class: "form-control", placeholder: '中小企業退職金共済制度'
+            %><br>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col-md-4">
+            <%= f.label '8-036 雇入・職長特別教育' %>
+            <%= f.text_field :content, multiple: true,
+                                      name: "document[content][worker][doc5_8_036_special_education][]",
+                                      value: '',
+                                      class: "form-control", placeholder: '雇入・職長特別教育'
+            %><br>
+          </div>
+          <div class="col-md-4">
+            <%= f.label '8-037 技能講習' %>
+            <%= f.text_field :content, multiple: true,
+                                      name: "document[content][worker][doc5_8_037_skill_training][]",
+                                      value: '',
+                                      class: "form-control", placeholder: '技能講習'
+            %><br>
+          </div>
+          <div class="col-md-4">
+            <%= f.label '8-038 免許' %>
+            <%= f.text_field :content, multiple: true,
+                                      name: "document[content][worker][doc5_8_038_licence][]",
+                                      value: '',
+                                      class: "form-control", placeholder: '免許'
+            %><br>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="col-md-4">
+            <!-- 日付入力フォーム -->
+            <%= f.label '8-039 入場年月日' %>
+            <%= f.date_field :content, multiple: true,
+                                      name: "document[content][worker][doc5_8_039_beginning][]",
+                                      value: '',
+                                      class: "form-control", placeholder: '入場年月日'
+            %><br>
+          </div>
+          <div class="col-md-4">
+            <!-- 日付入力フォーム -->
+            <%= f.label '8-040 受入教育 実施年月日' %>
+            <%= f.date_field :content, multiple: true,
+                                      name: "document[content][worker][doc5_8_040_new_education][]",
+                                      value: '',
+                                      class: "form-control", placeholder: '受入教育 実施年月日'
+            %><br>
+          </div>
+          <div class="col-md-4">
+            <%= f.label '8-041 退職金共済手帳所雇入・有の有無' %> <!-- セレクトフォーム要修正 -->
+            <%= f.text_field :content, multiple: true,
+                                      name: "document[content][worker][doc5_8_041_notebook][]",
+                                      value: '',
+                                      class: "form-control", placeholder: '退職金共済手帳所雇入・有の有無'
+            %><br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="add_form">
+  <div hidden>
+    aaa
+  </div>
+</div>
+<input type="button" value="追加" onclick="addBtn()" />
+<input type="button" value="削除" onclick="deleteBtn()" />
+
+<script>
+  function addBtn() {
+    const addf_form = document.getElementById("add_form");
+    // 要素の追加
+    // if (!add_form.hasChildNodes()) {
+      const p1 = document.createElement("div");
+      const text1 = document.createTextNode("テスト");
+      p1.appendChild(text1);
+      add_form.appendChild(p1);
+    // }
+  }
+  function deleteBtn() {
+    // 要素の削除
+    const add_form = document.getElementById("add_form");
+    if (add-form.hasChildNodes()) {
+      add_form.removeChild(add_form.firstChild);
+    }
+  }
+</script>
+
+
+<div id="div1"></div>
+
+<input type="button" value="削除" onclick="clickBtn2()" />
+
+<script>
+  function clickBtn1() {
+    const div1 = document.getElementById("div1");
+    // 要素の追加
+    if (!div1.hasChildNodes()) {
+      const p1 = document.createElement("p");
+      const text1 = document.createTextNode("テスト");
+      p1.appendChild(text1);
+      div1.appendChild(p1);
+    }
+  }
+  function clickBtn2() {
+    // 要素の削除
+    const div1 = document.getElementById("div1");
+    if (div1.hasChildNodes()) {
+      div1.removeChild(div1.firstChild);
+    }
+  }
+</script>
+
+<script>
+  // var i = 1 ;
+function addForm() {
+  var input_data = document.createElement('input');
+  input_data.type = 'text';
+  // input_data.id = 'inputform_' + i;
+  // input_data.placeholder = 'フォーム-' + i;
+  var parent = document.getElementById('form_area');
+  parent.appendChild(input_data);
+
+  var button_data = document.createElement('button');
+  button_data.id = i;
+  button_data.onclick = function(){deleteBtn(this);}
+  button_data.innerHTML = '削除';
+  var input_area = document.getElementById(input_data.id);
+  parent.appendChild(button_data);
+
+  i++ ;
+}
+
+function deleteBtn(target) {
+  var target_id = target.id;
+  var parent = document.getElementById('form_area');
+  var ipt_id = document.getElementById('inputform_' + target_id);
+  var tgt_id = document.getElementById(target_id);
+  parent.removeChild(ipt_id);
+  parent.removeChild(tgt_id);	
+}
+</script>
+
+<div id="form_area">
+  <input type="text" id="inputform_0" placeholder="フォーム-0">
+  <button id="0" onclick="deleteBtn(this)">削除</button>
+</div>
+<input type="button" value="フォーム追加" onclick="addForm()">
+
+
+
+<article id="content_area">
+  <h2>HTML要素の複製</h2>
+  <p>テキストテキストテキスト</p>
+  <ul>
+    <li>リスト1</li>
+    <li>リスト2</li>
+    <li>リスト3</li>
+  </ul>
+</article>
+<input type="button" value="a追加" onclick="clickBtn1()" />
+
+<script>
+  function clickBtn1() {
+// 複製するHTML要素を取得
+var content_area = document.getElementById("content_area");
+// 複製
+var clone_element = content_area.cloneNode(true);
+// 複製した要素の属性を編集
+clone_element.id = "content_area2";
+// 複製した要素の子孫要素を編集
+var h2_element = clone_element.querySelector("h2");h2_element.textContent = '複製した要素';
+var h2_element = clone_element.querySelector("p");h2_element.textContent = '複製した要素のテキスト';
+// 複製したHTML要素をページに挿入
+content_area.after(clone_element);
+  }
+</script>
