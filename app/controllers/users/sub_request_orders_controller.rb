@@ -5,7 +5,7 @@ module Users
     def index; end
 
     def new
-      requested_businesses = Business.joins(:request_orders).where(request_orders: {id: @request_order.children})
+      requested_businesses = Business.joins(:request_orders).where(request_orders: { id: @request_order.children })
       @businesses = Business.where.not(id: requested_businesses).where.not(id: current_business)
     end
 
