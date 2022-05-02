@@ -11,1334 +11,289 @@
   </div>
 <% end %>
 
-<%= form_with model: @document, url: users_request_order_document_path, method: :patch, local: true do |f| %>
+<%= form_with model: @document, url: users_request_order_document_path do |f| %>
+  <!-- 作業員情報 追加 -->
   <div>
-    <div class="stl_02">
-      <div class="stl_03">
-        <img src="/doc_5th.png" alt="" class="stl_04">
-      </div>
-      <div class="stl_view">
-        <div class="stl_05 stl_06">
-          <div class="stl_01" style="top: 2.0732em; left:9em;">
-            <span class="stl_07 stl_08">全建統一様式第５号 改</span></span>
-          </div>
-          <div class="stl_01" style="top: 2.4048em; left:78.86em;">
-            <span class="stl_10 stl_11" style="word-spacing:-0.07em;">元請 確認欄</span>
-          </div>
-          <div class="stl_01" style="top: 3.8231em; left:35.76em;">
-            <span class="stl_12" style="font-weight:bold;">作 業 員 名 簿</span>
-          </div>
-          <div class="stl_01" style="top: 5.6732em; left:46.66em;">
-            <span class="stl_07 stl_11" style="word-spacing:0.66em;">作成 ）</span>
-          </div>
-          <div class="stl_01" style="top: 6.6363em; left:34.14em;">
-            <span class="stl_13 stl_08">本書面に記載した内容は、作業員名簿として、安全衛生管</span>
-          </div>
-          <div class="stl_01" style="top: 7.2363em; left:34.14em;">
-            <span class="stl_13 stl_08">理や労働災害発生時の緊急連絡・対応のために元請負業者</span>
-          </div>
-          <div class="stl_01" style="top: 7.8363em; left:34.14em;">
-            <span class="stl_13 stl_08">に提示することについて、記載者本人は同意しています。</span>
-          </div>
-          <div class="stl_01" style="top: 4.4732em; left:82.2em;">
-            <span class="stl_07 stl_14" style="word-spacing:0.02em;">提 出 日</span>
-          </div>
-          <div class="stl_01" style="top: 5.1363em; left:4.54em;">
-            <span class="stl_13 stl_08">事業所の名称</span>
-          </div>
-          <div class="stl_01" style="top: 6.3048em; left:4.55em;">
-            <span class="stl_10 stl_08">現 場 ID</span>
-          </div>
-          <div class="stl_01" style="top: 7.5048em; left:4.55em;">
-            <span class="stl_10 stl_08">所 長 名</span>
-          </div>
-          <div class="stl_01" style="top: 5.0245em; left:18.5em;">
-            <span class="stl_15 stl_09"><%= @document.content["doc5_8_001_business_name"][0] %></span>
-          </div>
-          <div class="stl_01" style="top: 6.2245em; left:18.5em;">
-            <span class="stl_15 stl_09">8-002</span>
-          </div>
-          <div class="stl_01" style="top: 5.6732em; left:34.65em;">
-            <span class="stl_07 stl_09">（</span>
-          </div>
-          <div class="stl_01" style="top: 7.4245em; left:17.76em;">
-            <span class="stl_15 stl_09">8-003</span>
-          </div>
-          <div class="stl_01" style="top: 5.6245em; left:37.11em;">
-            <span class="stl_15 stl_09">8-004</span>
-          </div>
-          <div class="stl_01" style="top: 6.3048em; left:54.87em;">
-            <span class="stl_10 stl_08">一次会社名</span>
-          </div>
-          <div class="stl_01" style="top: 7.5048em; left:54.87em;">
-            <span class="stl_10 stl_08">事業者ID</span>
-          </div>
-          <div class="stl_01" style="top: 6.2245em; left:65.8589em;">
-            <span class="stl_15 stl_09">8-005</span>
-          </div>
-          <div class="stl_01" style="top: 7.4245em; left:65.12em;">
-            <span class="stl_15 stl_09">8-006</span>
-          </div>
-          <div class="stl_01" style="top: 6.1645em; left:76.09em;">
-            <span class="stl_07 stl_09">（</span>
-            <span class="stl_16 stl_08" style="word-spacing:-0.26em;">8-007</span>
-            <span class="stl_16" style="word-spacing:0.58em;">&nbsp;</span>
-            <span class="stl_07 stl_09" style="word-spacing:0.39em;">次）会社名</span>
-            <span class="stl_07" style="word-spacing:0.7em;">&nbsp;</span>
-            <span class="stl_15" style="word-spacing:0.76em;">8-009</span>
-          </div>
-          <div class="stl_01" style="top: 7.2132em; left:72.92em;">
-            <span class="stl_07 stl_09">㊞</span>
-          </div>
-          <div class="stl_01" style="top: 7.3232em; left:77.07em;">
-            <span class="stl_07">事業者ID &nbsp;</span>
-          </div>
-          <div class="stl_01" style="top: 7.2132em; left:93.64em;">
-            <span class="stl_07 stl_09">㊞</span>
-          </div>
-          <div class="stl_01" style="top: 7.4732em; left:28.52em;">
-            <span class="stl_07 stl_09">殿</span>
-          </div>
-          <div class="stl_01" style="top: 7.4245em; left:81.51em;">
-            <span class="stl_15 stl_09">8-010</span>
-          </div>
-          <div class="stl_01" style="top: 8.5079em; left:54.85em;">
-            <span class="stl_17 stl_14">［</span>
-          </div>
-          <div class="stl_01" style="top: 4.4245em; left:89.54em;">
-            <span class="stl_15 stl_09">8-011</span>
-          </div>
-          <div class="stl_01" style="top: 10.1732em; left:51.8977em;">
-            <span class="stl_07 stl_08">最近の健康診断日</span>
-          </div>
-          <div class="stl_01" style="top: 11.9732em; left:54.06em;">
-            <span class="stl_07 stl_09">血圧 &nbsp;</span>
-          </div>
-          <div class="stl_01" style="top: 8.5079em; left:55.3906em;">
-            <span class="stl_17" style="word-spacing:-0.02em;">退職金共済制度加入について 建退共・中退共・その他・無］</span>
-          </div>
-          <div class="stl_01" style="top: 8.5079em; left:77.05em;">
-            <span class="stl_17" style="word-spacing:-0.02em;">［退職金共済制度加入について 建退共・中退共・その他・無］</span>
-          </div>
-          <div class="stl_01" style="top: 9.8732em; left:7.86em;">
-            <span class="stl_07 stl_08">フ リ ガ ナ</span>
-          </div>
-          <div class="stl_01" style="top: 11.0732em; left:7.86em;">
-            <span class="stl_07 stl_08">氏　　　名</span>
-          </div>
-          <div class="stl_01" style="top: 12.2732em; left:7.86em;">
-            <span class="stl_07 stl_08">技 能 者 I D</span>
-          </div>
-          <div class="stl_01" style="top: 9.8732em; left:66.66em;">
-            <span class="stl_07 stl_08">健康保険</span>
-          </div>
-          <div class="stl_01" style="top: 11.0732em; left:66.66em;">
-            <span class="stl_07 stl_08">年金保険</span>
-          </div>
-          <div class="stl_01" style="top: 12.2732em; left:66.66em;">
-            <span class="stl_07 stl_08">雇用保険</span>
-          </div>
-          <div class="stl_01" style="top: 13.4245em; left:67.34em;">
-            <span class="stl_15 stl_09">1-031</span>
-          </div>
-          <div class="stl_01" style="top: 10.0009em; left:71.59em;">
-            <span class="stl_18 stl_14">建設業退職金共済制度</span>
-          </div>
-          <div class="stl_01" style="top: 10.1732em; left:21.9em;">
-            <span class="stl_07">雇入年月日</span>
-          </div>
-          <div class="stl_01" style="top: 11.9732em; left:22.26em;">
-            <span class="stl_07 stl_08">経験年数</span>
-          </div>
-          <div class="stl_01" style="top: 10.1732em; left:28.18em;">
-            <span class="stl_07 stl_08">生年月日</span>
-          </div>
-          <div class="stl_01" style="top: 11.9732em; left:28.9em;">
-            <span class="stl_07 stl_09">年齢</span>
-          </div>
-          <div class="stl_01" style="top: 10.1732em; left:38.16em;">
-            <span class="stl_07">現住所</span>
-          </div>
-          <div class="stl_01" style="top: 10.1732em; left:47.0629em;">
-            <span class="stl_07 stl_08">（ＴＥＬ）</span>
-          </div>
-          <div class="stl_01" style="top: 10.1732em; left:59.66em;">
-            <span class="stl_07 stl_08">特殊健康診断日</span>
-          </div>
-          <div class="stl_01" style="top: 11.9732em; left:61.46em;">
-            <span class="stl_07 stl_09">種類</div>
-          <div class="stl_01" style="top: 10.1732em; left:78.54em;">
-            <span class="stl_07 stl_08">教育・資格・免許</span>
-          </div>
-          <div class="stl_01" style="top: 10.1732em; left:87.0169em;">
-            <span class="stl_07">入場年月日</span>
-          </div>
-          <div class="stl_01" style="top: 12.0679em; left:86.25em;">
-            <span class="stl_17 stl_08" style="word-spacing:-0.01em;">受入教育 実施年月日</span>
-          </div>
-          <div class="stl_01" style="top: 13.7245em; left:88.06em;">
-            <span class="stl_15 stl_09">1-039</span>
-          </div>
-          <div class="stl_01" style="top: 10.3032em; left:58.09em;">
-            <span class="stl_07 stl_09">血</span>
-          </div>
-          <div class="stl_01" style="top: 11.0832em; left:58.09em;">
-            <span class="stl_07 stl_09">液</span>
-          </div>
-          <div class="stl_01" style="top: 11.8632em; left:58.09em;">
-            <span class="stl_07 stl_09">型</span>
-          </div>
-          <div class="stl_01" style="top: 10.4863em; left:91.86em;">
-            <span class="stl_13 stl_08">退職金共</span>
-          </div>
-          <div class="stl_01" style="top: 11.1463em; left:91.86em;">
-            <span class="stl_13 stl_08">済手帳所</span>
-          </div>
-          <div class="stl_01" style="top: 11.8063em; left:91.86em;">
-            <span class="stl_13 stl_08">有の有無</span>
-          </div>
-          <div class="stl_01" style="top: 10.6932em; left:4.81em;">
-            <span class="stl_07 stl_09">番</span>
-          </div>
-          <div class="stl_01" style="top: 11.4732em; left:4.81em;">
-            <span class="stl_07 stl_09">号</span>
-          </div>
-          <div class="stl_01" style="top: 11.0732em; left:15.4em;">
-            <span class="stl_07" style="word-spacing:-0.01em;">職 種</span>
-          </div>
-          <div class="stl_01" style="top: 14.6245em; left:15.54em;">
-            <span class="stl_15 stl_09">1-015</span>
-          </div>
-          <div class="stl_01" style="top: 18.2445em; left:15.51em;">
-            <span class="stl_15 stl_09">2-015</span>
-          </div>
-          <div class="stl_01" style="top: 21.8445em; left:15.51em;">
-            <span class="stl_15 stl_09">3-015</span>
-          </div>
-          <div class="stl_01" style="top: 25.4445em; left:15.51em;">
-            <span class="stl_15 stl_09">4-015</span>
-          </div>
-          <div class="stl_01" style="top: 29.0445em; left:15.51em;">
-            <span class="stl_15 stl_09">5-015</span>
-          </div>
-          <div class="stl_01" style="top: 32.6445em; left:15.51em;">
-            <span class="stl_15 stl_09">6-015</span>
-          </div>
-          <div class="stl_01" style="top: 36.2445em; left:15.51em;">
-            <span class="stl_15 stl_09">7-015</span>
-          </div>
-          <div class="stl_01" style="top: 39.8445em; left:15.51em;">
-            <span class="stl_15 stl_09">8-015</span>
-          </div>
-          <div class="stl_01" style="top: 43.4445em; left:15.51em;">
-            <span class="stl_15 stl_09">9-015</span>
-          </div>
-          <div class="stl_01" style="top: 47.0445em; left:15.34em;">
-            <span class="stl_15 stl_09">10-015</span>
-          </div>
-          <div class="stl_01" style="top: 50.6445em; left:15.34em;">
-            <span class="stl_15 stl_09">11-015</span>
-          </div>
-          <div class="stl_01" style="top: 11.0732em; left:18.9001em;">
-            <span class="stl_07 stl_09">※</span>
-          </div>
-          <div class="stl_01" style="top: 11.2009em; left:71.35em;">
-            <span class="stl_18 stl_14">中小企業退職金共済制度</span>
-          </div>
-          <div class="stl_01" style="top: 11.9526em; left:77.89em;">
-            <span class="stl_20 stl_09">雇入・</span>
-          </div>
-          <div class="stl_01" style="top: 12.3826em; left:77.35em;">
-            <span class="stl_20 stl_09">職長特別教育</span>
-          </div>
-          <div class="stl_01" style="top: 11.9732em; left:37.44em;">
-            <span class="stl_07">家族連絡先</span>
-          </div>
-          <div class="stl_01" style="top: 11.9732em; left:47.0599em;">
-            <span class="stl_07">（ＴＥＬ）</span>
-          </div>
-          <div class="stl_01" style="top: 13.7245em; left:48.0962em;">
-            <span class="stl_15 stl_09">1-023</span>
-          </div>
-          <div class="stl_01" style="top: 15.5245em; left:48.0962em;">
-            <span class="stl_15 stl_09">1-024</span>
-          </div>
-          <div class="stl_01" style="top: 17.3445em; left:48.07em;">
-            <span class="stl_15 stl_09">2-023</span>
-          </div>
-          <div class="stl_01" style="top: 19.1445em; left:48.07em;">
-            <span class="stl_15 stl_09">2-024</span>
-          </div>
-          <div class="stl_01" style="top: 20.9445em; left:48.0702em;">
-            <span class="stl_15 stl_09">3-023</span>
-          </div>
-          <div class="stl_01" style="top: 22.7445em; left:48.07em;">
-            <span class="stl_15 stl_09">3-024</span>
-          </div>
-          <div class="stl_01" style="top: 24.5445em; left:48.0702em;">
-            <span class="stl_15 stl_09">4-023</span>
-          </div>
-          <div class="stl_01" style="top: 26.3445em; left:48.07em;">
-            <span class="stl_15 stl_09">4-024</span>
-          </div>
-          <div class="stl_01" style="top: 28.1445em; left:48.0702em;">
-            <span class="stl_15 stl_09">5-023</span>
-          </div>
-          <div class="stl_01" style="top: 29.9445em; left:48.0702em;">
-            <span class="stl_15 stl_09">5-024</span>
-          </div>
-          <div class="stl_01" style="top: 31.7445em; left:48.0702em;">
-            <span class="stl_15 stl_09">6-023</span>
-          </div>
-          <div class="stl_01" style="top: 33.5445em; left:48.0702em;">
-            <span class="stl_15 stl_09">6-024</span>
-          </div>
-          <div class="stl_01" style="top: 35.3445em; left:48.07em;">
-            <span class="stl_15 stl_09">7-023</span>
-          </div>
-          <div class="stl_01" style="top: 37.1445em; left:48.0702em;">
-            <span class="stl_15 stl_09">7-024</span>
-          </div>
-          <div class="stl_01" style="top: 38.9445em; left:48.07em;">
-            <span class="stl_15 stl_09">8-023</span>
-          </div>
-          <div class="stl_01" style="top: 40.7445em; left:48.0702em;">
-            <span class="stl_15 stl_09">8-024</span>
-          </div>
-          <div class="stl_01" style="top: 42.5445em; left:48.0702em;">
-            <span class="stl_15 stl_09">9-023</span>
-          </div>
-          <div class="stl_01" style="top: 44.3445em; left:48.0702em;">
-            <span class="stl_15 stl_09">9-024</span>
-          </div>
-          <div class="stl_01" style="top: 46.1445em; left:47.8986em;">
-            <span class="stl_15 stl_09">10-023</span>
-          </div>
-          <div class="stl_01" style="top: 47.9445em; left:47.9em;">
-            <span class="stl_15 stl_09">10-024</span>
-          </div>
-          <div class="stl_01" style="top: 49.7445em; left:47.8986em;">
-            <span class="stl_15 stl_09">11-023</span>
-          </div>
-          <div class="stl_01" style="top: 51.5445em; left:47.8986em;">
-            <span class="stl_15 stl_09">11-024</span>
-          </div>
-          <div class="stl_01" style="top: 12.0363em; left:80.22em;">
-            <span class="stl_13 stl_08">技能講習</span>
-          </div>
-          <div class="stl_01" style="top: 12.0363em; left:83.7775em;">
-            <span class="stl_13">免許</span>
-          </div>
-          <div class="stl_01" style="top: 13.4245em; left:6.03em;">
-            <span class="stl_15 stl_09">1-012</span>
-          </div>
-          <div class="stl_01" style="top: 13.4245em; left:73.2573em;">
-            <span class="stl_15 stl_09">1-034</span>
-          </div>
-          <div class="stl_01" style="top: 14.6245em; left:73.2573em;">
-            <span class="stl_15 stl_09">1-035</span>
-          </div>
-          <div class="stl_01" style="top: 13.7245em; left:22.94em;">
-            <span class="stl_15 stl_09">1-017</span>
-          </div>
-          <div class="stl_01" style="top: 15.5245em; left:22.94em;">
-            <span class="stl_15 stl_09">1-018</span>
-          </div>
-          <div class="stl_01" style="top: 13.7245em; left:28.8573em;">
-            <span class="stl_15 stl_09">1-019</span>
-          </div>
-          <div class="stl_01" style="top: 15.5245em; left:28.8573em;">
-            <span class="stl_15 stl_09">1-020</span>
-          </div>
-          <div class="stl_01" style="top: 17.3445em; left:28.8273em;">
-            <span class="stl_15 stl_09">2-019</span>
-          </div>
-          <div class="stl_01" style="top: 19.1445em; left:28.8273em;">
-            <span class="stl_15 stl_09">2-020</span>
-          </div>
-          <div class="stl_01" style="top: 20.9445em; left:28.83em;">
-            <span class="stl_15 stl_09">3-019</span>
-          </div>
-          <div class="stl_01" style="top: 22.7445em; left:28.83em;">
-            <span class="stl_15 stl_09">3-020</span>
-          </div>
-          <div class="stl_01" style="top: 24.5445em; left:28.83em;">
-            <span class="stl_15 stl_09">4-019</span>
-          </div>
-          <div class="stl_01" style="top: 26.3445em; left:28.8273em;">
-            <span class="stl_15 stl_09">4-020</span>
-          </div>
-          <div class="stl_01" style="top: 28.1445em; left:28.8273em;">
-            <span class="stl_15 stl_09">5-019</span>
-          </div>
-          <div class="stl_01" style="top: 29.9445em; left:28.83em;">
-            <span class="stl_15 stl_09">5-020</span>
-          </div>
-          <div class="stl_01" style="top: 31.7445em; left:28.83em;">
-            <span class="stl_15 stl_09">6-019</span>
-          </div>
-          <div class="stl_01" style="top: 33.5445em; left:28.83em;">
-            <span class="stl_15 stl_09">6-020</span>
-          </div>
-          <div class="stl_01" style="top: 35.3445em; left:28.8273em;">
-            <span class="stl_15 stl_09">7-019</span>
-          </div>
-          <div class="stl_01" style="top: 37.1445em; left:28.8273em;">
-            <span class="stl_15 stl_09">7-020 &nbsp</span>
-          </div>
-          <div class="stl_01" style="top: 38.9445em; left:28.83em;">
-            <span class="stl_15 stl_09">8-019</span>
-          </div>
-          <div class="stl_01" style="top: 40.7445em; left:28.83em;">
-            <span class="stl_15 stl_09">8-020</span>
-          </div>
-          <div class="stl_01" style="top: 42.5445em; left:28.8273em;">
-            <span class="stl_15 stl_09">9-019</span>
-          </div>
-          <div class="stl_01" style="top: 44.3445em; left:28.8273em;">
-            <span class="stl_15 stl_09">9-020</span>
-          </div>
-          <div class="stl_01" style="top: 46.1445em; left:28.6547em;">
-            <span class="stl_15 stl_09">10-019</span>
-          </div>
-          <div class="stl_01" style="top: 47.9445em; left:28.6547em;">
-            <span class="stl_15 stl_09">10-020</span>
-          </div>
-          <div class="stl_01" style="top: 49.7445em; left:28.66em;">
-            <span class="stl_15 stl_09">11-019</span>
-          </div>
-          <div class="stl_01" style="top: 51.5445em; left:28.66em;">
-            <span class="stl_15 stl_09">11-020</span>
-          </div>
-          <div class="stl_01" style="top: 13.7245em; left:32.67em;">
-            <span class="stl_15 stl_09">1-021</span>
-          </div>
-          <div class="stl_01" style="top: 15.5245em; left:32.67em;">
-            <span class="stl_15 stl_09">1-022</span>
-          </div>
-          <div class="stl_01" style="top: 17.3445em; left:32.67em;">
-            <span class="stl_15 stl_09">2-021</span>
-          </div>
-          <div class="stl_01" style="top: 19.1445em; left:32.67em;">
-            <span class="stl_15 stl_09">2-022</span>
-          </div>
-          <div class="stl_01" style="top: 20.9445em; left:32.67em;">
-            <span class="stl_15 stl_09">3-021</span>
-          </div>
-          <div class="stl_01" style="top: 22.7445em; left:32.67em;">
-            <span class="stl_15 stl_09">3-022</span>
-          </div>
-          <div class="stl_01" style="top: 24.5445em; left:32.67em;">
-            <span class="stl_15 stl_09">4-021</span>
-          </div>
-          <div class="stl_01" style="top: 26.3445em; left:32.67em;">
-            <span class="stl_15 stl_09">4-022</span>
-          </div>
-          <div class="stl_01" style="top: 28.1445em; left:32.67em;">
-            <span class="stl_15 stl_09">5-021</span>
-          </div>
-          <div class="stl_01" style="top: 29.9445em; left:32.67em;">
-            <span class="stl_15 stl_09">5-022</span>
-          </div>
-          <div class="stl_01" style="top: 31.7445em; left:32.67em;">
-            <span class="stl_15 stl_09">6-021</span>
-          </div>
-          <div class="stl_01" style="top: 33.5445em; left:32.67em;">
-            <span class="stl_15 stl_09">6-022</span>
-          </div>
-          <div class="stl_01" style="top: 35.3445em; left:32.67em;">
-            <span class="stl_15 stl_09">7-021</span>
-          </div>
-          <div class="stl_01" style="top: 37.1445em; left:32.67em;">
-            <span class="stl_15 stl_09">7-022</span>
-          </div>
-          <div class="stl_01" style="top: 38.9445em; left:32.67em;">
-            <span class="stl_15 stl_09">8-021</span>
-          </div>
-          <div class="stl_01" style="top: 40.7445em; left:32.67em;">
-            <span class="stl_15 stl_09">8-022</span>
-          </div>
-          <div class="stl_01" style="top: 42.5445em; left:32.67em;">
-            <span class="stl_15 stl_09">9-021</span>
-          </div>
-          <div class="stl_01" style="top: 44.3445em; left:32.67em;">
-            <span class="stl_15 stl_09">9-022</span>
-          </div>
-          <div class="stl_01" style="top: 46.1445em; left:32.67em;">
-            <span class="stl_15 stl_09">10-021</span>
-          </div>
-          <div class="stl_01" style="top: 47.9445em; left:32.67em;">
-            <span class="stl_15 stl_09">10-022</span>
-          </div>
-          <div class="stl_01" style="top: 49.7445em; left:32.67em;">
-            <span class="stl_15 stl_09">11-021</span>
-          </div>
-          <div class="stl_01" style="top: 51.5445em; left:32.67em;">
-            <span class="stl_15 stl_09">11-022</span>
-          </div>
-          <div class="stl_01" style="top: 13.7245em; left:54.0135em;">
-            <span class="stl_15 stl_08">1-025</span>
-          </div>
-          <div class="stl_01" style="top: 13.7245em; left:61.42em;">
-            <span class="stl_15 stl_09">1-029</span>
-          </div>
-          <div class="stl_01" style="top: 13.7445em; left:92.07em;">
-            <span class="stl_15">1建・中</span>
-          </div>
-          <div class="stl_01" style="top: 15.5445em; left:92.07em;">
-            <span class="stl_15">1他・無</span>
-          </div>
-          <div class="stl_01" style="top: 17.4148em; left:92.07em;">
-            <span class="stl_10 stl_08">2建・中</span>
-          </div>
-          <div class="stl_01" style="top: 19.2148em; left:92.07em;">
-            <span class="stl_10 stl_08">2他・無</span>
-          </div>
-          <div class="stl_01" style="top: 21.0148em; left:92.07em;">
-            <span class="stl_10 stl_08">3建・中</span>
-          </div>
-          <div class="stl_01" style="top: 22.8148em; left:92.07em;">
-            <span class="stl_10 stl_08">3他・無</span>
-          </div>
-          <div class="stl_01" style="top: 24.6148em; left:92.07em;">
-            <span class="stl_10 stl_08">4建・中</span>
-          </div>
-          <div class="stl_01" style="top: 26.4148em; left:92.07em;">
-            <span class="stl_10 stl_08">4他・無</span>
-          </div>
-          <div class="stl_01" style="top: 28.2148em; left:92.07em;">
-            <span class="stl_10 stl_08">5建・中</span>
-          </div>
-          <div class="stl_01" style="top: 30.0148em; left:92.07em;">
-            <span class="stl_10 stl_08">5他・無</span>
-          </div>
-          <div class="stl_01" style="top: 31.8148em; left:92.07em;">
-            <span class="stl_10 stl_08">6建・中</span>
-          </div>
-          <div class="stl_01" style="top: 33.6148em; left:92.07em;">
-            <span class="stl_10 stl_08">6他・無</span>
-          </div>
-          <div class="stl_01" style="top: 35.4148em; left:92.07em;">
-            <span class="stl_10 stl_08">7建・中</span>
-          </div>
-          <div class="stl_01" style="top: 37.2148em; left:92.07em;">
-            <span class="stl_10 stl_08">7他・無</span>
-          </div>
-          <div class="stl_01" style="top: 39.0148em; left:92.07em;">
-            <span class="stl_10 stl_08">8建・中</span>
-          </div>
-          <div class="stl_01" style="top: 40.8148em; left:92.07em;">
-            <span class="stl_10 stl_08">8他・無</span>
-          </div>
-          <div class="stl_01" style="top: 42.6148em; left:92.07em;">
-            <span class="stl_10 stl_08">9建・中</span>
-          </div>
-          <div class="stl_01" style="top: 44.4148em; left:92.07em;">
-            <span class="stl_10 stl_08">9他・無</span>
-          </div>
-          <div class="stl_01" style="top: 46.2148em; left:92.07em;">
-            <span class="stl_10 stl_08">0建・中</span>
-          </div>
-          <div class="stl_01" style="top: 48.0148em; left:92.07em;">
-            <span class="stl_10 stl_08">0他・無</span>
-          </div>
-          <div class="stl_01" style="top: 49.8148em; left:92.07em;">
-            <span class="stl_10 stl_08">A建・中</span>
-          </div>
-          <div class="stl_01" style="top: 51.6148em; left:92.07em;">
-            <span class="stl_10 stl_08">A他・無</span>
-          </div>
-          <div class="stl_01" style="top: 14.7148em; left:5em;">
-            <span class="stl_10 stl_09">1</span>
-          </div>
-          <div class="stl_01" style="top: 18.3148em; left:5em;"><span class="stl_10 stl_09">2</span></div>
-          <div class="stl_01" style="top: 21.9148em; left:5em;"><span class="stl_10 stl_09">3</span></div>
-          <div class="stl_01" style="top: 25.5148em; left:5em;"><span class="stl_10 stl_09">4</span></div>
-          <div class="stl_01" style="top: 29.1148em; left:5em;"><span class="stl_10 stl_09">5</span></div>
-          <div class="stl_01" style="top: 32.7148em; left:5em;"><span class="stl_10 stl_09">6</span></div>
-          <div class="stl_01" style="top: 36.3148em; left:5em;"><span class="stl_10 stl_09">7</span></div>
-          <div class="stl_01" style="top: 39.9148em; left:5em;"><span class="stl_10 stl_09">8</span></div>
-          <div class="stl_01" style="top: 43.5148em; left:5em;"><span class="stl_10 stl_09">9</span></div>
-          <div class="stl_01" style="top: 14.6245em; left:6.03em;">
-            <span class="stl_15 stl_09">1-013</span>
-          </span>
-          </div>
-          <div class="stl_01" style="top: 14.6245em; left:18.4999em;">
-            <span class="stl_15 stl_09">1-016</span>
-          </div>
-          <div class="stl_01" style="top: 18.2445em; left:18.47em;">
-            <span class="stl_15 stl_09">2-016</span>
-          </div>
-          <div class="stl_01" style="top: 21.8445em; left:18.4699em;">
-            <span class="stl_15 stl_09">3-016</span>
-          </div>
-          <div class="stl_01" style="top: 25.4445em; left:18.4699em;">
-            <span class="stl_15 stl_09">4-016</span>
-          </div>
-          <div class="stl_01" style="top: 29.0445em; left:18.4699em;">
-            <span class="stl_15 stl_09">5-016</span>
-          </div>
-          <div class="stl_01" style="top: 32.6445em; left:18.4699em;">
-            <span class="stl_15 stl_09">6-016</span>
-          </div>
-          <div class="stl_01" style="top: 36.2445em; left:18.4699em;">
-            <span class="stl_15 stl_09">7-016</span>
-          </div>
-          <div class="stl_01" style="top: 39.8445em; left:18.47em;">
-            <span class="stl_15 stl_09">8-016</span>
-          </div>
-          <div class="stl_01" style="top: 43.4445em; left:18.4699em;">
-            <span class="stl_15 stl_09">9-016</span>
-          </div>
-          <div class="stl_01" style="top: 47.0445em; left:18.2973em;">
-            <span class="stl_15 stl_09">10-016</span>
-          </div>
-          <div class="stl_01" style="top: 50.6445em; left:18.2973em;">
-            <span class="stl_15 stl_09">11-016</span>
-          </div>
-          <div class="stl_01" style="top: 14.6245em; left:58.14em;">
-            <span class="stl_15 stl_09">B1</span>
-          </div>
-          <div class="stl_01" style="top: 18.2445em; left:58.11em;">
-            <span class="stl_15 stl_09">B2</span>
-          </div>
-          <div class="stl_01" style="top: 14.6245em; left:67.34em;">
-            <span class="stl_15 stl_09">1-032</span>
-          </div>
-          <div class="stl_01" style="top: 14.6245em; left:77.7em;">
-            <span class="stl_15 stl_09">1-036</span>
-          </div>
-          <div class="stl_01" style="top: 14.6245em; left:80.6599em;">
-            <span class="stl_15 stl_09">1-037</span>
-          </div>
-          <div class="stl_01" style="top: 14.6245em; left:83.6134em;">
-            <span class="stl_15 stl_08">1-038</span>
-          </div>
-          <div class="stl_01" style="top: 15.5445em; left:52.93em;">
-            <span class="stl_15 stl_09">1-026～1-027</span>
-          </div>
-          <div class="stl_01" style="top: 17.3445em; left:53.9873em;">
-            <span class="stl_15 stl_09">2-025</span>
-          </div>
-          <div class="stl_01" style="top: 15.5245em; left:61.42em;">
-            <span class="stl_15 stl_09">1-030</span>
-          </div>
-          <div class="stl_01" style="top: 15.5245em; left:88.06em;">
-            <span class="stl_15 stl_09">1-040</span>
-          </div>
-          <div class="stl_01" style="top: 15.8245em; left:6.03em;">
-            <span class="stl_15 stl_09">1-014</span>
-          </div>
-          <div class="stl_01" style="top: 15.8245em; left:67.34em;">
-            <span class="stl_15 stl_09">1-033</span>
-          </div>
-          <div class="stl_01" style="top: 17.0445em; left:6.03em;">
-            <span class="stl_15 stl_09">2-012</span>
-          </div>
-          <div class="stl_01" style="top: 17.0445em; left:67.31em;">
-            <span class="stl_15 stl_09">2-031</span>
-          </div>
-          <div class="stl_01" style="top: 17.0445em; left:73.2273em;">
-            <span class="stl_15 stl_09">2-034</span>
-          </div>
-          <div class="stl_01" style="top: 18.2445em; left:73.2273em;">
-            <span class="stl_15 stl_09">2-035</span>
-          </div>
-          <div class="stl_01" style="top: 17.3445em; left:22.91em;">
-            <span class="stl_15 stl_09">2-017</span>
-          </div>
-          <div class="stl_01" style="top: 19.1445em; left:22.91em;">
-            <span class="stl_15 stl_09">2-018</span>
-          </div>
-          <div class="stl_01" style="top: 20.9445em; left:22.91em;">
-            <span class="stl_15 stl_09">3-017</span>
-          </div>
-          <div class="stl_01" style="top: 22.7445em; left:22.91em;">
-            <span class="stl_15 stl_09">3-018</span>
-          </div>
-          <div class="stl_01" style="top: 24.5445em; left:22.91em;">
-            <span class="stl_15 stl_09">4-017</span>
-          </div>
-          <div class="stl_01" style="top: 26.3445em; left:22.91em;">
-            <span class="stl_15 stl_09">4-018</span>
-          </div>
-          <div class="stl_01" style="top: 28.1445em; left:22.91em;">
-            <span class="stl_15 stl_09">5-017</span>
-          </div>
-          <div class="stl_01" style="top: 29.9445em; left:22.91em;">
-            <span class="stl_15 stl_09">5-018</span>
-          </div>
-          <div class="stl_01" style="top: 31.7445em; left:22.91em;">
-            <span class="stl_15 stl_09">6-017</span>
-          </div>
-          <div class="stl_01" style="top: 33.5445em; left:22.91em;">
-            <span class="stl_15 stl_09">6-018</span>
-          </div>
-          <div class="stl_01" style="top: 35.3445em; left:22.91em;">
-            <span class="stl_15 stl_09">7-017</span>
-          </div>
-          <div class="stl_01" style="top: 37.1445em; left:22.91em;">
-            <span class="stl_15 stl_09">7-018</span>
-          </div>
-          <div class="stl_01" style="top: 38.9445em; left:22.91em;">
-            <span class="stl_15 stl_09">8-017</span>
-          </div>
-          <div class="stl_01" style="top: 40.7445em; left:22.91em;">
-            <span class="stl_15 stl_09">8-018</span>
-          </div>
-          <div class="stl_01" style="top: 42.5445em; left:22.91em;">
-            <span class="stl_15 stl_09">9-017</span>
-          </div>
-          <div class="stl_01" style="top: 44.3445em; left:22.91em;">
-            <span class="stl_15 stl_09">9-018</span>
-          </div>
-          <div class="stl_01" style="top: 17.3445em; left:61.39em;">
-            <span class="stl_15 stl_09">2-029</span>
-          </div>
-          <div class="stl_01" style="top: 17.3445em; left:88.03em;">
-            <span class="stl_15 stl_09">2-039</span>
-          </div>
-          <div class="stl_01" style="top: 18.2445em; left:6.03em;">
-            <span class="stl_15 stl_09">2-013</span>
-          </div>
-          <div class="stl_01" style="top: 18.2445em; left:67.31em;">
-            <span class="stl_15 stl_09">2-032</span>
-          </div>
-          <div class="stl_01" style="top: 18.2445em; left:77.67em;">
-            <span class="stl_15 stl_09">2-036</span>
-          </div>
-          <div class="stl_01" style="top: 21.8445em; left:77.67em;">
-            <span class="stl_15 stl_09">3-036</span>
-          </div>
-          <div class="stl_01" style="top: 25.4445em; left:77.67em;">
-            <span class="stl_15 stl_09">4-036</span>
-          </div>
-          <div class="stl_01" style="top: 29.0445em; left:77.6646em;">
-            <span class="stl_15 stl_09">5-036</span>
-          </div>
-          <div class="stl_01" style="top: 32.6445em; left:77.67em;">
-            <span class="stl_15 stl_09">6-036</span>
-          </div>
-          <div class="stl_01" style="top: 36.2445em; left:77.67em;">
-            <span class="stl_15 stl_09">7-036</span>
-          </div>
-          <div class="stl_01" style="top: 39.8445em; left:77.67em;">
-            <span class="stl_15 stl_09">8-036</span>
-          </div>
-          <div class="stl_01" style="top: 43.4445em; left:77.67em;">
-            <span class="stl_15 stl_09">9-036</span>
-          </div>
-          <div class="stl_01" style="top: 47.0445em; left:77.5em;">
-            <span class="stl_15 stl_09">10-036</span>
-          </div>
-          <div class="stl_01" style="top: 50.6445em; left:77.5em;">
-            <span class="stl_15 stl_09">11-036</span>
-          </div>
-          <div class="stl_01" style="top: 18.2445em; left:80.6299em;">
-            <span class="stl_15 stl_09">2-037</span>
-          </div>
-          <div class="stl_01" style="top: 21.8445em; left:80.6299em;">
-            <span class="stl_15 stl_09">3-037</span>
-          </div>
-          <div class="stl_01" style="top: 25.4445em; left:80.6299em;">
-            <span class="stl_15 stl_09">4-037</span>
-          </div>
-          <div class="stl_01" style="top: 29.0445em; left:80.6245em;">
-            <span class="stl_15 stl_09">5-037</span>
-          </div>
-          <div class="stl_01" style="top: 32.6445em; left:80.6299em;">
-            <span class="stl_15 stl_09">6-037</span>
-          </div>
-          <div class="stl_01" style="top: 36.2445em; left:80.6299em;">
-            <span class="stl_15 stl_09">7-037</span>
-          </div>
-          <div class="stl_01" style="top: 39.8445em; left:80.6299em;">
-            <span class="stl_15 stl_09">8-037</span>
-          </div>
-          <div class="stl_01" style="top: 43.4445em; left:80.6299em;">
-            <span class="stl_15 stl_09">9-037</span>
-          </div>
-          <div class="stl_01" style="top: 47.0445em; left:80.4573em;">
-            <span class="stl_15 stl_09">10-037</span>
-          </div>
-          <div class="stl_01" style="top: 50.6445em; left:80.46em;">
-            <span class="stl_15 stl_09">11-037</span>
-          </div>
-          <div class="stl_01" style="top: 18.2445em; left:83.5834em;">
-            <span class="stl_15 stl_08">2-038</span>
-          </div>
-          <div class="stl_01" style="top: 21.8445em; left:83.5834em;">
-            <span class="stl_15 stl_08">3-038</span>
-          </div>
-          <div class="stl_01" style="top: 25.4445em; left:83.5834em;">
-            <span class="stl_15 stl_08">4-038</span>
-          </div>
-          <div class="stl_01" style="top: 29.0445em; left:83.5845em;">
-            <span class="stl_15 stl_09">5-038</span>
-          </div>
-          <div class="stl_01" style="top: 32.6445em; left:83.5834em;">
-            <span class="stl_15 stl_08">6-038</span>
-          </div>
-          <div class="stl_01" style="top: 36.2445em; left:83.5834em;">
-            <span class="stl_15 stl_08">7-038</span>
-          </div>
-          <div class="stl_01" style="top: 39.8445em; left:83.5834em;">
-            <span class="stl_15 stl_08">8-038</span>
-          </div>
-          <div class="stl_01" style="top: 43.4445em; left:83.5834em;">
-            <span class="stl_15 stl_08">9-038</span>
-          </div>
-          <div class="stl_01" style="top: 47.0445em; left:83.4147em;">
-            <span class="stl_15 stl_09">10-038</span>
-          </div>
-          <div class="stl_01" style="top: 50.6445em; left:83.4173em;">
-            <span class="stl_15 stl_09">11-038</span>
-          </div>
-          <div class="stl_01" style="top: 19.1445em; left:52.8953em;">
-            <span class="stl_15 stl_08">2-026～2-027</span>
-          </div>
-          <div class="stl_01" style="top: 20.9445em; left:53.9901em;">
-            <span class="stl_15 stl_09">3-025</span>
-          </div>
-          <div class="stl_01" style="top: 19.1445em; left:61.39em;">
-            <span class="stl_15 stl_09">2-030</span>
-          </div>
-          <div class="stl_01" style="top: 19.1445em; left:88.03em;">
-            <span class="stl_15 stl_09">2-040</span>
-          </div>
-          <div class="stl_01" style="top: 19.4445em; left:6.03em;">
-            <span class="stl_15 stl_09">2-014</span>
-          </div>
-          <div class="stl_01" style="top: 19.4445em; left:67.31em;">
-            <span class="stl_15 stl_09">2-033</span>
-          </div>
-          <div class="stl_01" style="top: 20.6445em; left:6.03em;">
-            <span class="stl_15 stl_09">3-012</span>
-          </div>
-          <div class="stl_01" style="top: 20.6445em; left:67.31em;">
-            <span class="stl_15 stl_09">3-031</span>
-          </div>
-          <div class="stl_01" style="top: 20.6445em; left:73.2273em;">
-            <span class="stl_15 stl_09">3-034</span>
-          </div>
-          <div class="stl_01" style="top: 21.8445em; left:73.2273em;">
-            <span class="stl_15 stl_09">3-035</span>
-          </div>
-          <div class="stl_01" style="top: 20.9445em; left:61.39em;">
-            <span class="stl_15 stl_09">3-029</span>
-          </div>
-          <div class="stl_01" style="top: 20.9445em; left:88.03em;">
-            <span class="stl_15 stl_09">3-039</span>
-          </div>
-          <div class="stl_01" style="top: 21.8445em; left:6.03em;">
-            <span class="stl_15 stl_09">3-013</span>
-          </div>
-          <div class="stl_01" style="top: 21.8245em; left:58.14em;">
-            <span class="stl_15 stl_09">B3</span>
-          </div>
-          <div class="stl_01" style="top: 21.8445em; left:67.31em;">
-            <span class="stl_15 stl_09">3-032</span>
-          </div>
-          <div class="stl_01" style="top: 22.7445em; left:52.8953em;">
-            <span class="stl_15 stl_08">3-026～3-027</span>
-          </div>
-          <div class="stl_01" style="top: 24.5445em; left:53.9901em;">
-            <span class="stl_15 stl_09">4-025</span>
-          </div>
-          <div class="stl_01" style="top: 22.7445em; left:61.39em;">
-            <span class="stl_15 stl_09">3-030</span>
-          </div>
-          <div class="stl_01" style="top: 22.7445em; left:88.03em;">
-            <span class="stl_15 stl_09">3-040</span>
-          </div>
-          <div class="stl_01" style="top: 23.0445em; left:6.03em;">
-            <span class="stl_15 stl_09">3-014</span>
-          </div>
-          <div class="stl_01" style="top: 23.0445em; left:67.31em;">
-            <span class="stl_15 stl_09">3-033</span>
-          </div>
-          <div class="stl_01" style="top: 24.2445em; left:6.03em;">
-            <span class="stl_15 stl_09">4-012</span>
-          </div>
-          <div class="stl_01" style="top: 24.2445em; left:67.31em;">
-            <span class="stl_15 stl_09">4-031</span>
-          </div>
-          <div class="stl_01" style="top: 24.2445em; left:73.2273em;">
-            <span class="stl_15 stl_09">4-034</span>
-          </div>
-          <div class="stl_01" style="top: 25.4445em; left:73.2273em;">
-            <span class="stl_15 stl_09">4-035</span>
-          </div>
-          <div class="stl_01" style="top: 24.5445em; left:61.39em;">
-            <span class="stl_15 stl_09">4-029</span>
-          </div>
-          <div class="stl_01" style="top: 24.5445em; left:88.03em;">
-            <span class="stl_15 stl_09">4-039</span>
-          </div>
-          <div class="stl_01" style="top: 25.4445em; left:6.03em;">
-            <span class="stl_15 stl_09">4-013</span>
-          </div>
-          <div class="stl_01" style="top: 25.4445em; left:58.11em;">
-            <span class="stl_15 stl_09">B4</span>
-          </div>
-          <div class="stl_01" style="top: 25.4445em; left:67.31em;">
-            <span class="stl_15 stl_09">4-032</span>
-          </div>
-          <div class="stl_01" style="top: 26.3445em; left:52.8953em;">
-            <span class="stl_15 stl_08">4-026～4-027</span>
-          </div>
-          <div class="stl_01" style="top: 28.1445em; left:53.9901em;">
-            <span class="stl_15 stl_09">5-025</span>
-          </div>
-          <div class="stl_01" style="top: 26.3445em; left:61.39em;">
-            <span class="stl_15 stl_09">4-030</span>
-          </div>
-          <div class="stl_01" style="top: 26.3445em; left:88.03em;">
-            <span class="stl_15 stl_09">4-040</span>
-          </div>
-          <div class="stl_01" style="top: 26.6445em; left:6.03em;">
-            <span class="stl_15 stl_09">4-014</span>
-          </div>
-          <div class="stl_01" style="top: 26.6445em; left:67.31em;">
-            <span class="stl_15 stl_09">4-033</span>
-          </div>
-          <div class="stl_01" style="top: 27.8445em; left:6.03em;">
-            <span class="stl_15 stl_09">5-012</span>
-          </div>
-          <div class="stl_01" style="top: 27.8445em; left:67.31em;">
-            <span class="stl_15 stl_09">5-031</span>
-          </div>
-          <div class="stl_01" style="top: 27.8445em; left:73.2273em;">
-            <span class="stl_15 stl_09">5-034</span>
-          </div>
-          <div class="stl_01" style="top: 29.0445em; left:73.2273em;">
-            <span class="stl_15 stl_09">5-035</span>
-          </div>
-          <div class="stl_01" style="top: 28.1445em; left:61.39em;">
-            <span class="stl_15 stl_09">5-029</span>
-          </div>
-          <div class="stl_01" style="top: 28.1445em; left:88.03em;">
-            <span class="stl_15 stl_09">5-039</span>
-          </div>
-          <div class="stl_01" style="top: 29.0445em; left:6.03em;">
-            <span class="stl_15 stl_09">5-013</span>
-          </div>
-          <div class="stl_01" style="top: 29.0245em; left:58.14em;">
-            <span class="stl_15 stl_09">B5</span>
-          </div>
-          <div class="stl_01" style="top: 29.0445em; left:67.31em;">
-            <span class="stl_15 stl_09">5-032</span>
-          </div>
-          <div class="stl_01" style="top: 29.9445em; left:52.8981em;">
-            <span class="stl_15 stl_09">5-026～5-027</span>
-          </div>
-          <div class="stl_01" style="top: 31.7445em; left:53.9901em;">
-            <span class="stl_15 stl_09">6-025</span>
-          </div>
-          <div class="stl_01" style="top: 29.9445em; left:61.39em;">
-            <span class="stl_15 stl_09">5-030</span>
-          </div>
-          <div class="stl_01" style="top: 29.9445em; left:88.03em;">
-            <span class="stl_15 stl_09">5-040</span>
-          </div>
-          <div class="stl_01" style="top: 30.2445em; left:6.03em;">
-            <span class="stl_15 stl_09">5-014</span>
-          </div>
-          <div class="stl_01" style="top: 30.2445em; left:67.31em;">
-            <span class="stl_15 stl_09">5-033</span>
-          </div>
-          <div class="stl_01" style="top: 31.4445em; left:6.03em;">
-            <span class="stl_15 stl_09">6-012</span>
-          </div>
-          <div class="stl_01" style="top: 31.4445em; left:67.31em;">
-            <span class="stl_15 stl_09">6-031</span>
-          </div>
-          <div class="stl_01" style="top: 31.4445em; left:73.2273em;">
-            <span class="stl_15 stl_09">6-034</span>
-          </div>
-          <div class="stl_01" style="top: 32.6445em; left:73.2273em;">
-            <span class="stl_15 stl_09">6-035</span>
-          </div>
-          <div class="stl_01" style="top: 31.7445em; left:61.39em;">
-            <span class="stl_15 stl_09">6-029</span>
-          </div>
-          <div class="stl_01" style="top: 31.7445em; left:88.03em;">
-            <span class="stl_15 stl_09">6-039</span>
-          </div>
-          <div class="stl_01" style="top: 32.6445em; left:6.03em;">
-            <span class="stl_15 stl_09">6-013</span>
-          </div>
-          <div class="stl_01" style="top: 32.6445em; left:58.11em;">
-            <span class="stl_15 stl_09">B6</span>
-          </div>
-          <div class="stl_01" style="top: 32.6445em; left:67.31em;">
-            <span class="stl_15 stl_09">6-032</span>
-          </div>
-          <div class="stl_01" style="top: 33.5445em; left:52.8981em;">
-            <span class="stl_15 stl_09">6-026～6-027</span>
-          </div>
-          <div class="stl_01" style="top: 35.3445em; left:53.9873em;">
-            <span class="stl_15 stl_09">7-025</span>
-          </div>
-          <div class="stl_01" style="top: 33.5445em; left:61.39em;">
-            <span class="stl_15 stl_09">6-030</span>
-          </div>
-          <div class="stl_01" style="top: 33.5445em; left:88.03em;">
-            <span class="stl_15 stl_09">6-040</span>
-          </div>
-          <div class="stl_01" style="top: 33.8445em; left:6.03em;">
-            <span class="stl_15 stl_09">6-014</span>
-          </div>
-          <div class="stl_01" style="top: 33.8445em; left:67.31em;">
-            <span class="stl_15 stl_09">6-033</span>
-          </div>
-          <div class="stl_01" style="top: 35.0445em; left:6.03em;">
-            <span class="stl_15 stl_09">7-012</span>
-          </div>
-          <div class="stl_01" style="top: 35.0445em; left:67.31em;">
-            <span class="stl_15 stl_09">7-031</span>
-          </div>
-          <div class="stl_01" style="top: 35.0445em; left:73.2273em;">
-            <span class="stl_15 stl_09">7-034</span>
-          </div>
-          <div class="stl_01" style="top: 36.2445em; left:73.23em;">
-            <span class="stl_15 stl_09">7-035</span>
-          </div>
-          <div class="stl_01" style="top: 35.3445em; left:61.39em;">
-            <span class="stl_15 stl_09">7-029</span>
-          </div>
-          <div class="stl_01" style="top: 35.3445em; left:88.03em;">
-            <span class="stl_15 stl_09">7-039</span>
-          </div>
-          <div class="stl_01" style="top: 36.2445em; left:6.03em;">
-            <span class="stl_15 stl_09">7-013</span>
-          </div>
-          <div class="stl_01" style="top: 36.2245em; left:58.14em;">
-            <span class="stl_15 stl_09">B7</span>
-          </div>
-          <div class="stl_01" style="top: 36.2445em; left:67.31em;">
-            <span class="stl_15 stl_09">7-032</span>
-          </div>
-          <div class="stl_01" style="top: 37.1445em; left:52.8981em;">
-            <span class="stl_15 stl_09">7-026～7-027</span>
-          </div>
-          <div class="stl_01" style="top: 38.9445em; left:53.9873em;">
-            <span class="stl_15 stl_09">8-025</span>
-          </div>
-          <div class="stl_01" style="top: 37.1445em; left:61.39em;">
-            <span class="stl_15 stl_09">7-030</span>
-          </div>
-          <div class="stl_01" style="top: 37.1445em; left:88.03em;">
-            <span class="stl_15 stl_09">7-040</span>
-          </div>
-          <div class="stl_01" style="top: 37.4445em; left:6.03em;">
-            <span class="stl_15 stl_09">7-014</span>
-          </div>
-          <div class="stl_01" style="top: 37.4445em; left:67.31em;">
-            <span class="stl_15 stl_09">7-033</span>
-          </div>
-          <div class="stl_01" style="top: 38.6445em; left:6.03em;">
-            <span class="stl_15 stl_09">8-012</span>
-          </div>
-          <div class="stl_01" style="top: 38.6445em; left:67.31em;">
-            <span class="stl_15 stl_09">8-031</span>
-          </div>
-          <div class="stl_01" style="top: 38.6445em; left:73.2273em;">
-            <span class="stl_15 stl_09">8-034</span>
-          </div>
-          <div class="stl_01" style="top: 39.8445em; left:73.23em;">
-            <span class="stl_15 stl_09">8-035</span>
-          </div>
-          <div class="stl_01" style="top: 38.9445em; left:61.39em;">
-            <span class="stl_15 stl_09">8-029</span>
-          </div>
-          <div class="stl_01" style="top: 38.9445em; left:88.03em;">
-            <span class="stl_15 stl_09">8-039</span>
-          </div>
-          <div class="stl_01" style="top: 39.8445em; left:6.03em;">
-            <span class="stl_15 stl_09">8-013</span>
-          </div>
-          <div class="stl_01" style="top: 39.8445em; left:58.11em;">
-            <span class="stl_15 stl_09">B8</span>
-          </div>
-          <div class="stl_01" style="top: 39.8445em; left:67.31em;">
-            <span class="stl_15 stl_09">8-032</span>
-          </div>
-          <div class="stl_01" style="top: 40.7445em; left:52.8981em;">
-            <span class="stl_15 stl_09">8-026～8-027</span>
-          </div>
-          <div class="stl_01" style="top: 42.5445em; left:53.9901em;">
-            <span class="stl_15 stl_09">9-025</span>
-          </div>
-          <div class="stl_01" style="top: 40.7445em; left:61.39em;">
-            <span class="stl_15 stl_09">8-030</span>
-          </div>
-          <div class="stl_01" style="top: 40.7445em; left:88.03em;">
-            <span class="stl_15 stl_09">8-040</span>
-          </div>
-          <div class="stl_01" style="top: 41.0445em; left:6.03em;">
-            <span class="stl_15 stl_09">8-014</span>
-          </div>
-          <div class="stl_01" style="top: 41.0445em; left:67.31em;">
-            <span class="stl_15 stl_09">8-033</span>
-          </div>
-          <div class="stl_01" style="top: 42.2445em; left:6.03em;">
-            <span class="stl_15 stl_09">9-012</span>
-          </div>
-          <div class="stl_01" style="top: 42.2445em; left:67.31em;">
-            <span class="stl_15 stl_09">9-031</span>
-          </div>
-          <div class="stl_01" style="top: 42.2445em; left:73.2273em;">
-            <span class="stl_15 stl_09">9-034</span>
-          </div>
-          <div class="stl_01" style="top: 43.4445em; left:73.2273em;">
-            <span class="stl_15 stl_09">9-035</span>
-          </div>
-          <div class="stl_01" style="top: 42.5445em; left:61.39em;">
-            <span class="stl_15 stl_09">9-029</span>
-          </div>
-          <div class="stl_01" style="top: 42.5445em; left:88.03em;">
-            <span class="stl_15 stl_09">9-039</span>
-          </div>
-          <div class="stl_01" style="top: 43.4445em; left:6.03em;">
-            <span class="stl_15 stl_09">9-013</span>
-          </div>
-          <div class="stl_01" style="top: 43.4245em; left:58.14em;">
-            <span class="stl_15 stl_09">B9</span>
-          </div>
-          <div class="stl_01" style="top: 43.4445em; left:67.31em;">
-            <span class="stl_15 stl_09">9-032</span>
-          </div>
-          <div class="stl_01" style="top: 44.3445em; left:52.9em;">
-            <span class="stl_15 stl_09">9-026～9-027</span>
-          </div>
-          <div class="stl_01" style="top: 46.1445em; left:53.8133em;">
-            <span class="stl_15 stl_08">10-025</span>
-          </div>
-          <div class="stl_01" style="top: 44.3445em; left:61.39em;">
-            <span class="stl_15 stl_09">9-030</span>
-          </div>
-          <div class="stl_01" style="top: 44.3445em; left:88.03em;">
-            <span class="stl_15 stl_09">9-040</span>
-          </div>
-          <div class="stl_01" style="top: 44.6445em; left:6.03em;">
-            <span class="stl_15 stl_09">9-014</span>
-          </div>
-          <div class="stl_01" style="top: 44.6445em; left:67.31em;">
-            <span class="stl_15 stl_09">9-033</span>
-          </div>
-          <div class="stl_01" style="top: 45.8445em; left:6.03em;">
-            <span class="stl_15 stl_09">10-012</span>
-          </div>
-          <div class="stl_01" style="top: 45.8445em; left:67.14em;">
-            <span class="stl_15 stl_09">10-031</span>
-          </div>
-          <div class="stl_01" style="top: 47.0445em; left:67.14em;">
-            <span class="stl_15 stl_09">10-032</span>
-          </div>
-          <div class="stl_01" style="top: 48.2445em; left:67.14em;">
-            <span class="stl_15 stl_09">10-033</span>
-          </div>
-          <div class="stl_01" style="top: 49.4445em; left:67.14em;">
-            <span class="stl_15 stl_09">11-031</span>
-          </div>
-          <div class="stl_01" style="top: 50.6445em; left:67.14em;">
-            <span class="stl_15 stl_09">11-032</span>
-          </div>
-          <div class="stl_01" style="top: 51.8445em; left:67.14em;">
-            <span class="stl_15 stl_09">11-033</span>
-          </div>
-          <div class="stl_01" style="top: 45.8445em; left:73.0547em;">
-            <span class="stl_15 stl_09">10-034</span>
-          </div>
-          <div class="stl_01" style="top: 47.0445em; left:73.0547em;">
-            <span class="stl_15 stl_09">10-035</span>
-          </div>
-          <div class="stl_01" style="top: 46.1445em; left:22.74em;">
-            <span class="stl_15 stl_09">10-017</span>
-          </div>
-          <div class="stl_01" style="top: 47.9445em; left:22.74em;">
-            <span class="stl_15 stl_09">10-018</span>
-          </div>
-          <div class="stl_01" style="top: 49.7445em; left:22.74em;">
-            <span class="stl_15 stl_09">11-017</span>
-          </div>
-          <div class="stl_01" style="top: 51.5445em; left:22.74em;">
-            <span class="stl_15 stl_09">11-018</span>
-          </div>
-          <div class="stl_01" style="top: 46.1445em; left:61.22em;">
-            <span class="stl_15 stl_09">10-029</span>
-          </div>
-          <div class="stl_01" style="top: 47.9445em; left:61.22em;">
-            <span class="stl_15 stl_09">10-030</span>
-          </div>
-          <div class="stl_01" style="top: 49.7445em; left:61.22em;">
-            <span class="stl_15 stl_09">11-029</span>
-          </div>
-          <div class="stl_01" style="top: 51.5445em; left:61.22em;">
-            <span class="stl_15 stl_09">11-030</span>
-          </div>
-          <div class="stl_01" style="top: 46.1445em; left:87.86em;">
-            <span class="stl_15 stl_09">10-039</span>
-          </div>
-          <div class="stl_01" style="top: 47.9445em; left:87.86em;">
-            <span class="stl_15 stl_09">10-040</span>
-          </div>
-          <div class="stl_01" style="top: 49.7445em; left:87.86em;">
-            <span class="stl_15 stl_09">11-039</span>
-          </div>
-          <div class="stl_01" style="top: 51.5445em; left:87.86em;">
-            <span class="stl_15 stl_09">11-040</span>
-          </div>
-          <div class="stl_01" style="top: 47.1148em; left:4.84em;">
-            <span class="stl_10 stl_09">10</span>
-          </div>
-          <div class="stl_01" style="top: 47.0445em; left:6.03em;">
-            <span class="stl_15 stl_09">10-013</span>
-          </div>
-          <div class="stl_01" style="top: 47.0445em; left:57.94em;">
-            <span class="stl_15 stl_09">B10</span>
-          </div>
-          <div class="stl_01" style="top: 50.6245em; left:57.97em;">
-            <span class="stl_15 stl_09">B11</span>
-          </div>
-          <div class="stl_01" style="top: 47.9445em; left:52.5667em;">
-            <span class="stl_15 stl_09">10-026～10-027</span>
-          </div>
-          <div class="stl_01" style="top: 49.7445em; left:53.8133em;">
-            <span class="stl_15 stl_08">11-025</span>
-          </div>
-          <div class="stl_01" style="top: 48.2445em; left:6.03em;">
-            <span class="stl_15 stl_09">10-014</span>
-          </div>
-          <div class="stl_01" style="top: 49.4445em; left:6.03em;">
-            <span class="stl_15 stl_09">11-012</span>
-          </div>
-          <div class="stl_01" style="top: 49.4445em; left:73.06em;">
-            <span class="stl_15 stl_09">11-034</span>
-          </div>
-          <div class="stl_01" style="top: 50.6445em; left:73.0547em;">
-            <span class="stl_15 stl_09">11-035</span>
-          </div>
-          <div class="stl_01" style="top: 50.7148em; left:4.84em;">
-            <span class="stl_10 stl_09">11</span>
-          </div>
-          <div class="stl_01" style="top: 50.6445em; left:6.03em;">
-            <span class="stl_15 stl_09">11-013</span>
-          </div>
-          <div class="stl_01" style="top: 51.8445em; left:6.3589em;">
-            <span class="stl_15 stl_09">1-014</span>
-          </div>
-          <div class="stl_01" style="top: 51.5445em; left:52.5653em;">
-            <span class="stl_15 stl_09">11-026～11-027</span>
-          </div>
-          <div class="stl_01" style="top: 51.8445em; left:6.03em;">
-            <span class="stl_15 stl_09">1</span>
-          </div>
-          <div class="stl_01" style="top: 53.5079em; left:4.57em;">
-            <span class="stl_17 stl_14">（</span>
-          </div>
-          <div class="stl_01" style="top: 55.9079em; left:4.57em;">
-            <span class="stl_17 stl_14">（</span>
-          </div>
-          <div class="stl_01" style="top: 53.4679em; left:5.1106em;">
-            <span class="stl_17" style="word-spacing:-0.11em;">注）１． ※印欄には次の記号等を入れる。（表示されない情報があります。）</span>
-          </div>
-          <div class="stl_01" style="top: 53.4679em; left:46.01em;">
-            <span class="stl_17" style="word-spacing:-0.11em;">（注）７． 健康保険欄には、健康保険の名称（健康保険組合、協会けんぽ、建設国保、国民健康保険）を記載。</span>
-          </div>
-          <div class="stl_01" style="top: 54.0679em; left:6.41em;">
-            <span class="stl_17 stl_11" style="word-spacing:0.42em;">現 …現場代理人</span>
-          </div>
-          <div class="stl_01" style="top: 54.0679em; left:18.25em;">
-            <span class="stl_17" style="word-spacing:0.51em;">作 …作業主任者（（注）２．）</span>
-          </div>
-          <div class="stl_01" style="top: 54.0679em; left:28.61em;">
-            <span class="stl_17 stl_11" style="word-spacing:0.42em;">女 …女性作業員</span>
-          </div>
-          <div class="stl_01" style="top: 54.6679em; left:28.61em;">
-            <span class="stl_17 stl_08" style="word-spacing:0.51em;">安 …安全衛生責任者</span>
-          </div>
-          <div class="stl_01" style="top: 55.2679em; left:28.61em;">
-            <span class="stl_17 stl_08" style="word-spacing:0.51em;">就 …外国人建設就労者</span>
-          </div>
-          <div class="stl_01" style="top: 54.0679em; left:37.49em;">
-            <span class="stl_17 stl_08" style="word-spacing:0.52em;">未 …18歳未満の作業員</span>
-          </div>
-          <div class="stl_01" style="top: 54.6679em; left:37.49em;">
-            <span class="stl_17 stl_11" style="word-spacing:0.41em;">歳 …能力向上教育</span>
-          </div>
-          <div class="stl_01" style="top: 55.2679em; left:37.35em;">
-            <span class="stl_17 stl_08" style="word-spacing:0.26em;">1特 …１号特定技能外国人</span>
-          </div>
-          <div class="stl_01" style="top: 54.0679em; left:48.93em;">
-            <span class="stl_17 stl_08">上記の保険に加入しておらず、後期高齢者である等により、国民健康保険の適用除外である場合には、「適用除外」と記載。</span>
-          </div>
-          <div class="stl_01" style="top: 54.6679em; left:46.01em;">
-            <span class="stl_17" style="word-spacing:-0.11em;">（注）８． 年金保険欄には、年金保険の名称（厚生年金、国民年金等）を記載。各年金の受給者である場合は、「受給者」と記載。</span>
-          </div>
-          <div class="stl_01" style="top: 55.2679em; left:46.01em;">
-            <span class="stl_17" style="word-spacing:-0.11em;">（注）９． 雇用保険欄には被保険者番号の下４けたを記載。（日雇労働被保険者の場合には「日雇保険」と追記） </span>
-          </div>
-          <div class="stl_01" style="top: 55.8679em; left:48.93em;">
-            <span class="stl_17 stl_08">事業主である等により雇用保険の適用除外である場合には「適用除外」と記載。</span>
-          </div>
-          <div class="stl_01" style="top: 56.4679em; left:46.01em;">
-            <span class="stl_17" style="word-spacing:-0.11em;">（注）10． 安全衛生に関する教育の内容（例：雇入時教育、職長教育、建設用リフトの運転の業務に係る特別教育）については「雇入・職長特別教育」欄に記載。</span>
-          </div>
-          <div class="stl_01" style="top: 57.0679em; left:46.01em;">
-            <span class="stl_17" style="word-spacing:-0.11em;">（注）11． 建設工事に係る知識及び技術又は技能に関する資格（例：登録〇〇基幹技能者、〇級〇〇技能士）を有する場合は、「免許」欄に記入。</span>
-          </div>
-          <div class="stl_01" style="top: 57.6679em; left:46.01em;">
-            <span class="stl_17" style="word-spacing:-0.11em;">（注）12． 退職金共済手帳所有の有無については、建退共手帳所有の場合には「建」を、中退共手帳所有の場合には「中」を、その他の手帳所有の場合には「他」を、</span>
-          </div>
-          <div class="stl_01" style="top: 58.2679em; left:48.93em;">
-            <span class="stl_17 stl_08">所有していない場合には「無」を〇で囲む。 </span>
-          </div>
-          <div class="stl_01" style="top: 58.8679em; left:46.01em;">
-            <span class="stl_17" style="word-spacing:-0.11em;">（注）13． 記載事項の一部について、別紙を用いて記載しても差し支えない。</span>
-          </div>
-          <div class="stl_01" style="top: 54.6679em; left:6.41em;">
-            <span class="stl_17 stl_11" style="word-spacing:0.42em;">主 …主任技術者</span>
-          </div>
-          <div class="stl_01" style="top: 54.6679em; left:18.25em;">
-            <span class="stl_17 stl_21" style="word-spacing:0.42em;">職 …職長</span>
-          </div>
-          <div class="stl_01" style="top: 55.2679em; left:6.41em;">
-            <span class="stl_17" style="word-spacing:0.51em;">再 …危険有害業務・再発防止教育</span>
-          </div>
-          <div class="stl_01" style="top: 55.2679em; left:18.25em;">
-            <span class="stl_17 stl_08" style="word-spacing:0.51em;">習 …外国人技能実習生</span>
-          </div>
-          <div class="stl_01" style="top: 55.8679em; left:5.1106em;">
-            <span class="stl_17" style="word-spacing:-0.11em;">注）２． 作業主任者は作業を直接指揮する義務を負うので、同時に施工されている他の現場や、同一現場においても他の作業個所との作業主任者を</span>
-          </div>
-          <div class="stl_01" style="top: 56.4679em; left:7.49em;">
-            <span class="stl_17 stl_08">兼務することは、法的に認められていないので、複数の選任としなければならない。</span>
-          </div>
-          <div class="stl_01" style="top: 57.0679em; left:5.1106em;">
-            <span class="stl_17" style="word-spacing:-0.11em;">注）３． 事業者及び技能者が建設キャリアアップシステムに登録されている場合は、当該事業者の事業者ID及び現場ID並びに当該技能者の技能者IDを記載。</span>
-          </div>
-          <div class="stl_01" style="top: 57.6679em; left:5.1106em;">
-            <span class="stl_17 stl_08" style="word-spacing:-0.11em;">注）４． 経験年数は現在担当している仕事の経験年数を記入する。</span>
-          </div>
-          <div class="stl_01" style="top: 58.2679em; left:5.1106em;">
-            <span class="stl_17 stl_08" style="word-spacing:-0.11em;">注）５． 各社別に作成するのが原則であるが、リース機械等の運転者は一緒でもよい。</span>
-          </div>
-          <div class="stl_01" style="top: 58.8679em; left:5.1106em;">
-            <span class="stl_17 stl_08" style="word-spacing:-0.11em;">注）６． 資格・免許等の写しを添付すること。 </span>
-          </div>
-          <div class="stl_01" style="top: 57.1079em; left:4.57em;">
-            <span class="stl_17 stl_14">（</span>
-          </div>
-          <div class="stl_01" style="top: 57.7079em; left:4.57em;">
-            <span class="stl_17 stl_14">（</span>
-          </div>
-          <div class="stl_01" style="top: 58.3079em; left:4.57em;">
-            <span class="stl_17 stl_14">（</span>
-          </div>
-          <div class="stl_01" style="top: 58.9079em; left:4.57em;">
-            <span class="stl_17 stl_14">（</span>
+    <div id = "add_worker_form" class="not_display">
+      <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">作業員 新規登録</h3>
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-body" style="display: block;">
+          <div class="list-group">
+            <div class="list-group-item">
+              <div class="row">
+                <div class="col-md-3">
+                  <%= f.label '8-012 フリガナ' %>
+                  <%= f.text_field :content, multiple: true,
+                                            name: "document[content][worker][doc5_8_012_furigana][]",
+                                            value: '',
+                                            class: "form-control", placeholder: 'フリガナ'
+                  %><br>
+                </div>
+                <div class="col-md-3">
+                  <%= f.label '8-013 氏名' %>
+                  <%= f.text_field :content, multiple: true,
+                                            name: "document[content][worker][doc5_8_013_worker_name][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '氏名'
+                  %><br>
+                </div>
+                <div class="col-md-2">
+                  <%= f.label '8-014 技能者ID' %>
+                  <%= f.text_field :content, multiple: true,
+                                            name: "document[content][worker][doc5_8_014_skilled_person_id][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '技能者ID'
+                  %><br>
+                </div>
+                <div class="col-md-2">
+                  <%= f.label '8-015 職種' %>
+                  <%= f.text_field :content, multiple: true,
+                                            name: "document[content][worker][doc5_8_015_occupation][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '職種'
+                  %><br>
+                </div>
+                <div class="col-md-2">
+                  <%= f.label '8-016 記号' %>
+                  <%= f.text_field :content, multiple: true,
+                                            name: "document[content][worker][doc5_8_016_symbol][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '記号'
+                  %><br>
+                </div>
+              </div>
+          
+              <div class="row">
+                <div class="col-md-3">
+                  <!-- 日付入力フォーム -->
+                  <%= f.label '8-017 雇入年月日' %>
+                  <%= f.date_field :content, multiple: true,
+                                            name: "document[content][worker][doc5_8_017_employment_date][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '雇入年月日'
+                  %><br>
+                </div>
+                <div class="col-md-3">
+                  <%= f.label '8-018 経験年数(年)' %>
+                  <%= f.number_field :content, multiple: true,
+                                            name: "document[content]worker][doc5_8_018_years_of_experience][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '経験年数(年)'
+                  %><br>
+                </div>
+                <div class="col-md-3">
+                  <!-- 日付入力フォーム -->
+                  <%= f.label '8-019 生年月日' %>
+                  <%= f.date_field :content, multiple: true,
+                                            name: "document[content]worker][doc5_8_019_birthday][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '生年月日'
+                  %><br>
+                </div>
+                <div class="col-md-3">
+                  <%= f.label '8-020 年齢' %>
+                  <%= f.number_field :content, multiple: true,
+                                            name: "document[content]worker][doc5_8_020_age][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '年齢'
+                  %><br>
+                </div>
+              </div>
+          
+              <div class="row">
+                <div class="col-md-3">
+                  <%= f.label '8-021 現住所' %>
+                  <%= f.text_field :content, multiple: true,
+                                            name: "document[content]worker][doc5_8_021_address][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '現住所'
+                  %><br>
+                </div>
+                <div class="col-md-3">
+                  <%= f.label '8-022 家族連絡先住所' %>
+                  <%= f.text_field :content, multiple: true,
+                                            name: "document[content][worker][doc5_8_022_family_contact_address][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '家族連絡先住所'
+                  %><br>
+                </div>
+                <div class="col-md-3">
+                  <%= f.label '8-023 作業員電話番号' %>
+                  <%= f.text_field :content, multiple: true,
+                                            name: "document[content]worker][doc5_8_023_telephone_number][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '作業員電話番号'
+                  %><br>
+                </div>
+                <div class="col-md-3">
+                  <%= f.label '8-024 家族連絡先電話番号' %>
+                  <%= f.text_field :content, multiple: true,
+                                            name: "document[content][worker][doc5_8_024_family_telephone_number][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '家族連絡先電話番号'
+                  %><br>
+                </div>
+              </div>
+          
+              <div class="row">
+                <div class="col-md-2">
+                  <!-- 日付入力フォーム -->
+                  <%= f.label '8-025 最近の健康診断日' %>
+                  <%= f.date_field :content, multiple: true,
+                                            name: "document[content][worker][doc5_8_025_health_check_date][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '最近の健康診断日'
+                  %><br>
+                </div>
+                <div class="col-md-2">
+                  <%= f.label '8-026 最高血圧' %>
+                  <%= f.number_field :content, multiple: true,
+                                            name: "document[content][worker][doc5_8_026_maximum_blood_pressure][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '最高血圧'
+                  %><br>
+                </div>
+                <div class="col-md-2">
+                  <%= f.label '8-027 最低血圧' %>
+                  <%= f.number_field :content, multiple: true,
+                                            name: "document[content][worker][doc5_8_027_minimum_blood_pressure][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '最低血圧'
+                  %><br>
+                </div>
+                <div class="col-md-2">
+                  <%= f.label '8-028 血液型' %> <!-- セレクトフォーム要修正 -->
+                  <%= f.text_field :content, multiple: true,
+                                            name: "document[content][worker][doc5_8_028_blood_type][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '血圧型'
+                  %><br>
+                </div>
+                <div class="col-md-2">
+                  <!-- 日付入力フォーム -->
+                  <%= f.label '8-029 特殊健康診断日' %>
+                  <%= f.date_field :content, multiple: true,
+                                            name: "document[content][worker][doc5_8_029_special_health_examination_date][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '特殊健康診断日'
+                  %><br>
+                </div>
+                <div class="col-md-2">
+                  <%= f.label '8-030 特別健康診断種類' %>
+                  <%= f.text_field :content, multiple: true,
+                                            name: "document[content][worker][doc5_8_030_special_health_check_type][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '特別健康診断種類'
+                  %><br>
+                </div>
+              </div>
+          
+              <div class="row">
+                <div class="col-md-2">
+                  <%= f.label '8-031 健康保険' %>
+                  <%= f.text_field :content, multiple: true,
+                                            name: "document[content][worker][doc5_8_031_health_insurance][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '特別健康診断種類'
+                  %><br>
+                </div>
+                <div class="col-md-2">
+                  <%= f.label '8-032 年金保険' %>
+                  <%= f.text_field :content, multiple: true,
+                                            name: "document[content][worker][doc5_8_032_pension_insurance][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '年金保険'
+                  %><br>
+                </div>
+                <div class="col-md-2">
+                  <%= f.label '8-033 雇用保険番号' %>
+                  <%= f.text_field :content, multiple: true,
+                                            name: "document[content][worker][doc5_8_033_employment_insurance_number][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '雇用保険番号'
+                  %><br>
+                </div>
+                <div class="col-md-3">
+                  <%= f.label '8-034 建設業退職金共済制度' %>
+                  <%= f.text_field :content, multiple: true,
+                                            name: "document[content][worker][doc5_8_034_severance_pay][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '建設業退職金共済制度'
+                  %><br>
+                </div>
+                <div class="col-md-3">
+                  <%= f.label '8-035 中小企業退職金共済制度' %>
+                  <%= f.text_field :content, multiple: true,
+                                            name: "document[content][worker][doc5_8_035_severance_pay_businesses][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '中小企業退職金共済制度'
+                  %><br>
+                </div>
+              </div>
+          
+              <div class="row">
+                <div class="col-md-4">
+                  <%= f.label '8-036 雇入・職長特別教育' %>
+                  <%= f.text_field :content, multiple: true,
+                                            name: "document[content][worker][doc5_8_036_special_education][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '雇入・職長特別教育'
+                  %><br>
+                </div>
+                <div class="col-md-4">
+                  <%= f.label '8-037 技能講習' %>
+                  <%= f.text_field :content, multiple: true,
+                                            name: "document[content][worker][doc5_8_037_skill_training][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '技能講習'
+                  %><br>
+                </div>
+                <div class="col-md-4">
+                  <%= f.label '8-038 免許' %>
+                  <%= f.text_field :content, multiple: true,
+                                            name: "document[content][worker][doc5_8_038_licence][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '免許'
+                  %><br>
+                </div>
+              </div>
+          
+              <div class="row">
+                <div class="col-md-4">
+                  <!-- 日付入力フォーム -->
+                  <%= f.label '8-039 入場年月日' %>
+                  <%= f.date_field :content, multiple: true,
+                                            name: "document[content][worker][doc5_8_039_beginning][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '入場年月日'
+                  %><br>
+                </div>
+                <div class="col-md-4">
+                  <!-- 日付入力フォーム -->
+                  <%= f.label '8-040 受入教育 実施年月日' %>
+                  <%= f.date_field :content, multiple: true,
+                                            name: "document[content][worker][doc5_8_040_new_education][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '受入教育 実施年月日'
+                  %><br>
+                </div>
+                <div class="col-md-4">
+                  <%= f.label '8-041 退職金共済手帳所雇入・有の有無' %> <!-- セレクトフォーム要修正 -->
+                  <%= f.text_field :content, multiple: true,
+                                            name: "document[content][worker][doc5_8_041_notebook][]",
+                                            value: '',
+                                            class: "form-control", placeholder: '退職金共済手帳所雇入・有の有無'
+                  %><br>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

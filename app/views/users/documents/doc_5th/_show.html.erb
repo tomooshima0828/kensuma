@@ -9,42 +9,6 @@
   </div>
 </div>
 
-<div class="card">
-  <div class="card-body">
-    <% @document.content["worker"]["doc5_8_012_furigana"].size.times do |index|index %>
-      <p><%= @document.content["worker"]["doc5_8_012_furigana"][index] %></p>
-    <% end %>
-  </div>
-</div>
-<div>
- <% @posts = ["post1", "post2","post3","post4"]%>
- <% @posts.each_with_index.each_slice(2) do |aaa,bbb, index| %>
-
-    <hr>
-     <%= aaa[1] %>
-     <%= bbb[1] %>
-
-     <%= index %>
-  
-<% end %>
-</div>
-
-<div>
-<% @document.content["worker"]["doc5_8_012_furigana"].each_with_index.each_slice(10) do |a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,index| %>
-
-<%= @document.content["worker"]["doc5_8_012_furigana"][a1[1]] if a1 != nil%>a
-<%= @document.content["worker"]["doc5_8_012_furigana"][index[1][0]] if [].present?%>a
-<%= @document.content["worker"]["doc5_8_012_furigana"][index[2][1]] if [].present?%>a
-<%= @document.content["worker"]["doc5_8_012_furigana"][index[3][1]] if [].present?%>a
-<%= @document.content["worker"]["doc5_8_012_furigana"][index[4][1]] if [].present? %>a
-<%= @document.content["worker"]["doc5_8_012_furigana"][index[5][1]] if [].present? %>a
-<%= @document.content["worker"]["doc5_8_012_furigana"][index[6][1]] if [].present? %>a
-<%= @document.content["worker"]["doc5_8_012_furigana"][index[7][1]] if [].present? %>a
-<%= @document.content["worker"]["doc5_8_012_furigana"][index[8][1]] if [].present? %>a
-<%= @document.content["worker"]["doc5_8_012_furigana"][index[9][1]] if [].present? %>a
-<% end %>
-</div>
-
 <% @document.content["worker"]["doc5_8_012_furigana"].each_with_index.each_slice(10) do |w1, w2, w3, w4, w5, w6, w7, w8, w9, w10, index| %>
   <div class="stl_02">
     <div class="stl_03"><img src="/doc_5th.png" alt="" class="stl_04"></div>
@@ -53,12 +17,12 @@
         <div class="stl_01" style="top: 8.1746em; left:8.5em;"><span class="stl_07 stl_08">全建統一様式第５号改</span></div>
         <div class="stl_01" style="top: 8.4546em; left:79.27em;">
           <span class="stl_07" style="word-spacing:0.23em;">元請確認欄 </span>
-          <span class="stl_10 stl_09" style="word-spacing:0.32em;">8-042</span>
+          <span class="stl_10 stl_09" style="word-spacing:0.32em;"><%= @document.content["doc5_8_042_confirmation"] %></span>
         </div>
         <div class="stl_01" style="top: 10.5546em; left:82.66em;">
           <span class="stl_07" style="word-spacing:-0.02em;">提 出 日</span>
           <span class="stl_07" style="word-spacing:0.76em;">&nbsp;</span>
-          <span class="stl_10 stl_09" style="word-spacing:0.83em;">8-011</span>
+          <span class="stl_10 stl_09" style="word-spacing:0.83em;"><%= @document.content["doc5_8_011_submitted_on"] %></span>
         </div>
         <div class="stl_01" style="top: 9.9159em; left:35.57em;"><span class="stl_11" style="font-weight:bold;">作 業 員 名 簿</span></div>
         <div class="stl_01" style="top: 11.7746em; left:46.63em;"><span class="stl_07 stl_09" style="word-spacing:0.7em;">作成 ）</span></div>
@@ -68,23 +32,23 @@
         <div class="stl_01" style="top: 11.2377em; left:3.93em;"><span class="stl_12 stl_08">事業所の名称</span></div>
         <div class="stl_01" style="top: 12.4062em; left:3.94em;"><span class="stl_10 stl_08">現 場 I D</span></div>
         <div class="stl_01" style="top: 13.6062em; left:3.94em;"><span class="stl_10 stl_08">所 長 名</span></div>
-        <div class="stl_01" style="top: 11.4862em; left:8.44em;"><span class="stl_10 stl_09">8-001</span></div>
-        <div class="stl_01" style="top: 12.6862em; left:8.44em;"><span class="stl_10 stl_09">8-002</span></div>
-        <div class="stl_01" style="top: 13.8862em; left:8.44em;"><span class="stl_10 stl_09">8-003</span></div>
+        <div class="stl_01" style="top: 11.4862em; left:8.44em;"><span class="stl_10 stl_09"><%= @document.content["doc5_8_001_business_name"] %></span></div>
+        <div class="stl_01" style="top: 12.6862em; left:8.44em;"><span class="stl_10 stl_09"><%= @document.content["doc5_8_002_site_id"] %></span></div>
+        <div class="stl_01" style="top: 13.8862em; left:8.44em;"><span class="stl_10 stl_09"><%= @document.content["doc5_8_003_site_agent"] %></span></div>
         <div class="stl_01" style="top: 11.7746em; left:34.46em;"><span class="stl_07 stl_09">（</span></div>
-        <div class="stl_01" style="top: 11.8062em; left:35.44em;"><span class="stl_10 stl_09">8-004/span></div>
+        <div class="stl_01" style="top: 11.8062em; left:35.44em;"><span class="stl_10 stl_09"><%= @document.content["doc5_8_004_created_date"] %></span></div>
         <div class="stl_01" style="top: 12.4062em; left:54.94em;"><span class="stl_10 stl_08">一次会社名</span></div>
         <div class="stl_01" style="top: 13.6062em; left:54.94em;"><span class="stl_10 stl_08">事業者ID</span></div>
         <div class="stl_01" style="top: 12.3046em; left:76.46em;">
           <span class="stl_07 stl_09" style="word-spacing:-0.09em;">（ </span>
-          <span class="stl_13 stl_09" style="word-spacing:-0.11em;">8-007 </span>
+          <span class="stl_13 stl_09" style="word-spacing:-0.11em;"><%= @document.content["doc5_8_007_hierarchy"] %></span>
           <span class="stl_07 stl_08" style="word-spacing:-0.09em;">次）会社名</span>
         </div>
         <div class="stl_01" style="top: 13.4246em; left:77.44em;"><span class="stl_07 stl_09">事業者ID</span></div>
-        <div class="stl_01" style="top: 12.6862em; left:60.9395em;"><span class="stl_10 stl_09">8-005</span></div>
-        <div class="stl_01" style="top: 13.8862em; left:59.44em;"><span class="stl_10 stl_09">8-006</span></div>
-        <div class="stl_01" style="top: 12.6862em; left:83.44em;"><span class="stl_10 stl_09">8-009</span></div>
-        <div class="stl_01" style="top: 13.6062em; left:81.94em;"><span class="stl_10 stl_09">8-010</span></div>
+        <div class="stl_01" style="top: 12.6862em; left:60.9395em;"><span class="stl_10 stl_09"><%= @document.content["doc5_8_005_primary_business_name"] %></span></div>
+        <div class="stl_01" style="top: 13.8862em; left:59.44em;"><span class="stl_10 stl_09"><%= @document.content["doc5_8_006_primary_business_id"] %></span></div>
+        <div class="stl_01" style="top: 12.6862em; left:83.44em;"><span class="stl_10 stl_09"><%= @document.content["doc5_8_009_my_business_name"] %></span></div>
+        <div class="stl_01" style="top: 13.6062em; left:81.94em;"><span class="stl_10 stl_09"><%= @document.content["doc5_8_010_my_business_id"] %></span></div>
         <div class="stl_01" style="top: 13.5746em; left:28.24em;"><span class="stl_07 stl_09">殿</span></div>
         <div class="stl_01" style="top: 13.7962em; left:72.94em;"><span class="stl_10 stl_08">㊞</span></div>
         <div class="stl_01" style="top: 13.7962em; left:93.94em;"><span class="stl_10 stl_08">㊞</span></div>
@@ -132,332 +96,372 @@
         <div class="stl_01" style="top: 18.1062em; left:84.19em;"><span class="stl_10 stl_08">免許</span></div>
 
         <!-- 作業員1行目 -->
-        <div class="stl_01" style="top: 20.8062em; left:4.4em;"><span class="stl_10 stl_09">1</span></div>
-        <div class="stl_01" style="top: 19.6062em; left:5.44em;"><span class="stl_10 stl_09"><%= @document.content["worker"]["doc5_8_012_furigana"][w1[1]] if w1 != nil %></span></div>
-        <div class="stl_01" style="top: 20.9962em; left:5.44em;"><span class="stl_10 stl_09">1-013</span></div>
-        <div class="stl_01" style="top: 22.1962em; left:5.44em;"><span class="stl_10 stl_09">1-014</span></div>
-        <div class="stl_01" style="top: 20.8062em; left:15.0187em;"><span class="stl_10 stl_09">1-015</span></div>
-        <div class="stl_01" style="top: 20.8062em; left:18.0215em;"><span class="stl_10 stl_09">1-016</span></div>
-        <div class="stl_01" style="top: 19.9062em; left:22.52em;"><span class="stl_10 stl_09">1-017</span></div>
-        <div class="stl_01" style="top: 21.7062em; left:22.52em;"><span class="stl_10 stl_09">1-018</span></div>
-        <div class="stl_01" style="top: 19.9062em; left:28.519em;"><span class="stl_10 stl_09">1-019</span></div>
-        <div class="stl_01" style="top: 21.7062em; left:28.519em;"><span class="stl_10 stl_09">1-020</span></div>
-        <div class="stl_01" style="top: 19.9062em; left:32.44em;"><span class="stl_10 stl_09">1-021</span></div>
-        <div class="stl_01" style="top: 21.7062em; left:32.44em;"><span class="stl_10 stl_09">1-022</span></div>
-        <div class="stl_01" style="top: 19.9062em; left:48.0216em;"><span class="stl_10 stl_09">1-023</span></div>
-        <div class="stl_01" style="top: 21.7062em; left:48.0216em;"><span class="stl_10 stl_09">1-024</span></div>
-        <div class="stl_01" style="top: 19.9062em; left:54.0206em;"><span class="stl_10 stl_09">1-025</span></div>
-        <div class="stl_01" style="top: 21.7062em; left:53.2em;"><span class="stl_10 stl_09">1-026～027</span></div>
-        <div class="stl_01" style="top: 20.8062em; left:58.27em;"><span class="stl_10 stl_08">1A</span></div>
-        <div class="stl_01" style="top: 19.9062em; left:61.52em;"><span class="stl_10 stl_09">1-029</span></div>
-        <div class="stl_01" style="top: 21.7062em; left:61.52em;"><span class="stl_10 stl_09">1-030</span></div>
-        <div class="stl_01" style="top: 19.6062em; left:67.52em;"><span class="stl_10 stl_09">1-031</span></div>
-        <div class="stl_01" style="top: 20.8062em; left:67.52em;"><span class="stl_10 stl_09">1-032</span></div>
-        <div class="stl_01" style="top: 22.0062em; left:67.52em;"><span class="stl_10 stl_09">1-033</span></div>
-        <div class="stl_01" style="top: 19.6062em; left:73.519em;"><span class="stl_10 stl_09">1-034</span></div>
-        <div class="stl_01" style="top: 20.8062em; left:73.519em;"><span class="stl_10 stl_09">1-035</span></div>
-        <div class="stl_01" style="top: 20.8062em; left:78.02em;"><span class="stl_10 stl_09">1-036</span></div>
-        <div class="stl_01" style="top: 20.8062em; left:81.0228em;"><span class="stl_10 stl_09">1-037</span></div>
-        <div class="stl_01" style="top: 20.8062em; left:84.019em;"><span class="stl_10 stl_09">1-038</span></div>
-        <div class="stl_01" style="top: 19.9062em; left:88.52em;"><span class="stl_10 stl_09">1-039</span></div>
-        <div class="stl_01" style="top: 21.7062em; left:88.52em;"><span class="stl_10 stl_09">1-040</span></div>
+        <div class="stl_01" style="top: 20.8062em; left:4.4em;"><span class="stl_10 stl_09"><%= worker_number(w1) %></span></div>
+        <div class="stl_01" style="top: 19.6062em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_012_furigana", w1) %></span></div>
+        <div class="stl_01" style="top: 20.9962em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_013_worker_name", w1) %></span></div>
+        <div class="stl_01" style="top: 22.1962em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_014_skilled_person_id", w1) %></span></div>
+        <div class="stl_01" style="top: 20.8062em; left:15.0187em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_015_occupation", w1) %></span></div>
+        <div class="stl_01" style="top: 20.8062em; left:18.0215em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_016_symbol", w1) %></span></div>
+        <div class="stl_01" style="top: 19.9062em; left:22em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_017_employment_date", w1) %></span></div>
+        <div class="stl_01" style="top: 21.7062em; left:22.52em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_018_years_of_experience", w1) %></span></div>
+        <div class="stl_01" style="top: 19.9062em; left:28em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_019_birthday", w1) %></span></div>
+        <div class="stl_01" style="top: 21.7062em; left:28.519em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_020_age", w1) %></span></div>
+        <div class="stl_01" style="top: 19.9062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_021_address", w1) %></span></div>
+        <div class="stl_01" style="top: 21.7062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_022_family_contact_address", w1) %></span></div>
+        <div class="stl_01" style="top: 19.9062em; left:47em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_023_telephone_number", w1) %></span></div>
+        <div class="stl_01" style="top: 21.7062em; left:47em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_024_family_telephone_number", w1) %></span></div>
+        <div class="stl_01" style="top: 19.9062em; left:53em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_025_health_check_date", w1) %></span></div>
+        <div class="stl_01" style="top: 21.7062em; left:53.2em;">
+          <span class="stl_10 stl_09">
+            <%= worker_column("doc5_8_026_maximum_blood_pressure", w1) %>～<%= worker_column("doc5_8_027_minimum_blood_pressure", w1) %>
+          </span>
+        </div>
+        <div class="stl_01" style="top: 20.8062em; left:58.27em;"><span class="stl_10 stl_08"><%= worker_column("doc5_8_028_blood_type", w1) %></span></div>
+        <div class="stl_01" style="top: 19.9062em; left:61em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_029_special_health_examination_date", w1) %></span></div>
+        <div class="stl_01" style="top: 21.7062em; left:61.52em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_030_special_health_check_type", w1) %></span></div>
+        <div class="stl_01" style="top: 19.6062em; left:67.52em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_031_health_insurance", w1) %></span></div>
+        <div class="stl_01" style="top: 20.8062em; left:67.52em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_032_pension_insurance", w1) %></span></div>
+        <div class="stl_01" style="top: 22.0062em; left:67.52em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_033_employment_insurance_number", w1) %></span></div>
+        <div class="stl_01" style="top: 19.6062em; left:73.519em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_034_severance_pay", w1) %></span></div>
+        <div class="stl_01" style="top: 20.8062em; left:73.519em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w1) %></span></div>
+        <div class="stl_01" style="top: 20.8062em; left:78.02em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_036_special_education", w1) %></span></div>
+        <div class="stl_01" style="top: 20.8062em; left:81.0228em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_037_skill_training", w1) %></span></div>
+        <div class="stl_01" style="top: 20.8062em; left:84.019em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w1) %></span></div>
+        <div class="stl_01" style="top: 19.9062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w1) %></span></div>
+        <div class="stl_01" style="top: 21.7062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w1) %></span></div>
         <div class="stl_01" style="top: 19.9062em; left:92.69em;"><span class="stl_10 stl_08">建・中1</span></div>
         <div class="stl_01" style="top: 21.7062em; left:92.69em;"><span class="stl_10 stl_08">他・無1</span></div>
 
         <!-- 作業員2行目 -->
-        <div class="stl_01" style="top: 24.4062em; left:4.4em;"><span class="stl_10 stl_09">2</span></div>
-        <div class="stl_01" style="top: 23.2062em; left:5.44em;"><span class="stl_10 stl_09"><%= @document.content["worker"]["doc5_8_012_furigana"][w2[1]] if w2 != nil %></span></div>
-        <div class="stl_01" style="top: 24.4062em; left:5.44em;"><span class="stl_10 stl_09">2-013</span></div>
-        <div class="stl_01" style="top: 25.6062em; left:5.44em;"><span class="stl_10 stl_09">2-014</span></div>
-        <div class="stl_01" style="top: 24.4062em; left:14.99em;"><span class="stl_10 stl_09">2-015</span></div>
-        <div class="stl_01" style="top: 24.4062em; left:17.99em;"><span class="stl_10 stl_09">2-016</span></div>
-        <div class="stl_01" style="top: 23.5062em; left:22.49em;"><span class="stl_10 stl_09">2-017</span></div>
-        <div class="stl_01" style="top: 25.3062em; left:22.49em;"><span class="stl_10 stl_09">2-018</span></div>
-        <div class="stl_01" style="top: 23.5062em; left:28.489em;"><span class="stl_10 stl_09">2-019</span></div>
-        <div class="stl_01" style="top: 25.3062em; left:28.489em;"><span class="stl_10 stl_09">2-020</span></div>
-        <div class="stl_01" style="top: 23.5062em; left:32.44em;"><span class="stl_10 stl_09">2-021</span></div>
-        <div class="stl_01" style="top: 25.3062em; left:32.44em;"><span class="stl_10 stl_09">2-022</span></div>
-        <div class="stl_01" style="top: 23.5062em; left:47.9886em;"><span class="stl_10 stl_09">2-023</span></div>
-        <div class="stl_01" style="top: 25.3062em; left:47.99em;"><span class="stl_10 stl_09">2-024</span></div>
-        <div class="stl_01" style="top: 23.5062em; left:53.9876em;"><span class="stl_10 stl_09">2-025</span></div>
-        <div class="stl_01" style="top: 25.3062em; left:53.17em;"><span class="stl_10 stl_09">2-026～027</span></div>
-        <div class="stl_01" style="top: 23.5062em; left:61.49em;"><span class="stl_10 stl_09">2-029</span></div>
-        <div class="stl_01" style="top: 25.3062em; left:61.49em;"><span class="stl_10 stl_09">2-030</span></div>
-        <div class="stl_01" style="top: 23.2062em; left:67.49em;"><span class="stl_10 stl_09">2-031</span></div>
-        <div class="stl_01" style="top: 24.4062em; left:67.49em;"><span class="stl_10 stl_09">2-032</span></div>
-        <div class="stl_01" style="top: 25.6062em; left:67.49em;"><span class="stl_10 stl_09">2-033</span></div>
-        <div class="stl_01" style="top: 23.2062em; left:73.489em;"><span class="stl_10 stl_09">2-034</span></div>
-        <div class="stl_01" style="top: 24.4062em; left:73.489em;"><span class="stl_10 stl_09">2-035</span></div>
-        <div class="stl_01" style="top: 24.4062em; left:77.99em;"><span class="stl_10 stl_09">2-036</span></div>
-        <div class="stl_01" style="top: 24.4062em; left:80.9928em;"><span class="stl_10 stl_09">2-037</span></div>
-        <div class="stl_01" style="top: 24.4062em; left:83.989em;"><span class="stl_10 stl_09">2-038</span></div>
-        <div class="stl_01" style="top: 23.5062em; left:88.49em;"><span class="stl_10 stl_09">2-039</span></div>
-        <div class="stl_01" style="top: 25.3062em; left:88.49em;"><span class="stl_10 stl_09">2-040</span></div>
-        <div class="stl_01" style="top: 24.4062em; left:58.24em;"><span class="stl_10 stl_08">2A</span></div>
+        <div class="stl_01" style="top: 24.4062em; left:4.4em;"><span class="stl_10 stl_09"><%= worker_number(w2) %></span></div>
+        <div class="stl_01" style="top: 23.2062em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_012_furigana", w2) %></span></div>
+        <div class="stl_01" style="top: 24.4062em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_013_worker_name", w2) %></span></div>
+        <div class="stl_01" style="top: 25.6062em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_014_skilled_person_id", w2) %></span></div>
+        <div class="stl_01" style="top: 24.4062em; left:14.99em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_015_occupation", w2) %></span></div>
+        <div class="stl_01" style="top: 24.4062em; left:17.99em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_016_symbol", w2) %></span></div>
+        <div class="stl_01" style="top: 23.5062em; left:22em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_017_employment_date", w2) %></span></div>
+        <div class="stl_01" style="top: 25.3062em; left:22.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_018_years_of_experience", w2) %></span></div>
+        <div class="stl_01" style="top: 23.5062em; left:28em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_019_birthday", w2) %></span></div>
+        <div class="stl_01" style="top: 25.3062em; left:28.489em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_020_age", w2) %></span></div>
+        <div class="stl_01" style="top: 23.5062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_021_address", w2) %></span></div>
+        <div class="stl_01" style="top: 25.3062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_022_family_contact_address", w2) %></span></div>
+        <div class="stl_01" style="top: 23.5062em; left:47em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_023_telephone_number", w2) %></span></div>
+        <div class="stl_01" style="top: 25.3062em; left:47em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_024_family_telephone_number", w2) %></span></div>
+        <div class="stl_01" style="top: 23.5062em; left:53em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_025_health_check_date", w1) %></span></div>
+        <div class="stl_01" style="top: 25.3062em; left:53.17em;">
+          <span class="stl_10 stl_09">
+            <%= worker_column("doc5_8_026_maximum_blood_pressure", w2) %>～<%= worker_column("doc5_8_027_minimum_blood_pressure", w2) %>
+          </span>
+        </div>
+        <div class="stl_01" style="top: 24.4062em; left:58.24em;"><span class="stl_10 stl_08"><%= worker_column("doc5_8_028_blood_type", w2) %></span></div>
+        <div class="stl_01" style="top: 23.5062em; left:61em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_029_special_health_examination_date", w2) %></span></div>
+        <div class="stl_01" style="top: 25.3062em; left:61.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_030_special_health_check_type", w2) %></span></div>
+        <div class="stl_01" style="top: 23.2062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_031_health_insurance", w2) %></span></div>
+        <div class="stl_01" style="top: 24.4062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_032_pension_insurance", w2) %></span></div>
+        <div class="stl_01" style="top: 25.6062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_033_employment_insurance_number", w2) %></span></div>
+        <div class="stl_01" style="top: 23.2062em; left:73.489em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_034_severance_pay", w2) %></span></div>
+        <div class="stl_01" style="top: 24.4062em; left:73.489em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w2) %></span></div>
+        <div class="stl_01" style="top: 24.4062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_036_special_education", w2) %></span></div>
+        <div class="stl_01" style="top: 24.4062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_037_skill_training", w2) %></span></div>
+        <div class="stl_01" style="top: 24.4062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w2) %></span></div>
+        <div class="stl_01" style="top: 23.5062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w2) %></span></div>
+        <div class="stl_01" style="top: 25.3062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w2) %></span></div>
         <div class="stl_01" style="top: 23.5062em; left:92.66em;"><span class="stl_10 stl_08">建・中2</span></div>
         <div class="stl_01" style="top: 25.3062em; left:92.66em;"><span class="stl_10 stl_08">他・無2</span></div>
 
         <!-- 作業員3行目 -->
-        <div class="stl_01" style="top: 28.0062em; left:4.4em;"><span class="stl_10 stl_09">3</span></div>
-        <div class="stl_01" style="top: 26.8062em; left:5.44em;"><span class="stl_10 stl_09"><%= @document.content["worker"]["doc5_8_012_furigana"][w3[1]] if w3 != nil %></span></div>
-        <div class="stl_01" style="top: 28.0062em; left:5.44em;"><span class="stl_10 stl_09">3-013</span></div>
-        <div class="stl_01" style="top: 29.2062em; left:5.44em;"><span class="stl_10 stl_09">3-014</span></div>
-        <div class="stl_01" style="top: 28.0062em; left:14.99em;"><span class="stl_10 stl_09">3-015</span></div>
-        <div class="stl_01" style="top: 28.0062em; left:17.9928em;"><span class="stl_10 stl_09">3-016</span></div>
-        <div class="stl_01" style="top: 27.1062em; left:22.49em;"><span class="stl_10 stl_09">3-017</span></div>
-        <div class="stl_01" style="top: 28.9062em; left:22.49em;"><span class="stl_10 stl_09">3-018</span></div>
-        <div class="stl_01" style="top: 27.1062em; left:28.49em;"><span class="stl_10 stl_09">3-019</span></div>
-        <div class="stl_01" style="top: 28.9062em; left:28.49em;"><span class="stl_10 stl_09">3-020</span></div>
-        <div class="stl_01" style="top: 27.1062em; left:32.44em;"><span class="stl_10 stl_09">3-021</span></div>
-        <div class="stl_01" style="top: 28.9062em; left:32.44em;"><span class="stl_10 stl_09">3-022</span></div>
-        <div class="stl_01" style="top: 27.1062em; left:47.9886em;"><span class="stl_10 stl_09">3-023</span></div>
-        <div class="stl_01" style="top: 28.9062em; left:47.99em;"><span class="stl_10 stl_09">3-024</span></div>
-        <div class="stl_01" style="top: 27.1062em; left:53.9876em;"><span class="stl_10 stl_09">3-025</span></div>
-        <div class="stl_01" style="top: 28.9062em; left:53.17em;"><span class="stl_10 stl_09">3-026～027</span></div>
-        <div class="stl_01" style="top: 27.1062em; left:61.49em;"><span class="stl_10 stl_09">3-029</span></div>
-        <div class="stl_01" style="top: 28.9062em; left:61.49em;"><span class="stl_10 stl_09">3-030</span></div>
-        <div class="stl_01" style="top: 26.8062em; left:67.49em;"><span class="stl_10 stl_09">3-031</span></div>
-        <div class="stl_01" style="top: 28.0062em; left:67.49em;"><span class="stl_10 stl_09">3-032</span></div>
-        <div class="stl_01" style="top: 29.2062em; left:67.49em;"><span class="stl_10 stl_09">3-033</span></div>
-        <div class="stl_01" style="top: 26.8062em; left:73.489em;"><span class="stl_10 stl_09">3-034</span></div>
-        <div class="stl_01" style="top: 28.0062em; left:73.489em;"><span class="stl_10 stl_09">3-035</span></div>
-        <div class="stl_01" style="top: 28.0062em; left:77.99em;"><span class="stl_10 stl_09">3-036</span></div>
-        <div class="stl_01" style="top: 28.0062em; left:80.9928em;"><span class="stl_10 stl_09">3-037</span></div>
-        <div class="stl_01" style="top: 28.0062em; left:83.989em;"><span class="stl_10 stl_09">3-038</span></div>
-        <div class="stl_01" style="top: 27.1062em; left:88.49em;"><span class="stl_10 stl_09">3-039</span></div>
-        <div class="stl_01" style="top: 28.9062em; left:88.49em;"><span class="stl_10 stl_09">3-040</span></div>
-        <div class="stl_01" style="top: 28.0062em; left:58.24em;"><span class="stl_10 stl_08">3A</span></div>
+        <div class="stl_01" style="top: 28.0062em; left:4.4em;"><span class="stl_10 stl_09"><%= worker_number(w3) %></span></div>
+        <div class="stl_01" style="top: 26.8062em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_012_furigana", w3) %></span></div>
+        <div class="stl_01" style="top: 28.0062em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_013_worker_name", w3) %></span></div>
+        <div class="stl_01" style="top: 29.2062em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_014_skilled_person_id", w3) %></span></div>
+        <div class="stl_01" style="top: 28.0062em; left:14.99em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_015_occupation", w3) %></span></div>
+        <div class="stl_01" style="top: 28.0062em; left:17.9928em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_016_symbol", w3) %></span></div>
+        <div class="stl_01" style="top: 27.1062em; left:22em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_017_employment_date", w3) %></span></div>
+        <div class="stl_01" style="top: 28.9062em; left:22.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_018_years_of_experience", w3) %></span></div>
+        <div class="stl_01" style="top: 27.1062em; left:28em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_019_birthday", w3) %></span></div>
+        <div class="stl_01" style="top: 28.9062em; left:28.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_020_age", w3) %></span></div>
+        <div class="stl_01" style="top: 27.1062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_021_address", w3) %></span></div>
+        <div class="stl_01" style="top: 28.9062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_022_family_contact_address", w3) %></span></div>
+        <div class="stl_01" style="top: 27.1062em; left:47em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_023_telephone_number", w3) %></span></div>
+        <div class="stl_01" style="top: 28.9062em; left:47em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_024_family_telephone_number", w3) %></span></div>
+        <div class="stl_01" style="top: 27.1062em; left:53em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_025_health_check_date", w3) %></span></div>
+        <div class="stl_01" style="top: 28.9062em; left:53.17em;">
+          <span class="stl_10 stl_09">
+            <%= worker_column("doc5_8_026_maximum_blood_pressure", w3) %>～<%= worker_column("doc5_8_027_minimum_blood_pressure", w3) %>
+          </span>
+        </div>
+        <div class="stl_01" style="top: 28.0062em; left:58.24em;"><span class="stl_10 stl_08"><%= worker_column("doc5_8_028_blood_type", w3) %></span></div>
+        <div class="stl_01" style="top: 27.1062em; left:61em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_029_special_health_examination_date", w3) %></span></div>
+        <div class="stl_01" style="top: 28.9062em; left:61.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_030_special_health_check_type", w3) %></span></div>
+        <div class="stl_01" style="top: 26.8062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_031_health_insurance", w3) %></span></div>
+        <div class="stl_01" style="top: 28.0062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_032_pension_insurance", w3) %></span></div>
+        <div class="stl_01" style="top: 29.2062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_033_employment_insurance_number", w3) %></span></div>
+        <div class="stl_01" style="top: 26.8062em; left:73.489em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_034_severance_pay", w3) %></span></div>
+        <div class="stl_01" style="top: 28.0062em; left:73.489em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w3) %></span></div>
+        <div class="stl_01" style="top: 28.0062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_036_special_education", w3) %></span></div>
+        <div class="stl_01" style="top: 28.0062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_037_skill_training", w3) %></span></div>
+        <div class="stl_01" style="top: 28.0062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w3) %></span></div>
+        <div class="stl_01" style="top: 27.1062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w3) %></span></div>
+        <div class="stl_01" style="top: 28.9062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w3) %></span></div>
         <div class="stl_01" style="top: 27.1062em; left:92.66em;"><span class="stl_10 stl_08">建・中3</span></div>
         <div class="stl_01" style="top: 28.9062em; left:92.66em;"><span class="stl_10 stl_08">他・無3</span></div>
 
         <!-- 作業員4行目 -->
-        <div class="stl_01" style="top: 31.6062em; left:4.4em;"><span class="stl_10 stl_09">4</span></div>
-        <div class="stl_01" style="top: 30.4062em; left:5.44em;"><span class="stl_10 stl_09"><%= @document.content["worker"]["doc5_8_012_furigana"][w3[1]] if w3 != nil %></span></div>
-        <div class="stl_01" style="top: 31.6062em; left:5.44em;"><span class="stl_10 stl_09">4-013</span></div>
-        <div class="stl_01" style="top: 32.8062em; left:5.44em;"><span class="stl_10 stl_09">4-014</span></div>
-        <div class="stl_01" style="top: 31.6062em; left:14.99em;"><span class="stl_10 stl_09">4-015</span></div>
-        <div class="stl_01" style="top: 31.6062em; left:17.9928em;"><span class="stl_10 stl_09">4-016</span></div>
-        <div class="stl_01" style="top: 30.7062em; left:22.49em;"><span class="stl_10 stl_09">4-017</span></div>
-        <div class="stl_01" style="top: 32.5062em; left:22.49em;"><span class="stl_10 stl_09">4-018</span></div>
-        <div class="stl_01" style="top: 30.7062em; left:28.49em;"><span class="stl_10 stl_09">4-019</span></div>
-        <div class="stl_01" style="top: 32.5062em; left:28.489em;"><span class="stl_10 stl_09">4-020</span></div>
-        <div class="stl_01" style="top: 30.7062em; left:32.44em;"><span class="stl_10 stl_09">4-021</span></div>
-        <div class="stl_01" style="top: 32.5062em; left:32.44em;"><span class="stl_10 stl_09">4-022</span></div>
-        <div class="stl_01" style="top: 30.7062em; left:47.9886em;"><span class="stl_10 stl_09">4-023</span></div>
-        <div class="stl_01" style="top: 32.5062em; left:47.99em;"><span class="stl_10 stl_09">4-024</span></div>
-        <div class="stl_01" style="top: 30.7062em; left:53.9876em;"><span class="stl_10 stl_09">4-025</span></div>
-        <div class="stl_01" style="top: 32.5062em; left:53.17em;"><span class="stl_10 stl_09">4-026～027</span></div>
-        <div class="stl_01" style="top: 30.7062em; left:61.49em;"><span class="stl_10 stl_09">4-029</span></div>
-        <div class="stl_01" style="top: 32.5062em; left:61.49em;"><span class="stl_10 stl_09">4-030</span></div>
-        <div class="stl_01" style="top: 30.4062em; left:67.49em;"><span class="stl_10 stl_09">4-031</span></div>
-        <div class="stl_01" style="top: 31.6062em; left:67.49em;"><span class="stl_10 stl_09">4-032</span></div>
-        <div class="stl_01" style="top: 32.8062em; left:67.49em;"><span class="stl_10 stl_09">4-033</span></div>
-        <div class="stl_01" style="top: 30.4062em; left:73.489em;"><span class="stl_10 stl_09">4-034</span></div>
-        <div class="stl_01" style="top: 31.6062em; left:73.489em;"><span class="stl_10 stl_09">4-035</span></div>
-        <div class="stl_01" style="top: 31.6062em; left:77.99em;"><span class="stl_10 stl_09">4-036</span></div>
-        <div class="stl_01" style="top: 31.6062em; left:80.9928em;"><span class="stl_10 stl_09">4-037</span></div>
-        <div class="stl_01" style="top: 31.6062em; left:83.989em;"><span class="stl_10 stl_09">4-038</span></div>
-        <div class="stl_01" style="top: 30.7062em; left:88.49em;"><span class="stl_10 stl_09">4-039</span></div>
-        <div class="stl_01" style="top: 32.5062em; left:88.49em;"><span class="stl_10 stl_09">4-040</span></div>
-        <div class="stl_01" style="top: 31.6062em; left:58.24em;"><span class="stl_10 stl_08">4A</span></div>
+        <div class="stl_01" style="top: 31.6062em; left:4.4em;"><span class="stl_10 stl_09"><%= worker_number(w4) %></span></div>
+        <div class="stl_01" style="top: 30.4062em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_012_furigana", w4) %></span></div>
+        <div class="stl_01" style="top: 31.6062em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_013_worker_name", w4) %></span></div>
+        <div class="stl_01" style="top: 32.8062em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_014_skilled_person_id", w4) %></span></div>
+        <div class="stl_01" style="top: 31.6062em; left:14.99em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_015_occupation", w4) %></span></div>
+        <div class="stl_01" style="top: 31.6062em; left:17.9928em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_016_symbol", w4) %></span></div>
+        <div class="stl_01" style="top: 30.7062em; left:22em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_017_employment_date", w4) %></span></div>
+        <div class="stl_01" style="top: 32.5062em; left:22.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_018_years_of_experience", w4) %></span></div>
+        <div class="stl_01" style="top: 30.7062em; left:28em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_019_birthday", w4) %></span></div>
+        <div class="stl_01" style="top: 32.5062em; left:28.489em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_020_age", w4) %></span></div>
+        <div class="stl_01" style="top: 30.7062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_021_address", w4) %></span></div>
+        <div class="stl_01" style="top: 32.5062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_022_family_contact_address", w4) %></span></div>
+        <div class="stl_01" style="top: 30.7062em; left:47em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_023_telephone_number", w4) %></span></div>
+        <div class="stl_01" style="top: 32.5062em; left:47em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_024_family_telephone_number", w4) %></span></div>
+        <div class="stl_01" style="top: 30.7062em; left:53em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_025_health_check_date", w4) %></span></div>
+        <div class="stl_01" style="top: 32.5062em; left:53.17em;">
+          <span class="stl_10 stl_09">
+            <%= worker_column("doc5_8_026_maximum_blood_pressure", w4) %>～<%= worker_column("doc5_8_027_minimum_blood_pressure", w4) %>
+          </span>
+        </div>
+        <div class="stl_01" style="top: 31.6062em; left:58.24em;"><span class="stl_10 stl_08"><%= worker_column("doc5_8_028_blood_type", w4) %></span></div>
+        <div class="stl_01" style="top: 30.7062em; left:61em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_029_special_health_examination_date", w4) %></span></div>
+        <div class="stl_01" style="top: 32.5062em; left:61.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_030_special_health_check_type", w4) %></span></div>
+        <div class="stl_01" style="top: 30.4062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_031_health_insurance", w4) %></span></div>
+        <div class="stl_01" style="top: 31.6062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_032_pension_insurance", w4) %></span></div>
+        <div class="stl_01" style="top: 32.8062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_033_employment_insurance_number", w4) %></span></div>
+        <div class="stl_01" style="top: 30.4062em; left:73.489em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_034_severance_pay", w4) %></span></div>
+        <div class="stl_01" style="top: 31.6062em; left:73.489em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w4) %></span></div>
+        <div class="stl_01" style="top: 31.6062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_036_special_education", w4) %></span></div>
+        <div class="stl_01" style="top: 31.6062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_037_skill_training", w4) %></span></div>
+        <div class="stl_01" style="top: 31.6062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w4) %></span></div>
+        <div class="stl_01" style="top: 30.7062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w4) %></span></div>
+        <div class="stl_01" style="top: 32.5062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w4) %></span></div>
         <div class="stl_01" style="top: 30.7062em; left:92.66em;"><span class="stl_10 stl_08">建・中4</span></div>
         <div class="stl_01" style="top: 32.5062em; left:92.66em;"><span class="stl_10 stl_08">他・無4</span></div>
 
         <!-- 作業員5行目 -->
-        <div class="stl_01" style="top: 35.2062em; left:4.4em;"><span class="stl_10 stl_09">5</span></div>
-        <div class="stl_01" style="top: 34.0062em; left:5.44em;"><span class="stl_10 stl_09"><%= @document.content["worker"]["doc5_8_012_furigana"][w4[1]] if w4 != nil %></span></div>
-        <div class="stl_01" style="top: 35.2062em; left:5.44em;"><span class="stl_10 stl_09">5-013</span></div>
-        <div class="stl_01" style="top: 36.4062em; left:5.44em;"><span class="stl_10 stl_09">5-014</span></div>
-        <div class="stl_01" style="top: 35.2062em; left:14.99em;"><span class="stl_10 stl_09">5-015</span></div>
-        <div class="stl_01" style="top: 35.2062em; left:17.9928em;"><span class="stl_10 stl_09">5-016</span></div>
-        <div class="stl_01" style="top: 34.3062em; left:22.49em;"><span class="stl_10 stl_09">5-017</span></div>
-        <div class="stl_01" style="top: 36.1062em; left:22.49em;"><span class="stl_10 stl_09">5-018</span></div>
-        <div class="stl_01" style="top: 34.3062em; left:28.489em;"><span class="stl_10 stl_09">5-019</span></div>
-        <div class="stl_01" style="top: 36.1062em; left:28.49em;"><span class="stl_10 stl_09">5-020</span></div>
-        <div class="stl_01" style="top: 34.3062em; left:32.44em;"><span class="stl_10 stl_09">5-021</span></div>
-        <div class="stl_01" style="top: 36.1062em; left:32.44em;"><span class="stl_10 stl_09">5-022</span></div>
-        <div class="stl_01" style="top: 34.3062em; left:47.9886em;"><span class="stl_10 stl_09">5-023</span></div>
-        <div class="stl_01" style="top: 36.1062em; left:47.9886em;"><span class="stl_10 stl_09">5-024</span></div>
-        <div class="stl_01" style="top: 34.3062em; left:53.9876em;"><span class="stl_10 stl_09">5-025</span></div>
-        <div class="stl_01" style="top: 36.1062em; left:53.17em;"><span class="stl_10 stl_09">5-026～027</span></div>
-        <div class="stl_01" style="top: 34.3062em; left:61.49em;"><span class="stl_10 stl_09">5-029</span></div>
-        <div class="stl_01" style="top: 36.1062em; left:61.49em;"><span class="stl_10 stl_09">5-030</span></div>
-        <div class="stl_01" style="top: 34.0062em; left:67.49em;"><span class="stl_10 stl_09">5-031</span></div>
-        <div class="stl_01" style="top: 35.2062em; left:67.49em;"><span class="stl_10 stl_09">5-032</span></div>
-        <div class="stl_01" style="top: 36.4062em; left:67.49em;"><span class="stl_10 stl_09">5-033</span></div>
-        <div class="stl_01" style="top: 34.0062em; left:73.489em;"><span class="stl_10 stl_09">5-034</span></div>
-        <div class="stl_01" style="top: 35.2062em; left:73.489em;"><span class="stl_10 stl_09">5-035</span></div>
-        <div class="stl_01" style="top: 35.2062em; left:77.99em;"><span class="stl_10 stl_09">5-036</span></div>
-        <div class="stl_01" style="top: 35.2062em; left:80.9928em;"><span class="stl_10 stl_09">5-037</span></div>
-        <div class="stl_01" style="top: 35.2062em; left:83.989em;"><span class="stl_10 stl_09">5-038</span></div>
-        <div class="stl_01" style="top: 34.3062em; left:88.49em;"><span class="stl_10 stl_09">5-039</span></div>
-        <div class="stl_01" style="top: 36.1062em; left:88.49em;"><span class="stl_10 stl_09">5-040</span></div>
-        <div class="stl_01" style="top: 35.2062em; left:58.24em;"><span class="stl_10 stl_08">5A</span></div>
+        <div class="stl_01" style="top: 35.2062em; left:4.4em;"><span class="stl_10 stl_09"><%= worker_number(w5) %></span></div>
+        <div class="stl_01" style="top: 34.0062em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_012_furigana", w5) %></span></div>
+        <div class="stl_01" style="top: 35.2062em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_013_worker_name", w5) %></span></div>
+        <div class="stl_01" style="top: 36.4062em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_014_skilled_person_id", w5) %></span></div>
+        <div class="stl_01" style="top: 35.2062em; left:14.99em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_015_occupation", w5) %></span></div>
+        <div class="stl_01" style="top: 35.2062em; left:17.9928em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_016_symbol", w5) %></span></div>
+        <div class="stl_01" style="top: 34.3062em; left:22em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_017_employment_date", w5) %></span></div>
+        <div class="stl_01" style="top: 36.1062em; left:22.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_018_years_of_experience", w5) %></span></div>
+        <div class="stl_01" style="top: 34.3062em; left:28em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_019_birthday", w5) %></span></div>
+        <div class="stl_01" style="top: 36.1062em; left:28.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_020_age", w5) %></span></div>
+        <div class="stl_01" style="top: 34.3062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_021_address", w5) %></span></div>
+        <div class="stl_01" style="top: 36.1062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_022_family_contact_address", w5) %></span></div>
+        <div class="stl_01" style="top: 34.3062em; left:47em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_023_telephone_number", w5) %></span></div>
+        <div class="stl_01" style="top: 36.1062em; left:47em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_024_family_telephone_number", w5) %></span></div>
+        <div class="stl_01" style="top: 34.3062em; left:53em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_025_health_check_date", w5) %></span></div>
+        <div class="stl_01" style="top: 36.1062em; left:53.17em;">
+          <span class="stl_10 stl_09">
+            <%= worker_column("doc5_8_026_maximum_blood_pressure", w5) %>～<%= worker_column("doc5_8_027_minimum_blood_pressure", w5) %>
+          </span>
+        </div>
+        <div class="stl_01" style="top: 35.2062em; left:58.24em;"><span class="stl_10 stl_08"><%= worker_column("doc5_8_028_blood_type", w5) %></span></div>
+        <div class="stl_01" style="top: 34.3062em; left:61em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_029_special_health_examination_date", w5) %></span></div>
+        <div class="stl_01" style="top: 36.1062em; left:61.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_030_special_health_check_type", w5) %></span></div>
+        <div class="stl_01" style="top: 34.0062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_031_health_insurance", w5) %></span></div>
+        <div class="stl_01" style="top: 35.2062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_032_pension_insurance", w5) %></span></div>
+        <div class="stl_01" style="top: 36.4062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_033_employment_insurance_number", w5) %></span></div>
+        <div class="stl_01" style="top: 34.0062em; left:73.489em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_034_severance_pay", w5) %></span></div>
+        <div class="stl_01" style="top: 35.2062em; left:73.489em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w5) %></span></div>
+        <div class="stl_01" style="top: 35.2062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_036_special_education", w5) %></span></div>
+        <div class="stl_01" style="top: 35.2062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_037_skill_training", w5) %></span></div>
+        <div class="stl_01" style="top: 35.2062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w5) %></span></div>
+        <div class="stl_01" style="top: 34.3062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w5) %></span></div>
+        <div class="stl_01" style="top: 36.1062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w5) %></span></div>
         <div class="stl_01" style="top: 34.3062em; left:92.66em;"><span class="stl_10 stl_08">建・中5</span></div>
         <div class="stl_01" style="top: 36.1062em; left:92.66em;"><span class="stl_10 stl_08">他・無5</span></div>
 
         <!-- 作業員6行目 -->
-        <div class="stl_01" style="top: 38.8062em; left:4.4em;"><span class="stl_10 stl_09">6</span></div>
-        <div class="stl_01" style="top: 37.6062em; left:5.44em;"><span class="stl_10 stl_09"><%= @document.content["worker"]["doc5_8_012_furigana"][w5[1]] if w5 != nil %></span></div>
-        <div class="stl_01" style="top: 38.8062em; left:5.44em;"><span class="stl_10 stl_09">6-013</span></div>
-        <div class="stl_01" style="top: 40.0062em; left:5.44em;"><span class="stl_10 stl_09">6-014</span></div>
-        <div class="stl_01" style="top: 38.8062em; left:14.99em;"><span class="stl_10 stl_09">6-015</span></div>
-        <div class="stl_01" style="top: 38.8062em; left:17.9928em;"><span class="stl_10 stl_09">6-016</span></div>
-        <div class="stl_01" style="top: 37.9062em; left:22.49em;"><span class="stl_10 stl_09">6-017</span></div>
-        <div class="stl_01" style="top: 39.7062em; left:22.49em;"><span class="stl_10 stl_09">6-018</span></div>
-        <div class="stl_01" style="top: 37.9062em; left:28.49em;"><span class="stl_10 stl_09">6-019</span></div>
-        <div class="stl_01" style="top: 39.7062em; left:28.49em;"><span class="stl_10 stl_09">6-020</span></div>
-        <div class="stl_01" style="top: 37.9062em; left:32.44em;"><span class="stl_10 stl_09">6-021</span></div>
-        <div class="stl_01" style="top: 39.7062em; left:32.44em;"><span class="stl_10 stl_09">6-022</span></div>
-        <div class="stl_01" style="top: 37.9062em; left:47.9886em;"><span class="stl_10 stl_09">6-023</span></div>
-        <div class="stl_01" style="top: 39.7062em; left:47.9886em;"><span class="stl_10 stl_09">6-024</span></div>
-        <div class="stl_01" style="top: 37.9062em; left:53.9876em;"><span class="stl_10 stl_09">6-025</span></div>
-        <div class="stl_01" style="top: 39.7062em; left:53.17em;"><span class="stl_10 stl_09">6-026～027</span></div>
-        <div class="stl_01" style="top: 37.9062em; left:61.49em;"><span class="stl_10 stl_09">6-029</span></div>
-        <div class="stl_01" style="top: 39.7062em; left:61.49em;"><span class="stl_10 stl_09">6-030</span></div>
-        <div class="stl_01" style="top: 37.6062em; left:67.49em;"><span class="stl_10 stl_09">6-031</span></div>
-        <div class="stl_01" style="top: 38.8062em; left:67.49em;"><span class="stl_10 stl_09">6-032</span></div>
-        <div class="stl_01" style="top: 40.0062em; left:67.49em;"><span class="stl_10 stl_09">6-033</span></div>
-        <div class="stl_01" style="top: 37.6062em; left:73.489em;"><span class="stl_10 stl_09">6-034</span></div>
-        <div class="stl_01" style="top: 38.8062em; left:73.489em;"><span class="stl_10 stl_09">6-035</span></div>
-        <div class="stl_01" style="top: 38.8062em; left:77.99em;"><span class="stl_10 stl_09">6-036</span></div>
-        <div class="stl_01" style="top: 38.8062em; left:80.9928em;"><span class="stl_10 stl_09">6-037</span></div>
-        <div class="stl_01" style="top: 38.8062em; left:83.989em;"><span class="stl_10 stl_09">6-038</span></div>
-        <div class="stl_01" style="top: 37.9062em; left:88.49em;"><span class="stl_10 stl_09">6-039</span></div>
-        <div class="stl_01" style="top: 39.7062em; left:88.49em;"><span class="stl_10 stl_09">6-040</span></div>
-        <div class="stl_01" style="top: 38.8062em; left:58.24em;"><span class="stl_10 stl_08">6A</span></div>
+        <div class="stl_01" style="top: 38.8062em; left:4.4em;"><span class="stl_10 stl_09"><%= worker_number(w6) %></span></div>
+        <div class="stl_01" style="top: 37.6062em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_012_furigana", w6) %></span></div>
+        <div class="stl_01" style="top: 38.8062em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_013_worker_name", w6) %></span></div>
+        <div class="stl_01" style="top: 40.0062em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_014_skilled_person_id", w6) %></span></div>
+        <div class="stl_01" style="top: 38.8062em; left:14.99em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_015_occupation", w6) %></span></div>
+        <div class="stl_01" style="top: 38.8062em; left:17.9928em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_016_symbol", w6) %></span></div>
+        <div class="stl_01" style="top: 37.9062em; left:22em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_017_employment_date", w6) %></span></div>
+        <div class="stl_01" style="top: 39.7062em; left:22.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_018_years_of_experience", w6) %></span></div>
+        <div class="stl_01" style="top: 37.9062em; left:28em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_019_birthday", w6) %></span></div>
+        <div class="stl_01" style="top: 39.7062em; left:28.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_020_age", w6) %></span></div>
+        <div class="stl_01" style="top: 37.9062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_021_address", w6) %></span></div>
+        <div class="stl_01" style="top: 39.7062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_022_family_contact_address", w6) %></span></div>
+        <div class="stl_01" style="top: 37.9062em; left:47em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_023_telephone_number", w6) %></span></div>
+        <div class="stl_01" style="top: 39.7062em; left:47em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_024_family_telephone_number", w6) %></span></div>
+        <div class="stl_01" style="top: 37.9062em; left:53em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_025_health_check_date", w6) %></span></div>
+        <div class="stl_01" style="top: 39.7062em; left:53.17em;">
+          <span class="stl_10 stl_09">
+            <%= worker_column("doc5_8_026_maximum_blood_pressure", w6) %>～<%= worker_column("doc5_8_027_minimum_blood_pressure", w6) %>
+          </span>
+        </div>
+        <div class="stl_01" style="top: 38.8062em; left:58.24em;"><span class="stl_10 stl_08"><%= worker_column("doc5_8_028_blood_type", w6) %></span></div>
+        <div class="stl_01" style="top: 37.9062em; left:61em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_029_special_health_examination_date", w6) %></span></div>
+        <div class="stl_01" style="top: 39.7062em; left:61.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_030_special_health_check_type", w6) %></span></div>
+        <div class="stl_01" style="top: 37.6062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_031_health_insurance", w6) %></span></div>
+        <div class="stl_01" style="top: 38.8062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_032_pension_insurance", w6) %></span></div>
+        <div class="stl_01" style="top: 40.0062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_033_employment_insurance_number", w6) %></span></div>
+        <div class="stl_01" style="top: 37.6062em; left:73.489em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_034_severance_pay", w6) %></span></div>
+        <div class="stl_01" style="top: 38.8062em; left:73.489em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w6) %></span></div>
+        <div class="stl_01" style="top: 38.8062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_036_special_education", w6) %></span></div>
+        <div class="stl_01" style="top: 38.8062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_037_skill_training", w6) %></span></div>
+        <div class="stl_01" style="top: 38.8062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w6) %></span></div>
+        <div class="stl_01" style="top: 37.9062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w6) %></span></div>
+        <div class="stl_01" style="top: 39.7062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w6) %></span></div>
         <div class="stl_01" style="top: 37.9062em; left:92.66em;"><span class="stl_10 stl_08">建・中6</span></div>
         <div class="stl_01" style="top: 39.7062em; left:92.66em;"><span class="stl_10 stl_08">他・無6</span></div>
 
         <!-- 作業員7行目 -->
-        <div class="stl_01" style="top: 42.4062em; left:4.4em;"><span class="stl_10 stl_09">7</span></div>
-        <div class="stl_01" style="top: 41.2062em; left:5.44em;"><span class="stl_10 stl_09"><%= @document.content["worker"]["doc5_8_012_furigana"][w6[1]] if w6 != nil %></span></div>
-        <div class="stl_01" style="top: 42.4062em; left:5.44em;"><span class="stl_10 stl_09">7-013</span></div>
-        <div class="stl_01" style="top: 43.6062em; left:5.44em;"><span class="stl_10 stl_09">7-014</span></div>
-        <div class="stl_01" style="top: 42.4062em; left:14.99em;"><span class="stl_10 stl_09">7-015</span></div>
-        <div class="stl_01" style="top: 42.4062em; left:17.9928em;"><span class="stl_10 stl_09">7-016</span></div>
-        <div class="stl_01" style="top: 41.5062em; left:22.49em;"><span class="stl_10 stl_09">7-017</span></div>
-        <div class="stl_01" style="top: 43.3062em; left:22.49em;"><span class="stl_10 stl_09">7-018</span></div>
-        <div class="stl_01" style="top: 41.5062em; left:28.489em;"><span class="stl_10 stl_09">7-019</span></div>
-        <div class="stl_01" style="top: 43.3062em; left:28.489em;"><span class="stl_10 stl_09">7-020</span></div>
-        <div class="stl_01" style="top: 41.5062em; left:32.44em;"><span class="stl_10 stl_09">7-021</span></div>
-        <div class="stl_01" style="top: 43.3062em; left:32.44em;"><span class="stl_10 stl_09">7-022</span></div>
-        <div class="stl_01" style="top: 41.5062em; left:47.99em;"><span class="stl_10 stl_09">7-023</span></div>
-        <div class="stl_01" style="top: 43.3062em; left:47.9886em;"><span class="stl_10 stl_09">7-024</span></div>
-        <div class="stl_01" style="top: 41.5062em; left:53.989em;"><span class="stl_10 stl_09">7-025</span></div>
-        <div class="stl_01" style="top: 43.3062em; left:53.17em;"><span class="stl_10 stl_09">7-026～027</span></div>
-        <div class="stl_01" style="top: 41.5062em; left:61.49em;"><span class="stl_10 stl_09">7-029</span></div>
-        <div class="stl_01" style="top: 43.3062em; left:61.49em;"><span class="stl_10 stl_09">7-030</span></div>
-        <div class="stl_01" style="top: 41.2062em; left:67.49em;"><span class="stl_10 stl_09">7-031</span></div>
-        <div class="stl_01" style="top: 42.4062em; left:67.4926em;"><span class="stl_10 stl_09">7-032</span></div>
-        <div class="stl_01" style="top: 43.6062em; left:67.49em;"><span class="stl_10 stl_09">7-033</span></div>
-        <div class="stl_01" style="top: 41.2062em; left:73.49em;"><span class="stl_10 stl_09">7-034</span></div>
-        <div class="stl_01" style="top: 42.4062em; left:73.49em;"><span class="stl_10 stl_09">7-035</span></div>
-        <div class="stl_01" style="top: 42.4062em; left:77.99em;"><span class="stl_10 stl_09">7-036</span></div>
-        <div class="stl_01" style="top: 42.4062em; left:80.9928em;"><span class="stl_10 stl_09">7-037</span></div>
-        <div class="stl_01" style="top: 42.4062em; left:83.989em;"><span class="stl_10 stl_09">7-038</span></div>
-        <div class="stl_01" style="top: 41.5062em; left:88.49em;"><span class="stl_10 stl_09">7-039</span></div>
-        <div class="stl_01" style="top: 43.3062em; left:88.49em;"><span class="stl_10 stl_09">7-040</span></div>
-        <div class="stl_01" style="top: 42.4062em; left:58.24em;"><span class="stl_10 stl_08">7A</span></div>
+        <div class="stl_01" style="top: 42.4062em; left:4.4em;"><span class="stl_10 stl_09"><%= worker_number(w7) %></span></div>
+        <div class="stl_01" style="top: 41.2062em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_012_furigana", w7) %></span></div>
+        <div class="stl_01" style="top: 42.4062em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_013_worker_name", w7) %></span></div>
+        <div class="stl_01" style="top: 43.6062em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_014_skilled_person_id", w7) %></span></div>
+        <div class="stl_01" style="top: 42.4062em; left:14.99em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_015_occupation", w7) %></span></div>
+        <div class="stl_01" style="top: 42.4062em; left:17.9928em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_016_symbol", w7) %></span></div>
+        <div class="stl_01" style="top: 41.5062em; left:22em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_017_employment_date", w7) %></span></div>
+        <div class="stl_01" style="top: 43.3062em; left:22.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_018_years_of_experience", w7) %></span></div>
+        <div class="stl_01" style="top: 41.5062em; left:28em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_019_birthday", w7) %></span></div>
+        <div class="stl_01" style="top: 43.3062em; left:28.489em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_020_age", w7) %></span></div>
+        <div class="stl_01" style="top: 41.5062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_021_address", w7) %></span></div>
+        <div class="stl_01" style="top: 43.3062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_022_family_contact_address", w7) %></span></div>
+        <div class="stl_01" style="top: 41.5062em; left:47em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_023_telephone_number", w7) %></span></div>
+        <div class="stl_01" style="top: 43.3062em; left:47em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_024_family_telephone_number", w7) %></span></div>
+        <div class="stl_01" style="top: 41.5062em; left:53em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_025_health_check_date", w7) %></span></div>
+        <div class="stl_01" style="top: 43.3062em; left:53.17em;">
+          <span class="stl_10 stl_09">
+            <%= worker_column("doc5_8_026_maximum_blood_pressure", w7) %>～<%= worker_column("doc5_8_027_minimum_blood_pressure", w7) %>
+          </span>
+        </div>
+        <div class="stl_01" style="top: 42.4062em; left:58.24em;"><span class="stl_10 stl_08"><%= worker_column("doc5_8_028_blood_type", w7) %></span></div>
+        <div class="stl_01" style="top: 41.5062em; left:61em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_029_special_health_examination_date", w7) %></span></div>
+        <div class="stl_01" style="top: 43.3062em; left:61.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_030_special_health_check_type", w7) %></span></div>
+        <div class="stl_01" style="top: 41.2062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_031_health_insurance", w7) %></span></div>
+        <div class="stl_01" style="top: 42.4062em; left:67.4926em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_032_pension_insurance", w7) %></span></div>
+        <div class="stl_01" style="top: 43.6062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_033_employment_insurance_number", w7) %></span></div>
+        <div class="stl_01" style="top: 41.2062em; left:73.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_034_severance_pay", w7) %></span></div>
+        <div class="stl_01" style="top: 42.4062em; left:73.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w7) %></span></div>
+        <div class="stl_01" style="top: 42.4062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_036_special_education", w7) %></span></div>
+        <div class="stl_01" style="top: 42.4062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_037_skill_training", w7) %></span></div>
+        <div class="stl_01" style="top: 42.4062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w7) %></span></div>
+        <div class="stl_01" style="top: 41.5062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w7) %></span></div>
+        <div class="stl_01" style="top: 43.3062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w7) %></span></div>
         <div class="stl_01" style="top: 41.5062em; left:92.66em;"><span class="stl_10 stl_08">建・中7</span></div>
         <div class="stl_01" style="top: 43.3062em; left:92.66em;"><span class="stl_10 stl_08">他・無7</span></div>
 
         <!-- 作業員8行目 -->
-        <div class="stl_01" style="top: 46.0062em; left:4.4em;"><span class="stl_10 stl_09">8</span></div>
-        <div class="stl_01" style="top: 44.8062em; left:5.44em;"><span class="stl_10 stl_09"><%= @document.content["worker"]["doc5_8_012_furigana"][w7[1]] if w7 != nil %></span></div>
-        <div class="stl_01" style="top: 46.0062em; left:5.44em;"><span class="stl_10 stl_09">8-013</span></div>
-        <div class="stl_01" style="top: 47.2062em; left:5.44em;"><span class="stl_10 stl_09">8-014</span></div>
-        <div class="stl_01" style="top: 46.0062em; left:14.99em;"><span class="stl_10 stl_09">8-015</span></div>
-        <div class="stl_01" style="top: 46.0062em; left:17.99em;"><span class="stl_10 stl_09">8-016</span></div>
-        <div class="stl_01" style="top: 45.1062em; left:22.49em;"><span class="stl_10 stl_09">8-017</span></div>
-        <div class="stl_01" style="top: 46.9062em; left:22.49em;"><span class="stl_10 stl_09">8-018</span></div>
-        <div class="stl_01" style="top: 45.1062em; left:28.49em;"><span class="stl_10 stl_09">8-019</span></div>
-        <div class="stl_01" style="top: 46.9062em; left:28.49em;"><span class="stl_10 stl_09">8-020</span></div>
-        <div class="stl_01" style="top: 45.1062em; left:32.44em;"><span class="stl_10 stl_09">8-021</span></div>
-        <div class="stl_01" style="top: 46.9062em; left:32.44em;"><span class="stl_10 stl_09">8-022</span></div>
-        <div class="stl_01" style="top: 45.1062em; left:47.99em;"><span class="stl_10 stl_09">8-023</span></div>
-        <div class="stl_01" style="top: 46.9062em; left:47.9886em;"><span class="stl_10 stl_09">8-024</span></div>
-        <div class="stl_01" style="top: 45.1062em; left:53.99em;"><span class="stl_10 stl_09">8-025</span></div>
-        <div class="stl_01" style="top: 46.9062em; left:53.17em;"><span class="stl_10 stl_09">8-026～027</span></div>
-        <div class="stl_01" style="top: 45.1062em; left:61.49em;"><span class="stl_10 stl_09">8-029</span></div>
-        <div class="stl_01" style="top: 46.9062em; left:61.49em;"><span class="stl_10 stl_09">8-030</span></div>
-        <div class="stl_01" style="top: 44.8062em; left:67.49em;"><span class="stl_10 stl_09">8-031</span></div>
-        <div class="stl_01" style="top: 46.0062em; left:67.49em;"><span class="stl_10 stl_09">8-032</span></div>
-        <div class="stl_01" style="top: 47.2062em; left:67.49em;"><span class="stl_10 stl_09">8-033</span></div>
-        <div class="stl_01" style="top: 44.8062em; left:73.489em;"><span class="stl_10 stl_09">8-034</span></div>
-        <div class="stl_01" style="top: 46.0062em; left:73.49em;"><span class="stl_10 stl_09">8-035</span></div>
-        <div class="stl_01" style="top: 46.0062em; left:77.99em;"><span class="stl_10 stl_09">8-036</span></div>
-        <div class="stl_01" style="top: 46.0062em; left:80.9928em;"><span class="stl_10 stl_09">8-037</span></div>
-        <div class="stl_01" style="top: 46.0062em; left:83.989em;"><span class="stl_10 stl_09">8-038</span></div>
-        <div class="stl_01" style="top: 45.1062em; left:88.49em;"><span class="stl_10 stl_09">8-039</span></div>
-        <div class="stl_01" style="top: 46.9062em; left:88.49em;"><span class="stl_10 stl_09">8-040</span></div>
-        <div class="stl_01" style="top: 46.0062em; left:58.24em;"><span class="stl_10 stl_08">8A</span></div>
+        <div class="stl_01" style="top: 46.0062em; left:4.4em;"><span class="stl_10 stl_09"><%= worker_number(w8) %></span></div>
+        <div class="stl_01" style="top: 44.8062em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_012_furigana", w8) %></span></div>
+        <div class="stl_01" style="top: 46.0062em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_013_worker_name", w8) %></span></div>
+        <div class="stl_01" style="top: 47.2062em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_014_skilled_person_id", w8) %></span></div>
+        <div class="stl_01" style="top: 46.0062em; left:14.99em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_015_occupation", w8) %></span></div>
+        <div class="stl_01" style="top: 46.0062em; left:17.99em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_016_symbol", w8) %></span></div>
+        <div class="stl_01" style="top: 45.1062em; left:22em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_017_employment_date", w8) %></span></div>
+        <div class="stl_01" style="top: 46.9062em; left:22.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_018_years_of_experience", w8) %></span></div>
+        <div class="stl_01" style="top: 45.1062em; left:28em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_019_birthday", w8) %></span></div>
+        <div class="stl_01" style="top: 46.9062em; left:28.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_020_age", w8) %></span></div>
+        <div class="stl_01" style="top: 45.1062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_021_address", w8) %></span></div>
+        <div class="stl_01" style="top: 46.9062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_022_family_contact_address", w8) %></span></div>
+        <div class="stl_01" style="top: 45.1062em; left:47em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_023_telephone_number", w8) %></span></div>
+        <div class="stl_01" style="top: 46.9062em; left:47em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_024_family_telephone_number", w8) %></span></div>
+        <div class="stl_01" style="top: 45.1062em; left:53em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_025_health_check_date", w8) %></span></div>
+        <div class="stl_01" style="top: 46.9062em; left:53.17em;">
+          <span class="stl_10 stl_09">
+            <%= worker_column("doc5_8_026_maximum_blood_pressure", w8) %>～<%= worker_column("doc5_8_027_minimum_blood_pressure", w8) %>
+          </span>
+        </div>
+        <div class="stl_01" style="top: 46.0062em; left:58.24em;"><span class="stl_10 stl_08"><%= worker_column("doc5_8_028_blood_type", w8) %></span></div>
+        <div class="stl_01" style="top: 45.1062em; left:61em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_029_special_health_examination_date", w8) %></span></div>
+        <div class="stl_01" style="top: 46.9062em; left:61.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_030_special_health_check_type", w8) %></span></div>
+        <div class="stl_01" style="top: 44.8062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_031_health_insurance", w8) %></span></div>
+        <div class="stl_01" style="top: 46.0062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_032_pension_insurance", w8) %></span></div>
+        <div class="stl_01" style="top: 47.2062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_033_employment_insurance_number", w8) %></span></div>
+        <div class="stl_01" style="top: 44.8062em; left:73.489em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_034_severance_pay", w8) %></span></div>
+        <div class="stl_01" style="top: 46.0062em; left:73.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w8) %></span></div>
+        <div class="stl_01" style="top: 46.0062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_036_special_education", w8) %></span></div>
+        <div class="stl_01" style="top: 46.0062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_037_skill_training", w8) %></span></div>
+        <div class="stl_01" style="top: 46.0062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w8) %></span></div>
+        <div class="stl_01" style="top: 45.1062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w8) %></span></div>
+        <div class="stl_01" style="top: 46.9062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w8) %></span></div>
         <div class="stl_01" style="top: 45.1062em; left:92.66em;"><span class="stl_10 stl_08">建・中8</span></div>
         <div class="stl_01" style="top: 46.9062em; left:92.66em;"><span class="stl_10 stl_08">他・無8</span></div>
 
         <!-- 作業員9行目 -->
-        <div class="stl_01" style="top: 49.6062em; left:4.4em;"><span class="stl_10 stl_09">9</span></div>
-        <div class="stl_01" style="top: 48.4062em; left:5.44em;"><span class="stl_10 stl_09"><%= @document.content["worker"]["doc5_8_012_furigana"][w8[1]] if w8 != nil %></span></div>
-        <div class="stl_01" style="top: 50.8062em; left:5.44em;"><span class="stl_10 stl_09">9-014</span></div>
-        <div class="stl_01" style="top: 49.6062em; left:5.44em;"><span class="stl_10 stl_09">9-013</span></div>
-        <div class="stl_01" style="top: 49.6062em; left:14.99em;"><span class="stl_10 stl_09">9-015</span></div>
-        <div class="stl_01" style="top: 49.6062em; left:17.9928em;"><span class="stl_10 stl_09">9-016</span></div>
-        <div class="stl_01" style="top: 48.7062em; left:22.49em;"><span class="stl_10 stl_09">9-017</span></div>
-        <div class="stl_01" style="top: 50.5062em; left:22.49em;"><span class="stl_10 stl_09">9-018</span></div>
-        <div class="stl_01" style="top: 48.7062em; left:28.489em;"><span class="stl_10 stl_09">9-019</span></div>
-        <div class="stl_01" style="top: 50.5062em; left:28.489em;"><span class="stl_10 stl_09">9-020</span></div>
-        <div class="stl_01" style="top: 48.7062em; left:32.44em;"><span class="stl_10 stl_09">9-021</span></div>
-        <div class="stl_01" style="top: 50.5062em; left:32.44em;"><span class="stl_10 stl_09">9-022</span></div>
-        <div class="stl_01" style="top: 48.7062em; left:47.9886em;"><span class="stl_10 stl_09">9-023</span></div>
-        <div class="stl_01" style="top: 50.5062em; left:47.9886em;"><span class="stl_10 stl_09">9-024</span></div>
-        <div class="stl_01" style="top: 48.7062em; left:53.9876em;"><span class="stl_10 stl_09">9-025</span></div>
-        <div class="stl_01" style="top: 50.5062em; left:53.17em;"><span class="stl_10 stl_09">9-026～027</span></div>
-        <div class="stl_01" style="top: 48.7062em; left:61.49em;"><span class="stl_10 stl_09">9-029</span></div>
-        <div class="stl_01" style="top: 50.5062em; left:61.49em;"><span class="stl_10 stl_09">9-030</span></div>
-        <div class="stl_01" style="top: 48.4062em; left:67.49em;"><span class="stl_10 stl_09">9-031</span></div>
-        <div class="stl_01" style="top: 49.6062em; left:67.49em;"><span class="stl_10 stl_09">9-032</span></div>
-        <div class="stl_01" style="top: 50.8062em; left:67.49em;"><span class="stl_10 stl_09">9-033</span></div>
-        <div class="stl_01" style="top: 48.4062em; left:73.489em;"><span class="stl_10 stl_09">9-034</span></div>
-        <div class="stl_01" style="top: 49.6062em; left:73.489em;"><span class="stl_10 stl_09">9-035</span></div>
-        <div class="stl_01" style="top: 49.6062em; left:77.99em;"><span class="stl_10 stl_09">9-036</span></div>
-        <div class="stl_01" style="top: 49.6062em; left:80.9928em;"><span class="stl_10 stl_09">9-037</span></div>
-        <div class="stl_01" style="top: 49.6062em; left:83.989em;"><span class="stl_10 stl_09">9-038</span></div>
-        <div class="stl_01" style="top: 48.7062em; left:88.49em;"><span class="stl_10 stl_09">9-039</span></div>
-        <div class="stl_01" style="top: 50.5062em; left:88.49em;"><span class="stl_10 stl_09">9-040</span></div>
-        <div class="stl_01" style="top: 49.6062em; left:58.24em;"><span class="stl_10 stl_08">9A</span></div>
+        <div class="stl_01" style="top: 49.6062em; left:4.4em;"><span class="stl_10 stl_09"><%= worker_number(w9) %></span></div>
+        <div class="stl_01" style="top: 48.4062em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_012_furigana", w9) %></span></div>
+        <div class="stl_01" style="top: 49.6062em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_013_worker_name", w9) %></span></div>
+        <div class="stl_01" style="top: 50.8062em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_014_skilled_person_id", w9) %></span></div>
+        <div class="stl_01" style="top: 49.6062em; left:14.99em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_015_occupation", w9) %></span></div>
+        <div class="stl_01" style="top: 49.6062em; left:17.9928em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_016_symbol", w9) %></span></div>
+        <div class="stl_01" style="top: 48.7062em; left:22em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_017_employment_date", w9) %></span></div>
+        <div class="stl_01" style="top: 50.5062em; left:22.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_018_years_of_experience", w9) %></span></div>
+        <div class="stl_01" style="top: 48.7062em; left:28em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_019_birthday", w9) %></span></div>
+        <div class="stl_01" style="top: 50.5062em; left:28.489em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_020_age", w9) %></span></div>
+        <div class="stl_01" style="top: 48.7062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_021_address", w9) %></span></div>
+        <div class="stl_01" style="top: 50.5062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_022_family_contact_address", w9) %></span></div>
+        <div class="stl_01" style="top: 48.7062em; left:47em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_023_telephone_number", w9) %></span></div>
+        <div class="stl_01" style="top: 50.5062em; left:47em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_024_family_telephone_number", w9) %></span></div>
+        <div class="stl_01" style="top: 48.7062em; left:53em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_025_health_check_date", w9) %></span></div>
+        <div class="stl_01" style="top: 50.5062em; left:53.17em;">
+          <span class="stl_10 stl_09">
+            <%= worker_column("doc5_8_026_maximum_blood_pressure", w9) %>～<%= worker_column("doc5_8_027_minimum_blood_pressure", w9) %>
+          </span>
+        </div>
+        <div class="stl_01" style="top: 49.6062em; left:58.24em;"><span class="stl_10 stl_08"><%= worker_column("doc5_8_028_blood_type", w9) %></span></div>
+        <div class="stl_01" style="top: 48.7062em; left:61em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_029_special_health_examination_date", w9) %></span></div>
+        <div class="stl_01" style="top: 50.5062em; left:61.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_030_special_health_check_type", w9) %></span></div>
+        <div class="stl_01" style="top: 48.4062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_031_health_insurance", w9) %></span></div>
+        <div class="stl_01" style="top: 49.6062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_032_pension_insurance", w9) %></span></div>
+        <div class="stl_01" style="top: 50.8062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_033_employment_insurance_number", w9) %></span></div>
+        <div class="stl_01" style="top: 48.4062em; left:73.489em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_034_severance_pay", w9) %></span></div>
+        <div class="stl_01" style="top: 49.6062em; left:73.489em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w9) %></span></div>
+        <div class="stl_01" style="top: 49.6062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_036_special_education", w9) %></span></div>
+        <div class="stl_01" style="top: 49.6062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_037_skill_training", w9) %></span></div>
+        <div class="stl_01" style="top: 49.6062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w9) %></span></div>
+        <div class="stl_01" style="top: 48.7062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w9) %></span></div>
+        <div class="stl_01" style="top: 50.5062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w9) %></span></div>
         <div class="stl_01" style="top: 48.7062em; left:92.66em;"><span class="stl_10 stl_08">建・中9</span></div>
         <div class="stl_01" style="top: 50.5062em; left:92.66em;"><span class="stl_10 stl_08">他・無9</span></div>
 
         <!-- 作業員10行目 -->
-        <div class="stl_01" style="top: 53.2062em; left:4.24em;"><span class="stl_10 stl_09">10</span></div>
-        <div class="stl_01" style="top: 52.0062em; left:5.44em;"><span class="stl_10 stl_09"><%= @document.content["worker"]["doc5_8_012_furigana"][w8[1]] if w9 != nil %></span></div>
-        <div class="stl_01" style="top: 53.2062em; left:5.44em;"><span class="stl_10 stl_09">10-013 &nbsp;</span></div>
-        <div class="stl_01" style="top: 54.4062em; left:5.44em;"><span class="stl_10 stl_09">10-014</span></div>
-        <div class="stl_01" style="top: 53.2062em; left:14.83em;"><span class="stl_10 stl_09">10-015</span></div>
-        <div class="stl_01" style="top: 53.2062em; left:17.8328em;"><span class="stl_10 stl_09">10-016</span></div>
-        <div class="stl_01" style="top: 52.3062em; left:22.33em;"><span class="stl_10 stl_09">10-017</span></div>
-        <div class="stl_01" style="top: 54.1062em; left:22.33em;"><span class="stl_10 stl_09">10-018</span></div>
-        <div class="stl_01" style="top: 52.3062em; left:28.33em;"><span class="stl_10 stl_09">10-019</span></div>
-        <div class="stl_01" style="top: 54.1062em; left:28.329em;"><span class="stl_10 stl_09">10-020</span></div>
-        <div class="stl_01" style="top: 52.3062em; left:32.44em;"><span class="stl_10 stl_09">10-021</span></div>
-        <div class="stl_01" style="top: 54.1062em; left:32.44em;"><span class="stl_10 stl_09">10-022</span></div>
-        <div class="stl_01" style="top: 52.3062em; left:47.8302em;"><span class="stl_10 stl_09">10-023</span></div>
-        <div class="stl_01" style="top: 54.1062em; left:47.8302em;"><span class="stl_10 stl_09">10-024</span></div>
-        <div class="stl_01" style="top: 52.3062em; left:53.83em;"><span class="stl_10 stl_09">10-025</span></div>
-        <div class="stl_01" style="top: 54.1062em; left:53em;"><span class="stl_10 stl_09">10-026～027</span></div>
-        <div class="stl_01" style="top: 52.3062em; left:61.33em;"><span class="stl_10 stl_09">10-029</span></div>
-        <div class="stl_01" style="top: 54.1062em; left:61.33em;"><span class="stl_10 stl_09">10-030</span></div>
-        <div class="stl_01" style="top: 52.0062em; left:67.33em;"><span class="stl_10 stl_09">10-031</span></div>
-        <div class="stl_01" style="top: 53.2062em; left:67.33em;"><span class="stl_10 stl_09">10-032</span></div>
-        <div class="stl_01" style="top: 54.4062em; left:67.33em;"><span class="stl_10 stl_09">10-033</span></div>
-        <div class="stl_01" style="top: 52.0062em; left:73.329em;"><span class="stl_10 stl_09">10-034</span></div>
-        <div class="stl_01" style="top: 53.2062em; left:73.33em;"><span class="stl_10 stl_09">10-035</span></div>
-        <div class="stl_01" style="top: 53.2062em; left:77.83em;"><span class="stl_10 stl_09">10-036</span></div>
-        <div class="stl_01" style="top: 53.2062em; left:80.8328em;"><span class="stl_10 stl_09">10-037</span></div>
-        <div class="stl_01" style="top: 53.2062em; left:83.829em;"><span class="stl_10 stl_09">10-038</span></div>
-        <div class="stl_01" style="top: 52.3062em; left:88.33em;"><span class="stl_10 stl_09">10-039</span></div>
-        <div class="stl_01" style="top: 54.1062em; left:88.33em;"><span class="stl_10 stl_09">10-040</span></div>
-        <div class="stl_01" style="top: 53.2062em; left:58.07em;"><span class="stl_10 stl_09">10A</span></div>
+        <div class="stl_01" style="top: 53.2062em; left:4.24em;"><span class="stl_10 stl_09"><%= worker_number(w10) %></span></div>
+        <div class="stl_01" style="top: 52.0062em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_012_furigana", w10) %></span></div>
+        <div class="stl_01" style="top: 53.2062em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_013_worker_name", w10) %></span></div>
+        <div class="stl_01" style="top: 54.4062em; left:5.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_014_skilled_person_id", w10) %></span></div>
+        <div class="stl_01" style="top: 53.2062em; left:14.83em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_015_occupation", w10) %></span></div>
+        <div class="stl_01" style="top: 53.2062em; left:17.8328em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_016_symbol", w10) %></span></div>
+        <div class="stl_01" style="top: 52.3062em; left:22em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_017_employment_date", w10) %></span></div>
+        <div class="stl_01" style="top: 54.1062em; left:22.33em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_018_years_of_experience", w10) %></span></div>
+        <div class="stl_01" style="top: 52.3062em; left:28em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_019_birthday", w10) %></span></div>
+        <div class="stl_01" style="top: 54.1062em; left:28.329em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_020_age", w10) %></span></div>
+        <div class="stl_01" style="top: 52.3062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_021_address", w10) %></span></div>
+        <div class="stl_01" style="top: 54.1062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_022_family_contact_address", w10) %></span></div>
+        <div class="stl_01" style="top: 52.3062em; left:47em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_023_telephone_number", w10) %></span></div>
+        <div class="stl_01" style="top: 54.1062em; left:47em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_024_family_telephone_number", w10) %></span></div>
+        <div class="stl_01" style="top: 52.3062em; left:53em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_025_health_check_date", w10) %></span></div>
+        <div class="stl_01" style="top: 54.1062em; left:53em;">
+          <span class="stl_10 stl_09">
+            <%= worker_column("doc5_8_026_maximum_blood_pressure", w10) %>～<%= worker_column("doc5_8_027_minimum_blood_pressure", w10) %>
+          </span>
+        </div>
+        <div class="stl_01" style="top: 53.2062em; left:58.07em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_028_blood_type", w10) %></span></div>
+        <div class="stl_01" style="top: 52.3062em; left:61em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_029_special_health_examination_date", w10) %></span></div>
+        <div class="stl_01" style="top: 54.1062em; left:61.33em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_030_special_health_check_type", w10) %></span></div>
+        <div class="stl_01" style="top: 52.0062em; left:67.33em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_031_health_insurance", w10) %></span></div>
+        <div class="stl_01" style="top: 53.2062em; left:67.33em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_032_pension_insurance", w10) %></span></div>
+        <div class="stl_01" style="top: 54.4062em; left:67.33em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_033_employment_insurance_number", w10) %></span></div>
+        <div class="stl_01" style="top: 52.0062em; left:73.329em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_034_severance_pay", w10) %></span></div>
+        <div class="stl_01" style="top: 53.2062em; left:73.33em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w10) %></span></div>
+        <div class="stl_01" style="top: 53.2062em; left:77.83em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_036_special_education", w10) %></span></div>
+        <div class="stl_01" style="top: 53.2062em; left:80.8328em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_037_skill_training", w10) %></span></div>
+        <div class="stl_01" style="top: 53.2062em; left:83.829em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w10) %></span></div>
+        <div class="stl_01" style="top: 52.3062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w10) %></span></div>
+        <div class="stl_01" style="top: 54.1062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w10) %></span></div>
         <div class="stl_01" style="top: 52.3062em; left:92.66em;"><span class="stl_10 stl_08">建・中0</span></div>
         <div class="stl_01" style="top: 54.1062em; left:92.66em;"><span class="stl_10 stl_08">他・無0</span></div>
 
