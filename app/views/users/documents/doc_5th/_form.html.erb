@@ -394,35 +394,40 @@
   </div>
 <% end %>
 
-<div id="add_worker">
+<div id="input_data">
   <!--  ここに出力  -->
 </div>
 
-<div class="list-group">
-  <div class="list-group-item">
-    <div class="row">
-      <div class="col-md-12">
-        <input type="button" value="作業員追加" onclick="addBtn()" class="btn btn-primary btn-block" />
-      </div>
-    </div>
+<div class="row">
+  <div class="col-md-3">
+    <input type="button" value="作業員追加" onclick="addBtn()" class="btn btn-primary btn-block" />
   </div>
 </div>
 
 <script>
-function addBtn() {
-  var add_worker = document.getElementById("add_worker_form");
-  var clone_element = add_worker.cloneNode(true);
-  clone_element.classList.remove("not_display");
-  clone_element.removeAttribute("id");
-  display_form = document.getElementById("add_worker");
-  display_form.append(clone_element);
+  var i = 1 ;
+  function addBtn() {
+    var input_data = document.getElementById("input_data_form");
+    var clone_element = input_data.cloneNode(true);
+    clone_element.classList.remove("not_display");
+    clone_element.classList.toggle('new_worker' + i);
+    clone_element.removeAttribute("id");
+    display_form = document.getElementById("input_data");
+    display_form.append(clone_element);
+
+    var delete_date = document.getElementById("delete_button");
+    delete_date.id = i;
+    i ++
+  }
+
+  function deleteBtn(target) {
+    var target_id = target.id;
+    document.getElementsByClassName("new_worker" + target_id)[0].remove();
   }
 </script>
 
 <style>
-.not_display{
-  display: none;
-}
+  .not_display{
+    display: none;
+  }
 </style>
-
-

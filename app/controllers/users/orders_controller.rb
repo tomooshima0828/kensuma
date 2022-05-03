@@ -80,7 +80,7 @@ module Users
             doc5_8_010_my_business_id:        '',
             doc5_8_011_submitted_on:          '',
             doc5_8_042_confirmation:          '',
-            worker: {
+            worker:                           {
               doc5_8_012_furigana:                        [''],
               doc5_8_013_worker_name:                     [''],
               doc5_8_014_skilled_person_id:               [''],
@@ -113,9 +113,8 @@ module Users
               doc5_8_041_notebook:                        ['']
             }
           },
-          business: current_business
+          business:      current_business
         )
-
 
         if @order.save!
           redirect_to users_order_url(@order)

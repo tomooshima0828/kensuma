@@ -14,7 +14,7 @@
 <%= form_with model: @document, url: users_request_order_document_path do |f| %>
   <!-- 作業員情報 追加 -->
   <div>
-    <div id = "add_worker_form" class="not_display">
+    <div id = "input_data_form" class="not_display">
       <div class="card card-primary">
         <div class="card-header">
           <h3 class="card-title">作業員 新規登録</h3>
@@ -291,6 +291,14 @@
                                             value: '',
                                             class: "form-control", placeholder: '退職金共済手帳所雇入・有の有無'
                   %><br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-3"></div>
+                <div class="col-md-3"></div>
+                <div class="col-md-3">
+                <input id="delete_button" type="button" value="削除" onclick="deleteBtn(this)" class="btn btn-danger btn-block">
                 </div>
               </div>
             </div>
