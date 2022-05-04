@@ -167,11 +167,11 @@
         <%= worker_insurance.label :severance_pay_mutual_aid_type %>
         <%= worker_insurance.select :severance_pay_mutual_aid_type,
                  WorkerInsurance.severance_pay_mutual_aid_types_i18n.keys.map { |k| [WorkerInsurance.severance_pay_mutual_aid_types_i18n[k], k] },
-                 { include_blank: true, prompt: "選択してください" }, { class: "form-control" } %>
+                 { include_blank: true, prompt: "選択してください" }, { class: "form-control", id: "mutual_aid_type", onchange: "getSelectedMutualAidType(this)" } %>
       </div>
 
       <!-- severance_pay_mutual_aid_typeがその他(2)のときに入力可能 -->
-      <div class="mb-3">
+      <div class="mb-3 hidden" id="mutual_aid_number">
         <%= worker_insurance.label :severance_pay_mutual_aid_name %>
         <%= worker_insurance.text_field :severance_pay_mutual_aid_name, class: "form-control" %>
       </div>
@@ -208,4 +208,207 @@
     };
   };
   getSelectedEmploymentInsuranceType(employment_insurance_type); //ページの読み込み時に判定
+
+
+  // mutual_aid_type mutual_aid_number
+  const mutual_aid_type = document.getElementById('mutual_aid_type');
+  const mutual_aid_number = document.getElementById('mutual_aid_number');
+  function getSelectedMutualAidType(object){
+    const index = object.selectedIndex;
+    const value = object.options[index].value;
+    if (value === 'other'){
+      mutual_aid_number.classList.remove('hidden');
+    } else {
+      mutual_aid_number.classList.add('hidden');
+    };
+  };
+  getSelectedMutualAidType(mutual_aid_type); //ページの読み込み時に判定
+</script>
+
+<script>
+  $(function(){
+    $.each(function(key){
+      $.validator.addMethod(key, this);
+    });
+    $(".worker-form-validation").validate({
+      rules:{
+        "worker[name]": {
+          required: true
+        },
+        "worker[name_kana]": {
+          required: true
+        },
+        "worker[country]": {
+          required: true
+        },
+        "worker[my_address]": {
+          required: true
+        },
+        "worker[my_phone_number]": {
+          required: true
+        },
+        "worker[family_address]": {
+          required: true
+        },
+        "worker[family_phone_number]": {
+          required: true
+        },
+        "worker[birth_day_on]": {
+          required: true
+        },
+        "worker[abo_blood_type]": {
+          required: true
+        },
+        "worker[rh_blood_type]": {
+          required: true
+        },
+        "worker[job_type]": {
+          required: true
+        },
+        "worker[hiring_on]": {
+          required: true
+        },
+        "worker[experience_term_before_hiring]": {
+          required: true
+        },
+        "worker[blank_term]": {
+          required: true
+        },
+        "worker[worker_licenses_attributes][0][license_id]": {
+          required: true
+        },
+        "worker[worker_licenses_attributes][0][got_on]": {
+          required: true
+        },
+        "worker[worker_skill_trainings_attributes][0][skill_training_id]": {
+          required: true
+        },
+        "worker[worker_skill_trainings_attributes][0][got_on]": {
+          required: true
+        },
+        "worker[worker_special_educations_attributes][0][special_education_id]": {
+          required: true
+        },
+        "worker[worker_special_educations_attributes][0][got_on]": {
+          required: true
+        },
+        "worker[worker_medical_attributes][med_exam_on]": {
+          required: true
+        },
+        "worker[worker_medical_attributes][max_blood_pressure]": {
+          required: true
+        },
+        "worker[worker_medical_attributes][min_blood_pressure]": {
+          required: true
+        },
+        "worker[worker_medical_attributes][worker_exams_attributes][0][special_med_exam_id]": {
+          required: true
+        },
+        "worker[worker_medical_attributes][worker_exams_attributes][0][got_on]": {
+          required: true
+        },
+        "worker[worker_insurance_attributes][health_insurance_type]": {
+          required: true
+        },
+        "worker[worker_insurance_attributes][pension_insurance_type]": {
+          required: true
+        },
+        "worker[worker_insurance_attributes][employment_insurance_type]": {
+          required: true
+        },
+        "worker[worker_insurance_attributes][severance_pay_mutual_aid_type]": {
+          required: true
+        },
+      },
+      messages:{
+        "worker[name]": {
+          required: "名前を入力してください。"
+        },
+        "worker[name_kana]": {
+          required: "名前カナを入力してください。"
+        },
+        "worker[country]": {
+          required: "国籍を入力してください。"
+        },
+        "worker[my_address]": {
+          required: "住所を入力してください。"
+        },
+        "worker[my_phone_number]": {
+          required: "電話番号を入力してください。"
+        },
+        "worker[family_address]": {
+          required: "家族住所を入力してください。"
+        },
+        "worker[family_phone_number]": {
+          required: "家族の電話番号を入力してください。"
+        },
+        "worker[birth_day_on]": {
+          required: "生年月日を入力してください。"
+        },
+        "worker[abo_blood_type]": {
+          required: "血液型(ABO)を入力してください。"
+        },
+        "worker[rh_blood_type]": {
+          required: "血液型(Rh)を入力してください。"
+        },
+        "worker[job_type]": {
+          required: "職種を入力してください。"
+        },
+        "worker[hiring_on]": {
+          required: "雇入年月日を入力してください。"
+        },
+        "worker[experience_term_before_hiring]": {
+          required: "雇入前経験年数を入力してください。"
+        },
+        "worker[blank_term]": {
+          required: "ブランク年数を入力してください。"
+        },
+        "worker[worker_licenses_attributes][0][license_id]": {
+          required: "ライセンスを一つ選択してください。"
+        },
+        "worker[worker_licenses_attributes][0][got_on]": {
+          required: "取得年月日を入力してください。"
+        },
+        "worker[worker_skill_trainings_attributes][0][skill_training_id]": {
+          required: "技能講習を選択してください。"
+        },
+        "worker[worker_skill_trainings_attributes][0][got_on]": {
+          required: "取得年月日を入力してください。"
+        },
+        "worker[worker_special_educations_attributes][0][special_education_id]": {
+          required: "特別教育を選択してください。"
+        },
+        "worker[worker_special_educations_attributes][0][got_on]": {
+          required: "取得年月日を入力してください。"
+        },
+        "worker[worker_medical_attributes][med_exam_on]": {
+          required: "健康診断日を入力してください。"
+        },
+        "worker[worker_medical_attributes][max_blood_pressure]": {
+          required: "最高血圧を入力してください。"
+        },
+        "worker[worker_medical_attributes][min_blood_pressure]": {
+          required: "最低血圧を入力してください。"
+        },
+        "worker[worker_medical_attributes][worker_exams_attributes][0][special_med_exam_id]": {
+          required: "特別健康診断を選択してください。"
+        },
+        "worker[worker_medical_attributes][worker_exams_attributes][0][got_on]": {
+          required: "取得年月日を入力してください。"
+        },
+        "worker[worker_insurance_attributes][health_insurance_type]": {
+          required: "健康保険のタイプを選択してください。"
+        },
+        "worker[worker_insurance_attributes][pension_insurance_type]": {
+          required: "年金保険のタイプを選択してください。"
+        },
+        "worker[worker_insurance_attributes][employment_insurance_type]": {
+          required: "雇用保険のタイプを選択してください。"
+        },
+        "worker[worker_insurance_attributes][severance_pay_mutual_aid_type]": {
+          required: "建設業退職金共済制度を選択してください。"
+        },
+      }
+    });
+  });
 </script>
