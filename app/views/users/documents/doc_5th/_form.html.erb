@@ -107,7 +107,7 @@
 </div><br>
 
 <!-- 作業員情報 -->
-<% @document.content["worker"]["doc5_8_012_furigana"].size.times do |index|index %>
+<% @document.content["worker"].values[0].size.times do |index|index %>
   <div id="worker<%= index + 1 %>">
     <div class="card card-success">
       <div class="card-header">
@@ -415,12 +415,12 @@
     display_form = document.getElementById("input_data");
     display_form.append(clone_element);
 
-    var delete_date = document.getElementById("delete_button");
-    delete_date.id = i;
+    var cancel_date = document.getElementById("cancel_button");
+    cancel_date.id = i;
     i ++
   }
 
-  function deleteBtn(target) {
+  function cancelBtn(target) {
     var target_id = target.id;
     document.getElementsByClassName("new_worker" + target_id)[0].remove();
   }

@@ -161,8 +161,7 @@ Lint/SuppressedException:
 Metrics/AbcSize:
   Exclude:
     - 'lib/tasks/helpers/test_data_helper.rb' # テストデータ定義
-    - 'app/controllers/users/documents_controller.rb'
-  Max: 50
+  Max: 100
 
 # コードの複雑さ判定を無効
 Metrics/PerceivedComplexity:
@@ -205,7 +204,6 @@ Metrics/CyclomaticComplexity:
 Metrics/MethodLength:
   Exclude:
     - 'lib/tasks/helpers/test_data_helper.rb' # テストデータ定義
-    - 'app/controllers/users/orders_controller.rb:'
   Max: 100
 
 # モジュール長カウントの設定を調整

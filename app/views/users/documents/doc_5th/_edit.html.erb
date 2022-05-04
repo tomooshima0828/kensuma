@@ -169,7 +169,7 @@
                   %><br>
                 </div>
                 <div class="col-md-2">
-                  <%= f.label '8-028 血液型' %> <!-- セレクトフォーム要修正 -->
+                  <%= f.label '8-028 血液型' %>
                   <%= f.text_field :content, multiple: true,
                                             name: "document[content][worker][doc5_8_028_blood_type][]",
                                             value: '',
@@ -298,7 +298,7 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-3"></div>
                 <div class="col-md-3">
-                <input id="delete_button" type="button" value="削除" onclick="deleteBtn(this)" class="btn btn-danger btn-block">
+                <input id="cancel_button" type="button" value="キャンセル" onclick="cancelBtn(this)" class="btn btn-danger btn-block">
                 </div>
               </div>
             </div>

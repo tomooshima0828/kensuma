@@ -2,7 +2,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 <body style="font-family: Noto Sans JP, Hiragino Kaku Gothic ProN, Meiryo, sans-serif;">
-  <% @document.content["worker"]["doc5_8_012_furigana"].each_with_index.each_slice(10) do |w1, w2, w3, w4, w5, w6, w7, w8, w9, w10, index| %>
+  <% @document.content["worker"].values[0].each_with_index.each_slice(10) do |w1, w2, w3, w4, w5, w6, w7, w8, w9, w10, index| %>
     <div class="page-break">
       <div class="stl_02">
         <div class="stl_03">
@@ -125,8 +125,8 @@
             <div class="stl_01" style="top: 20.8062em; left:84.019em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w1) %></span></div>
             <div class="stl_01" style="top: 19.9062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w1) %></span></div>
             <div class="stl_01" style="top: 21.7062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w1) %></span></div>
-            <div class="stl_01" style="top: 19.9062em; left:92.69em;"><span class="stl_10 stl_08">建・中1</span></div>
-            <div class="stl_01" style="top: 21.7062em; left:92.69em;"><span class="stl_10 stl_08">他・無1</span></div>
+            <div class="stl_01" style="top: 19.9062em; left:92.69em;"><span class="stl_10 stl_08">建・中</span></div>
+            <div class="stl_01" style="top: 21.7062em; left:92.69em;"><span class="stl_10 stl_08">他・無</span></div>
 
             <!-- 作業員2行目 -->
             <div class="stl_01" style="top: 24.4062em; left:4.4em;"><span class="stl_10 stl_09"><%= worker_number(w2) %></span></div>
@@ -162,8 +162,8 @@
             <div class="stl_01" style="top: 24.4062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w2) %></span></div>
             <div class="stl_01" style="top: 23.5062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w2) %></span></div>
             <div class="stl_01" style="top: 25.3062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w2) %></span></div>
-            <div class="stl_01" style="top: 23.5062em; left:92.66em;"><span class="stl_10 stl_08">建・中2</span></div>
-            <div class="stl_01" style="top: 25.3062em; left:92.66em;"><span class="stl_10 stl_08">他・無2</span></div>
+            <div class="stl_01" style="top: 23.5062em; left:92.66em;"><span class="stl_10 stl_08">建・中</span></div>
+            <div class="stl_01" style="top: 25.3062em; left:92.66em;"><span class="stl_10 stl_08">他・無</span></div>
 
             <!-- 作業員3行目 -->
             <div class="stl_01" style="top: 28.0062em; left:4.4em;"><span class="stl_10 stl_09"><%= worker_number(w3) %></span></div>
@@ -199,8 +199,8 @@
             <div class="stl_01" style="top: 28.0062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w3) %></span></div>
             <div class="stl_01" style="top: 27.1062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w3) %></span></div>
             <div class="stl_01" style="top: 28.9062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w3) %></span></div>
-            <div class="stl_01" style="top: 27.1062em; left:92.66em;"><span class="stl_10 stl_08">建・中3</span></div>
-            <div class="stl_01" style="top: 28.9062em; left:92.66em;"><span class="stl_10 stl_08">他・無3</span></div>
+            <div class="stl_01" style="top: 27.1062em; left:92.66em;"><span class="stl_10 stl_08">建・中</span></div>
+            <div class="stl_01" style="top: 28.9062em; left:92.66em;"><span class="stl_10 stl_08">他・無</span></div>
 
             <!-- 作業員4行目 -->
             <div class="stl_01" style="top: 31.6062em; left:4.4em;"><span class="stl_10 stl_09"><%= worker_number(w4) %></span></div>
@@ -236,8 +236,8 @@
             <div class="stl_01" style="top: 31.6062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w4) %></span></div>
             <div class="stl_01" style="top: 30.7062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w4) %></span></div>
             <div class="stl_01" style="top: 32.5062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w4) %></span></div>
-            <div class="stl_01" style="top: 30.7062em; left:92.66em;"><span class="stl_10 stl_08">建・中4</span></div>
-            <div class="stl_01" style="top: 32.5062em; left:92.66em;"><span class="stl_10 stl_08">他・無4</span></div>
+            <div class="stl_01" style="top: 30.7062em; left:92.66em;"><span class="stl_10 stl_08">建・中</span></div>
+            <div class="stl_01" style="top: 32.5062em; left:92.66em;"><span class="stl_10 stl_08">他・無</span></div>
 
             <!-- 作業員5行目 -->
             <div class="stl_01" style="top: 35.2062em; left:4.4em;"><span class="stl_10 stl_09"><%= worker_number(w5) %></span></div>
@@ -273,8 +273,8 @@
             <div class="stl_01" style="top: 35.2062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w5) %></span></div>
             <div class="stl_01" style="top: 34.3062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w5) %></span></div>
             <div class="stl_01" style="top: 36.1062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w5) %></span></div>
-            <div class="stl_01" style="top: 34.3062em; left:92.66em;"><span class="stl_10 stl_08">建・中5</span></div>
-            <div class="stl_01" style="top: 36.1062em; left:92.66em;"><span class="stl_10 stl_08">他・無5</span></div>
+            <div class="stl_01" style="top: 34.3062em; left:92.66em;"><span class="stl_10 stl_08">建・中</span></div>
+            <div class="stl_01" style="top: 36.1062em; left:92.66em;"><span class="stl_10 stl_08">他・無</span></div>
 
             <!-- 作業員6行目 -->
             <div class="stl_01" style="top: 38.8062em; left:4.4em;"><span class="stl_10 stl_09"><%= worker_number(w6) %></span></div>
@@ -310,8 +310,8 @@
             <div class="stl_01" style="top: 38.8062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w6) %></span></div>
             <div class="stl_01" style="top: 37.9062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w6) %></span></div>
             <div class="stl_01" style="top: 39.7062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w6) %></span></div>
-            <div class="stl_01" style="top: 37.9062em; left:92.66em;"><span class="stl_10 stl_08">建・中6</span></div>
-            <div class="stl_01" style="top: 39.7062em; left:92.66em;"><span class="stl_10 stl_08">他・無6</span></div>
+            <div class="stl_01" style="top: 37.9062em; left:92.66em;"><span class="stl_10 stl_08">建・中</span></div>
+            <div class="stl_01" style="top: 39.7062em; left:92.66em;"><span class="stl_10 stl_08">他・無</span></div>
 
             <!-- 作業員7行目 -->
             <div class="stl_01" style="top: 42.4062em; left:4.4em;"><span class="stl_10 stl_09"><%= worker_number(w7) %></span></div>
@@ -347,8 +347,8 @@
             <div class="stl_01" style="top: 42.4062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w7) %></span></div>
             <div class="stl_01" style="top: 41.5062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w7) %></span></div>
             <div class="stl_01" style="top: 43.3062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w7) %></span></div>
-            <div class="stl_01" style="top: 41.5062em; left:92.66em;"><span class="stl_10 stl_08">建・中7</span></div>
-            <div class="stl_01" style="top: 43.3062em; left:92.66em;"><span class="stl_10 stl_08">他・無7</span></div>
+            <div class="stl_01" style="top: 41.5062em; left:92.66em;"><span class="stl_10 stl_08">建・中</span></div>
+            <div class="stl_01" style="top: 43.3062em; left:92.66em;"><span class="stl_10 stl_08">他・無</span></div>
 
             <!-- 作業員8行目 -->
             <div class="stl_01" style="top: 46.0062em; left:4.4em;"><span class="stl_10 stl_09"><%= worker_number(w8) %></span></div>
@@ -384,8 +384,8 @@
             <div class="stl_01" style="top: 46.0062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w8) %></span></div>
             <div class="stl_01" style="top: 45.1062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w8) %></span></div>
             <div class="stl_01" style="top: 46.9062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w8) %></span></div>
-            <div class="stl_01" style="top: 45.1062em; left:92.66em;"><span class="stl_10 stl_08">建・中8</span></div>
-            <div class="stl_01" style="top: 46.9062em; left:92.66em;"><span class="stl_10 stl_08">他・無8</span></div>
+            <div class="stl_01" style="top: 45.1062em; left:92.66em;"><span class="stl_10 stl_08">建・中</span></div>
+            <div class="stl_01" style="top: 46.9062em; left:92.66em;"><span class="stl_10 stl_08">他・無</span></div>
 
             <!-- 作業員9行目 -->
             <div class="stl_01" style="top: 49.6062em; left:4.4em;"><span class="stl_10 stl_09"><%= worker_number(w9) %></span></div>
@@ -421,8 +421,8 @@
             <div class="stl_01" style="top: 49.6062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w9) %></span></div>
             <div class="stl_01" style="top: 48.7062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w9) %></span></div>
             <div class="stl_01" style="top: 50.5062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w9) %></span></div>
-            <div class="stl_01" style="top: 48.7062em; left:92.66em;"><span class="stl_10 stl_08">建・中9</span></div>
-            <div class="stl_01" style="top: 50.5062em; left:92.66em;"><span class="stl_10 stl_08">他・無9</span></div>
+            <div class="stl_01" style="top: 48.7062em; left:92.66em;"><span class="stl_10 stl_08">建・中</span></div>
+            <div class="stl_01" style="top: 50.5062em; left:92.66em;"><span class="stl_10 stl_08">他・無</span></div>
 
             <!-- 作業員10行目 -->
             <div class="stl_01" style="top: 53.2062em; left:4.24em;"><span class="stl_10 stl_09"><%= worker_number(w10) %></span></div>
@@ -458,8 +458,8 @@
             <div class="stl_01" style="top: 53.2062em; left:83.829em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w10) %></span></div>
             <div class="stl_01" style="top: 52.3062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w10) %></span></div>
             <div class="stl_01" style="top: 54.1062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w10) %></span></div>
-            <div class="stl_01" style="top: 52.3062em; left:92.66em;"><span class="stl_10 stl_08">建・中0</span></div>
-            <div class="stl_01" style="top: 54.1062em; left:92.66em;"><span class="stl_10 stl_08">他・無0</span></div>
+            <div class="stl_01" style="top: 52.3062em; left:92.66em;"><span class="stl_10 stl_08">建・中</span></div>
+            <div class="stl_01" style="top: 54.1062em; left:92.66em;"><span class="stl_10 stl_08">他・無</span></div>
 
             <div class="stl_01" style="top: 55.9993em; left:4em;"><span class="stl_14 stl_08">（</span></div>
             <div class="stl_01" style="top: 55.9593em; left:4.54em;"><span class="stl_14 stl_08" style="word-spacing:-0.09em;">注）１． ※印欄には次の記号等を入れる。（表示されない情報があります。）</span></div>
