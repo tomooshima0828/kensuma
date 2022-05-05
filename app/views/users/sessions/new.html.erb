@@ -1,10 +1,21 @@
 <%# <div class="mb-3">
 
 </div> %>
+<style>
+table tr:nth-child(1) td:nth-child(2) {
+	color: #14ad5e;
+}
+</style>
+
 <div class="register-box">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <%= image_tag "kensuma/03", size: "250x90", class:"brand-image" %>
+      <table>
+        <tr>
+          <td><%= image_tag "kensuma/03", size: "250x90", class:"brand-image" %></td>
+          <td valign="bottom">TM</td>
+        </tr>
+      </table>
     </div>
     <div class="card-body">
       <p class="login-box-msg">ログインしましょう！</p>
