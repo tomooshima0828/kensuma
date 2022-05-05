@@ -9,6 +9,7 @@ RSpec.describe 'Documnents', type: :system do
   let(:cover) { create(:document, :cover, business: business, request_order: request_order) }
   let(:table) { create(:document, :table, business: business, request_order: request_order) }
   let(:doc_2nd) { create(:document, :doc_2nd, business: business, request_order: request_order) }
+  let(:doc_5th) { create(:document, :doc_5th, business: business, request_order: request_order) }
 
   describe '書類関連' do
     before(:each) do
@@ -20,7 +21,7 @@ RSpec.describe 'Documnents', type: :system do
       fill_in 'user[password]', with: user.password
       click_button 'ログイン'
 
-      document_pages = 3
+      document_pages = 9 # 書類の種類の数
       document_pages.times do |page|
         create(:document, request_order: request_order, business: business, document_type: page)
       end
@@ -96,7 +97,7 @@ RSpec.describe 'Documnents', type: :system do
         (all('#document_content')[8]).set('edit8')
         click_button '登録'
 
-        visit users_request_order_document_path(request_order, doc_2nd)
+        visit users_request_order_document_path(request_order, subject)
         expect(page).to have_content '全建統⼀様式第２号(施⼯体制台帳作成建設⼯事の通知)'
         expect(page).to have_content '2020-12-31'
         expect(page).to have_content 'edit1'
@@ -107,6 +108,30 @@ RSpec.describe 'Documnents', type: :system do
         expect(page).to have_content 'edit6'
         expect(page).to have_content 'edit7'
         expect(page).to have_content 'edit8'
+      end
+    end
+
+    context '作業員名簿' do
+      subject { doc_5th }
+
+      it '作業員名簿の詳細画面へ遷移できること' do
+        visit users_request_order_document_path(request_order, subject)
+        expect(page).to have_content '全建統⼀様式第５号改(作業員名簿)'
+        expect(page).to have_content 'test1'
+        expect(page).to have_content 'test42'
+        expect(page).to have_content 'test12'
+        expect(page).to have_content 'test38'
+      end
+
+      it '作業員名簿の編集後、詳細画面へリダイレクトできること' do
+        visit edit_users_request_order_document_path(request_order, subject)
+        expect(page).to have_content '全建統⼀様式第５号改(作業員名簿)編集'
+        (all('#document_content')[1]).set('edit1')
+        click_button '登録'
+
+        visit users_request_order_document_path(request_order, subject)
+        expect(page).to have_content '全建統⼀様式第５号改(作業員名簿)'
+        expect(page).to have_content 'edit1'
       end
     end
   end
