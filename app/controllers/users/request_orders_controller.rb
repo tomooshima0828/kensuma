@@ -11,7 +11,7 @@ module Users
 
     def submit
       @request_order = current_business.request_orders.find_by(uuid: params[:uuid])
-      if @request_order.children.all? {|r| r.status == 'submitted'}
+      if @request_order.children.all? { |r| r.status == 'submitted' }
         @request_order.submitted!
         flash[:success] = '発注依頼を提出済にしました'
       else
