@@ -37,11 +37,19 @@
           </li>
         <% end %>
 
-        <!-- 全建統⼀様式第２号(施⼯体制台帳作成建設⼯事の通知) -->
+        <!-- 施⼯体制台帳作成建設⼯事の通知 -->
         <%= link_to users_request_order_document_path(params[:request_order_uuid],  @documents.find_by(document_type: 2)), class:"nav-link" do %>
           <li class="nav-item">
             <i class="nav-icon fas fa-file"></i>
             <p><%= @documents.find_by(document_type: 2).document_type_i18n %></p>
+          </li>
+        <% end %>
+
+        <!-- 作業員名簿 -->
+        <%= link_to users_request_order_document_path(params[:request_order_uuid],  @documents.find_by(document_type: 5)), class:"nav-link" do %>
+          <li class="nav-item">
+            <i class="nav-icon fas fa-file"></i>
+            <p><%= @documents.find_by(document_type: 5).document_type_i18n %></p>
           </li>
         <% end %>
       </ul>
