@@ -1,19 +1,16 @@
 <%# <div class="mb-3">
 
 </div> %>
-<style>
-table tr:nth-child(1) td:nth-child(2) {
-	color: #14ad5e;
-}
-</style>
+<%= stylesheet_link_tag "users", :media => "all" %>
+<%= csrf_meta_tags %>
 
 <div class="register-box">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
       <table>
-        <tr>
+         <tr>
           <td><%= image_tag "kensuma/03", size: "250x90", class:"brand-image" %></td>
-          <td valign="bottom">TM</td>
+          <td class="logo-item">TM</td>
         </tr>
       </table>
     </div>
