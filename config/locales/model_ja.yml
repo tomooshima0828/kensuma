@@ -62,6 +62,7 @@ ja:
         site_name: 現場名
         order_name: 発注者名
         order_post_code: 発注者郵便番号
+        hyphen_is_unnecessary: 0123456 -(ハイフン)は不要
         order_address: 発注者住所
       request_order:
         business_id: 事業所
