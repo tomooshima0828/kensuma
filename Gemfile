@@ -78,6 +78,9 @@ gem 'wkhtmltopdf-binary'
 # aws_for_rails
 gem 'aws-sdk-rails'
 
+# ページネーション
+gem 'kaminari'
+
 group :development, :test do
   # ERD生成
   gem 'rails-erd'
