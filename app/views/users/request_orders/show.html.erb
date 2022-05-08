@@ -11,11 +11,10 @@
               <div class="col-md-4 mb-2">
                 <% if @request_order.submitted? %>
                   <button class="btn btn-block btn-outline-primary"disabled>申請済</button> 
+                <% elsif @sub_request_orders.blank? %>
+                  <%= link_to "申請する", users_request_order_submit_path(@request_order), method: :post, data: { confirm: "下請けへ未依頼ですが、申請して宜しいでしょうか？" }, class: "btn btn-block btn-outline-primary" %>
                 <% else %>
-                  <%= link_to "申請する", users_request_order_submit_path(@request_order),
-                                        method: :post,
-                                        class: "btn btn-block btn-outline-primary"
-                  %>
+                  <%= link_to "申請する", users_request_order_submit_path(@request_order), method: :post, class: "btn btn-block btn-outline-primary" %>
                 <% end %>
               </div>
                 <div class="col-md-4 mb-2">
