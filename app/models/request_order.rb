@@ -7,8 +7,6 @@ class RequestOrder < ApplicationRecord
 
   has_closure_tree
 
-  validates :business_id, uniqueness: { scope: :order_id }
-
   before_create -> { self.uuid = SecureRandom.uuid }
 
   def to_param
