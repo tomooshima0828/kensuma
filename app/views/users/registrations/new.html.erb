@@ -1,7 +1,15 @@
+<%= stylesheet_link_tag "users", :media => "all" %>
+<%= csrf_meta_tags %>
+
 <div class="register-box">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <%= image_tag "kensuma/03", size: "250x90", class:"brand-image" %>
+      <table>
+         <tr>
+          <td><%= image_tag "kensuma/03", size: "250x90", class:"brand-image" %></td>
+          <td class="logo-item">TM</td>
+        </tr>
+      </table>
     </div>
     <div class="card-body">
       <p class="login-box-msg">アカウント登録を行いましょう！</p>
@@ -25,9 +33,9 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          
+
           <%= f.password_field :password, autocomplete: "new-password", class:"form-control", placeholder:"パスワード", required: true %>
-          
+
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
