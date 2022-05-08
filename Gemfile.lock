@@ -464,6 +464,7 @@ DEPENDENCIES
   fog-aws
   jbuilder (~> 2.7)
   jp_prefecture
+  kaminari
   letter_opener_web (~> 1.0)
   listen (~> 3.3)
   mysql2 (~> 0.5)
