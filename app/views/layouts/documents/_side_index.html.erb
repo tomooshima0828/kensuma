@@ -1,7 +1,15 @@
+<%= stylesheet_link_tag "users", :media => "all" %>
+<%= csrf_meta_tags %>
+
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <%= link_to users_dash_boards_path, class:"brand-link", style: "display: flex" do %>
-    <%= image_tag "kensuma/03", class:"brand-image elevation-3", style: "opacity: .8" %>
+    <table>
+      <tr>
+        <td><%= image_tag "kensuma/03", class:"brand-image elevation-3", style: "opacity: .8" %></td>
+        <td class="logo-item-side">TM</td>
+      </tr>
+    </table>
     <%# <span class="brand-text font-weight-light">建スマ</span> %>
   <% end %>
 
@@ -37,14 +45,23 @@
           </li>
         <% end %>
 
-        <!-- 全建統⼀様式第２号(施⼯体制台帳作成建設⼯事の通知) -->
+        <!-- 施⼯体制台帳作成建設⼯事の通知 -->
         <%= link_to users_request_order_document_path(params[:request_order_uuid],  @documents.find_by(document_type: 2)), class:"nav-link" do %>
           <li class="nav-item">
             <i class="nav-icon fas fa-file"></i>
             <p><%= @documents.find_by(document_type: 2).document_type_i18n %></p>
           </li>
         <% end %>
-        <!-- 通勤用車両届 -->
+
+        <!-- 作業員名簿 -->
+        <%= link_to users_request_order_document_path(params[:request_order_uuid],  @documents.find_by(document_type: 5)), class:"nav-link" do %>
+          <li class="nav-item">
+            <i class="nav-icon fas fa-file"></i>
+            <p><%= @documents.find_by(document_type: 5).document_type_i18n %></p>
+          </li>
+        <% end %>
+        
+        <!-- 工事用・通勤用車両届 -->
         <%= link_to users_request_order_document_path(params[:request_order_uuid],  @documents.find_by(document_type: 8)), class:"nav-link" do %>
           <li class="nav-item">
             <i class="nav-icon fas fa-file"></i>
