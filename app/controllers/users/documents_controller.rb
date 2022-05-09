@@ -28,7 +28,9 @@ module Users
       end
     end
 
-    def edit; end
+    def edit
+      @workers = Worker.all
+    end
 
     def update
       if update_document(@document)
