@@ -36,7 +36,7 @@
                     確認欄
                   </td>
                   <td class="s5" dir="ltr" colspan="8" rowspan="2">
-                    「元請会社の確認欄」12-001
+                    <%= f.text_field :content, multiple: true, value: @document.content["prime_contractor_confirmation"], placeholder: "12-001 元請会社の確認欄", class: 'form-control form-control-sm' %>
                   </td>
                 </tr>
                 <tr style="height: 31px">
@@ -753,5 +753,9 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="card-footer">
+    <%= f.submit '登録', class: 'btn btn-block btn-outline-dark' %>
+    <%= link_to "#{@document.document_type_i18n}詳細に戻る", users_request_order_document_path, class: 'btn btn-block btn-outline-secondary' %>
   </div>
 <% end %>
