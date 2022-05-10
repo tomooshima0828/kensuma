@@ -146,8 +146,8 @@ module Users
     def eighth_document_params
       params.require(:document).permit.merge(
         content: {
-          prime_contractor_confirmation:                        params[:document][:content][0],  # 12-001 元請会社の確認欄
-          submitted_on:                                         params[:document][:content][1],  # 12-002 提出日（西暦）
+          prime_contractor_confirmation:                        params[:document][:content][0],  # 「元請会社の確認欄」12-001
+          submitted_on:                                         params[:document][:content][1],  # 「提出日（西暦）」12-002
           construction_or_commute1:                             params[:document][:content][2],  # 12-003 工事用 or 通勤用
           business_name:                                        params[:document][:content][3],  # 12-004 事業所名
           business_director:                                    params[:document][:content][4],  # 12-005 現場代理人

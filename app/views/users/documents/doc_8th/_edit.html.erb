@@ -36,7 +36,7 @@
                     確認欄
                   </td>
                   <td class="s5" dir="ltr" colspan="8" rowspan="2">
-                    <%= f.text_field :content, multiple: true, value: @document.content["prime_contractor_confirmation"], placeholder: "12-001 元請会社の確認欄", class: 'form-control form-control-sm' %>
+                    <%= f.text_field :content, multiple: true, value: @document.content["prime_contractor_confirmation"], placeholder: "「元請会社の確認欄」12-001", class: 'form-control form-control-sm' %>
                   </td>
                 </tr>
                 <tr style="height: 31px">
@@ -133,7 +133,9 @@
                   <td class="s7"></td>
                   <td class="s8"></td>
                   <td class="s9"></td>
-                  <td class="s11" dir="ltr" colspan="8">「提出日（西暦）」12-002</td>
+                  <td class="s11" dir="ltr" colspan="8">
+                    <%= f.date_select :content, multiple: true, value: @document.content["submitted_on"], placeholder: "「提出日（西暦）」12-002", class: 'form-control form-control-sm' %>
+                  </td>
                 </tr>
                 <tr style="height: 31px">
                   <td class="s6"></td>
