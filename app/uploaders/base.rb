@@ -22,7 +22,7 @@ class Base < CarrierWave::Uploader::Base
   end
 
   def filename
-    "#{secure_token}.png" if original_filename.present?
+    "#{secure_token}_#{original_filename}" if original_filename.present?
   end
 
   protected
