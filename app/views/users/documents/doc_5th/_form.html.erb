@@ -124,7 +124,8 @@
             <div class="row">
               <div class="col-md-3">
                 <%= f.label '8-012 フリガナ' %>
-                <%= f.text_field :content, multiple: true,
+                <%= f.select :content, @workers.map{ |worker| [worker.name] }, {}, {name: "document[content][worker][doc5_8_012_furigana][]", class: "js-select form-control", multiple: true} %>
+                <%#= f.text_field :content, multiple: true,
                                           name: "document[content][worker][doc5_8_012_furigana][]",
                                           value: @document.content["worker"]["doc5_8_012_furigana"][index],
                                           class: "form-control", placeholder: 'フリガナ'
