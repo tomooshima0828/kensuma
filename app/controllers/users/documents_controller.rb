@@ -56,7 +56,7 @@ module Users
       when 'cover_document'
         document.update(cover_params)
       when 'doc_2nd'
-        document.update(second_document_params)
+        document.update(doc_2nd_params)
       when 'doc_5th'
         document.update(doc_5th_params)
       when 'doc_8th'
