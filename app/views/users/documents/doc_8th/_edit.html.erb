@@ -150,7 +150,7 @@
                   <td class="s6"></td>
                   <td class="s6"></td>
                   <td class="s6"></td>
-                  <td class="s12" colspan="5" rowspan="4">工 事 ・ 通 勤</td>
+                  <td class="s12" colspan="5" rowspan="4"><%= f.select :content, [['工事', 1], ['通勤', 2]], multiple: true, value: @document.content["construction_or_commute1"], placeholder: "工事用 or 通勤用 12-003", class: 'form-control form-control-sm' %></td>
                   <td class="s12" colspan="7" rowspan="4">用 車 両 届</td>
                   <td class="s13"></td>
                   <td class="s13"></td>
@@ -306,7 +306,9 @@
                   <td class="s8"></td>
                   <td class="s8"></td>
                   <td class="s9">（</td>
-                  <td class="s18" dir="ltr" colspan="3">「<%= f.number_field :content, multiple: true, value: @document.content["subcontructor_number"], placeholder: "「〇次」12-7", class: 'form-control', min: 1, max: 10 %>次」12-7</td>
+                  <td class="s18" dir="ltr" colspan="3">
+                    「<%= f.number_field :content, multiple: true, value: @document.content["subcontructor_number"], placeholder: "「〇次」12-007", class: 'form-control', min: 1, max: 10 %>次」
+                  </td>
                   <td class="s9">）</td>
                 </tr>
                 <tr style="height: 31px">
@@ -333,7 +335,9 @@
                   <td class="s17" dir="ltr" colspan="10" rowspan="2">
                     <%= f.text_field :content, multiple: true, value: @document.content["site_supervisor"], placeholder: "「各会社の現場代理人」12-009", class: 'form-control form-control-sm' %>
                   </td>
-                  <td class="s19" dir="ltr" colspan="2" rowspan="2">㊞12-010</td>
+                  <td class="s19" dir="ltr" colspan="2" rowspan="2">
+                    <%= f.text_field :content, multiple: true, value: @document.content["seal"], placeholder: "印鑑 12-010", class: 'form-control form-control-sm' %>
+                  </td>
                 </tr>
                 <tr style="height: 31px">
                   <td class="s7"></td>
@@ -430,7 +434,7 @@
                   <td class="s6"></td>
                   <td class="s6"></td>
                   <td class="s22" colspan="4">下記の通り</td>
-                  <td class="s22" colspan="6">（　工事・通勤　）用</td>
+                  <td class="s22" colspan="6">（<%= f.select :content, [['工事', 1], ['通勤', 2]], multiple: true, value: @document.content["construction_or_commute2"], placeholder: "工事用 or 通勤用 12-011", class: 'form-control form-control-sm' %>）用</td>
                   <td class="s22" colspan="12">
                     車両を運行しますので、お届けいたします。
                   </td>
