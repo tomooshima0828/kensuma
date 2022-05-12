@@ -43,7 +43,7 @@
                 確認欄
               </td>
               <td class="s5" dir="ltr" colspan="8" rowspan="2">
-                <%= @document.content["prime_contractor_confirmation"] %>
+                <%= @document.content["prime_contractor_confirmation"] %> 12-001
               </td>
             </tr>
             <tr style="height: 31px">
@@ -140,7 +140,7 @@
               <td class="s7"></td>
               <td class="s8"></td>
               <td class="s9"></td>
-              <td class="s11" dir="ltr" colspan="8"><%= @document.content["submitted_on"] %></td>
+              <td class="s11" dir="ltr" colspan="8"><%= @document.content["submitted_on"] %> 12-002</td>
             </tr>
             <tr style="height: 31px">
               <td class="s6"></td>
@@ -281,13 +281,13 @@
             <tr style="height: 31px">
               <td class="s9" colspan="4" rowspan="2">事業所の名称</td>
               <td class="s16" dir="ltr" colspan="13" rowspan="2">
-                「事業所名」12-004
+                <%= @document.content["business_name"] %> 12-004
               </td>
               <td class="s8"></td>
               <td class="s8"></td>
               <td class="s9" colspan="5" rowspan="2">一次会社名</td>
               <td class="s16" dir="ltr" colspan="12" rowspan="2">
-                「一次会社名」12-006
+                <%= @document.content["prime_contractor_name"] %> 12-006
               </td>
             </tr>
             <tr style="height: 31px">
@@ -297,21 +297,21 @@
             <tr style="height: 31px">
               <td class="s9" colspan="4" rowspan="2">所　長　名</td>
               <td class="s17" dir="ltr" colspan="11" rowspan="2">
-                「各会社の現場代理人名」12-005
+                <%= @document.content["business_director"] %> 12-005
               </td>
               <td class="s16" colspan="2" rowspan="2">殿</td>
               <td class="s8"></td>
               <td class="s8"></td>
               <td class="s9" colspan="5">使用会社名</td>
               <td class="s16" dir="ltr" colspan="12" rowspan="2">
-                自社の「会社名」12-008
+                <%= @document.content["subcontractor_name"] %> 12-008
               </td>
             </tr>
             <tr style="height: 31px">
               <td class="s8"></td>
               <td class="s8"></td>
               <td class="s9">（</td>
-              <td class="s18" dir="ltr" colspan="3">「〇次」12-7</td>
+              <td class="s18" dir="ltr" colspan="3">「<%= @document.content["subcontructor_number"] %>次」12-7</td>
               <td class="s9">）</td>
             </tr>
             <tr style="height: 31px">
@@ -336,7 +336,7 @@
               <td class="s8"></td>
               <td class="s9" colspan="5">現場代理人</td>
               <td class="s17" dir="ltr" colspan="10" rowspan="2">
-                「各会社の現場代理人」12-009
+                <%= @document.content["site_supervisor"] %> 12-009
               </td>
               <td class="s19" dir="ltr" colspan="2" rowspan="2">㊞12-010</td>
             </tr>
@@ -530,11 +530,11 @@
             <tr style="height: 31px">
               <td class="s4" colspan="6" rowspan="2">使用期間</td>
               <td class="s17" dir="ltr" colspan="14" rowspan="2">
-                各車両の「使用期間・始期（西暦）」12-012
+                <%= @document.content["start_of_use"] %> 12-012
               </td>
               <td class="s17" colspan="2" rowspan="2">～</td>
               <td class="s25" dir="ltr" colspan="14" rowspan="2">
-                「各車両の使用期間・終期（西暦）」12-013
+                <%= @document.content["end_of_use"] %> 12-013
               </td>
             </tr>
             <tr style="height: 31px">
@@ -542,11 +542,11 @@
             <tr style="height: 31px">
               <td class="s4" colspan="6" rowspan="2">所有者氏名</td>
               <td class="s25" dir="ltr" colspan="13" rowspan="2">
-                各車両の「車両所有者名」12-014
+                <%= @document.content["vehicle_owner"] %> 12-014
               </td>
               <td class="s26" colspan="5">安全運転</td>
               <td class="s25" colspan="12" rowspan="2">
-                各車両の「安全運転管理者」12-015
+                <%= @document.content["safety_drive_administrator"] %> 12-015
               </td>
             </tr>
             <tr style="height: 31px">
@@ -556,11 +556,11 @@
               <td class="s25" rowspan="4">車 両</td>
               <td class="s4" colspan="5" rowspan="2">型式</td>
               <td class="s25" colspan="13" rowspan="2">
-                各車両の「車両型式」12-016
+                <%= @document.content["vehicle_type"] %> 12-016
               </td>
               <td class="s25" colspan="5" rowspan="2">車両番号</td>
               <td class="s25" colspan="12" rowspan="2">
-                各車両の「車両番号」12-017
+                <%= @document.content["vehicle_number"] %> 12-017
               </td>
             </tr>
             <tr style="height: 31px">
@@ -568,11 +568,11 @@
             <tr style="height: 31px">
               <td class="s4" colspan="5" rowspan="2">車検期間</td>
               <td class="s17" colspan="14" rowspan="2">
-                各車両の「車検期間・始期（西暦）」12-018
+                <%= @document.content["start_of_valid_vehicle_inspection"] %> 12-018
               </td>
               <td class="s27" colspan="2" rowspan="2">～</td>
               <td class="s25" colspan="14" rowspan="2">
-                各車両の「車検期間・終期（西暦）」12-019
+                <%= @document.content["end_of_valid_vehicle_inspection"] %> 12-019
               </td>
             </tr>
             <tr style="height: 31px">
@@ -581,11 +581,11 @@
               <td class="s25" rowspan="6">運 転 者</td>
               <td class="s4" colspan="5" rowspan="2">氏名</td>
               <td class="s25" colspan="13" rowspan="2">
-                作業員情報の「氏名」12-020
+                <%= @document.content["vehicle_operator_name"] %> 12-020
               </td>
               <td class="s25" colspan="5" rowspan="2">生年月日</td>
               <td class="s25" colspan="12" rowspan="2">
-                作業員情報の「生年月日」12-021
+                <%= @document.content["vehicle_operator_birth_date"] %> 12-021
               </td>
             </tr>
             <tr style="height: 31px">
@@ -593,7 +593,7 @@
             <tr style="height: 31px">
               <td class="s4" colspan="5" rowspan="2">住所</td>
               <td class="s25" colspan="30" rowspan="2">
-                作業員情報の「住所」12-022
+                <%= @document.content["vehicle_operator_address"] %> 12-022
               </td>
             </tr>
             <tr style="height: 31px">
@@ -601,11 +601,11 @@
             <tr style="height: 31px">
               <td class="s4" colspan="5" rowspan="2">免許の種類</td>
               <td class="s25" colspan="13" rowspan="2">
-                作業員情報の「自動車運転免許の種類」12-023
+                <%= @document.content["vehicle_operator_driving_license_type"] %> 12-023
               </td>
               <td class="s25" colspan="5" rowspan="2">免許番号</td>
               <td class="s25" colspan="12" rowspan="2">
-                作業員情報の「自動車運転免許の番号」12-024
+                <%= @document.content["vehicle_operator_driving_license_number"] %> 12-024
               </td>
             </tr>
             <tr style="height: 31px">
@@ -614,11 +614,11 @@
               <td class="s25" rowspan="4">自賠責</td>
               <td class="s4" colspan="5" rowspan="2">保険会社名</td>
               <td class="s25" colspan="13" rowspan="2">
-                各車両の「自賠責保険会社名」12-025
+                <%= @document.content["vehicle_liability_insurance_company_name"] %> 12-025
               </td>
               <td class="s25" colspan="5" rowspan="2">証券番号</td>
               <td class="s25" colspan="12" rowspan="2">
-                各車両の「自賠責保険の証券番号」12-026
+                <%= @document.content["vehicle_liability_insurance_number"] %> 12-026
               </td>
             </tr>
             <tr style="height: 31px">
@@ -626,11 +626,11 @@
             <tr style="height: 31px">
               <td class="s4" colspan="5" rowspan="2">保険期間</td>
               <td class="s17" colspan="14" rowspan="2">
-                各車両の「自賠責保険期間・始期（西暦）」12-027
+                <%= @document.content["vehicle_liability_insurance_start_of_validity"] %> 12-027
               </td>
               <td class="s27" colspan="2" rowspan="2">～</td>
               <td class="s25" colspan="14" rowspan="2">
-                各車両の「自賠責保険期間・終期（西暦）」12-028
+                <%= @document.content["vehicle_liability_insurance_end_of_validity"] %> 12-028
               </td>
             </tr>
             <tr style="height: 31px">
@@ -639,11 +639,11 @@
               <td class="s25" rowspan="6">任意保険</td>
               <td class="s4" colspan="5" rowspan="2">保険会社名</td>
               <td class="s25" colspan="13" rowspan="2">
-                各車両の「任意保険会社名」12-029
+                <%= @document.content["voluntary_insurance_company_name"] %> 12-029
               </td>
               <td class="s25" colspan="5" rowspan="2">証券番号</td>
               <td class="s25" colspan="12" rowspan="2">
-                各車両の「任意保険の証券番号」12-030
+                <%= @document.content["voluntary_insurance_number"] %> 12-030
               </td>
             </tr>
             <tr style="height: 31px">
@@ -651,12 +651,12 @@
             <tr style="height: 31px">
               <td class="s4" colspan="5" rowspan="2">対 人</td>
               <td class="s17" colspan="10" rowspan="2">
-                各車両の「任意保険の対人」12-031
+                <%= @document.content["voluntary_insurance_bodily_injury_liability_amount"] %> 12-031
               </td>
               <td class="s25" colspan="3" rowspan="2">万円</td>
               <td class="s25" colspan="5" rowspan="2">対 物</td>
               <td class="s17" colspan="9" rowspan="2">
-                各車両の「任意保険の対物」12-032
+                <%= @document.content["voluntary_insurance_property_damage_liability_amount"] %> 12-032
               </td>
               <td class="s25" colspan="3" rowspan="2">万円</td>
             </tr>
@@ -665,11 +665,11 @@
             <tr style="height: 31px">
               <td class="s4" colspan="5" rowspan="2">保険期間</td>
               <td class="s17" colspan="14" rowspan="2">
-                各車両の「任意保険期間・始期（西暦）」12-033
+                <%= @document.content["voluntary_insurance_start_of_validity"] %> 12-033
               </td>
               <td class="s27" colspan="2" rowspan="2">～</td>
               <td class="s25" colspan="14" rowspan="2">
-                各車両の「任意保険期間・終期（西暦）」12-034
+                <%= @document.content["voluntary_insurance_end_of_validity"] %> 12-034
               </td>
             </tr>
             <tr style="height: 31px">
@@ -678,19 +678,19 @@
               <td class="s4" colspan="6" rowspan="2">運行経路</td>
               <td class="s17" colspan="2" rowspan="2">自</td>
               <td class="s17" colspan="5" rowspan="2">
-                各車両の「運行経路(自)」12-035
+                <%= @document.content["departing_from"] %> 12-035
               </td>
               <td class="s17" colspan="3" rowspan="2">経由</td>
               <td class="s17" colspan="5" rowspan="2">
-                各車両の「運行経路の経由地1」12-036
+                <%= @document.content["routing_point1"] %> 12-036
               </td>
               <td class="s17" colspan="3" rowspan="2">経由</td>
               <td class="s17" colspan="5" rowspan="2">
-                各車両の「運行経路の経由地2」12-037
+                <%= @document.content["routing_point2"] %> 12-037
               </td>
               <td class="s17" colspan="2" rowspan="2">至</td>
               <td class="s25" colspan="5" rowspan="2">
-                各車両の「目的地（至）」12-038
+                <%= @document.content["arriving_at"] %> 12-038
               </td>
             </tr>
             <tr style="height: 31px">
