@@ -10,12 +10,6 @@
   white-space: normal;
 }
 
-@supports (-webkit-touch-callout: none) {
-  .eighth-text-container {
-    white-space: normal;
-  }
-}
-
 // Copied from the orignal doc after conversion from XLSX to HTML
 .ritz .waffle a {
   color: inherit;
@@ -383,3 +377,8 @@
   padding: 0px 3px 0px 3px;
 }
 
+@supports (-webkit-touch-callout: none) {
+  .eighth-text-container {
+    white-space: normal;
+  }
+}
