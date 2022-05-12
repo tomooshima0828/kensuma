@@ -2,9 +2,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 <body style="font-family: Noto Sans JP, Hiragino Kaku Gothic ProN, Meiryo, sans-serif;">
-  <div id="eighth-document">
+  <div id="eighth-document" class="document-inner">
     <div class="eighth-text-container">
-      <%# Copied from the orignal doc after conversion from XLSX to HTML %>
       <div class="ritz grid-container" dir="ltr">
         <table class="waffle no-grid" cellspacing="0" cellpadding="0">
           <thead></thead>
@@ -754,14 +753,19 @@
 </body>
 
 <style>
-  #eighth-document {
-  overflow: hidden;
-  position: relative;
-  background-color: white;
+  #eighth-document { // 書類の基本的なサイズ等の設定
+    overflow: hidden;
+    position: relative;
+    background-color: white;
+    // width: 909px;
+    // height: 1286px;
   }
+
   .eighth-text-container {
     white-space: normal;
   }
+
+  // Copied from the orignal doc after conversion from XLSX to HTML
   .ritz .waffle a {
     color: inherit;
   }
@@ -1127,6 +1131,7 @@
     direction: ltr;
     padding: 0px 3px 0px 3px;
   }
+
   @supports (-webkit-touch-callout: none) {
     .eighth-text-container {
       white-space: normal;
