@@ -8,7 +8,7 @@
         <%= f.label '8-004 書類作成日(西暦)' %>
         <%= f.date_field :content, multiple: true,
                                   name: "document[content][doc5_8_004_created_date]",
-                                  value: @document.content[0]["doc5_8_004_created_date"],
+                                  value: @document.content["doc5_8_004_created_date"],
                                   class: "form-control", placeholder: '書類作成日（西暦）'
         %><br>
       </div>
@@ -17,7 +17,7 @@
         <%= f.label '8-011 提出日(西暦)' %>
         <%= f.date_field :content, multiple: true,
                                   name: "document[content][doc5_8_011_submitted_on]",
-                                  value: @document.content[0]["doc5_8_011_submitted_on"],
+                                  value: @document.content["doc5_8_011_submitted_on"],
                                   class: "form-control", placeholder: '提出日（西暦）'
         %><br>
       </div>
@@ -25,7 +25,7 @@
         <%= f.label '8-042 元請確認欄' %>
         <%= f.text_field :content, multiple: true,
                                   name: "document[content][doc5_8_042_confirmation]",
-                                  value: @document.content[0]["doc5_8_042_confirmation"],
+                                  value: @document.content["doc5_8_042_confirmation"],
                                   class: "form-control", placeholder: '元請確認欄'
         %><br>
       </div>
@@ -36,7 +36,7 @@
         <%= f.label '8-001 事業所の名称' %>
         <%= f.text_field :content, multiple: true,
                                   name: "document[content][doc5_8_001_business_name]",
-                                  value: @document.content[0]["doc5_8_001_business_name"],
+                                  value: @document.content["doc5_8_001_business_name"],
                                   class: "form-control", placeholder: '事業所の名称'
         %><br>
       </div>
@@ -44,7 +44,7 @@
         <%= f.label '8-002 現場ID(キャリアアップ)' %>
         <%= f.text_field :content, multiple: true,
                                   name: "document[content][doc5_8_002_site_id]",
-                                  value: @document.content[0]["doc5_8_002_site_id"],
+                                  value: @document.content["doc5_8_002_site_id"],
                                   class: "form-control", placeholder: '現場ID(キャリアアップ)'
         %><br>
       </div>
@@ -52,7 +52,7 @@
         <%= f.label '8-003 元請会社の各会社の現場代理人' %>
         <%= f.text_field :content, multiple: true,
                                   name: "document[content][doc5_8_003_site_agent]",
-                                  value: @document.content[0]["doc5_8_003_site_agent"],
+                                  value: @document.content["doc5_8_003_site_agent"],
                                   class: "form-control", placeholder: '元請会社の各会社の現場代理人'
         %><br>
       </div>
@@ -63,7 +63,7 @@
         <%= f.label '8-005 一次会社名' %>
         <%= f.text_field :content, multiple: true,
                                   name: "document[content][doc5_8_005_primary_business_name]",
-                                  value: @document.content[0]["doc5_8_005_primary_business_name"],
+                                  value: @document.content["doc5_8_005_primary_business_name"],
                                   class: "form-control", placeholder: '一次会社名'
         %><br>
       </div>
@@ -71,7 +71,7 @@
         <%= f.label '8-006 一次会社の事業者ID' %>
         <%= f.text_field :content, multiple: true,
                                   name: "document[content][doc5_8_006_primary_business_id]",
-                                  value: @document.content[0]["doc5_8_006_primary_business_id"],
+                                  value: @document.content["doc5_8_006_primary_business_id"],
                                   class: "form-control", placeholder: '一次会社の事業者ID'
         %><br>
       </div>
@@ -82,7 +82,7 @@
         <%= f.label '8-007 次' %>
         <%= f.text_field :content, multiple: true,
                                   name: "document[content][doc5_8_007_hierarchy]",
-                                  value: @document.content[0]["doc5_8_007_hierarchy"],
+                                  value: @document.content["doc5_8_007_hierarchy"],
                                   class: "form-control", placeholder: '次 8-007'
         %><br>
       </div>
@@ -90,7 +90,7 @@
         <%= f.label '8-009 自社の会社名' %>
         <%= f.text_field :content, multiple: true,
                                   name: "document[content][doc5_8_009_my_business_name]",
-                                  value: @document.content[0]["doc5_8_009_my_business_name"],
+                                  value: @document.content["doc5_8_009_my_business_name"],
                                   class: "form-control", placeholder: '自社の会社名'
         %><br>
       </div>
@@ -98,7 +98,7 @@
         <%= f.label '8-010 自社の事業者ID' %>
         <%= f.text_field :content, multiple: true,
                                   name: "document[content][doc5_8_010_my_business_id]",
-                                  value: @document.content[0]["doc5_8_010_my_business_id"],
+                                  value: @document.content["doc5_8_010_my_business_id"],
                                   class: "form-control", placeholder: '自社の事業者ID'
         %><br>
       </div>
@@ -107,7 +107,7 @@
 </div><br>
 
 <!-- 作業員情報 -->
-<%#= @document.content[0]["worker"].size %>
+<%#= @document.content["worker"].size %>
 <%# @document.content[0]["worker"].size do |index|index %>
   <div id="worker<%#= index + 1 %>">
     <div class="card card-success">
@@ -124,8 +124,20 @@
           <div class="list-group-item">
             <div class="row">
               <div class="col-md-3">
+                <% @document.content["worker"].each_with_index.each_slice(3) do|w1, w2, w3, index|  %>
+                【
+                <%#= index %>
+                <%= JSON.parse(w1[0])["name"] unless w1.nil?%>
+                <%= JSON.parse(w2[0])["name"] unless w2.nil? %>
+                <%= JSON.parse(w3[0])["name"] unless w3.nil? %>
+                】
+                <%#= JSON.parse(@document.content["worker"][index])["name"] %>
+                <% end %>
+                
+                <%#= @document.content["worker"].size %>
+                <%#= JSON.parse(@document.content["worker"][0])["name"] %>
                 <%#= f.label '8-012 フリガナ' %>
-                <%= f.select :content, @workers.map{ |worker| [worker.name, worker.to_json] }, {include_hidden: false}, {name: "document[content][worker]", class: "js-select form-control", multiple: true, include_blank: true} %>
+                <%= f.select :content, @workers.map{ |worker| [worker.name, worker.to_json] }, {include_hidden: false, selected: @document.content["worker"]}, {name: "document[content][worker][]", class: "js-select form-control", multiple: true} %>
                 <%#= f.select :content, @workers.map{ |worker| [worker.name] }, {}, {name: "document[content][worker][doc5_8_012_furigana][]", class: "js-select form-control", multiple: true} %>
                 <%#= f.text_field :content, multiple: true,
                                           name: "document[content][worker][doc5_8_012_furigana][]",

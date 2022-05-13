@@ -95,7 +95,7 @@ module Users
     # 作業員名簿
     def doc_5th_params
       params.require(:document).permit.merge(
-        content: [
+        content: {
           doc5_8_001_business_name:         params.dig(:document, :content, :doc5_8_001_business_name),
           doc5_8_002_site_id:               params.dig(:document, :content, :doc5_8_002_site_id),
           doc5_8_003_site_agent:            params.dig(:document, :content, :doc5_8_003_site_agent),
@@ -107,7 +107,7 @@ module Users
           doc5_8_010_my_business_id:        params.dig(:document, :content, :doc5_8_010_my_business_id),
           doc5_8_011_submitted_on:          params.dig(:document, :content, :doc5_8_011_submitted_on),
           doc5_8_042_confirmation:          params.dig(:document, :content, :doc5_8_042_confirmation),
-          worker:                           {
+          worker:                           params.dig(:document, :content, :worker),
             # doc5_8_012_furigana:                        params.dig(:document, :content, :worker, :doc5_8_012_furigana),
             # doc5_8_013_worker_name:                     params.dig(:document, :content, :worker, :doc5_8_013_worker_name),
             # doc5_8_014_skilled_person_id:               params.dig(:document, :content, :worker, :doc5_8_014_skilled_person_id),
@@ -139,8 +139,7 @@ module Users
             # doc5_8_039_beginning:                       params.dig(:document, :content, :worker, :doc5_8_039_beginning),
             # doc5_8_040_new_education:                   params.dig(:document, :content, :worker, :doc5_8_040_new_education),
             # doc5_8_041_notebook:                        params.dig(:document, :content, :worker, :doc5_8_041_notebook)
-          }
-        ]
+        }
       )
     end
   end
