@@ -5,6 +5,8 @@ class Business < ApplicationRecord
   has_many :orders, dependent: :destroy
   has_many :request_orders, dependent: :destroy
   has_many :workers, dependent: :destroy
+  has_many :business_occupations
+  has_many :occupations, through: :business_occupations
 
   enum business_type: { corporation: 0, freelance: 1, Individual_five_over: 2, Individual_five_less: 3 }
 
