@@ -7,7 +7,8 @@ class BusinessFrom
     end
   end
 
-  attr_accessor :uuid, :name, :name_kana, :branch_name, :representative_name, :email, :address, :post_code, :phone_number, :carrier_up_id, :business_type
+  attr_accessor :uuid, :name, :name_kana, :branch_name, :representative_name, :email, :address, :post_code, :phone_number, :carrier_up_id,
+    :business_type
 
   validate :validate_something
 
@@ -39,7 +40,7 @@ class BusinessFrom
       post_code:           post_code,
       phone_number:        phone_number,
       carrier_up_id:       carrier_up_id,
-      business_type:       business_type,
+      business_type:       business_type
     }
   end
 
@@ -51,5 +52,4 @@ class BusinessFrom
   def validate_something
     # Do something
   end
-
 end

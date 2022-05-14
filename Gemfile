@@ -82,8 +82,8 @@ gem 'aws-sdk-rails'
 gem 'kaminari'
 
 # form object
-gem "reform"
-gem "dry-validation"
+gem 'dry-validation'
+gem 'reform'
 
 group :development, :test do
   # ERD生成
