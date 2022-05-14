@@ -98,7 +98,7 @@ module Users
             'subcontractor_name':                                   '',
             'subcontructor_number':                                 '',
             'site_supervisor':                                      '',
-            'seal':                                                 '',
+            'seal':                                               '印',
             'construction_or_commute2':                             '',
             'start_of_use':                                         '',
             'end_of_use':                                           '',
