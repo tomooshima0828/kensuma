@@ -133,7 +133,7 @@
                   <td class="s8"></td>
                   <td class="s9"></td>
                   <td class="s11" dir="ltr" colspan="8">
-                    <%= f.date_select :content, multiple: true, value: @document.content["submitted_on"], placeholder: "「提出日（西暦）」12-002", class: 'form-control form-control-sm' %>
+                    <%= f.date_field :content, multiple: true, value: @document.content["submitted_on"], placeholder: "「提出日（西暦）」12-002", class: 'form-control form-control-sm' %>
                   </td>
                 </tr>
                 <tr style="height: 31px">
@@ -528,11 +528,11 @@
                 <tr style="height: 31px">
                   <td class="s4" colspan="6" rowspan="2">使用期間</td>
                   <td class="s17" dir="ltr" colspan="14" rowspan="2">
-                    <%= f.date_select :content, multiple: true, value: @document.content["start_of_use"], placeholder: "各車両の「使用期間・始期（西暦）」12-012", class: 'form-control form-control-sm' %>
+                    <%= f.date_field :content, multiple: true, value: @document.content["start_of_use"], placeholder: "各車両の「使用期間・始期（西暦）」12-012", class: 'form-control form-control-sm' %>
                   </td>
                   <td class="s17" colspan="2" rowspan="2">～</td>
                   <td class="s25" dir="ltr" colspan="14" rowspan="2">
-                    <%= f.date_select :content, multiple: true, value: @document.content["end_of_use"], placeholder: "「各車両の使用期間・終期（西暦）」12-013", class: 'form-control form-control-sm' %>
+                    <%= f.date_field :content, multiple: true, value: @document.content["end_of_use"], placeholder: "「各車両の使用期間・終期（西暦）」12-013", class: 'form-control form-control-sm' %>
                   </td>
                 </tr>
                 <tr style="height: 31px">
@@ -583,7 +583,7 @@
                   </td>
                   <td class="s25" colspan="5" rowspan="2">生年月日</td>
                   <td class="s25" colspan="12" rowspan="2">
-                    <%= f.date_select :content, multiple: true, value: @document.content["vehicle_operator_birth_date"], placeholder: "作業員情報の「生年月日」12-021", class: 'form-control form-control-sm' %>
+                    <%= f.date_field :content, multiple: true, value: @document.content["vehicle_operator_birth_date"], placeholder: "作業員情報の「生年月日」12-021", class: 'form-control form-control-sm' %>
                   </td>
                 </tr>
                 <tr style="height: 31px">

@@ -150,10 +150,10 @@ module Users
           submitted_on:                                         params[:document][:content][1],  # 「提出日（西暦）」12-002
           construction_or_commute1:                             params[:document][:content][2],  # 工事用 or 通勤用 12-003
           business_name:                                        params[:document][:content][3],  # 「事業所名」12-004
-          business_director:                                    params[:document][:content][4],  # 「各会社の現場代理人名」12-005
-          prime_contractor_name:                                params[:document][:content][5],  # 「一次会社名」12-006
-          subcontructor_number:                                 params[:document][:content][6],  # 「〇次」12-7
-          subcontractor_name:                                   params[:document][:content][7],  # 自社の「会社名」12-008
+          prime_contractor_name:                                params[:document][:content][4],  # 「一次会社名」12-006
+          business_director:                                    params[:document][:content][5],  # 「各会社の現場代理人名」12-005
+          subcontractor_name:                                   params[:document][:content][6],  # 自社の「会社名」12-008
+          subcontructor_number:                                 params[:document][:content][7],  # 「〇次」12-7
           site_supervisor:                                      params[:document][:content][8],  # 「各会社の現場代理人」12-009
           seal:                                                 params[:document][:content][9],  # 印鑑 12-010 
           construction_or_commute2:                             params[:document][:content][10], # 工事用 or 通勤用12-011
