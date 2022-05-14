@@ -64,12 +64,12 @@ ActiveRecord::Schema.define(version: 2022_05_10_115852) do
   end
 
   create_table "business_occupations", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
-    t.bigint "businesses_id", null: false
-    t.bigint "occupations_id", null: false
+    t.bigint "business_id", null: false
+    t.bigint "occupation_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["businesses_id"], name: "index_business_occupations_on_businesses_id"
-    t.index ["occupations_id"], name: "index_business_occupations_on_occupations_id"
+    t.index ["business_id"], name: "index_business_occupations_on_business_id"
+    t.index ["occupation_id"], name: "index_business_occupations_on_occupation_id"
   end
 
   create_table "businesses", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
@@ -386,8 +386,8 @@ ActiveRecord::Schema.define(version: 2022_05_10_115852) do
   end
 
   add_foreign_key "articles", "users"
-  add_foreign_key "business_occupations", "businesses", column: "businesses_id"
-  add_foreign_key "business_occupations", "occupations", column: "occupations_id"
+  add_foreign_key "business_occupations", "businesses"
+  add_foreign_key "business_occupations", "occupations"
   add_foreign_key "businesses", "users"
   add_foreign_key "car_voluntary_insurances", "car_insurance_companies", column: "company_voluntary_id"
   add_foreign_key "car_voluntary_insurances", "cars", column: "car_voluntary_id"

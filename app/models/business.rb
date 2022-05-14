@@ -7,6 +7,7 @@ class Business < ApplicationRecord
   has_many :workers, dependent: :destroy
   has_many :business_occupations
   has_many :occupations, through: :business_occupations
+  accepts_nested_attributes_for :business_occupations, allow_destroy: true
 
   enum business_type: { corporation: 0, freelance: 1, Individual_five_over: 2, Individual_five_less: 3 }
 

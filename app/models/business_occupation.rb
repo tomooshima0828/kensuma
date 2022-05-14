@@ -1,4 +1,4 @@
 class BusinessOccupation < ApplicationRecord
-  belongs_to :businesses
-  belongs_to :occupations
+  belongs_to :business
+  belongs_to :occupation
 end
