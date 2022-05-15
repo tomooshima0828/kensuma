@@ -60,7 +60,7 @@ module Users
       when 'doc_5th'
         document.update(doc_5th_params)
       when 'doc_8th'
-        document.update(eighth_document_params)
+        document.update(doc_8th_params)
       end
     end
 
@@ -143,7 +143,7 @@ module Users
     end
 
     # 工事用・通勤用車両届
-    def eighth_document_params
+    def doc_8th_params
       params.require(:document).permit.merge(
         content: {
           prime_contractor_confirmation:                        params[:document][:content][0],  # 「元請会社の確認欄」12-001
