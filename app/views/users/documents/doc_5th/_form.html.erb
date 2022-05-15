@@ -145,7 +145,7 @@
                 <%#= @document.content["worker"].size %>
                 <%#= JSON.parse(@document.content["worker"][0])["name"] %>
                 <%#= f.label '8-012 フリガナ' %>
-                <%= f.select :content, @workers.map{ |worker| [worker.name, worker.to_json] }, {include_hidden: false, selected: @document.content["worker"]}, {name: "document[content][worker][]", class: "js-select form-control", multiple: true} %>
+                <%= f.select :content, @workers.map{ |worker| [worker.name, Worker.find(worker.id).to_json(except: [:images, :created_at, :updated_at], include: [:worker_medical])] }, {include_hidden: false, selected: @document.content["worker"]}, {name: "document[content][worker][]", class: "js-select form-control", multiple: true} %>
                 <%#= f.select :content, @workers.map{ |worker| [worker.name] }, {}, {name: "document[content][worker][doc5_8_012_furigana][]", class: "js-select form-control", multiple: true} %>
                 <%#= f.text_field :content, multiple: true,
                                           name: "document[content][worker][doc5_8_012_furigana][]",

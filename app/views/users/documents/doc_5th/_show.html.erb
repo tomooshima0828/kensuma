@@ -118,7 +118,7 @@
           </span>
         </div>
         <div class="stl_01" style="top: 20.8062em; left:58.27em;"><span class="stl_10 stl_08"><%= Worker.abo_blood_types_i18n[worker_column("abo_blood_type", w1)] %></span></div> <!-- 8-028 血液型 -->
-        <div class="stl_01" style="top: 19.9062em; left:61em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_029_special_health_examination_date", w1) %></span></div>
+        <div class="stl_01" style="top: 19.9062em; left:61em;"><span class="stl_10 stl_09"><%= JSON.parse(w1[0])["worker_medical"]["special_med_exam_on"] unless w1.nil? %>aaa</span></div>
         <div class="stl_01" style="top: 21.7062em; left:61.52em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_030_special_health_check_type", w1) %></span></div>
         <div class="stl_01" style="top: 19.6062em; left:67.52em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_031_health_insurance", w1) %></span></div>
         <div class="stl_01" style="top: 20.8062em; left:67.52em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_032_pension_insurance", w1) %></span></div>
