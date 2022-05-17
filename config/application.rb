@@ -11,6 +11,15 @@ Fog::Logger[:deprecation] = nil
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+module ActiveAdminFormBuilderPatch
+  def default_input_type(*_args, **_kwargs)
+    ret = super
+    ret == :date_select ? :datepicker : ret
+  end
+end
+
+ActiveAdmin::FormBuilder.include ActiveAdminFormBuilderPatch
+
 module App
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.

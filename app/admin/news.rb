@@ -1,6 +1,12 @@
 ActiveAdmin.register News do
   permit_params :title, :content, :delivered_at, :status
 
+  controller do
+    def find_resource
+      scoped_collection.where(uuid: params[:id]).first!
+    end
+  end
+  
   index do
     selectable_column
     id_column
