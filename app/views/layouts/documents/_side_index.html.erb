@@ -30,7 +30,7 @@
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <% @documents.each do |document| %>
-          <%= link_to users_request_order_document_path(params[:request_order_uuid], document), class:"nav-link" do %>
+          <%= link_to (controller.controller_path == 'users/documents' ? users_request_order_document_path(params[:request_order_uuid], document, format: :pdf) : users_request_order_sub_request_order_document_path(params[:request_order_uuid], params[:sub_request_order_uuid], document)), class:"nav-link" do %>
             <li class="nav-item">
               <i class="nav-icon fas fa-file"></i>
               <p><%= document.document_type_i18n %></p>

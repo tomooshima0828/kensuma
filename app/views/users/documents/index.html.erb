@@ -15,7 +15,9 @@
               <td align="center">
                 <%= link_to document.document_type_i18n,
                             (
-                              users_request_order_document_path(params[:request_order_uuid], document)
+                              controller.controller_path == 'users/documents' ?
+                              users_request_order_document_path(params[:request_order_uuid], document) :
+                              users_request_order_sub_request_order_document_path(params[:request_order_uuid], params[:sub_request_order_uuid], document)
                             )
                 %>
               </td>
