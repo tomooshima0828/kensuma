@@ -104,7 +104,7 @@
         <div class="stl_01" style="top: 20.8062em; left:15.0187em;"><span class="stl_10 stl_09"><%= worker_column("job_type", w1) %></span></div> <!-- 8-015 職種 -->
         <div class="stl_01" style="top: 20.8062em; left:18.0215em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_016_symbol", w1) %></span></div>
         <div class="stl_01" style="top: 19.9062em; left:22em;"><span class="stl_10 stl_09"><%= worker_column("hiring_on", w1) %></span></div> <!-- 8-017 雇入年月日 -->
-        <div class="stl_01" style="top: 21.7062em; left:22.52em;"><span class="stl_10 stl_09"><%= worker_column("experience_term_before_hiring", w1) %></span></div> <!-- 8-08 雇入前経験年数 -->
+        <div class="stl_01" style="top: 21.7062em; left:23em;"><span class="stl_10 stl_09"><%= worker_column("experience_term_before_hiring", w1) %></span></div> <!-- 8-08 雇入前経験年数 -->
         <div class="stl_01" style="top: 19.9062em; left:28em;"><span class="stl_10 stl_09"><%= worker_column("birth_day_on", w1) %></span></div> <!-- 8-019 生年月日 -->
         <div class="stl_01" style="top: 21.7062em; left:28.519em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_020_age", w1) %></span></div> <!-- 8-020 年齢 -->
         <div class="stl_01" style="top: 19.9062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("my_address", w1) %></span></div> <!-- 8-021 住所 -->
@@ -117,15 +117,16 @@
             <%= worker_attribute_column("worker_medical", "max_blood_pressure", w1) %>～<%= worker_attribute_column("worker_medical", "min_blood_pressure", w1) %> <!-- 8-026 最高血圧 ～ 8-027 最低血圧 -->
           </span>
         </div>
-        <div class="stl_01" style="top: 20.8062em; left:58.27em;"><span class="stl_10 stl_08"><%= Worker.abo_blood_types_i18n[worker_column("abo_blood_type", w1)] %></span></div> <!-- 8-028 血液型 -->
+        <div class="stl_01" style="top: 20.8062em; left:58em;"><span class="stl_10 stl_08"><%= Worker.abo_blood_types_i18n[worker_column("abo_blood_type", w1)] %></span></div> <!-- 8-028 血液型 -->
         <div class="stl_01" style="top: 19.9062em; left:61em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_medical", "special_med_exam_on", w1) %></span></div> <!-- 8-029 特殊健康診断日 -->
         <div class="stl_01" style="top: 21.7062em; left:61.52em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_030_special_health_check_type", w1) %></span></div>
-        <div class="stl_01" style="top: 19.6062em; left:67.52em;"><span class="stl_10 stl_09"><%#= worker_attribute_column("worker_insurance", "health_insurance_type", w1) %></span></div> <!-- 8-031 健康保険のタイプ -->
-        <div class="stl_01" style="top: 20.8062em; left:67.52em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "pension_insurance_type", w1) %></span></div> <!-- 8-032 年金保険のタイプ -->
-        <div class="stl_01" style="top: 22.0062em; left:67.52em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "employment_insurance_type", w1) %></span></div> <!-- 8-033 雇用保険のタイプ -->
-        <div class="stl_01" style="top: 19.6062em; left:73.519em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w1) %></span></div> <!-- 8-034 建設業退職金共済制度のタイプ -->
-        <div class="stl_01" style="top: 20.8062em; left:73.519em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w1) %></span></div>
-        <div class="stl_01" style="top: 20.8062em; left:81.0228em;"><span class="stl_10 stl_09"><%= JSON.parse(w1[0])["worker_skill_trainings"].map {|value|value["skill_training_id"]} unless w1.nil? %></span></div> <!-- 8-037 技能講習 -->
+        <div class="stl_01" style="top: 19.6062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.health_insurance_types_i18n[worker_attribute_column("worker_insurance", "health_insurance_type", w1)] %></span></div> <!-- 8-031 健康保険のタイプ -->
+        <div class="stl_01" style="top: 20.8062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.pension_insurance_types_i18n[worker_attribute_column("worker_insurance", "pension_insurance_type", w1)] %></span></div> <!-- 8-032 年金保険のタイプ -->
+        <div class="stl_01" style="top: 22.0062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.employment_insurance_types_i18n[worker_attribute_column("worker_insurance", "employment_insurance_type", w1)] %></span></div> <!-- 8-033 雇用保険のタイプ -->
+        <div class="stl_01" style="top: 19.6062em; left:72.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.severance_pay_mutual_aid_types_i18n[worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w1)] %></span></div> <!-- 8-034 建設業退職金共済制度のタイプ -->
+        <div class="stl_01" style="top: 20.8062em; left:72.5em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w1) %></span></div>
+        <div class="stl_01" style="top: 20.8062em; left:78.02em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w1) %></span></div> <!-- 8-036 特別教育 -->
+        <div class="stl_01" style="top: 20.8062em; left:81.0228em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w1) %></span></div> <!-- 8-037 技能講習 -->
         <div class="stl_01" style="top: 20.8062em; left:84.019em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w1) %></span></div>
         <div class="stl_01" style="top: 19.9062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w1) %></span></div>
         <div class="stl_01" style="top: 21.7062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w1) %></span></div>
@@ -140,7 +141,7 @@
         <div class="stl_01" style="top: 24.4062em; left:14.99em;"><span class="stl_10 stl_09"><%= worker_column("job_type", w2) %></span></div>
         <div class="stl_01" style="top: 24.4062em; left:17.99em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_016_symbol", w2) %></span></div>
         <div class="stl_01" style="top: 23.5062em; left:22em;"><span class="stl_10 stl_09"><%= worker_column("hiring_on", w2) %></span></div>
-        <div class="stl_01" style="top: 25.3062em; left:22.49em;"><span class="stl_10 stl_09"><%= worker_column("experience_term_before_hiring", w2) %></span></div>
+        <div class="stl_01" style="top: 25.3062em; left:23em;"><span class="stl_10 stl_09"><%= worker_column("experience_term_before_hiring", w2) %></span></div>
         <div class="stl_01" style="top: 23.5062em; left:28em;"><span class="stl_10 stl_09"><%= worker_column("birth_day_on", w2) %></span></div>
         <div class="stl_01" style="top: 25.3062em; left:28.489em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_020_age", w2) %></span></div>
         <div class="stl_01" style="top: 23.5062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("my_address", w2) %></span></div>
@@ -153,16 +154,16 @@
             <%= worker_attribute_column("worker_medical", "max_blood_pressure", w2) %>～<%= worker_attribute_column("worker_medical", "min_blood_pressure", w2) %>
           </span>
         </div>
-        <div class="stl_01" style="top: 24.4062em; left:58.24em;"><span class="stl_10 stl_08"><%= Worker.abo_blood_types_i18n[worker_column("abo_blood_type", w2)] %></span></div>
+        <div class="stl_01" style="top: 24.4062em; left:58em;"><span class="stl_10 stl_08"><%= Worker.abo_blood_types_i18n[worker_column("abo_blood_type", w2)] %></span></div>
         <div class="stl_01" style="top: 23.5062em; left:61em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_medical", "special_med_exam_on", w2) %></span></div>
         <div class="stl_01" style="top: 25.3062em; left:61.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_030_special_health_check_type", w2) %></span></div>
-        <div class="stl_01" style="top: 23.2062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "health_insurance_type", w2) %></span></div>
-        <div class="stl_01" style="top: 24.4062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "pension_insurance_type", w2) %></span></div>
-        <div class="stl_01" style="top: 25.6062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "employment_insurance_type", w2) %></span></div>
-        <div class="stl_01" style="top: 23.2062em; left:73.489em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w2) %></span></div>
-        <div class="stl_01" style="top: 24.4062em; left:73.489em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w2) %></span></div>
-        <div class="stl_01" style="top: 24.4062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_036_special_education", w2) %></span></div>
-        <div class="stl_01" style="top: 24.4062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_037_skill_training", w2) %></span></div>
+        <div class="stl_01" style="top: 23.2062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.health_insurance_types_i18n[worker_attribute_column("worker_insurance", "health_insurance_type", w2)] %></span></div>
+        <div class="stl_01" style="top: 24.4062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.pension_insurance_types_i18n[worker_attribute_column("worker_insurance", "pension_insurance_type", w2)] %></span></div>
+        <div class="stl_01" style="top: 25.6062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.employment_insurance_types_i18n[worker_attribute_column("worker_insurance", "employment_insurance_type", w2)] %></span></div>
+        <div class="stl_01" style="top: 23.2062em; left:72.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.severance_pay_mutual_aid_types_i18n[worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w2)] %></span></div>
+        <div class="stl_01" style="top: 24.4062em; left:72.5em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w2) %></span></div>
+        <div class="stl_01" style="top: 24.4062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w2) %></span></div>
+        <div class="stl_01" style="top: 24.4062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w2) %></span></div>
         <div class="stl_01" style="top: 24.4062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w2) %></span></div>
         <div class="stl_01" style="top: 23.5062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w2) %></span></div>
         <div class="stl_01" style="top: 25.3062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w2) %></span></div>
@@ -177,7 +178,7 @@
         <div class="stl_01" style="top: 28.0062em; left:14.99em;"><span class="stl_10 stl_09"><%= worker_column("job_type", w3) %></span></div>
         <div class="stl_01" style="top: 28.0062em; left:17.9928em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_016_symbol", w3) %></span></div>
         <div class="stl_01" style="top: 27.1062em; left:22em;"><span class="stl_10 stl_09"><%= worker_column("hiring_on", w3) %></span></div>
-        <div class="stl_01" style="top: 28.9062em; left:22.49em;"><span class="stl_10 stl_09"><%= worker_column("experience_term_before_hiring", w3) %></span></div>
+        <div class="stl_01" style="top: 28.9062em; left:23em;"><span class="stl_10 stl_09"><%= worker_column("experience_term_before_hiring", w3) %></span></div>
         <div class="stl_01" style="top: 27.1062em; left:28em;"><span class="stl_10 stl_09"><%= worker_column("birth_day_on", w3) %></span></div>
         <div class="stl_01" style="top: 28.9062em; left:28.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_020_age", w3) %></span></div>
         <div class="stl_01" style="top: 27.1062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("my_address", w3) %></span></div>
@@ -190,16 +191,16 @@
             <%= worker_attribute_column("worker_medical", "max_blood_pressure", w3) %>～<%= worker_attribute_column("worker_medical", "min_blood_pressure", w3) %>
           </span>
         </div>
-        <div class="stl_01" style="top: 28.0062em; left:58.24em;"><span class="stl_10 stl_08"><%= Worker.abo_blood_types_i18n[worker_column("abo_blood_type", w3)] %></span></div>
+        <div class="stl_01" style="top: 28.0062em; left:58em;"><span class="stl_10 stl_08"><%= Worker.abo_blood_types_i18n[worker_column("abo_blood_type", w3)] %></span></div>
         <div class="stl_01" style="top: 27.1062em; left:61em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_medical", "special_med_exam_on", w3) %></span></div>
         <div class="stl_01" style="top: 28.9062em; left:61.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_030_special_health_check_type", w3) %></span></div>
-        <div class="stl_01" style="top: 26.8062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "health_insurance_type", w3) %></span></div>
-        <div class="stl_01" style="top: 28.0062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "pension_insurance_type", w3) %></span></div>
-        <div class="stl_01" style="top: 29.2062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "employment_insurance_type", w3) %></span></div>
-        <div class="stl_01" style="top: 26.8062em; left:73.489em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w3) %></span></div>
-        <div class="stl_01" style="top: 28.0062em; left:73.489em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w3) %></span></div>
-        <div class="stl_01" style="top: 28.0062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_036_special_education", w3) %></span></div>
-        <div class="stl_01" style="top: 28.0062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_037_skill_training", w3) %></span></div>
+        <div class="stl_01" style="top: 26.8062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.health_insurance_types_i18n[worker_attribute_column("worker_insurance", "health_insurance_type", w3)] %></span></div>
+        <div class="stl_01" style="top: 28.0062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.pension_insurance_types_i18n[worker_attribute_column("worker_insurance", "pension_insurance_type", w3)] %></span></div>
+        <div class="stl_01" style="top: 29.2062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.employment_insurance_types_i18n[worker_attribute_column("worker_insurance", "employment_insurance_type", w3)] %></span></div>
+        <div class="stl_01" style="top: 26.8062em; left:72.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.severance_pay_mutual_aid_types_i18n[worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w3)] %></span></div>
+        <div class="stl_01" style="top: 28.0062em; left:72.5em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w3) %></span></div>
+        <div class="stl_01" style="top: 28.0062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w3) %></span></div>
+        <div class="stl_01" style="top: 28.0062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w3) %></span></div>
         <div class="stl_01" style="top: 28.0062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w3) %></span></div>
         <div class="stl_01" style="top: 27.1062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w3) %></span></div>
         <div class="stl_01" style="top: 28.9062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w3) %></span></div>
@@ -214,7 +215,7 @@
         <div class="stl_01" style="top: 31.6062em; left:14.99em;"><span class="stl_10 stl_09"><%= worker_column("job_type", w4) %></span></div>
         <div class="stl_01" style="top: 31.6062em; left:17.9928em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_016_symbol", w4) %></span></div>
         <div class="stl_01" style="top: 30.7062em; left:22em;"><span class="stl_10 stl_09"><%= worker_column("hiring_on", w4) %></span></div>
-        <div class="stl_01" style="top: 32.5062em; left:22.49em;"><span class="stl_10 stl_09"><%= worker_column("experience_term_before_hiring", w4) %></span></div>
+        <div class="stl_01" style="top: 32.5062em; left:23em;"><span class="stl_10 stl_09"><%= worker_column("experience_term_before_hiring", w4) %></span></div>
         <div class="stl_01" style="top: 30.7062em; left:28em;"><span class="stl_10 stl_09"><%= worker_column("birth_day_on", w4) %></span></div>
         <div class="stl_01" style="top: 32.5062em; left:28.489em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_020_age", w4) %></span></div>
         <div class="stl_01" style="top: 30.7062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("my_address", w4) %></span></div>
@@ -227,16 +228,16 @@
             <%= worker_attribute_column("worker_medical", "max_blood_pressure", w4) %>～<%= worker_attribute_column("worker_medical", "min_blood_pressure", w4) %>
           </span>
         </div>
-        <div class="stl_01" style="top: 31.6062em; left:58.24em;"><span class="stl_10 stl_08"><%= Worker.abo_blood_types_i18n[worker_column("abo_blood_type", w4)] %></span></div>
+        <div class="stl_01" style="top: 31.6062em; left:58em;"><span class="stl_10 stl_08"><%= Worker.abo_blood_types_i18n[worker_column("abo_blood_type", w4)] %></span></div>
         <div class="stl_01" style="top: 30.7062em; left:61em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_medical", "special_med_exam_on", w4) %></span></div>
         <div class="stl_01" style="top: 32.5062em; left:61.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_030_special_health_check_type", w4) %></span></div>
-        <div class="stl_01" style="top: 30.4062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "health_insurance_type", w4) %></span></div>
-        <div class="stl_01" style="top: 31.6062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "pension_insurance_type", w4) %></span></div>
-        <div class="stl_01" style="top: 32.8062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "employment_insurance_type", w4) %></span></div>
-        <div class="stl_01" style="top: 30.4062em; left:73.489em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w4) %></span></div>
-        <div class="stl_01" style="top: 31.6062em; left:73.489em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w4) %></span></div>
-        <div class="stl_01" style="top: 31.6062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_036_special_education", w4) %></span></div>
-        <div class="stl_01" style="top: 31.6062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_037_skill_training", w4) %></span></div>
+        <div class="stl_01" style="top: 30.4062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.health_insurance_types_i18n[worker_attribute_column("worker_insurance", "health_insurance_type", w4)] %></span></div>
+        <div class="stl_01" style="top: 31.6062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.pension_insurance_types_i18n[worker_attribute_column("worker_insurance", "pension_insurance_type", w4)] %></span></div>
+        <div class="stl_01" style="top: 32.8062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.employment_insurance_types_i18n[worker_attribute_column("worker_insurance", "employment_insurance_type", w4)] %></span></div>
+        <div class="stl_01" style="top: 30.4062em; left:72.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.severance_pay_mutual_aid_types_i18n[worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w4)] %></span></div>
+        <div class="stl_01" style="top: 31.6062em; left:72.5em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w4) %></span></div>
+        <div class="stl_01" style="top: 31.6062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w4) %></span></div>
+        <div class="stl_01" style="top: 31.6062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w4) %></span></div>
         <div class="stl_01" style="top: 31.6062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w4) %></span></div>
         <div class="stl_01" style="top: 30.7062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w4) %></span></div>
         <div class="stl_01" style="top: 32.5062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w4) %></span></div>
@@ -251,7 +252,7 @@
         <div class="stl_01" style="top: 35.2062em; left:14.99em;"><span class="stl_10 stl_09"><%= worker_column("job_type", w5) %></span></div>
         <div class="stl_01" style="top: 35.2062em; left:17.9928em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_016_symbol", w5) %></span></div>
         <div class="stl_01" style="top: 34.3062em; left:22em;"><span class="stl_10 stl_09"><%= worker_column("hiring_on", w5) %></span></div>
-        <div class="stl_01" style="top: 36.1062em; left:22.49em;"><span class="stl_10 stl_09"><%= worker_column("experience_term_before_hiring", w5) %></span></div>
+        <div class="stl_01" style="top: 36.1062em; left:23em;"><span class="stl_10 stl_09"><%= worker_column("experience_term_before_hiring", w5) %></span></div>
         <div class="stl_01" style="top: 34.3062em; left:28em;"><span class="stl_10 stl_09"><%= worker_column("birth_day_on", w5) %></span></div>
         <div class="stl_01" style="top: 36.1062em; left:28.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_020_age", w5) %></span></div>
         <div class="stl_01" style="top: 34.3062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("my_address", w5) %></span></div>
@@ -264,16 +265,16 @@
             <%= worker_attribute_column("worker_medical", "max_blood_pressure", w5) %>～<%= worker_attribute_column("worker_medical", "min_blood_pressure", w5) %>
           </span>
         </div>
-        <div class="stl_01" style="top: 35.2062em; left:58.24em;"><span class="stl_10 stl_08"><%= Worker.abo_blood_types_i18n[worker_column("abo_blood_type", w5)] %></span></div>
+        <div class="stl_01" style="top: 35.2062em; left:58em;"><span class="stl_10 stl_08"><%= Worker.abo_blood_types_i18n[worker_column("abo_blood_type", w5)] %></span></div>
         <div class="stl_01" style="top: 34.3062em; left:61em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_medical", "special_med_exam_on", w5) %></span></div>
         <div class="stl_01" style="top: 36.1062em; left:61.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_030_special_health_check_type", w5) %></span></div>
-        <div class="stl_01" style="top: 34.0062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "health_insurance_type", w5) %></span></div>
-        <div class="stl_01" style="top: 35.2062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "pension_insurance_type", w5) %></span></div>
-        <div class="stl_01" style="top: 36.4062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "employment_insurance_type", w5) %></span></div>
-        <div class="stl_01" style="top: 34.0062em; left:73.489em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w5) %></span></div>
-        <div class="stl_01" style="top: 35.2062em; left:73.489em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w5) %></span></div>
-        <div class="stl_01" style="top: 35.2062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_036_special_education", w5) %></span></div>
-        <div class="stl_01" style="top: 35.2062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_037_skill_training", w5) %></span></div>
+        <div class="stl_01" style="top: 34.0062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.health_insurance_types_i18n[worker_attribute_column("worker_insurance", "health_insurance_type", w5)] %></span></div>
+        <div class="stl_01" style="top: 35.2062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.pension_insurance_types_i18n[worker_attribute_column("worker_insurance", "pension_insurance_type", w5)] %></span></div>
+        <div class="stl_01" style="top: 36.4062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.employment_insurance_types_i18n[worker_attribute_column("worker_insurance", "employment_insurance_type", w5)] %></span></div>
+        <div class="stl_01" style="top: 34.0062em; left:72.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.severance_pay_mutual_aid_types_i18n[worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w5)] %></span></div>
+        <div class="stl_01" style="top: 35.2062em; left:72.5em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w5) %></span></div>
+        <div class="stl_01" style="top: 35.2062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w5) %></span></div>
+        <div class="stl_01" style="top: 35.2062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w5) %></span></div>
         <div class="stl_01" style="top: 35.2062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w5) %></span></div>
         <div class="stl_01" style="top: 34.3062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w5) %></span></div>
         <div class="stl_01" style="top: 36.1062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w5) %></span></div>
@@ -288,7 +289,7 @@
         <div class="stl_01" style="top: 38.8062em; left:14.99em;"><span class="stl_10 stl_09"><%= worker_column("job_type", w6) %></span></div>
         <div class="stl_01" style="top: 38.8062em; left:17.9928em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_016_symbol", w6) %></span></div>
         <div class="stl_01" style="top: 37.9062em; left:22em;"><span class="stl_10 stl_09"><%= worker_column("hiring_on", w6) %></span></div>
-        <div class="stl_01" style="top: 39.7062em; left:22.49em;"><span class="stl_10 stl_09"><%= worker_column("experience_term_before_hiring", w6) %></span></div>
+        <div class="stl_01" style="top: 39.7062em; left:23em;"><span class="stl_10 stl_09"><%= worker_column("experience_term_before_hiring", w6) %></span></div>
         <div class="stl_01" style="top: 37.9062em; left:28em;"><span class="stl_10 stl_09"><%= worker_column("birth_day_on", w6) %></span></div>
         <div class="stl_01" style="top: 39.7062em; left:28.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_020_age", w6) %></span></div>
         <div class="stl_01" style="top: 37.9062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("my_address", w6) %></span></div>
@@ -301,16 +302,16 @@
             <%= worker_attribute_column("worker_medical", "max_blood_pressure", w6) %>～<%= worker_attribute_column("worker_medical", "min_blood_pressure", w6) %>
           </span>
         </div>
-        <div class="stl_01" style="top: 38.8062em; left:58.24em;"><span class="stl_10 stl_08"><%= Worker.abo_blood_types_i18n[worker_column("abo_blood_type", w6)] %></span></div>
+        <div class="stl_01" style="top: 38.8062em; left:58em;"><span class="stl_10 stl_08"><%= Worker.abo_blood_types_i18n[worker_column("abo_blood_type", w6)] %></span></div>
         <div class="stl_01" style="top: 37.9062em; left:61em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_medical", "special_med_exam_on", w6) %></span></div>
         <div class="stl_01" style="top: 39.7062em; left:61.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_030_special_health_check_type", w6) %></span></div>
-        <div class="stl_01" style="top: 37.6062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "health_insurance_type", w6) %></span></div>
-        <div class="stl_01" style="top: 38.8062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "pension_insurance_type", w6) %></span></div>
-        <div class="stl_01" style="top: 40.0062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "employment_insurance_type", w6) %></span></div>
-        <div class="stl_01" style="top: 37.6062em; left:73.489em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w6) %></span></div>
-        <div class="stl_01" style="top: 38.8062em; left:73.489em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w6) %></span></div>
-        <div class="stl_01" style="top: 38.8062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_036_special_education", w6) %></span></div>
-        <div class="stl_01" style="top: 38.8062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_037_skill_training", w6) %></span></div>
+        <div class="stl_01" style="top: 37.6062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.health_insurance_types_i18n[worker_attribute_column("worker_insurance", "health_insurance_type", w6)] %></span></div>
+        <div class="stl_01" style="top: 38.8062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.pension_insurance_types_i18n[worker_attribute_column("worker_insurance", "pension_insurance_type", w6)] %></span></div>
+        <div class="stl_01" style="top: 40.0062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.employment_insurance_types_i18n[worker_attribute_column("worker_insurance", "employment_insurance_type", w6)] %></span></div>
+        <div class="stl_01" style="top: 37.6062em; left:72.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.severance_pay_mutual_aid_types_i18n[worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w6)] %></span></div>
+        <div class="stl_01" style="top: 38.8062em; left:72.5em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w6) %></span></div>
+        <div class="stl_01" style="top: 38.8062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w6) %></span></div>
+        <div class="stl_01" style="top: 38.8062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w6) %></span></div>
         <div class="stl_01" style="top: 38.8062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w6) %></span></div>
         <div class="stl_01" style="top: 37.9062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w6) %></span></div>
         <div class="stl_01" style="top: 39.7062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w6) %></span></div>
@@ -325,7 +326,7 @@
         <div class="stl_01" style="top: 42.4062em; left:14.99em;"><span class="stl_10 stl_09"><%= worker_column("job_type", w7) %></span></div>
         <div class="stl_01" style="top: 42.4062em; left:17.9928em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_016_symbol", w7) %></span></div>
         <div class="stl_01" style="top: 41.5062em; left:22em;"><span class="stl_10 stl_09"><%= worker_column("hiring_on", w7) %></span></div>
-        <div class="stl_01" style="top: 43.3062em; left:22.49em;"><span class="stl_10 stl_09"><%= worker_column("experience_term_before_hiring", w7) %></span></div>
+        <div class="stl_01" style="top: 43.3062em; left:23em;"><span class="stl_10 stl_09"><%= worker_column("experience_term_before_hiring", w7) %></span></div>
         <div class="stl_01" style="top: 41.5062em; left:28em;"><span class="stl_10 stl_09"><%= worker_column("birth_day_on", w7) %></span></div>
         <div class="stl_01" style="top: 43.3062em; left:28.489em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_020_age", w7) %></span></div>
         <div class="stl_01" style="top: 41.5062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("my_address", w7) %></span></div>
@@ -338,16 +339,16 @@
             <%= worker_attribute_column("worker_medical", "max_blood_pressure", w7) %>～<%= worker_attribute_column("worker_medical", "min_blood_pressure", w7) %>
           </span>
         </div>
-        <div class="stl_01" style="top: 42.4062em; left:58.24em;"><span class="stl_10 stl_08"><%= Worker.abo_blood_types_i18n[worker_column("abo_blood_type", w7)] %></span></div>
+        <div class="stl_01" style="top: 42.4062em; left:58em;"><span class="stl_10 stl_08"><%= Worker.abo_blood_types_i18n[worker_column("abo_blood_type", w7)] %></span></div>
         <div class="stl_01" style="top: 41.5062em; left:61em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_medical", "special_med_exam_on", w7) %></span></div>
         <div class="stl_01" style="top: 43.3062em; left:61.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_030_special_health_check_type", w7) %></span></div>
-        <div class="stl_01" style="top: 41.2062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "health_insurance_type", w7) %></span></div>
-        <div class="stl_01" style="top: 42.4062em; left:67.4926em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "pension_insurance_type", w7) %></span></div>
-        <div class="stl_01" style="top: 43.6062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "employment_insurance_type", w7) %></span></div>
-        <div class="stl_01" style="top: 41.2062em; left:73.49em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w7) %></span></div>
-        <div class="stl_01" style="top: 42.4062em; left:73.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w7) %></span></div>
-        <div class="stl_01" style="top: 42.4062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_036_special_education", w7) %></span></div>
-        <div class="stl_01" style="top: 42.4062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_037_skill_training", w7) %></span></div>
+        <div class="stl_01" style="top: 41.2062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.health_insurance_types_i18n[worker_attribute_column("worker_insurance", "health_insurance_type", w7)] %></span></div>
+        <div class="stl_01" style="top: 42.4062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.pension_insurance_types_i18n[worker_attribute_column("worker_insurance", "pension_insurance_type", w7)] %></span></div>
+        <div class="stl_01" style="top: 43.6062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.employment_insurance_types_i18n[worker_attribute_column("worker_insurance", "employment_insurance_type", w7)] %></span></div>
+        <div class="stl_01" style="top: 41.2062em; left:72.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.severance_pay_mutual_aid_types_i18n[worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w7)] %></span></div>
+        <div class="stl_01" style="top: 42.4062em; left:72.5em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w7) %></span></div>
+        <div class="stl_01" style="top: 42.4062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w7) %></span></div>
+        <div class="stl_01" style="top: 42.4062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w7) %></span></div>
         <div class="stl_01" style="top: 42.4062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w7) %></span></div>
         <div class="stl_01" style="top: 41.5062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w7) %></span></div>
         <div class="stl_01" style="top: 43.3062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w7) %></span></div>
@@ -362,7 +363,7 @@
         <div class="stl_01" style="top: 46.0062em; left:14.99em;"><span class="stl_10 stl_09"><%= worker_column("job_type", w8) %></span></div>
         <div class="stl_01" style="top: 46.0062em; left:17.99em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_016_symbol", w8) %></span></div>
         <div class="stl_01" style="top: 45.1062em; left:22em;"><span class="stl_10 stl_09"><%= worker_column("hiring_on", w8) %></span></div>
-        <div class="stl_01" style="top: 46.9062em; left:22.49em;"><span class="stl_10 stl_09"><%= worker_column("experience_term_before_hiring", w8) %></span></div>
+        <div class="stl_01" style="top: 46.9062em; left:23em;"><span class="stl_10 stl_09"><%= worker_column("experience_term_before_hiring", w8) %></span></div>
         <div class="stl_01" style="top: 45.1062em; left:28em;"><span class="stl_10 stl_09"><%= worker_column("birth_day_on", w8) %></span></div>
         <div class="stl_01" style="top: 46.9062em; left:28.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_020_age", w8) %></span></div>
         <div class="stl_01" style="top: 45.1062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("my_address", w8) %></span></div>
@@ -375,16 +376,16 @@
             <%= worker_attribute_column("worker_medical", "max_blood_pressure", w8) %>～<%= worker_attribute_column("worker_medical", "min_blood_pressure", w8) %>
           </span>
         </div>
-        <div class="stl_01" style="top: 46.0062em; left:58.24em;"><span class="stl_10 stl_08"><%= Worker.abo_blood_types_i18n[worker_column("abo_blood_type", w8)] %></span></div>
+        <div class="stl_01" style="top: 46.0062em; left:58em;"><span class="stl_10 stl_08"><%= Worker.abo_blood_types_i18n[worker_column("abo_blood_type", w8)] %></span></div>
         <div class="stl_01" style="top: 45.1062em; left:61em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_medical", "special_med_exam_on", w8) %></span></div>
         <div class="stl_01" style="top: 46.9062em; left:61.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_030_special_health_check_type", w8) %></span></div>
-        <div class="stl_01" style="top: 44.8062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "health_insurance_type", w8) %></span></div>
-        <div class="stl_01" style="top: 46.0062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "pension_insurance_type", w8) %></span></div>
-        <div class="stl_01" style="top: 47.2062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "employment_insurance_type", w8) %></span></div>
-        <div class="stl_01" style="top: 44.8062em; left:73.489em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w8) %></span></div>
-        <div class="stl_01" style="top: 46.0062em; left:73.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w8) %></span></div>
-        <div class="stl_01" style="top: 46.0062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_036_special_education", w8) %></span></div>
-        <div class="stl_01" style="top: 46.0062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_037_skill_training", w8) %></span></div>
+        <div class="stl_01" style="top: 44.8062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.health_insurance_types_i18n[worker_attribute_column("worker_insurance", "health_insurance_type", w8)] %></span></div>
+        <div class="stl_01" style="top: 46.0062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.pension_insurance_types_i18n[worker_attribute_column("worker_insurance", "pension_insurance_type", w8)] %></span></div>
+        <div class="stl_01" style="top: 47.2062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.employment_insurance_types_i18n[worker_attribute_column("worker_insurance", "employment_insurance_type", w8)] %></span></div>
+        <div class="stl_01" style="top: 44.8062em; left:72.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.severance_pay_mutual_aid_types_i18n[worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w8)] %></span></div>
+        <div class="stl_01" style="top: 46.0062em; left:72.5em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w8) %></span></div>
+        <div class="stl_01" style="top: 46.0062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w8) %></span></div>
+        <div class="stl_01" style="top: 46.0062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w8) %></span></div>
         <div class="stl_01" style="top: 46.0062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w8) %></span></div>
         <div class="stl_01" style="top: 45.1062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w8) %></span></div>
         <div class="stl_01" style="top: 46.9062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w8) %></span></div>
@@ -399,7 +400,7 @@
         <div class="stl_01" style="top: 49.6062em; left:14.99em;"><span class="stl_10 stl_09"><%= worker_column("job_type", w9) %></span></div>
         <div class="stl_01" style="top: 49.6062em; left:17.9928em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_016_symbol", w9) %></span></div>
         <div class="stl_01" style="top: 48.7062em; left:22em;"><span class="stl_10 stl_09"><%= worker_column("hiring_on", w9) %></span></div>
-        <div class="stl_01" style="top: 50.5062em; left:22.49em;"><span class="stl_10 stl_09"><%= worker_column("experience_term_before_hiring", w9) %></span></div>
+        <div class="stl_01" style="top: 50.5062em; left:23em;"><span class="stl_10 stl_09"><%= worker_column("experience_term_before_hiring", w9) %></span></div>
         <div class="stl_01" style="top: 48.7062em; left:28em;"><span class="stl_10 stl_09"><%= worker_column("birth_day_on", w9) %></span></div>
         <div class="stl_01" style="top: 50.5062em; left:28.489em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_020_age", w9) %></span></div>
         <div class="stl_01" style="top: 48.7062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("my_address", w9) %></span></div>
@@ -412,16 +413,16 @@
             <%= worker_attribute_column("worker_medical", "max_blood_pressure", w9) %>～<%= worker_attribute_column("worker_medical", "min_blood_pressure", w9) %>
           </span>
         </div>
-        <div class="stl_01" style="top: 49.6062em; left:58.24em;"><span class="stl_10 stl_08"><%= Worker.abo_blood_types_i18n[worker_column("abo_blood_type", w9)] %></span></div>
+        <div class="stl_01" style="top: 49.6062em; left:58em;"><span class="stl_10 stl_08"><%= Worker.abo_blood_types_i18n[worker_column("abo_blood_type", w9)] %></span></div>
         <div class="stl_01" style="top: 48.7062em; left:61em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_medical", "special_med_exam_on", w9) %></span></div>
         <div class="stl_01" style="top: 50.5062em; left:61.49em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_030_special_health_check_type", w9) %></span></div>
-        <div class="stl_01" style="top: 48.4062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "health_insurance_type", w9) %></span></div>
-        <div class="stl_01" style="top: 49.6062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "pension_insurance_type", w9) %></span></div>
-        <div class="stl_01" style="top: 50.8062em; left:67.49em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "employment_insurance_type", w9) %></span></div>
-        <div class="stl_01" style="top: 48.4062em; left:73.489em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w9) %></span></div>
-        <div class="stl_01" style="top: 49.6062em; left:73.489em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w9) %></span></div>
-        <div class="stl_01" style="top: 49.6062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_036_special_education", w9) %></span></div>
-        <div class="stl_01" style="top: 49.6062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_037_skill_training", w9) %></span></div>
+        <div class="stl_01" style="top: 48.4062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.health_insurance_types_i18n[worker_attribute_column("worker_insurance", "health_insurance_type", w9)] %></span></div>
+        <div class="stl_01" style="top: 49.6062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.pension_insurance_types_i18n[worker_attribute_column("worker_insurance", "pension_insurance_type", w9)] %></span></div>
+        <div class="stl_01" style="top: 50.8062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.employment_insurance_types_i18n[worker_attribute_column("worker_insurance", "employment_insurance_type", w9)] %></span></div>
+        <div class="stl_01" style="top: 48.4062em; left:72.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.severance_pay_mutual_aid_types_i18n[worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w9)] %></span></div>
+        <div class="stl_01" style="top: 49.6062em; left:72.5em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w9) %></span></div>
+        <div class="stl_01" style="top: 49.6062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w9) %></span></div>
+        <div class="stl_01" style="top: 49.6062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w9) %></span></div>
         <div class="stl_01" style="top: 49.6062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w9) %></span></div>
         <div class="stl_01" style="top: 48.7062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w9) %></span></div>
         <div class="stl_01" style="top: 50.5062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w9) %></span></div>
@@ -436,7 +437,7 @@
         <div class="stl_01" style="top: 53.2062em; left:14.83em;"><span class="stl_10 stl_09"><%= worker_column("job_type", w10) %></span></div>
         <div class="stl_01" style="top: 53.2062em; left:17.8328em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_016_symbol", w10) %></span></div>
         <div class="stl_01" style="top: 52.3062em; left:22em;"><span class="stl_10 stl_09"><%= worker_column("hiring_on", w10) %></span></div>
-        <div class="stl_01" style="top: 54.1062em; left:22.33em;"><span class="stl_10 stl_09"><%= worker_column("experience_term_before_hiring", w10) %></span></div>
+        <div class="stl_01" style="top: 54.1062em; left:23em;"><span class="stl_10 stl_09"><%= worker_column("experience_term_before_hiring", w10) %></span></div>
         <div class="stl_01" style="top: 52.3062em; left:28em;"><span class="stl_10 stl_09"><%= worker_column("birth_day_on", w10) %></span></div>
         <div class="stl_01" style="top: 54.1062em; left:28.329em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_020_age", w10) %></span></div>
         <div class="stl_01" style="top: 52.3062em; left:32.44em;"><span class="stl_10 stl_09"><%= worker_column("my_address", w10) %></span></div>
@@ -449,16 +450,16 @@
             <%= worker_attribute_column("worker_medical", "max_blood_pressure", w10) %>～<%= worker_attribute_column("worker_medical", "min_blood_pressure", w10) %>
           </span>
         </div>
-        <div class="stl_01" style="top: 53.2062em; left:58.07em;"><span class="stl_10 stl_09"><%= Worker.abo_blood_types_i18n[worker_column("abo_blood_type", w10)] %></span></div>
+        <div class="stl_01" style="top: 53.2062em; left:58em;"><span class="stl_10 stl_09"><%= Worker.abo_blood_types_i18n[worker_column("abo_blood_type", w10)] %></span></div>
         <div class="stl_01" style="top: 52.3062em; left:61em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_medical", "special_med_exam_on", w10) %></span></div>
         <div class="stl_01" style="top: 54.1062em; left:61.33em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_030_special_health_check_type", w10) %></span></div>
-        <div class="stl_01" style="top: 52.0062em; left:67.33em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "health_insurance_type", w10) %></span></div>
-        <div class="stl_01" style="top: 53.2062em; left:67.33em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "pension_insurance_type", w10) %></span></div>
-        <div class="stl_01" style="top: 54.4062em; left:67.33em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "employment_insurance_type", w10) %></span></div>
-        <div class="stl_01" style="top: 52.0062em; left:73.329em;"><span class="stl_10 stl_09"><%= worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w10) %></span></div>
-        <div class="stl_01" style="top: 53.2062em; left:73.33em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w10) %></span></div>
-        <div class="stl_01" style="top: 53.2062em; left:77.83em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_036_special_education", w10) %></span></div>
-        <div class="stl_01" style="top: 53.2062em; left:80.8328em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_037_skill_training", w10) %></span></div>
+        <div class="stl_01" style="top: 52.0062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.health_insurance_types_i18n[worker_attribute_column("worker_insurance", "health_insurance_type", w10)] %></span></div>
+        <div class="stl_01" style="top: 53.2062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.pension_insurance_types_i18n[worker_attribute_column("worker_insurance", "pension_insurance_type", w10)] %></span></div>
+        <div class="stl_01" style="top: 54.4062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.employment_insurance_types_i18n[worker_attribute_column("worker_insurance", "employment_insurance_type", w10)] %></span></div>
+        <div class="stl_01" style="top: 52.0062em; left:72.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.severance_pay_mutual_aid_types_i18n[worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w10)] %></span></div>
+        <div class="stl_01" style="top: 53.2062em; left:72.5em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w10) %></span></div>
+        <div class="stl_01" style="top: 53.2062em; left:77.83em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w10) %></span></div>
+        <div class="stl_01" style="top: 53.2062em; left:80.8328em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w10) %></span></div>
         <div class="stl_01" style="top: 53.2062em; left:83.829em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_038_licence", w10) %></span></div>
         <div class="stl_01" style="top: 52.3062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w10) %></span></div>
         <div class="stl_01" style="top: 54.1062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w10) %></span></div>

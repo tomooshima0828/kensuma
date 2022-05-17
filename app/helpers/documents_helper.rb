@@ -15,8 +15,8 @@ module DocumentsHelper
     JSON.parse(worker[0])[model][column] unless worker.nil?
   end
 
-  # def worker_attribute(model, column, worker_medical)
-  #   # JSON.parse(w1[0])["worker_medical"]["special_med_exam_on"] unless w1.nil?
-  #   JSON.parse(worker_medical[0])[model][column] unless worker_medical.nil?
-  # end
+  def worker_attributes_column(model, column, worker)
+    # JSON.parse(w1[0])["worker_skill_trainings"].map {|value|value["skill_training_id"]}
+    JSON.parse(worker[0])[model].map { |value| value[column] } unless worker.nil?
+  end
 end
