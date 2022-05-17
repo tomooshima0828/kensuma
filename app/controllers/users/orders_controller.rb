@@ -30,7 +30,7 @@ module Users
           submitted_on:  Date.current,
           content:       {
             'business_name': '1', # 1-1
-            'submitted_on':  ''  # 1-2
+            'submitted_on':  '' # 1-2
           },
           business:      current_business
         )
