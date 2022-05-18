@@ -1,7 +1,6 @@
 class News < ApplicationRecord
   has_many :news_users, dependent: :destroy
   has_many :users, through: :news_users
-  
   before_create -> { self.uuid = SecureRandom.uuid }
 
   # default: 0

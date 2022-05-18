@@ -6,7 +6,7 @@ ActiveAdmin.register News do
       scoped_collection.where(uuid: params[:id]).first!
     end
   end
-  
+
   index do
     selectable_column
     id_column
@@ -26,7 +26,7 @@ ActiveAdmin.register News do
     f.inputs do
       f.input :title
       f.input :content
-      f.input :delivered_at
+      f.input :delivered_at, as: :datetime_picker
       f.input :status
     end
     f.actions

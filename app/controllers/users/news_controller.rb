@@ -13,7 +13,7 @@ module Users
     end
 
     private
-    
+
     def set_news
       @news = News.find_by(uuid: params[:uuid])
     end
