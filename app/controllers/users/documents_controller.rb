@@ -33,8 +33,6 @@ module Users
     end
 
     def update
-      
-
       if update_document(@document)
         flash[:success] = '更新に成功しました'
         redirect_to users_request_order_document_url
