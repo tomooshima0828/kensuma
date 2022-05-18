@@ -5,7 +5,7 @@ module Users
     before_action :set_document, except: :index # オブジェクトが1つも無い場合、indexで呼び出さないようにする
 
     def index
-      @workers = Worker.all
+      # @workers = current_business.workers
     end
 
     def show
@@ -31,7 +31,7 @@ module Users
     end
 
     def edit
-      @workers = Worker.all
+      @workers = current_business.workers
     end
 
     def update
