@@ -118,7 +118,10 @@
   <div class="card-body">
     <div class="row">
       <div class="col-md-12">
-        <%= f.select :content, @workers.map{ |worker| [worker.name, Worker.find(worker.id).to_json(except: [:images, :created_at, :updated_at], include: {worker_medical: {except: [:id, :worker_id, :created_at, :updated_at]}, worker_insurance: {except: [:id, :worker_id, :created_at, :updated_at]}, worker_skill_trainings: {only: [:skill_training_id]}, worker_special_educations: {only: [:special_education_id]}, worker_licenses: {only: [:license_id]} })] }, {include_hidden: false, selected: @document.content["worker"]}, {name: "document[content][worker][]", class: "js-select form-control", multiple: true} %>
+        <%= f.select :content, @workers.map { |worker| [worker.name, worker.id] },
+                                            { include_hidden: false, selected: @document.content["worker_id"] },
+                                            { name: "document[content][worker][]", class: "js-select form-control", multiple: true }
+        %>
       </div>
     </div>
   </div>

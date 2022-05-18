@@ -4,9 +4,7 @@ module Users
     before_action :set_documents # サイドバーに常時表示させるために必要
     before_action :set_document, except: :index # オブジェクトが1つも無い場合、indexで呼び出さないようにする
 
-    def index
-      # @workers = current_business.workers
-    end
+    def index; end
 
     def show
       respond_to do |format|
@@ -35,6 +33,33 @@ module Users
     end
 
     def update
+      # formから作業員idを受け取る。
+      @worker_ids = params[:document][:content][:worker]
+
+      # 受け取ったidに対応する各作業員テーブル&作業員テーブルに紐づく各テーブルのデータをハッシュ化して登録する。
+      # 「except:」や「only:」で、不要なカラムは登録から除外する。
+      @worker_json = @worker_ids.map {|worker_id|
+        Worker.find(worker_id).to_json(
+          except: [:images, :created_at, :updated_at], # 作業員
+          include: {
+            worker_medical: {
+              except: [:id, :worker_id, :created_at, :updated_at] # 作業員の健康情報
+            },
+            worker_insurance: {
+              except: [:id, :worker_id, :created_at, :updated_at] # 保険情報
+            },
+            worker_skill_trainings: { 
+              only: [:skill_training_id] # 中間テーブル(技能講習マスタ)
+            },
+            worker_special_educations: {
+              only: [:special_education_id] # 中間テーブル(特別教育マスタ)
+            },
+            worker_licenses: {
+              only: [:license_id] # 中間テーブル(免許マスタ)
+            }
+          },
+        )
+      }
       if update_document(@document)
         flash[:success] = '更新に成功しました'
         redirect_to users_request_order_document_url
@@ -109,7 +134,8 @@ module Users
           doc5_8_010_my_business_id:        params.dig(:document, :content, :doc5_8_010_my_business_id),
           doc5_8_011_submitted_on:          params.dig(:document, :content, :doc5_8_011_submitted_on),
           doc5_8_042_confirmation:          params.dig(:document, :content, :doc5_8_042_confirmation),
-          worker:                           params.dig(:document, :content, :worker)
+          worker:                           @worker_json,
+          worker_id:                        @worker_ids
         }
       )
     end
