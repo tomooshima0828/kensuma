@@ -71,7 +71,15 @@ module Users
           content:       {
             doc5_8_001_business_name: '', doc5_8_002_site_id: '', doc5_8_003_site_agent: '', doc5_8_004_created_date: '', doc5_8_005_primary_business_name: '',
             doc5_8_006_primary_business_id: '', doc5_8_007_hierarchy: '', doc5_8_009_my_business_name: '', doc5_8_010_my_business_id: '', doc5_8_011_submitted_on: '', doc5_8_042_confirmation: '',
-            worker: []
+            worker: [
+              "{
+                \"worker_medical\":{\"med_exam_on\":\"\"},
+                \"worker_insurance\":{\"health_insurance_type\":\"\"},
+                \"worker_skill_trainings\":{},
+                \"worker_special_educations\":{},
+                \"worker_licenses\":{}
+              }"
+            ]
           },
           business:      current_business
         )

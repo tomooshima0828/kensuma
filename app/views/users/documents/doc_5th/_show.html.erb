@@ -124,9 +124,9 @@
         <div class="stl_01" style="top: 22.0062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.employment_insurance_types_i18n[worker_attribute_column("worker_insurance", "employment_insurance_type", w1)] %></span></div> <!-- 8-033 雇用保険のタイプ -->
         <div class="stl_01" style="top: 19.6062em; left:72.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.severance_pay_mutual_aid_types_i18n[worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w1)] %></span></div> <!-- 8-034 建設業退職金共済制度のタイプ -->
         <div class="stl_01" style="top: 20.8062em; left:72.5em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w1) %></span></div>
-        <div class="stl_01" style="top: 20.8062em; left:78.02em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w1) %></span></div> <!-- 8-036 特別教育 -->
-        <div class="stl_01" style="top: 20.8062em; left:81.0228em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w1) %></span></div> <!-- 8-037 技能講習 -->
-        <div class="stl_01" style="top: 20.8062em; left:84.019em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_licenses", "license_id", w1) %></span></div> <!-- 8-036 免許 -->
+        <div class="stl_01" style="top: 20.8062em; left:78.02em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w1).to_s&.delete("[]") %></span></div> <!-- 8-036 特別教育 -->
+        <div class="stl_01" style="top: 20.8062em; left:81.0228em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w1).to_s&.delete("[]") %></span></div> <!-- 8-037 技能講習 -->
+        <div class="stl_01" style="top: 20.8062em; left:84.019em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_licenses", "license_id", w1).to_s&.delete("[]") %></span></div> <!-- 8-036 免許 -->
         <div class="stl_01" style="top: 19.9062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w1) %></span></div>
         <div class="stl_01" style="top: 21.7062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w1) %></span></div>
         <div class="stl_01" style="top: 19.9062em; left:92.69em;"><span class="stl_10 stl_08">建・中</span></div>
@@ -161,9 +161,9 @@
         <div class="stl_01" style="top: 25.6062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.employment_insurance_types_i18n[worker_attribute_column("worker_insurance", "employment_insurance_type", w2)] %></span></div>
         <div class="stl_01" style="top: 23.2062em; left:72.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.severance_pay_mutual_aid_types_i18n[worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w2)] %></span></div>
         <div class="stl_01" style="top: 24.4062em; left:72.5em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w2) %></span></div>
-        <div class="stl_01" style="top: 24.4062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w2) %></span></div>
-        <div class="stl_01" style="top: 24.4062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w2) %></span></div>
-        <div class="stl_01" style="top: 24.4062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_licenses", "license_id", w2) %></span></div>
+        <div class="stl_01" style="top: 24.4062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w2).to_s&.delete("[]") %></span></div>
+        <div class="stl_01" style="top: 24.4062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w2).to_s&.delete("[]") %></span></div>
+        <div class="stl_01" style="top: 24.4062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_licenses", "license_id", w2).to_s&.delete("[]") %></span></div>
         <div class="stl_01" style="top: 23.5062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w2) %></span></div>
         <div class="stl_01" style="top: 25.3062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w2) %></span></div>
         <div class="stl_01" style="top: 23.5062em; left:92.66em;"><span class="stl_10 stl_08">建・中</span></div>
@@ -198,9 +198,9 @@
         <div class="stl_01" style="top: 29.2062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.employment_insurance_types_i18n[worker_attribute_column("worker_insurance", "employment_insurance_type", w3)] %></span></div>
         <div class="stl_01" style="top: 26.8062em; left:72.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.severance_pay_mutual_aid_types_i18n[worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w3)] %></span></div>
         <div class="stl_01" style="top: 28.0062em; left:72.5em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w3) %></span></div>
-        <div class="stl_01" style="top: 28.0062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w3) %></span></div>
-        <div class="stl_01" style="top: 28.0062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w3) %></span></div>
-        <div class="stl_01" style="top: 28.0062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_licenses", "license_id", w3) %></span></div>
+        <div class="stl_01" style="top: 28.0062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w3).to_s&.delete("[]") %></span></div>
+        <div class="stl_01" style="top: 28.0062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w3).to_s&.delete("[]") %></span></div>
+        <div class="stl_01" style="top: 28.0062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_licenses", "license_id", w3).to_s&.delete("[]") %></span></div>
         <div class="stl_01" style="top: 27.1062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w3) %></span></div>
         <div class="stl_01" style="top: 28.9062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w3) %></span></div>
         <div class="stl_01" style="top: 27.1062em; left:92.66em;"><span class="stl_10 stl_08">建・中</span></div>
@@ -235,9 +235,9 @@
         <div class="stl_01" style="top: 32.8062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.employment_insurance_types_i18n[worker_attribute_column("worker_insurance", "employment_insurance_type", w4)] %></span></div>
         <div class="stl_01" style="top: 30.4062em; left:72.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.severance_pay_mutual_aid_types_i18n[worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w4)] %></span></div>
         <div class="stl_01" style="top: 31.6062em; left:72.5em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w4) %></span></div>
-        <div class="stl_01" style="top: 31.6062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w4) %></span></div>
-        <div class="stl_01" style="top: 31.6062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w4) %></span></div>
-        <div class="stl_01" style="top: 31.6062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_licenses", "license_id", w4) %></span></div>
+        <div class="stl_01" style="top: 31.6062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w4).to_s&.delete("[]") %></span></div>
+        <div class="stl_01" style="top: 31.6062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w4).to_s&.delete("[]") %></span></div>
+        <div class="stl_01" style="top: 31.6062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_licenses", "license_id", w4).to_s&.delete("[]") %></span></div>
         <div class="stl_01" style="top: 30.7062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w4) %></span></div>
         <div class="stl_01" style="top: 32.5062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w4) %></span></div>
         <div class="stl_01" style="top: 30.7062em; left:92.66em;"><span class="stl_10 stl_08">建・中</span></div>
@@ -272,9 +272,9 @@
         <div class="stl_01" style="top: 36.4062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.employment_insurance_types_i18n[worker_attribute_column("worker_insurance", "employment_insurance_type", w5)] %></span></div>
         <div class="stl_01" style="top: 34.0062em; left:72.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.severance_pay_mutual_aid_types_i18n[worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w5)] %></span></div>
         <div class="stl_01" style="top: 35.2062em; left:72.5em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w5) %></span></div>
-        <div class="stl_01" style="top: 35.2062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w5) %></span></div>
-        <div class="stl_01" style="top: 35.2062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w5) %></span></div>
-        <div class="stl_01" style="top: 35.2062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_licenses", "license_id", w5) %></span></div>
+        <div class="stl_01" style="top: 35.2062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w5).to_s&.delete("[]") %></span></div>
+        <div class="stl_01" style="top: 35.2062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w5).to_s&.delete("[]") %></span></div>
+        <div class="stl_01" style="top: 35.2062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_licenses", "license_id", w5).to_s&.delete("[]") %></span></div>
         <div class="stl_01" style="top: 34.3062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w5) %></span></div>
         <div class="stl_01" style="top: 36.1062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w5) %></span></div>
         <div class="stl_01" style="top: 34.3062em; left:92.66em;"><span class="stl_10 stl_08">建・中</span></div>
@@ -309,9 +309,9 @@
         <div class="stl_01" style="top: 40.0062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.employment_insurance_types_i18n[worker_attribute_column("worker_insurance", "employment_insurance_type", w6)] %></span></div>
         <div class="stl_01" style="top: 37.6062em; left:72.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.severance_pay_mutual_aid_types_i18n[worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w6)] %></span></div>
         <div class="stl_01" style="top: 38.8062em; left:72.5em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w6) %></span></div>
-        <div class="stl_01" style="top: 38.8062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w6) %></span></div>
-        <div class="stl_01" style="top: 38.8062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w6) %></span></div>
-        <div class="stl_01" style="top: 38.8062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_licenses", "license_id", w6) %></span></div>
+        <div class="stl_01" style="top: 38.8062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w6).to_s&.delete("[]") %></span></div>
+        <div class="stl_01" style="top: 38.8062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w6).to_s&.delete("[]") %></span></div>
+        <div class="stl_01" style="top: 38.8062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_licenses", "license_id", w6).to_s&.delete("[]") %></span></div>
         <div class="stl_01" style="top: 37.9062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w6) %></span></div>
         <div class="stl_01" style="top: 39.7062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w6) %></span></div>
         <div class="stl_01" style="top: 37.9062em; left:92.66em;"><span class="stl_10 stl_08">建・中</span></div>
@@ -346,9 +346,9 @@
         <div class="stl_01" style="top: 43.6062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.employment_insurance_types_i18n[worker_attribute_column("worker_insurance", "employment_insurance_type", w7)] %></span></div>
         <div class="stl_01" style="top: 41.2062em; left:72.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.severance_pay_mutual_aid_types_i18n[worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w7)] %></span></div>
         <div class="stl_01" style="top: 42.4062em; left:72.5em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w7) %></span></div>
-        <div class="stl_01" style="top: 42.4062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w7) %></span></div>
-        <div class="stl_01" style="top: 42.4062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w7) %></span></div>
-        <div class="stl_01" style="top: 42.4062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_licenses", "license_id", w7) %></span></div>
+        <div class="stl_01" style="top: 42.4062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w7).to_s&.delete("[]") %></span></div>
+        <div class="stl_01" style="top: 42.4062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w7).to_s&.delete("[]") %></span></div>
+        <div class="stl_01" style="top: 42.4062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_licenses", "license_id", w7).to_s&.delete("[]") %></span></div>
         <div class="stl_01" style="top: 41.5062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w7) %></span></div>
         <div class="stl_01" style="top: 43.3062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w7) %></span></div>
         <div class="stl_01" style="top: 41.5062em; left:92.66em;"><span class="stl_10 stl_08">建・中</span></div>
@@ -383,9 +383,9 @@
         <div class="stl_01" style="top: 47.2062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.employment_insurance_types_i18n[worker_attribute_column("worker_insurance", "employment_insurance_type", w8)] %></span></div>
         <div class="stl_01" style="top: 44.8062em; left:72.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.severance_pay_mutual_aid_types_i18n[worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w8)] %></span></div>
         <div class="stl_01" style="top: 46.0062em; left:72.5em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w8) %></span></div>
-        <div class="stl_01" style="top: 46.0062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w8) %></span></div>
-        <div class="stl_01" style="top: 46.0062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w8) %></span></div>
-        <div class="stl_01" style="top: 46.0062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_licenses", "license_id", w8) %></span></div>
+        <div class="stl_01" style="top: 46.0062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w8).to_s&.delete("[]") %></span></div>
+        <div class="stl_01" style="top: 46.0062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w8).to_s&.delete("[]") %></span></div>
+        <div class="stl_01" style="top: 46.0062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_licenses", "license_id", w8).to_s&.delete("[]") %></span></div>
         <div class="stl_01" style="top: 45.1062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w8) %></span></div>
         <div class="stl_01" style="top: 46.9062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w8) %></span></div>
         <div class="stl_01" style="top: 45.1062em; left:92.66em;"><span class="stl_10 stl_08">建・中</span></div>
@@ -420,9 +420,9 @@
         <div class="stl_01" style="top: 50.8062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.employment_insurance_types_i18n[worker_attribute_column("worker_insurance", "employment_insurance_type", w9)] %></span></div>
         <div class="stl_01" style="top: 48.4062em; left:72.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.severance_pay_mutual_aid_types_i18n[worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w9)] %></span></div>
         <div class="stl_01" style="top: 49.6062em; left:72.5em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w9) %></span></div>
-        <div class="stl_01" style="top: 49.6062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w9) %></span></div>
-        <div class="stl_01" style="top: 49.6062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w9) %></span></div>
-        <div class="stl_01" style="top: 49.6062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_licenses", "license_id", w9) %></span></div>
+        <div class="stl_01" style="top: 49.6062em; left:77.99em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w9).to_s&.delete("[]") %></span></div>
+        <div class="stl_01" style="top: 49.6062em; left:80.9928em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w9).to_s&.delete("[]") %></span></div>
+        <div class="stl_01" style="top: 49.6062em; left:83.989em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_licenses", "license_id", w9).to_s&.delete("[]") %></span></div>
         <div class="stl_01" style="top: 48.7062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w9) %></span></div>
         <div class="stl_01" style="top: 50.5062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w9) %></span></div>
         <div class="stl_01" style="top: 48.7062em; left:92.66em;"><span class="stl_10 stl_08">建・中</span></div>
@@ -457,9 +457,9 @@
         <div class="stl_01" style="top: 54.4062em; left:66.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.employment_insurance_types_i18n[worker_attribute_column("worker_insurance", "employment_insurance_type", w10)] %></span></div>
         <div class="stl_01" style="top: 52.0062em; left:72.5em;"><span class="stl_10 stl_09"><%= WorkerInsurance.severance_pay_mutual_aid_types_i18n[worker_attribute_column("worker_insurance", "severance_pay_mutual_aid_type", w10)] %></span></div>
         <div class="stl_01" style="top: 53.2062em; left:72.5em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_035_severance_pay_businesses", w10) %></span></div>
-        <div class="stl_01" style="top: 53.2062em; left:77.83em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w10) %></span></div>
-        <div class="stl_01" style="top: 53.2062em; left:80.8328em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w10) %></span></div>
-        <div class="stl_01" style="top: 53.2062em; left:83.829em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_licenses", "license_id", w10) %></span></div>
+        <div class="stl_01" style="top: 53.2062em; left:77.83em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_special_educations", "special_education_id", w10).to_s&.delete("[]") %></span></div>
+        <div class="stl_01" style="top: 53.2062em; left:80.8328em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_skill_trainings", "skill_training_id", w10).to_s&.delete("[]") %></span></div>
+        <div class="stl_01" style="top: 53.2062em; left:83.829em;"><span class="stl_10 stl_09"><%= worker_attributes_column("worker_licenses", "license_id", w10)&.delete("[]") %></span></div>
         <div class="stl_01" style="top: 52.3062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_039_beginning", w10) %></span></div>
         <div class="stl_01" style="top: 54.1062em; left:88em;"><span class="stl_10 stl_09"><%= worker_column("doc5_8_040_new_education", w10) %></span></div>
         <div class="stl_01" style="top: 52.3062em; left:92.66em;"><span class="stl_10 stl_08">建・中</span></div>
