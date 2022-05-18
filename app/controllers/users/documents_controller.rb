@@ -33,44 +33,7 @@ module Users
     end
 
     def update
-      if params[:document][:content][:worker]
-        # formから作業員idを受け取る。
-        @worker_ids = params[:document][:content][:worker]
-        # 受け取ったidに対応する各作業員テーブル&作業員テーブルに紐づく各テーブルのデータをハッシュ化して登録する。
-        # 「except:」や「only:」で、不要なカラムは登録から除外する。
-        @worker_json = @worker_ids.map do |worker_id|
-          Worker.find(worker_id).to_json(
-            except:  %i[images created_at updated_at], # 作業員
-            include: {
-              worker_medical:            {
-                except: %i[id worker_id created_at updated_at] # 作業員の健康情報
-              },
-              worker_insurance:          {
-                except: %i[id worker_id created_at updated_at] # 保険情報
-              },
-              worker_skill_trainings:    {
-                only: [:skill_training_id] # 中間テーブル(技能講習マスタ)
-              },
-              worker_special_educations: {
-                only: [:special_education_id] # 中間テーブル(特別教育マスタ)
-              },
-              worker_licenses:           {
-                only: [:license_id] # 中間テーブル(免許マスタ)
-              }
-            }
-          )
-        end
-      else
-        @worker_json = [
-          "{
-            \"worker_medical\":{\"med_exam_on\":\"\"},
-            \"worker_insurance\":{\"health_insurance_type\":\"\"},
-            \"worker_skill_trainings\":{},
-            \"worker_special_educations\":{},
-            \"worker_licenses\":{}
-          }"
-        ]
-      end
+      
 
       if update_document(@document)
         flash[:success] = '更新に成功しました'
@@ -99,6 +62,44 @@ module Users
       when 'doc_2nd'
         document.update(doc_2nd_params)
       when 'doc_5th'
+        if params[:document][:content][:worker]
+          # formから作業員idを受け取る。
+          @worker_ids = params[:document][:content][:worker]
+          # 受け取ったidに対応する各作業員テーブル&作業員テーブルに紐づく各テーブルのデータをハッシュ化して登録する。
+          # 「except:」や「only:」で、不要なカラムは登録から除外する。
+          @worker_json = @worker_ids.map do |worker_id|
+            Worker.find(worker_id).to_json(
+              except:  %i[images created_at updated_at], # 作業員
+              include: {
+                worker_medical:            {
+                  except: %i[id worker_id created_at updated_at] # 作業員の健康情報
+                },
+                worker_insurance:          {
+                  except: %i[id worker_id created_at updated_at] # 保険情報
+                },
+                worker_skill_trainings:    {
+                  only: [:skill_training_id] # 中間テーブル(技能講習マスタ)
+                },
+                worker_special_educations: {
+                  only: [:special_education_id] # 中間テーブル(特別教育マスタ)
+                },
+                worker_licenses:           {
+                  only: [:license_id] # 中間テーブル(免許マスタ)
+                }
+              }
+            )
+          end
+        else
+          @worker_json = [
+            "{
+              \"worker_medical\":{\"med_exam_on\":\"\"},
+              \"worker_insurance\":{\"health_insurance_type\":\"\"},
+              \"worker_skill_trainings\":{},
+              \"worker_special_educations\":{},
+              \"worker_licenses\":{}
+            }"
+          ]
+        end
         document.update(doc_5th_params)
       when 'doc_8th'
         document.update(doc_8th_params)
